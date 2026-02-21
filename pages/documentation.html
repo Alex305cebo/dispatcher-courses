@@ -8,6 +8,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../shared-styles.css">
+    <script>!function(){var t=localStorage.getItem('dispatcher-theme')||'dark';'dark'===t&&document.documentElement.setAttribute('data-theme','dark')}();</script>
+    <link rel="stylesheet" href="../dark-theme.css">
+    <script src="../dark-mode.js"></script>
     <style>
         /* Дополнительные стили для документации */
         .doc-toc {
@@ -214,12 +217,89 @@
             background: rgba(255,255,255,.03);
         }
 
+        /* Мобильная версия таблиц */
         @media (max-width: 768px) {
             .doc-section { padding: 24px 20px; }
             .doc-section h2 { font-size: 24px; }
             .doc-section h3 { font-size: 20px; }
             .stats-grid { grid-template-columns: 1fr; }
             .doc-toc ul { grid-template-columns: 1fr; }
+
+            .doc-table {
+                display: block;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                border-radius: 8px;
+            }
+
+            .doc-table thead {
+                display: none;
+            }
+
+            .doc-table tbody {
+                display: block;
+            }
+
+            .doc-table tr {
+                display: block;
+                margin-bottom: 16px;
+                background: rgba(255,255,255,.04);
+                border: 1px solid var(--border);
+                border-radius: 8px;
+                overflow: hidden;
+            }
+
+            .doc-table td {
+                display: block;
+                padding: 14px 16px;
+                border-bottom: 1px solid var(--border);
+                text-align: left;
+                position: relative;
+                padding-left: 140px;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+            }
+
+            .doc-table td:last-child {
+                border-bottom: none;
+            }
+
+            .doc-table td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 16px;
+                top: 14px;
+                font-weight: 700;
+                color: #a5b4fc;
+                font-size: 11px;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                white-space: nowrap;
+            }
+
+            .doc-table tr:hover {
+                background: rgba(255,255,255,.06);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .doc-section { padding: 20px 16px; }
+            .doc-section h2 { font-size: 20px; }
+            .doc-section h3 { font-size: 18px; }
+            
+            .doc-table td {
+                padding: 12px 16px;
+                padding-left: 130px;
+                font-size: 13px;
+                min-height: 40px;
+            }
+
+            .doc-table td::before {
+                font-size: 10px;
+                left: 12px;
+                top: 12px;
+            }
         }
     </style>
 </head>
@@ -249,12 +329,16 @@
         <ul>
             <li><a href="#intro">📚 Введение в диспетчерство</a></li>
             <li><a href="#role">👔 Роль и обязанности</a></li>
-            <li><a href="#requirements">🎓 Требования и квалификация</a></li>
-            <li><a href="#regulations">⚖️ Законодательство</a></li>
+            <li><a href="#daily-work">🔧 Основы ежедневной работы</a></li>
+            <li><a href="#communication">📞 Коммуникация и переговоры</a></li>
             <li><a href="#technology">💻 Технологии и системы</a></li>
-            <li><a href="#communication">📞 Коммуникация</a></li>
-            <li><a href="#safety">🛡️ Безопасность</a></li>
+            <li><a href="#regulations">⚖️ Законодательство</a></li>
+            <li><a href="#safety">🛡️ Безопасность и соответствие</a></li>
+            <li><a href="#requirements">🎓 Требования и квалификация</a></li>
+            <li><a href="#best-practices">⭐ Лучшие практики</a></li>
+            <li><a href="#advanced">🚀 Продвинутые темы</a></li>
             <li><a href="#salary">💰 Зарплата и карьера</a></li>
+            <li><a href="#resources">📚 Ресурсы</a></li>
         </ul>
     </div>
 
@@ -363,30 +447,34 @@
 
         <h3>💻 Технические навыки</h3>
         <table class="doc-table">
-            <tr>
-                <th>Навык</th>
-                <th>Описание</th>
-            </tr>
-            <tr>
-                <td>Load Boards</td>
-                <td>DAT, TQL, C.H. Robinson, Arrive Logistics</td>
-            </tr>
-            <tr>
-                <td>TMS Software</td>
-                <td>McLeod, TMW, Axon</td>
-            </tr>
-            <tr>
-                <td>GPS Tracking</td>
-                <td>Samsara, KeepTruckin, Trucker Tools</td>
-            </tr>
-            <tr>
-                <td>Email управление</td>
-                <td>Gmail, фильтры, ярлыки, поиск</td>
-            </tr>
-            <tr>
-                <td>Маршруты</td>
-                <td>Google Maps, Waze, PC*MILER</td>
-            </tr>
+            <thead>
+                <tr>
+                    <th>Навык</th>
+                    <th>Описание</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Навык">Load Boards</td>
+                    <td data-label="Описание">DAT, TQL, C.H. Robinson, Arrive Logistics</td>
+                </tr>
+                <tr>
+                    <td data-label="Навык">TMS Software</td>
+                    <td data-label="Описание">McLeod, TMW, Axon</td>
+                </tr>
+                <tr>
+                    <td data-label="Навык">GPS Tracking</td>
+                    <td data-label="Описание">Samsara, KeepTruckin, Trucker Tools</td>
+                </tr>
+                <tr>
+                    <td data-label="Навык">Email управление</td>
+                    <td data-label="Описание">Gmail, фильтры, ярлыки, поиск</td>
+                </tr>
+                <tr>
+                    <td data-label="Навык">Маршруты</td>
+                    <td data-label="Описание">Google Maps, Waze, PC*MILER</td>
+                </tr>
+            </tbody>
         </table>
 
         <div class="info-highlight">
@@ -429,36 +517,40 @@
 
         <h3>📄 Обязательная документация</h3>
         <table class="doc-table">
-            <tr>
-                <th>Документ</th>
-                <th>Назначение</th>
-                <th>Кто заполняет</th>
-            </tr>
-            <tr>
-                <td>BOL (Bill of Lading)</td>
-                <td>Контракт перевозки груза</td>
-                <td>Грузоотправитель/Диспетчер</td>
-            </tr>
-            <tr>
-                <td>Rate Confirmation</td>
-                <td>Подтверждение ставки оплаты</td>
-                <td>Брокер/Диспетчер</td>
-            </tr>
-            <tr>
-                <td>POD (Proof of Delivery)</td>
-                <td>Подтверждение доставки</td>
-                <td>Получатель/Водитель</td>
-            </tr>
-            <tr>
-                <td>ELD Logs</td>
-                <td>Электронные логбуки водителя</td>
-                <td>Автоматически/Водитель</td>
-            </tr>
-            <tr>
-                <td>Invoice</td>
-                <td>Счет на оплату</td>
-                <td>Диспетчер/Бухгалтер</td>
-            </tr>
+            <thead>
+                <tr>
+                    <th>Документ</th>
+                    <th>Назначение</th>
+                    <th>Кто заполняет</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Документ">BOL (Bill of Lading)</td>
+                    <td data-label="Назначение">Контракт перевозки груза</td>
+                    <td data-label="Кто заполняет">Грузоотправитель/Диспетчер</td>
+                </tr>
+                <tr>
+                    <td data-label="Документ">Rate Confirmation</td>
+                    <td data-label="Назначение">Подтверждение ставки оплаты</td>
+                    <td data-label="Кто заполняет">Брокер/Диспетчер</td>
+                </tr>
+                <tr>
+                    <td data-label="Документ">POD (Proof of Delivery)</td>
+                    <td data-label="Назначение">Подтверждение доставки</td>
+                    <td data-label="Кто заполняет">Получатель/Водитель</td>
+                </tr>
+                <tr>
+                    <td data-label="Документ">ELD Logs</td>
+                    <td data-label="Назначение">Электронные логбуки водителя</td>
+                    <td data-label="Кто заполняет">Автоматически/Водитель</td>
+                </tr>
+                <tr>
+                    <td data-label="Документ">Invoice</td>
+                    <td data-label="Назначение">Счет на оплату</td>
+                    <td data-label="Кто заполняет">Диспетчер/Бухгалтер</td>
+                </tr>
+            </tbody>
         </table>
     </section>
 
@@ -498,7 +590,499 @@
         </div>
     </section>
 
-    <!-- More sections can be added here -->
+    <!-- Daily Work Basics Section -->
+    <section id="daily-work" class="doc-section fade-in">
+        <h2>🔧 Основы ежедневной работы диспетчера</h2>
+
+        <h3>📋 Начало рабочего дня (6:00 - 9:00)</h3>
+        
+        <h4>Шаг 1: Проверка статуса активных грузов</h4>
+        <ul>
+            <li>Откройте TMS (Transportation Management System) или электронную таблицу</li>
+            <li>Проверьте все грузы, которые находятся в пути</li>
+            <li>Убедитесь, что водители находятся на правильном маршруте</li>
+            <li>Проверьте время прибытия и возможные задержки</li>
+            <li>Отметьте грузы, которые должны быть доставлены сегодня</li>
+        </ul>
+
+        <h4>Шаг 2: Связь с водителями</h4>
+        <ul>
+            <li>Позвоните или отправьте SMS каждому водителю</li>
+            <li>Подтвердите их текущее местоположение</li>
+            <li>Уточните время прибытия на следующую погрузку</li>
+            <li>Спросите о проблемах или задержках</li>
+            <li>Предоставьте информацию о следующем грузе</li>
+        </ul>
+
+        <h4>Шаг 3: Поиск новых грузов</h4>
+        <ul>
+            <li>Откройте Load Board (DAT, Truckstop, TQL и т.д.)</li>
+            <li>Ищите грузы, которые подходят вашим водителям</li>
+            <li>Проверьте маршрут, вес, размеры и специальные требования</li>
+            <li>Оцените прибыльность груза (ставка минус расходы)</li>
+            <li>Свяжитесь с брокером для получения подробной информации</li>
+        </ul>
+
+        <h4>Шаг 4: Планирование дня</h4>
+        <ul>
+            <li>Составьте список приоритетных задач</li>
+            <li>Определите, какие грузы нужно забронировать сегодня</li>
+            <li>Спланируйте маршруты для водителей</li>
+            <li>Подготовьте документы для погрузки</li>
+            <li>Установите напоминания для важных событий</li>
+        </ul>
+
+        <h3>📞 Работа с брокерами (9:00 - 17:00)</h3>
+
+        <h4>Процесс бронирования груза:</h4>
+        <ol>
+            <li><strong>Поиск груза:</strong> Найдите подходящий груз на Load Board</li>
+            <li><strong>Первый контакт:</strong> Позвоните брокеру и запросите детали</li>
+            <li><strong>Проверка информации:</strong> Убедитесь, что груз соответствует вашим требованиям</li>
+            <li><strong>Переговоры о ставке:</strong> Обсудите цену и условия</li>
+            <li><strong>Подтверждение:</strong> Получите письменное подтверждение (Rate Confirmation)</li>
+            <li><strong>Назначение водителю:</strong> Сообщите водителю детали груза</li>
+            <li><strong>Отслеживание:</strong> Мониторьте груз до доставки</li>
+            <li><strong>Завершение:</strong> Получите POD и отправьте счет</li>
+        </ol>
+
+        <div class="info-highlight">
+            <h4>💡 Информация, которую нужно получить от брокера:</h4>
+            <ul>
+                <li><strong>Номер груза:</strong> Уникальный идентификатор</li>
+                <li><strong>Пункт погрузки:</strong> Адрес, контакт, время</li>
+                <li><strong>Пункт разгрузки:</strong> Адрес, контакт, время</li>
+                <li><strong>Описание груза:</strong> Тип, вес, размеры, количество паллет</li>
+                <li><strong>Специальные требования:</strong> Hazmat, температура, хрупкость</li>
+                <li><strong>Ставка:</strong> Цена за груз или за милю</li>
+                <li><strong>Условия оплаты:</strong> Когда и как платят</li>
+                <li><strong>Контакты:</strong> Телефоны грузоотправителя и получателя</li>
+            </ul>
+        </div>
+
+        <h3>🚚 Управление водителями</h3>
+
+        <h4>Назначение груза водителю:</h4>
+        <ul>
+            <li>Выберите подходящего водителя (опыт, местоположение, доступность)</li>
+            <li>Позвоните водителю и предложите груз</li>
+            <li>Предоставьте все детали: маршрут, ставка, время, контакты</li>
+            <li>Убедитесь, что водитель согласен и готов</li>
+            <li>Отправьте письменное подтверждение (email или SMS)</li>
+            <li>Предоставьте Rate Confirmation и BOL</li>
+        </ul>
+
+        <h4>Мониторинг груза в пути:</h4>
+        <ul>
+            <li>Используйте GPS трекер для отслеживания местоположения</li>
+            <li>Проверяйте статус каждые 2-3 часа</li>
+            <li>Будьте готовы помочь при возникновении проблем</li>
+            <li>Поддерживайте связь с водителем</li>
+            <li>Уведомляйте получателя о времени прибытия</li>
+            <li>Документируйте любые задержки или проблемы</li>
+        </ul>
+
+        <h3>📄 Документация и отчетность</h3>
+
+        <h4>Обязательные документы для каждого груза:</h4>
+        <table class="doc-table">
+            <thead>
+                <tr>
+                    <th>Документ</th>
+                    <th>Когда получить</th>
+                    <th>От кого</th>
+                    <th>Зачем нужен</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Документ">Rate Confirmation</td>
+                    <td data-label="Когда получить">Перед грузом</td>
+                    <td data-label="От кого">Брокер</td>
+                    <td data-label="Зачем нужен">Подтверждение ставки и условий</td>
+                </tr>
+                <tr>
+                    <td data-label="Документ">BOL (Bill of Lading)</td>
+                    <td data-label="Когда получить">При погрузке</td>
+                    <td data-label="От кого">Грузоотправитель</td>
+                    <td data-label="Зачем нужен">Описание груза и условия</td>
+                </tr>
+                <tr>
+                    <td data-label="Документ">POD (Proof of Delivery)</td>
+                    <td data-label="Когда получить">При разгрузке</td>
+                    <td data-label="От кого">Получатель</td>
+                    <td data-label="Зачем нужен">Подтверждение доставки</td>
+                </tr>
+                <tr>
+                    <td data-label="Документ">Invoice</td>
+                    <td data-label="Когда получить">После доставки</td>
+                    <td data-label="От кого">Вы создаете</td>
+                    <td data-label="Зачем нужен">Счет на оплату</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>⏰ Конец рабочего дня (17:00 - 20:00)</h3>
+
+        <h4>Завершение дневных операций:</h4>
+        <ul>
+            <li>Проверьте статус всех грузов, которые должны быть доставлены сегодня</li>
+            <li>Получите POD для завершенных доставок</li>
+            <li>Создайте счета для оплаты</li>
+            <li>Обновите TMS с информацией о доставках</li>
+            <li>Свяжитесь с водителями для подтверждения завтрашних грузов</li>
+            <li>Спланируйте маршруты на следующий день</li>
+            <li>Подготовьте документы для завтра</li>
+            <li>Создайте отчет о дневной активности</li>
+        </ul>
+
+        <div class="success-highlight">
+            <h4>✅ Контрольный список конца дня:</h4>
+            <ul>
+                <li>☐ Все активные грузы отслежены</li>
+                <li>☐ Все доставки подтверждены (POD получены)</li>
+                <li>☐ Все счета созданы</li>
+                <li>☐ TMS обновлена</li>
+                <li>☐ Водители уведомлены о завтрашних грузах</li>
+                <li>☐ Новые грузы забронированы на завтра</li>
+                <li>☐ Документы подготовлены</li>
+                <li>☐ Отчет создан</li>
+            </ul>
+        </div>
+
+        <h3>🎯 Ключевые метрики для отслеживания</h3>
+        <ul>
+            <li><strong>On-Time Delivery Rate:</strong> Процент грузов, доставленных вовремя</li>
+            <li><strong>Average Revenue per Load:</strong> Средний доход на груз</li>
+            <li><strong>Cost per Mile:</strong> Средние расходы на милю</li>
+            <li><strong>Driver Utilization:</strong> Процент времени, когда водители работают</li>
+            <li><strong>Customer Satisfaction:</strong> Рейтинг удовлетворенности клиентов</li>
+            <li><strong>Damage Rate:</strong> Процент грузов с повреждениями</li>
+            <li><strong>Broker Reliability:</strong> Процент честных брокеров</li>
+        </ul>
+    </section>
+
+    <!-- Communication Section -->
+    <section id="communication" class="doc-section fade-in">
+        <h2>📞 Коммуникация и переговоры</h2>
+
+        <h3>🤝 Общение с брокерами</h3>
+        <p>Брокеры — это посредники между грузоотправителями и перевозчиками. Эффективная коммуникация с ними критична для успеха.</p>
+        
+        <h4>Основные типы брокеров:</h4>
+        <ul>
+            <li><strong>Freight Brokers:</strong> Находят грузы и соединяют с перевозчиками</li>
+            <li><strong>3PL (Third Party Logistics):</strong> Управляют логистикой для крупных компаний</li>
+            <li><strong>Shipper Direct:</strong> Грузоотправители, работающие напрямую</li>
+            <li><strong>Load Boards:</strong> Платформы для поиска грузов</li>
+        </ul>
+
+        <div class="info-highlight">
+            <h4>💬 Правила профессиональной коммуникации:</h4>
+            <ul>
+                <li>Всегда подтверждайте детали груза письменно</li>
+                <li>Будьте вежливы и профессиональны в любых ситуациях</li>
+                <li>Отвечайте на звонки и сообщения в течение 15 минут</li>
+                <li>Используйте четкий, понятный язык без жаргона</li>
+                <li>Документируйте все соглашения и изменения</li>
+                <li>Будьте честны о возможностях и ограничениях</li>
+            </ul>
+        </div>
+
+        <h3>📧 Email переписка</h3>
+        <p>Email — основной инструмент коммуникации. Вот шаблоны для типичных ситуаций:</p>
+
+        <h4>Запрос груза:</h4>
+        <p><em>"Здравствуйте! Интересует груз [номер]. Могу ли я получить подробную информацию: пункт погрузки, разгрузки, вес, размеры, специальные требования? Спасибо."</em></p>
+
+        <h4>Подтверждение груза:</h4>
+        <p><em>"Подтверждаю груз [номер]. Водитель [имя] будет на месте погрузки в [время]. Контакт водителя: [номер]. Спасибо."</em></p>
+
+        <h3>☎️ Телефонные переговоры</h3>
+        <ul>
+            <li>Начните с представления и компании</li>
+            <li>Четко назовите номер груза</li>
+            <li>Уточните все детали (маршрут, вес, специальные требования)</li>
+            <li>Обсудите ставку и условия</li>
+            <li>Подтвердите все письменно по email</li>
+            <li>Будьте готовы к переговорам о цене</li>
+        </ul>
+    </section>
+
+    <!-- Safety Section -->
+    <section id="safety" class="doc-section fade-in">
+        <h2>🛡️ Безопасность и соответствие нормам</h2>
+
+        <h3>🔍 Проверка брокеров (MC/DOT)</h3>
+        <p>Перед работой с брокером ВСЕГДА проверяйте его легитимность. Мошенничество в индустрии распространено.</p>
+
+        <h4>Где проверить:</h4>
+        <ul>
+            <li><strong>FMCSA.dot.gov:</strong> Официальная база данных DOT</li>
+            <li><strong>RTS Pro:</strong> Профессиональный инструмент проверки</li>
+            <li><strong>Carrier411.com:</strong> Информация о компаниях</li>
+            <li><strong>Better Business Bureau (BBB):</strong> Рейтинги и жалобы</li>
+        </ul>
+
+        <div class="warning-highlight">
+            <h4>⚠️ Признаки мошеннических брокеров:</h4>
+            <ul>
+                <li>Нет официального MC номера или он не проходит проверку</li>
+                <li>Требуют предоплату за груз</li>
+                <li>Предлагают нереально высокие ставки</li>
+                <li>Не имеют офиса или контактной информации</li>
+                <li>Плохие отзывы на BBB или в интернете</li>
+                <li>Спешат и не дают времени на проверку</li>
+                <li>Требуют наличные платежи</li>
+            </ul>
+        </div>
+
+        <h3>📋 Обязательные документы</h3>
+        <table class="doc-table">
+            <thead>
+                <tr>
+                    <th>Документ</th>
+                    <th>Когда нужен</th>
+                    <th>Кто предоставляет</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Документ">MC Certificate</td>
+                    <td data-label="Когда нужен">Перед началом работы</td>
+                    <td data-label="Кто предоставляет">Брокер</td>
+                </tr>
+                <tr>
+                    <td data-label="Документ">Insurance Certificate</td>
+                    <td data-label="Когда нужен">Перед началом работы</td>
+                    <td data-label="Кто предоставляет">Брокер</td>
+                </tr>
+                <tr>
+                    <td data-label="Документ">W-9 Form</td>
+                    <td data-label="Когда нужен">Для налоговых целей</td>
+                    <td data-label="Кто предоставляет">Вы предоставляете</td>
+                </tr>
+                <tr>
+                    <td data-label="Документ">Rate Confirmation</td>
+                    <td data-label="Когда нужен">Перед каждым грузом</td>
+                    <td data-label="Кто предоставляет">Брокер</td>
+                </tr>
+                <tr>
+                    <td data-label="Документ">BOL (Bill of Lading)</td>
+                    <td data-label="Когда нужен">При погрузке</td>
+                    <td data-label="Кто предоставляет">Грузоотправитель</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>🚨 Экстренные ситуации</h3>
+        <ul>
+            <li><strong>Поломка трака:</strong> Немедленно уведомите брокера и водителя. Организуйте эвакуацию и ремонт.</li>
+            <li><strong>Задержка доставки:</strong> Свяжитесь с получателем и брокером. Предложите компенсацию если необходимо.</li>
+            <li><strong>Повреждение груза:</strong> Задокументируйте фото, уведомите все стороны, подайте страховой иск.</li>
+            <li><strong>Кража груза:</strong> Вызовите полицию, уведомите брокера и страховую компанию.</li>
+            <li><strong>Отказ водителя:</strong> Найдите замену, уведомите брокера о задержке.</li>
+        </ul>
+    </section>
+
+    <!-- Salary Section -->
+    <section id="salary" class="doc-section fade-in">
+        <h2>💰 Зарплата, карьера и перспективы</h2>
+
+        <h3>💵 Структура заработков</h3>
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="number">$35K-$50K</div>
+                <div class="label">Начинающий диспетчер</div>
+            </div>
+            <div class="stat-box">
+                <div class="number">$50K-$70K</div>
+                <div class="label">Опытный диспетчер</div>
+            </div>
+            <div class="stat-box">
+                <div class="number">$70K-$100K+</div>
+                <div class="label">Старший диспетчер</div>
+            </div>
+            <div class="stat-box">
+                <div class="number">$100K-$150K+</div>
+                <div class="label">Менеджер диспетчеров</div>
+            </div>
+        </div>
+
+        <h3>📈 Факторы, влияющие на зарплату:</h3>
+        <ul>
+            <li><strong>Опыт:</strong> Каждый год опыта добавляет 5-10% к зарплате</li>
+            <li><strong>Специализация:</strong> Специалисты по Hazmat или International получают больше</li>
+            <li><strong>Размер компании:</strong> Крупные компании платят больше, чем малые</li>
+            <li><strong>Регион:</strong> Крупные города платят выше, чем сельские районы</li>
+            <li><strong>Производительность:</strong> Бонусы за выполнение целей</li>
+            <li><strong>Образование:</strong> Степень в логистике может добавить 10-15%</li>
+        </ul>
+
+        <h3>🎓 Карьерный рост</h3>
+        <h4>Путь развития:</h4>
+        <ul>
+            <li><strong>Диспетчер (1-2 года):</strong> Обучение основам, работа с 5-10 водителями</li>
+            <li><strong>Старший диспетчер (2-5 лет):</strong> Управление 15-20 водителями, обучение новичков</li>
+            <li><strong>Супервайзер (5-10 лет):</strong> Управление командой диспетчеров</li>
+            <li><strong>Менеджер операций (10+ лет):</strong> Управление всеми логистическими операциями</li>
+            <li><strong>Директор логистики:</strong> Стратегическое планирование и управление</li>
+        </ul>
+
+        <h3>🏆 Сертификации и обучение</h3>
+        <ul>
+            <li><strong>APICS CSCP:</strong> Сертификат по управлению цепочкой поставок</li>
+            <li><strong>IISL Certification:</strong> Международная сертификация логистики</li>
+            <li><strong>TMS Software Training:</strong> Обучение специфическому ПО</li>
+            <li><strong>Hazmat Endorsement:</strong> Для работы с опасными грузами</li>
+            <li><strong>International Trade Certification:</strong> Для международных перевозок</li>
+        </ul>
+
+        <div class="success-highlight">
+            <h4>✅ Преимущества карьеры диспетчера:</h4>
+            <ul>
+                <li>Стабильная работа с постоянным спросом</li>
+                <li>Возможность удаленной работы</li>
+                <li>Хорошие перспективы карьерного роста</li>
+                <li>Возможность работать в разных отраслях</li>
+                <li>Навыки, которые ценятся везде</li>
+                <li>Возможность открыть собственный бизнес</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Advanced Topics -->
+    <section id="advanced" class="doc-section fade-in">
+        <h2>🚀 Продвинутые темы</h2>
+
+        <h3>🌍 Международные перевозки</h3>
+        <p>Работа с грузами, пересекающими границы США, требует дополнительных знаний:</p>
+        <ul>
+            <li><strong>Таможенные документы:</strong> Коммерческие счета, упаковочные листы</li>
+            <li><strong>Таможенные сборы:</strong> Понимание тарифов и налогов</li>
+            <li><strong>Страны происхождения:</strong> Правила НАФТА/УУСМКА</li>
+            <li><strong>Опасные грузы:</strong> Международные правила IATA/IMDG</li>
+            <li><strong>Документация:</strong> Сертификаты происхождения, лицензии</li>
+        </ul>
+
+        <h3>📊 Анализ данных и оптимизация</h3>
+        <ul>
+            <li><strong>KPI (Key Performance Indicators):</strong> Отслеживание метрик производительности</li>
+            <li><strong>Анализ маршрутов:</strong> Оптимизация расстояний и времени</li>
+            <li><strong>Анализ затрат:</strong> Расчет себестоимости доставки</li>
+            <li><strong>Прогнозирование спроса:</strong> Планирование на основе исторических данных</li>
+            <li><strong>Управление рисками:</strong> Идентификация и минимизация рисков</li>
+        </ul>
+
+        <h3>🤖 Технологии будущего</h3>
+        <ul>
+            <li><strong>AI и Machine Learning:</strong> Автоматизация маршрутизации</li>
+            <li><strong>IoT (Internet of Things):</strong> Датчики в грузах и траках</li>
+            <li><strong>Blockchain:</strong> Безопасность документов и отслеживание</li>
+            <li><strong>Autonomous Vehicles:</strong> Беспилотные грузовики</li>
+            <li><strong>Real-time Analytics:</strong> Мониторинг в реальном времени</li>
+        </ul>
+
+        <h3>🌱 Устойчивость и экология</h3>
+        <ul>
+            <li><strong>Green Logistics:</strong> Экологичные методы доставки</li>
+            <li><strong>Электрические грузовики:</strong> Переход на электротранспорт</li>
+            <li><strong>Оптимизация топлива:</strong> Снижение расхода и выбросов</li>
+            <li><strong>Углеродный след:</strong> Расчет и снижение выбросов CO2</li>
+            <li><strong>Переработка:</strong> Управление отходами и упаковкой</li>
+        </ul>
+    </section>
+
+    <!-- Best Practices -->
+    <section id="best-practices" class="doc-section fade-in">
+        <h2>⭐ Лучшие практики и советы</h2>
+
+        <h3>✅ Ежедневные привычки успешного диспетчера:</h3>
+        <ul>
+            <li>Начните день с проверки всех активных грузов</li>
+            <li>Планируйте день заранее, не реагируйте на события</li>
+            <li>Ведите подробные записи всех коммуникаций</li>
+            <li>Проверяйте погоду и дорожные условия</li>
+            <li>Поддерживайте хорошие отношения с водителями и брокерами</li>
+            <li>Постоянно ищите способы оптимизации</li>
+            <li>Учитесь на ошибках и успехах</li>
+            <li>Заканчивайте день с подготовкой к следующему</li>
+        </ul>
+
+        <h3>🎯 Советы по переговорам о ставках:</h3>
+        <ul>
+            <li>Знайте рыночные ставки для вашего региона</li>
+            <li>Не принимайте первое предложение</li>
+            <li>Обоснуйте свою цену фактами (расстояние, время, сложность)</li>
+            <li>Будьте готовы к компромиссам</li>
+            <li>Помните о долгосрочных отношениях, а не только о текущей сделке</li>
+            <li>Документируйте все согласованные условия</li>
+            <li>Не работайте ниже себестоимости</li>
+        </ul>
+
+        <h3>🚫 Частые ошибки, которых нужно избегать:</h3>
+        <ul>
+            <li>Работа с непроверенными брокерами</li>
+            <li>Отсутствие письменного подтверждения груза</li>
+            <li>Игнорирование правил HOS</li>
+            <li>Плохая коммуникация с водителями</li>
+            <li>Отсутствие резервных планов</li>
+            <li>Переоценка возможностей водителей</li>
+            <li>Игнорирование страховки и документации</li>
+            <li>Работа без системы отслеживания</li>
+        </ul>
+
+        <div class="info-highlight">
+            <h4>💡 Инструменты для повышения производительности:</h4>
+            <ul>
+                <li><strong>Google Sheets/Excel:</strong> Отслеживание грузов и статистика</li>
+                <li><strong>Slack/Teams:</strong> Коммуникация с командой</li>
+                <li><strong>Trello/Asana:</strong> Управление задачами</li>
+                <li><strong>Google Maps:</strong> Планирование маршрутов</li>
+                <li><strong>Zoom/Skype:</strong> Видеоконференции</li>
+                <li><strong>Dropbox/Google Drive:</strong> Хранение документов</li>
+                <li><strong>Calendly:</strong> Планирование встреч</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Resources -->
+    <section id="resources" class="doc-section fade-in">
+        <h2>📚 Полезные ресурсы и ссылки</h2>
+
+        <h3>🌐 Официальные сайты:</h3>
+        <ul>
+            <li><strong>FMCSA.dot.gov:</strong> Федеральное агентство безопасности</li>
+            <li><strong>DAT.com:</strong> Крупнейшая load board</li>
+            <li><strong>Truckstop.com:</strong> Альтернативная load board</li>
+            <li><strong>OOIDA.com:</strong> Ассоциация независимых водителей</li>
+            <li><strong>ATA.com:</strong> Американская ассоциация грузоперевозок</li>
+        </ul>
+
+        <h3>📖 Рекомендуемые книги:</h3>
+        <ul>
+            <li>"The Logistics Handbook" - James F. Robeson</li>
+            <li>"Supply Chain Management" - Sunil Chopra</li>
+            <li>"Negotiation Genius" - Deepak Malhotra</li>
+            <li>"The Goal" - Eliyahu M. Goldratt</li>
+        </ul>
+
+        <h3>🎓 Онлайн курсы:</h3>
+        <ul>
+            <li>Coursera - Supply Chain Management</li>
+            <li>Udemy - Logistics and Supply Chain</li>
+            <li>LinkedIn Learning - Transportation Management</li>
+            <li>APICS - CSCP Certification</li>
+        </ul>
+
+        <h3>💼 Профессиональные организации:</h3>
+        <ul>
+            <li>APICS (Association for Supply Chain Management)</li>
+            <li>OOIDA (Owner-Operator Independent Drivers Association)</li>
+            <li>ATA (American Trucking Associations)</li>
+            <li>TIA (Transportation Intermediaries Association)</li>
+        </ul>
+    </section>
 
 </div>
 
