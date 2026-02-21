@@ -864,85 +864,124 @@
 
             <!-- Step 4: Broker Communication -->
             <section id="step4" style="display: none;">
-                <h3 class="section-title">Четкое понимание и связь с брокером</h3>
+                <h3 class="section-title">📞 Связь с брокером</h3>
+                
                 <div class="info-grid">
-                    <div class="info-box">
-                        <h4>Параметры водителя/трак</h4>
+                    <!-- Email Section -->
+                    <div class="info-box" style="border: 1px solid rgba(59, 130, 246, 0.3); background: rgba(59, 130, 246, 0.08);">
+                        <h4 style="color: #93c5fd;">✉️ Письмо брокеру</h4>
                         <div class="form-group">
-                            <label class="form-label">Имя водителя</label>
-                            <input type="text" id="driverNameStep4" class="form-input" readonly style="background: #f7fafc;">
+                            <label class="form-label">Email брокера</label>
+                            <input type="text" id="brokerContact" class="form-input" value="broker@loadboard.com">
                         </div>
                         <div class="form-group">
-                            <label class="form-label">MC номер</label>
-                            <input type="text" id="mcNumberStep4" class="form-input" readonly style="background: #f7fafc;">
+                            <label class="form-label">Тема</label>
+                            <input type="text" id="emailSubject" class="form-input" placeholder="Richmond, VA to Atlanta, GA *** CHECKING YOUR LOAD ***">
                         </div>
-                        <div class="form-group">
-                            <label class="form-label">Номер трака</label>
-                            <input type="text" id="truckNumberStep4" class="form-input" readonly style="background: #f7fafc;">
+                        <div class="message-preview" id="messagePreview" style="margin-top: 16px;"></div>
+                        <div style="background: rgba(59, 130, 246, 0.08); border: 1px solid rgba(59, 130, 246, 0.2); padding: 12px; border-radius: 8px; margin-top: 12px; font-size: 12px; color: #8892aa;">
+                            <p style="margin: 0 0 8px 0; font-weight: 600; color: #93c5fd;">📝 Email Template Example:</p>
+                            <p style="margin: 0; line-height: 1.6; color: #f0f4ff; font-family: monospace;">
+                                Hello,<br><br>
+                                Could you please provide more details for the following load?<br><br>
+                                <strong>Reference Number:</strong> #1001<br>
+                                <strong>MC Number:</strong> MC-123456<br>
+                                <strong>Origin:</strong> Los Angeles, CA<br>
+                                <strong>Destination:</strong> Las Vegas, NV<br>
+                                <strong>Load Available:</strong> 2/21/2025<br>
+                                <strong>Truck Location:</strong> Alexander City, AL<br>
+                                <strong>Deadhead:</strong> 15 miles<br>
+                                <strong>Trip:</strong> 270 miles<br>
+                                <strong>Rate:</strong> $1,350<br><br>
+                                Could you also confirm the commodity and the best available rate for this shipment?<br><br>
+                                Thank you
+                            </p>
                         </div>
-                        <div class="form-group">
-                            <label class="form-label">Номер трейлера</label>
-                            <input type="text" id="trailerNumberStep4" class="form-input" readonly style="background: #f7fafc;">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Номер телефона водителя</label>
-                            <input type="text" id="driverPhoneStep4" class="form-input" readonly style="background: #f7fafc;">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Система отслеживания</label>
-                            <input type="text" id="trackingSystemStep4" class="form-input" readonly style="background: #f7fafc;">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Когда трейлер освободится</label>
-                            <input type="text" id="trailerFreeAtStep4" class="form-input" readonly style="background: #f7fafc;">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Расстояние до места погрузки (мили)</label>
-                            <input type="number" id="driverDistance" class="form-input" value="15">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Текущее местоположение водителя</label>
-                            <input type="text" id="driverLocation" class="form-input" value="Alexander City, AL">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Тип трейлера</label>
-                            <input type="text" id="trailerType" class="form-input">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Допустимый вес (фунты)</label>
-                            <input type="number" id="allowedWeight" class="form-input" value="45000">
+                        <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 12px;">
+                            <button class="btn btn-primary" onclick="copyMessage()" style="background: linear-gradient(135deg, #3b82f6, #2563eb);">📋 Скопировать письмо</button>
+                            <button class="btn btn-success" onclick="sendMessage()">✉️ Отправить письмо</button>
                         </div>
                     </div>
-                    <div class="info-box">
-                        <h4>Подготовка сообщения брокеру</h4>
+
+                    <!-- Phone Call Section -->
+                    <div class="info-box" style="border: 1px solid rgba(34, 197, 94, 0.3); background: rgba(34, 197, 94, 0.08);">
+                        <h4 style="color: #86efac;">☎️ Звонок брокеру</h4>
                         <div class="form-group">
-                            <label class="form-label">Контакт брокера</label>
-                            <input type="text" id="brokerContact" class="form-input" value="broker@example.com">
+                            <label class="form-label">Телефон брокера</label>
+                            <input type="text" id="brokerPhone" class="form-input" value="+1 (555) 123-4567" readonly style="background: rgba(255, 255, 255, 0.03); color: #f0f4ff;">
                         </div>
-                        <div class="form-group" style="margin-top: 20px;">
-                            <label class="form-label">Заголовок письма (Subject)</label>
-                            <input type="text" id="emailSubject" class="form-input" placeholder="Birmingham, AL to Charlevoix, MI *** CHECKING YOUR LOAD ***">
+                        <div class="form-group">
+                            <label class="form-label">Телефон водителя</label>
+                            <input type="text" id="driverPhoneStep4" class="form-input" readonly style="background: rgba(255, 255, 255, 0.03); color: #f0f4ff;">
                         </div>
-                        <div class="message-preview" id="messagePreview" style="margin-top: 24px;"></div>
-                        <div style="display: flex; flex-direction: column; gap: 8px;">
-                            <button class="btn btn-yellow" onclick="copyMessage()">📋 Скопировать сообщение</button>
-                            <button class="btn btn-indigo" onclick="sendMessage()">✉️ Отправить брокеру</button>
-                            <button class="btn btn-gray" onclick="clearJournal()">🗑️ Очистить журнал</button>
+                        <button class="btn btn-success" onclick="startPhoneCall()" style="width: 100%; margin-top: 12px; background: linear-gradient(135deg, #10b981, #059669);">📞 Начать звонок</button>
+                        
+                        <!-- Conversation Log inside Phone Call -->
+                        <div id="phoneConversationLog" style="margin-top: 16px; display: none;">
+                            <h5 style="color: #86efac; margin: 0 0 12px 0; font-size: 14px; font-weight: 600;">💬 Транскрипт звонка</h5>
+                            <div id="conversationLog" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(34, 197, 94, 0.2); border-radius: 8px; padding: 12px; display: grid; gap: 8px; max-height: 300px; overflow-y: auto;"></div>
                         </div>
                     </div>
                 </div>
 
-                <div class="journal">
-                    <h4 class="journal-title">
-                        <span>📬</span>
-                        Журнал отправленных сообщений
-                    </h4>
-                    <div id="journalContent"></div>
+                <!-- Load Details for Reference -->
+                <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 16px; margin-top: 20px;">
+                    <h4 style="color: #f0f4ff; margin-bottom: 12px; font-size: 16px; font-weight: 700;">📋 Информация о грузе</h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px;">
+                        <div style="background: rgba(255, 255, 255, 0.05); padding: 12px; border-radius: 8px;">
+                            <p style="margin: 0; font-size: 11px; color: #8892aa; font-weight: 600; text-transform: uppercase;">ID груза</p>
+                            <p style="margin: 4px 0 0 0; font-size: 14px; font-weight: 700; color: #f0f4ff;" id="loadIdRef">—</p>
+                        </div>
+                        <div style="background: rgba(255, 255, 255, 0.05); padding: 12px; border-radius: 8px;">
+                            <p style="margin: 0; font-size: 11px; color: #8892aa; font-weight: 600; text-transform: uppercase;">Маршрут</p>
+                            <p style="margin: 4px 0 0 0; font-size: 14px; font-weight: 700; color: #f0f4ff;" id="loadRouteRef">—</p>
+                        </div>
+                        <div style="background: rgba(255, 255, 255, 0.05); padding: 12px; border-radius: 8px;">
+                            <p style="margin: 0; font-size: 11px; color: #8892aa; font-weight: 600; text-transform: uppercase;">Ставка</p>
+                            <p style="margin: 4px 0 0 0; font-size: 14px; font-weight: 700; color: #10b981;" id="loadRateRef">—</p>
+                        </div>
+                        <div style="background: rgba(255, 255, 255, 0.05); padding: 12px; border-radius: 8px;">
+                            <p style="margin: 0; font-size: 11px; color: #8892aa; font-weight: 600; text-transform: uppercase;">Расстояние</p>
+                            <p style="margin: 4px 0 0 0; font-size: 14px; font-weight: 700; color: #f0f4ff;" id="loadDistanceRef">—</p>
+                        </div>
+                        <div style="background: rgba(255, 255, 255, 0.05); padding: 12px; border-radius: 8px;">
+                            <p style="margin: 0; font-size: 11px; color: #8892aa; font-weight: 600; text-transform: uppercase;">Тип груза</p>
+                            <p style="margin: 4px 0 0 0; font-size: 14px; font-weight: 700; color: #f0f4ff;" id="loadCargoRef">—</p>
+                        </div>
+                        <div style="background: rgba(255, 255, 255, 0.05); padding: 12px; border-radius: 8px;">
+                            <p style="margin: 0; font-size: 11px; color: #8892aa; font-weight: 600; text-transform: uppercase;">Оборудование</p>
+                            <p style="margin: 4px 0 0 0; font-size: 14px; font-weight: 700; color: #f0f4ff;" id="loadEquipmentRef">—</p>
+                        </div>
+                        <div style="background: rgba(255, 255, 255, 0.05); padding: 12px; border-radius: 8px;">
+                            <p style="margin: 0; font-size: 11px; color: #8892aa; font-weight: 600; text-transform: uppercase;">Вес</p>
+                            <p style="margin: 4px 0 0 0; font-size: 14px; font-weight: 700; color: #f0f4ff;" id="loadWeightRef">—</p>
+                        </div>
+                        <div style="background: rgba(255, 255, 255, 0.05); padding: 12px; border-radius: 8px;">
+                            <p style="margin: 0; font-size: 11px; color: #8892aa; font-weight: 600; text-transform: uppercase;">Дата погрузки</p>
+                            <p style="margin: 4px 0 0 0; font-size: 14px; font-weight: 700; color: #f0f4ff;" id="loadPickupRef">—</p>
+                        </div>
+                        <div style="background: rgba(255, 255, 255, 0.05); padding: 12px; border-radius: 8px;">
+                            <p style="margin: 0; font-size: 11px; color: #8892aa; font-weight: 600; text-transform: uppercase;">Дата разгрузки</p>
+                            <p style="margin: 4px 0 0 0; font-size: 14px; font-weight: 700; color: #f0f4ff;" id="loadDeliveryRef">—</p>
+                        </div>
+                        <div style="background: rgba(255, 255, 255, 0.05); padding: 12px; border-radius: 8px;">
+                            <p style="margin: 0; font-size: 11px; color: #8892aa; font-weight: 600; text-transform: uppercase;">Время погрузки</p>
+                            <p style="margin: 4px 0 0 0; font-size: 14px; font-weight: 700; color: #f0f4ff;" id="loadPickupTimeRef">—</p>
+                        </div>
+                        <div style="background: rgba(255, 255, 255, 0.05); padding: 12px; border-radius: 8px;">
+                            <p style="margin: 0; font-size: 11px; color: #8892aa; font-weight: 600; text-transform: uppercase;">Время разгрузки</p>
+                            <p style="margin: 4px 0 0 0; font-size: 14px; font-weight: 700; color: #f0f4ff;" id="loadDeliveryTimeRef">—</p>
+                        </div>
+                        <div style="background: rgba(255, 255, 255, 0.05); padding: 12px; border-radius: 8px;">
+                            <p style="margin: 0; font-size: 11px; color: #8892aa; font-weight: 600; text-transform: uppercase;">Длительность разгрузки</p>
+                            <p style="margin: 4px 0 0 0; font-size: 14px; font-weight: 700; color: #f0f4ff;" id="loadUnloadTimeRef">—</p>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="button-group">
-                    <button class="btn btn-secondary" onclick="goToStep(3)">Назад</button>
-                    <button class="btn btn-warning" onclick="goToStep(1)">Вернуться к началу</button>
+                    <button class="btn btn-secondary" onclick="goToStep(3)">← Назад</button>
+                    <button class="btn btn-warning" onclick="goToStep(1)">Начать заново</button>
                 </div>
             </section>
         </div>
@@ -1019,6 +1058,7 @@
         let currentStep = 1;
         let selectedLoad = null;
         let brokerMessages = [];
+        let conversationLog = [];
 
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
@@ -1102,20 +1142,23 @@
 
             // Update message preview on step 4
             if (step === 4) {
-                // Copy driver info to Step 4 fields
-                document.getElementById('driverNameStep4').value = document.getElementById('driverName').value || '—';
-                document.getElementById('mcNumberStep4').value = document.getElementById('mcNumber').value || '—';
-                document.getElementById('truckNumberStep4').value = document.getElementById('truckNumber').value || '—';
-                document.getElementById('trailerNumberStep4').value = document.getElementById('trailerNumber').value || '—';
+                // Copy driver phone to Step 4
                 document.getElementById('driverPhoneStep4').value = document.getElementById('driverPhone').value || '—';
-                document.getElementById('trackingSystemStep4').value = document.getElementById('trackingSystem').value || '—';
-                document.getElementById('trailerFreeAtStep4').value = document.getElementById('trailerFreeAt').value || '—';
                 
-                updateMessagePreview();
-                updateJournal();
-                // Set trailer type from selected load
+                // Update load details for reference
                 if (selectedLoad) {
-                    document.getElementById('trailerType').value = selectedLoad.equipment;
+                    document.getElementById('loadIdRef').textContent = selectedLoad.id || '—';
+                    document.getElementById('loadRouteRef').textContent = `${selectedLoad.pickupState} → ${selectedLoad.deliveryState}`;
+                    document.getElementById('loadRateRef').textContent = `$${selectedLoad.rate}`;
+                    document.getElementById('loadDistanceRef').textContent = `${selectedLoad.distance} miles`;
+                    document.getElementById('loadCargoRef').textContent = selectedLoad.cargoType || '—';
+                    document.getElementById('loadEquipmentRef').textContent = selectedLoad.equipment || '—';
+                    document.getElementById('loadWeightRef').textContent = `${selectedLoad.weight} lbs`;
+                    document.getElementById('loadPickupRef').textContent = selectedLoad.pickupDate || '—';
+                    document.getElementById('loadDeliveryRef').textContent = selectedLoad.deliveryDate || '—';
+                    document.getElementById('loadPickupTimeRef').textContent = selectedLoad.pickupTime || '—';
+                    document.getElementById('loadDeliveryTimeRef').textContent = selectedLoad.deliveryTime || '—';
+                    document.getElementById('loadUnloadTimeRef').textContent = `${selectedLoad.unloadTime} hours` || '—';
                     
                     // Generate email subject if empty
                     const emailSubject = document.getElementById('emailSubject').value.trim();
@@ -1124,6 +1167,8 @@
                         document.getElementById('emailSubject').value = subject;
                     }
                 }
+                
+                updateMessagePreview();
             }
         }
 
@@ -1452,6 +1497,76 @@ Thank you`;
         function clearJournal() {
             brokerMessages = [];
             updateJournal();
+        }
+
+        // Phone call simulation
+        function startPhoneCall() {
+            if (!selectedLoad) {
+                alert('Please select a load first');
+                return;
+            }
+
+            const brokerPhone = document.getElementById('brokerPhone').value;
+            
+            addConversationEntry('☎️ Phone Call Started', `Calling broker at ${brokerPhone}`);
+            
+            // Simulate broker responses
+            setTimeout(() => {
+                addConversationEntry('🎤 Broker', 'Hello! Thanks for calling. I see you\'re interested in Load #' + selectedLoad.id);
+                updateConversationLog();
+            }, 1000);
+            
+            setTimeout(() => {
+                addConversationEntry('🎤 Broker', `The rate is $${selectedLoad.rate} for ${selectedLoad.distance} miles. Can your driver make the pickup at ${selectedLoad.pickupTime}?`);
+                updateConversationLog();
+            }, 2500);
+            
+            setTimeout(() => {
+                addConversationEntry('💬 You', 'Yes, my driver can be there. What about the equipment requirements?');
+                updateConversationLog();
+            }, 4000);
+            
+            setTimeout(() => {
+                addConversationEntry('🎤 Broker', `We need a ${selectedLoad.equipment}. Your driver will need to confirm the load details and sign the BOL.`);
+                updateConversationLog();
+            }, 5500);
+            
+            setTimeout(() => {
+                addConversationEntry('💬 You', 'Perfect! We\'re ready to go. Send me the load details and we\'ll get started.');
+                updateConversationLog();
+            }, 7000);
+            
+            setTimeout(() => {
+                addConversationEntry('🎤 Broker', 'Great! I\'ll email you the BOL and load details. Your driver should arrive by ' + selectedLoad.pickupTime);
+                addConversationEntry('✅ Call Ended', 'Phone call completed successfully');
+                updateConversationLog();
+            }, 8500);
+        }
+
+        function addConversationEntry(speaker, message) {
+            conversationLog.push({ speaker, message, time: new Date().toLocaleTimeString() });
+        }
+
+        function updateConversationLog() {
+            const log = document.getElementById('conversationLog');
+            const phoneConversationLog = document.getElementById('phoneConversationLog');
+            
+            if (conversationLog.length === 0) {
+                log.innerHTML = '<div class="message-empty">No conversations yet. Start a phone call to begin.</div>';
+                phoneConversationLog.style.display = 'none';
+                return;
+            }
+
+            phoneConversationLog.style.display = 'block';
+            log.innerHTML = conversationLog.map((entry, idx) => `
+                <div style="background: rgba(255, 255, 255, 0.05); padding: 10px 12px; border-radius: 8px; border-left: 2px solid ${entry.speaker.includes('Broker') ? '#3b82f6' : entry.speaker.includes('You') ? '#10b981' : '#8b5cf6'};">
+                    <p style="margin: 0; font-size: 12px; color: #8892aa; font-weight: 600;">${entry.speaker} <span style="float: right; font-size: 11px;">${entry.time}</span></p>
+                    <p style="margin: 4px 0 0 0; font-size: 13px; color: #f0f4ff;">${entry.message}</p>
+                </div>
+            `).join('');
+            
+            // Auto-scroll to bottom
+            log.scrollTop = log.scrollHeight;
         }
     </script>
 
