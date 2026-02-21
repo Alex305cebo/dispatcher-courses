@@ -1,0 +1,364 @@
+/* =========================================
+   ТЁМНАЯ ТЕМА - Курсы Диспетчера
+   Активируется через html[data-theme="dark"]
+   ========================================= */
+
+/* ===== CSS ПЕРЕМЕННЫЕ ===== */
+html[data-theme="dark"] {
+  --dark-bg:       #0a0e1a;
+  --dark-surface:  #1a1a2e;
+  --dark-card:     #1e213a;
+  --dark-card-alt: #16192e;
+  --dark-hover:    #252850;
+  --dark-text:     #e2e8f0;
+  --dark-text-2:   #94a3b8;
+  --dark-text-3:   #64748b;
+  --dark-accent:   #667eea;
+  --dark-border:   rgba(102, 126, 234, 0.22);
+  --dark-shadow:   0 20px 60px rgba(0, 0, 0, 0.65);
+  --dark-neon:     0 0 25px rgba(102, 126, 234, 0.28);
+}
+
+/* ===== BODY ===== */
+html[data-theme="dark"] body {
+  background: linear-gradient(135deg, #0a0e1a 0%, #1a1a2e 100%) !important;
+  color: #e2e8f0 !important;
+}
+
+html[data-theme="dark"] body::before {
+  background:
+    radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.12), transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(118, 75, 162, 0.12), transparent 50%),
+    radial-gradient(circle at 40% 20%, rgba(99, 102, 241, 0.08), transparent 50%) !important;
+}
+
+/* ===== ОСНОВНЫЕ КАРТОЧКИ ===== */
+html[data-theme="dark"] .card,
+html[data-theme="dark"] .header,
+html[data-theme="dark"] .content-card {
+  background: #1e213a !important;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.65), 0 0 25px rgba(102,126,234,0.28) !important;
+  border: 1px solid rgba(102, 126, 234, 0.22) !important;
+  color: #e2e8f0 !important;
+}
+
+/* ===== ЗАГОЛОВКИ В ХЭДЕРЕ ===== */
+html[data-theme="dark"] .header h1,
+html[data-theme="dark"] .header h2,
+html[data-theme="dark"] .header h3 {
+  color: #e2e8f0 !important;
+}
+
+/* ===== КНОПКИ НАЗАД ===== */
+html[data-theme="dark"] .back-btn {
+  background: rgba(102, 126, 234, 0.15) !important;
+  color: #a5b4fc !important;
+  border: 1px solid rgba(102, 126, 234, 0.22) !important;
+}
+
+html[data-theme="dark"] .back-btn:hover {
+  background: rgba(102, 126, 234, 0.3) !important;
+  box-shadow: 0 0 25px rgba(102, 126, 234, 0.28) !important;
+}
+
+/* ===== КНОПКА "ГЛАВНАЯ" В ХЭДЕРЕ ===== */
+html[data-theme="dark"] .btn-header {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+html[data-theme="dark"] .btn-header:hover {
+  background: rgba(255, 255, 255, 0.18) !important;
+}
+
+/* ===== FEATURE КАРТОЧКИ ===== */
+html[data-theme="dark"] .feature {
+  background: #16192e !important;
+  border: 1px solid rgba(102, 126, 234, 0.22) !important;
+}
+
+html[data-theme="dark"] .feature:hover {
+  background: #252850 !important;
+  border-color: #667eea !important;
+  box-shadow: 0 0 25px rgba(102,126,234,0.28), 0 15px 35px rgba(0,0,0,0.5) !important;
+}
+
+html[data-theme="dark"] .feature-title {
+  color: #e2e8f0 !important;
+}
+
+html[data-theme="dark"] .feature-text {
+  color: #94a3b8 !important;
+}
+
+/* ===== ТЕКСТ ===== */
+html[data-theme="dark"] .description {
+  color: #94a3b8 !important;
+}
+
+html[data-theme="dark"] .subtitle {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+/* ===== INFO BOX ===== */
+html[data-theme="dark"] .info-box {
+  background: rgba(245, 158, 11, 0.07) !important;
+  border-left-color: #f59e0b !important;
+}
+
+html[data-theme="dark"] .info-box h4 {
+  color: #fbbf24 !important;
+}
+
+html[data-theme="dark"] .info-box p {
+  color: #fde68a !important;
+}
+
+html[data-theme="dark"] .info-box code {
+  background: rgba(245, 158, 11, 0.15) !important;
+  color: #fbbf24 !important;
+  border-color: rgba(245, 158, 11, 0.3) !important;
+}
+
+html[data-theme="dark"] .info-box .note {
+  background: rgba(237, 137, 54, 0.1) !important;
+  border-left-color: #ed8936 !important;
+  color: #fbbf24 !important;
+}
+
+/* ===== TECH STACK ===== */
+html[data-theme="dark"] .tech-stack {
+  border-top-color: rgba(102, 126, 234, 0.22) !important;
+}
+
+html[data-theme="dark"] .tech-stack h3 {
+  color: #e2e8f0 !important;
+}
+
+html[data-theme="dark"] .badge {
+  background: rgba(102, 126, 234, 0.2) !important;
+  color: #a5b4fc !important;
+}
+
+/* ===== ТЕСТИРОВАНИЕ — ВОПРОСЫ ===== */
+html[data-theme="dark"] .question {
+  background: #16192e !important;
+  border-color: rgba(102, 126, 234, 0.22) !important;
+  color: #e2e8f0 !important;
+}
+
+html[data-theme="dark"] .q-text {
+  color: #e2e8f0 !important;
+}
+
+/* ===== ТЕСТИРОВАНИЕ — ОТВЕТЫ ===== */
+html[data-theme="dark"] .answer {
+  background: #16192e !important;
+  border-color: rgba(102, 126, 234, 0.22) !important;
+  color: #e2e8f0 !important;
+}
+
+html[data-theme="dark"] .answer:hover {
+  border-color: #3b82f6 !important;
+  background: rgba(59, 130, 246, 0.1) !important;
+}
+
+html[data-theme="dark"] .answer.selected {
+  border-color: #3b82f6 !important;
+  background: rgba(59, 130, 246, 0.15) !important;
+}
+
+html[data-theme="dark"] .answer.correct {
+  border-color: #10b981 !important;
+  background: rgba(16, 185, 129, 0.15) !important;
+}
+
+html[data-theme="dark"] .answer.incorrect {
+  border-color: #ef4444 !important;
+  background: rgba(239, 68, 68, 0.12) !important;
+}
+
+/* ===== КАТЕГОРИИ ТЕСТОВ ===== */
+html[data-theme="dark"] .cat {
+  background: #16192e !important;
+  border-color: rgba(102, 126, 234, 0.22) !important;
+}
+
+html[data-theme="dark"] .cat:hover {
+  border-color: #f59e0b !important;
+  background: rgba(245, 158, 11, 0.08) !important;
+  box-shadow: 0 20px 40px rgba(245, 158, 11, 0.2) !important;
+}
+
+html[data-theme="dark"] .cat-title {
+  color: #e2e8f0 !important;
+}
+
+html[data-theme="dark"] .cat-desc,
+html[data-theme="dark"] .cat-info {
+  color: #94a3b8 !important;
+}
+
+html[data-theme="dark"] .cat-info {
+  border-top-color: rgba(102, 126, 234, 0.22) !important;
+}
+
+/* ===== СТАТИСТИКА ===== */
+html[data-theme="dark"] .stat {
+  background: #16192e !important;
+  border-color: rgba(102, 126, 234, 0.22) !important;
+}
+
+html[data-theme="dark"] .stat-label {
+  color: #94a3b8 !important;
+}
+
+/* ===== ПРОГРЕСС БАР ===== */
+html[data-theme="dark"] .progress {
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* ===== НОМЕР МОДУЛЯ ===== */
+html[data-theme="dark"] .module-number {
+  background: rgba(30, 33, 58, 0.9) !important;
+  color: #667eea !important;
+}
+
+/* ===== BTN-SECONDARY ===== */
+html[data-theme="dark"] .btn-secondary {
+  background: #16192e !important;
+  color: #94a3b8 !important;
+  border: 1px solid rgba(102, 126, 234, 0.22) !important;
+}
+
+/* ===== ТАБЛИЦЫ ===== */
+html[data-theme="dark"] table {
+  border-color: rgba(102, 126, 234, 0.22) !important;
+}
+
+html[data-theme="dark"] th {
+  background: #16192e !important;
+  color: #e2e8f0 !important;
+  border-color: rgba(102, 126, 234, 0.22) !important;
+}
+
+html[data-theme="dark"] td {
+  background: #1e213a !important;
+  color: #94a3b8 !important;
+  border-color: rgba(102, 126, 234, 0.22) !important;
+}
+
+html[data-theme="dark"] tr:nth-child(even) td {
+  background: rgba(22, 25, 46, 0.6) !important;
+}
+
+html[data-theme="dark"] tr:hover td {
+  background: #252850 !important;
+}
+
+/* ===== ИНПУТЫ ===== */
+html[data-theme="dark"] input,
+html[data-theme="dark"] select,
+html[data-theme="dark"] textarea {
+  background: #16192e !important;
+  color: #e2e8f0 !important;
+  border-color: rgba(102, 126, 234, 0.22) !important;
+}
+
+html[data-theme="dark"] input::placeholder,
+html[data-theme="dark"] textarea::placeholder {
+  color: #64748b !important;
+}
+
+html[data-theme="dark"] input:focus,
+html[data-theme="dark"] select:focus,
+html[data-theme="dark"] textarea:focus {
+  border-color: #667eea !important;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2) !important;
+  outline: none !important;
+}
+
+/* ===== КНОПКА НАВЕРХ ===== */
+html[data-theme="dark"] #scrollToTop {
+  background: rgba(102, 126, 234, 0.55) !important;
+  border: 1px solid rgba(102, 126, 234, 0.22) !important;
+}
+
+html[data-theme="dark"] #scrollToTop:hover {
+  background: rgba(102, 126, 234, 0.85) !important;
+}
+
+/* ===== ДОКУМЕНТАЦИЯ ===== */
+html[data-theme="dark"] .section {
+  background: #1e213a !important;
+  border-color: rgba(102, 126, 234, 0.22) !important;
+  color: #e2e8f0 !important;
+}
+
+/* ===== STEP BLOCK ===== */
+html[data-theme="dark"] .step-block {
+  background: #1e213a !important;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.65) !important;
+  border: 1px solid rgba(102, 126, 234, 0.22) !important;
+}
+
+html[data-theme="dark"] .step-block h3,
+html[data-theme="dark"] .step-block p {
+  color: #e2e8f0 !important;
+}
+
+/* ===== КАСТОМНЫЙ СКРОЛЛБАР ===== */
+html[data-theme="dark"] ::-webkit-scrollbar {
+  width: 8px;
+}
+
+html[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: #0a0e1a;
+}
+
+html[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 4px;
+}
+
+html[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #764ba2, #667eea);
+}
+
+/* ===== КНОПКА ПЕРЕКЛЮЧЕНИЯ ТЕМЫ ===== */
+#theme-toggle-btn {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.45);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  white-space: nowrap;
+}
+
+#theme-toggle-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.65);
+}
+
+#theme-toggle-btn:active {
+  transform: translateY(0);
+}
+
+#theme-toggle-btn .toggle-icon {
+  font-size: 15px;
+  line-height: 1;
+}
