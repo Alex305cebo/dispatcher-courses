@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Модуль 1: Основы диспетчерской работы в США | Курсы - Диспетчера</title>
+    <title>Модуль 1: Основы диспетчерской работы в США | Курсы Диспетчера</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../shared-styles.css">
+    <script>!function(){var t=localStorage.getItem('dispatcher-theme')||'dark';'dark'===t&&document.documentElement.setAttribute('data-theme','dark')}();</script>
+    <link rel="stylesheet" href="../dark-theme.css">
+    <script src="../dark-mode.js"></script>
     <style>
         * {
             margin: 0;
@@ -11,28 +18,19 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 30px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
         .container {
             max-width: 1050px;
             width: 100%;
             margin: 0 auto;
+            padding: 32px 24px 60px;
+            position: relative;
+            z-index: 1;
         }
 
         .header {
-            background: white; backdrop-filter: blur(10px);
-            padding: 30px 40px;
-            border-radius: 20px;
-            margin-bottom: 30px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 32px 0 24px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 32px;
         }
 
         .header-top {
@@ -40,78 +38,106 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 16px;
         }
 
         .module-badge {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
+            background: rgba(52,211,153,.1);
+            border: 1px solid rgba(52,211,153,.25);
+            color: #34d399;
+            padding: 6px 16px;
+            border-radius: 50px;
             font-weight: 600;
-            font-size: 18px;
+            font-size: 13px;
         }
 
         .module-number {
-            background: white; backdrop-filter: blur(10px);
-            color: #16a34a;
-            width: 35px;
-            height: 35px;
+            background: rgba(52,211,153,.2);
+            color: #34d399;
+            width: 24px;
+            height: 24px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
+            font-weight: 700;
+            font-size: 12px;
         }
 
         .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             padding: 10px 20px;
-            background: #f3f4f6;
-            color: #374151;
+            background: rgba(255,255,255,.05);
+            border: 1px solid var(--border);
+            color: var(--text);
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 12px;
             font-weight: 600;
+            font-size: 14px;
             transition: all 0.3s ease;
         }
 
         .back-btn:hover {
-            background: #e5e7eb;
-            transform: translateY(-2px);
+            background: rgba(255,255,255,.08);
+            border-color: rgba(var(--primary-rgb), .3);
+            transform: translateX(-3px);
         }
 
         h1 {
-            color: #2d3748;
-            font-size: 32px;
-            margin-bottom: 10px;
+            color: var(--text);
+            font-size: clamp(28px, 5vw, 42px);
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+            margin-bottom: 12px;
+        }
+
+        h1 span {
+            background: linear-gradient(135deg, #34d399, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .subtitle {
-            color: #718096;
-            font-size: 18px;
+            color: var(--text-2);
+            font-size: 16px;
         }
 
         .content-card {
-            background: white; backdrop-filter: blur(10px);
+            background: var(--card);
+            border: 1px solid var(--border);
             border-radius: 20px;
             padding: 40px;
             margin-bottom: 25px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all .3s ease;
+        }
+
+        .content-card:hover {
+            background: rgba(255,255,255,.055);
+            border-color: rgba(52,211,153, .2);
         }
 
         .section-title {
-            color: #2d3748;
+            color: var(--text);
             font-size: 26px;
+            font-weight: 700;
             margin-bottom: 20px;
             padding-bottom: 10px;
-            border-bottom: 3px solid #16a34a;
+            border-bottom: 2px solid rgba(52,211,153,.3);
         }
 
         .section-content p {
-            color: #4a5568;
-            font-size: 18px;
-            line-height: 1.9;
+            color: var(--text-2);
+            font-size: 16px;
+            line-height: 1.8;
             margin-bottom: 18px;
         }
 
@@ -121,24 +147,25 @@
         }
 
         .section-content li {
-            color: #4a5568;
-            font-size: 17px;
-            line-height: 1.9;
+            color: var(--text-2);
+            font-size: 15px;
+            line-height: 1.8;
             margin-bottom: 12px;
         }
 
         .lesson-card {
-            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
-            border-left: 4px solid #16a34a;
+            background: rgba(52,211,153,.08);
+            border: 1px solid rgba(52,211,153,.2);
+            border-left: 4px solid #34d399;
             padding: 25px;
             margin: 20px 0;
-            border-radius: 10px;
+            border-radius: 16px;
         }
 
         .lesson-title {
-            color: #166534;
-            font-size: 22px;
-            font-weight: 600;
+            color: #34d399;
+            font-size: 20px;
+            font-weight: 700;
             margin-bottom: 15px;
             display: flex;
             align-items: center;
@@ -146,23 +173,24 @@
         }
 
         .lesson-content {
-            color: #15803d;
-            font-size: 17px;
+            color: var(--text-2);
+            font-size: 15px;
             line-height: 1.8;
         }
 
         .info-box {
-            background: #fffbeb;
-            border: 2px solid #fbbf24;
-            border-radius: 50px;
+            background: rgba(251,191,36,.08);
+            border: 1px solid rgba(251,191,36,.2);
+            border-left: 4px solid #fbbf24;
+            border-radius: 16px;
             padding: 25px;
             margin: 20px 0;
         }
 
         .info-title {
-            color: #92400e;
-            font-size: 20px;
-            font-weight: 600;
+            color: #fbbf24;
+            font-size: 18px;
+            font-weight: 700;
             margin-bottom: 15px;
             display: flex;
             align-items: center;
@@ -177,37 +205,39 @@
         }
 
         .btn {
-            padding: 15px 30px;
-            border-radius: 10px;
+            padding: 14px 28px;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 16px;
+            font-size: 14px;
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
             gap: 10px;
+            border: none;
+            cursor: pointer;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #34d399, #10b981);
             color: white;
-            box-shadow: 0 4px 15px rgba(22, 163, 74, 0.4);
+            box-shadow: 0 4px 15px rgba(52, 211, 153, 0.4);
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(22, 163, 74, 0.6);
+            box-shadow: 0 6px 20px rgba(52, 211, 153, 0.6);
         }
 
         .btn-secondary {
-            background: white; backdrop-filter: blur(10px);
-            color: #16a34a;
-            border: 2px solid #16a34a;
+            background: rgba(255,255,255,.05);
+            border: 1px solid var(--border);
+            color: var(--text);
         }
 
         .btn-secondary:hover {
-            background: #16a34a;
-            color: white;
+            background: rgba(255,255,255,.08);
+            border-color: rgba(52,211,153, .3);
         }
 
         @media (max-width: 768px) {
@@ -218,9 +248,7 @@
 
             h1 {
                 font-size: 26px;
-            }
-
-            .content-card {
+            }            .content-card {
                 padding: 25px;
             }
         }
@@ -254,17 +282,24 @@
 </head>
 <body>
 
+<div class="bg-grid"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
     <div class="container">
-        <div class="header">
+        <div class="header fade-in-down">
             <div class="header-top">
-                <div class="module-badge">
-                    <div class="module-number">1</div>
-                    <span>Модуль 1 из 10</span>
+                <div>
+                    <div class="module-badge">
+                        <div class="module-number">1</div>
+                        <span>Модуль 1 из 10</span>
+                    </div>
+                    <h1><span>Основы диспетчерской работы в США</span></h1>
+                    <p class="subtitle">Введение в профессию диспетчера грузоперевозок</p>
                 </div>
                 <a href="modules.html" class="back-btn">← Назад к модулям</a>
             </div>
-            <h1>Основы диспетчерской работы в США</h1>
-            <p class="subtitle">Введение в профессию диспетчера грузоперевозок</p>
         </div>
 
         <div class="content-card">
