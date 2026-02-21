@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Этап 4: Связь с брокером | Симулятор диспетчера</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            min-height: 100vh;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 1050px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: white; backdrop-filter: blur(10px);
+            padding: 30px 40px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .step-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .step-number {
+            background: white; backdrop-filter: blur(10px);
+            color: #8b5cf6;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .back-btn {
+            padding: 10px 20px;
+            background: #f3f4f6;
+            color: #374151;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #e5e7eb;
+            transform: translateY(-2px);
+        }
+
+        h1 {
+            color: #2d3748;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #718096;
+            font-size: 18px;
+        }
+
+        .content-card {
+            background: white; backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 25px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-title {
+            color: #2d3748;
+            font-size: 24px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #8b5cf6;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+            padding: 25px;
+            border-radius: 50px;
+            border-left: 4px solid #8b5cf6;
+        }
+
+        .info-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .info-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 8px;
+        }
+
+        .info-text {
+            color: #4a5568;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        .checklist {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .checklist li {
+            padding: 15px;
+            margin-bottom: 10px;
+            background: #f7fafc;
+            border-radius: 8px;
+            display: flex;
+            align-items: start;
+            gap: 12px;
+        }
+
+        .checklist li::before {
+            content: '✓';
+            background: #8b5cf6;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .example-box {
+            background: #ecfdf5;
+            border: 2px solid #10b981;
+            border-radius: 50px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .example-title {
+            color: #065f46;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .example-content {
+            color: #047857;
+            line-height: 1.8;
+        }
+
+        .message-template {
+            background: white; backdrop-filter: blur(10px);
+            border-radius: 8px;
+            padding: 30px 20px;
+            margin-top: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.8;
+            color: #374151;
+            border: 1px solid #d1d5db;
+        }
+
+        .tips-box {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            border-radius: 50px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .tips-title {
+            color: #1e40af;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tips-list {
+            list-style: none;
+        }
+
+        .tips-list li {
+            color: #1e3a8a;
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .tips-list li::before {
+            content: '📧';
+            position: absolute;
+            left: 0;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.6);
+        }
+
+        .btn-secondary {
+            background: white; backdrop-filter: blur(10px);
+            color: #8b5cf6;
+            border: 2px solid #8b5cf6;
+        }
+
+        .btn-secondary:hover {
+            background: #8b5cf6;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .content-card {
+                padding: 25px;
+            }
+        }
+    body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3), transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(138, 43, 226, 0.3), transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(75, 0, 130, 0.2), transparent 50%);
+    animation: backgroundMove 20s ease infinite;
+    z-index: -1;
+}
+
+@keyframes backgroundMove {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(5%, 5%) scale(1.05); }
+    50% { transform: translate(-5%, 5%) scale(1.1); }
+    75% { transform: translate(5%, -5%) scale(1.05); }
+}</style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-top">
+                <div class="step-badge">
+                    <div class="step-number">4</div>
+                    <span>Этап 4 из 4</span>
+                </div>
+                <a href="simulator.html" class="back-btn">← Назад к симулятору</a>
+            </div>
+            <h1>Связь с брокером</h1>
+            <p class="subtitle">Профессиональная коммуникация и подтверждение груза</p>
+        </div>
+
+        <div class="content-card">
+            <h2 class="section-title">📧 Обзор этапа</h2>
+            <p style="color: #4a5568; line-height: 1.8; font-size: 16px; margin-bottom: 20px;">
+                Финальный и один из самых важных этапов — профессиональная коммуникация с брокером. 
+                Правильно составленное сообщение демонстрирует вашу компетентность, повышает доверие брокера 
+                и увеличивает шансы на получение груза по хорошей ставке.
+            </p>
+
+            <div class="info-grid">
+                <div class="info-box">
+                    <div class="info-icon">✍️</div>
+                    <div class="info-title">Корректировка параметров</div>
+                    <div class="info-text">
+                        Проверка и уточнение всех деталей груза перед отправкой сообщения брокеру.
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-icon">👁️</div>
+                    <div class="info-title">Предпросмотр сообщения</div>
+                    <div class="info-text">
+                        Просмотр готового сообщения на английском языке перед отправкой брокеру.
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-icon">📋</div>
+                    <div class="info-title">Копирование в буфер</div>
+                    <div class="info-text">
+                        Быстрое копирование сообщения для отправки через email, SMS или мессенджер.
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-icon">📝</div>
+                    <div class="info-title">Журнал сообщений</div>
+                    <div class="info-text">
+                        Автоматическое сохранение всех отправленных сообщений для отслеживания коммуникации.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2 class="section-title">✅ Чек-лист подготовки сообщения</h2>
+            <ul class="checklist">
+                <li>
+                    <div>
+                        <strong>Проверить Load Number</strong><br>
+                        <span style="color: #718096;">Убедиться, что номер груза указан правильно для идентификации</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>Подтвердить маршрут</strong><br>
+                        <span style="color: #718096;">Точные адреса pickup и delivery с указанием городов и штатов</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>Указать местоположение водителя</strong><br>
+                        <span style="color: #718096;">Текущее местоположение и расстояние до места погрузки (deadhead)</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>Уточнить дату готовности</strong><br>
+                        <span style="color: #718096;">Когда водитель будет готов к погрузке в формате MM/DD/YYYY</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>Запросить детали груза</strong><br>
+                        <span style="color: #718096;">Тип товара, вес, особые требования к перевозке</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>Обсудить ставку</strong><br>
+                        <span style="color: #718096;">Подтвердить или обсудить лучшую доступную ставку за рейс</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="content-card">
+            <div class="example-box">
+                <div class="example-title">
+                    <span>📧</span>
+                    Пример профессионального сообщения
+                </div>
+                <div class="message-template">
+Hello,
+
+Could you please provide more details about the following load?
+
+Load Number: 1025
+Pickup From: Dallas, TX
+Delivery To: Chicago, IL
+Available Date: 02/20/2025
+Driver Location: Dallas, TX
+Deadhead: 0 miles
+Trip Distance: 925 miles
+Rate: $1,850
+
+Could you also confirm the commodity type and the best available rate for this shipment?
+
+Thank you
+                </div>
+                <p style="margin-top: 15px; color: #047857;">
+                    <strong>Важно:</strong> Сообщение должно быть на английском языке, кратким, профессиональным и содержать всю необходимую информацию.
+                </p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <div class="tips-box">
+                <div class="tips-title">
+                    <span>💡</span>
+                    Правила профессиональной коммуникации
+                </div>
+                <ul class="tips-list">
+                    <li>Всегда используйте английский язык — это стандарт в американской логистике</li>
+                    <li>Будьте вежливы и профессиональны — "Hello", "Thank you", "Please"</li>
+                    <li>Указывайте все ключевые детали — Load Number, маршрут, даты, расстояния</li>
+                    <li>Используйте формат MM/DD/YYYY для дат — американский стандарт</li>
+                    <li>Отвечайте быстро — брокеры ценят оперативность</li>
+                    <li>Сохраняйте всю переписку — это важно для разрешения споров</li>
+                    <li>Не обещайте то, что не можете выполнить — репутация дороже одного груза</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2 class="section-title">📋 Что включать в сообщение</h2>
+            <div style="display: grid; gap: 15px;">
+                <div style="background: #dcfce7; padding: 30px 20px; border-radius: 10px; border-left: 4px solid #16a34a;">
+                    <strong style="color: #166534;">✅ Load Number</strong>
+                    <p style="color: #15803d; margin-top: 8px;">Номер груза для идентификации в системе брокера</p>
+                </div>
+                <div style="background: #dcfce7; padding: 30px 20px; border-radius: 10px; border-left: 4px solid #16a34a;">
+                    <strong style="color: #166534;">✅ Pickup & Delivery Locations</strong>
+                    <p style="color: #15803d; margin-top: 8px;">Точные города и штаты отправления и доставки</p>
+                </div>
+                <div style="background: #dcfce7; padding: 30px 20px; border-radius: 10px; border-left: 4px solid #16a34a;">
+                    <strong style="color: #166534;">✅ Available Date</strong>
+                    <p style="color: #15803d; margin-top: 8px;">Когда водитель будет готов к погрузке</p>
+                </div>
+                <div style="background: #dcfce7; padding: 30px 20px; border-radius: 10px; border-left: 4px solid #16a34a;">
+                    <strong style="color: #166534;">✅ Driver Location & Deadhead</strong>
+                    <p style="color: #15803d; margin-top: 8px;">Текущее местоположение и расстояние до погрузки</p>
+                </div>
+                <div style="background: #dcfce7; padding: 30px 20px; border-radius: 10px; border-left: 4px solid #16a34a;">
+                    <strong style="color: #166534;">✅ Trip Distance & Rate</strong>
+                    <p style="color: #15803d; margin-top: 8px;">Общее расстояние рейса и предлагаемая ставка</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2 class="section-title">⚠️ Чего избегать</h2>
+            <div style="display: grid; gap: 15px;">
+                <div style="background: #fee2e2; padding: 30px 20px; border-radius: 10px; border-left: 4px solid #ef4444;">
+                    <strong style="color: #991b1b;">❌ Неформальный язык</strong>
+                    <p style="color: #7f1d1d; margin-top: 8px;">"Hey bro", "What's up" — используйте профессиональный тон</p>
+                </div>
+                <div style="background: #fee2e2; padding: 30px 20px; border-radius: 10px; border-left: 4px solid #ef4444;">
+                    <strong style="color: #991b1b;">❌ Слишком длинные сообщения</strong>
+                    <p style="color: #7f1d1d; margin-top: 8px;">Брокеры получают сотни сообщений — будьте краткими и по делу</p>
+                </div>
+                <div style="background: #fee2e2; padding: 30px 20px; border-radius: 10px; border-left: 4px solid #ef4444;">
+                    <strong style="color: #991b1b;">❌ Отсутствие ключевой информации</strong>
+                    <p style="color: #7f1d1d; margin-top: 8px;">Забыли указать deadhead или дату — брокер не будет отвечать</p>
+                </div>
+                <div style="background: #fee2e2; padding: 30px 20px; border-radius: 10px; border-left: 4px solid #ef4444;">
+                    <strong style="color: #991b1b;">❌ Агрессивные переговоры</strong>
+                    <p style="color: #7f1d1d; margin-top: 8px;">"Your rate is too low!" — вежливо спросите о лучшей ставке</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2 class="section-title">🎯 После отправки сообщения</h2>
+            <p style="color: #4a5568; line-height: 1.8; margin-bottom: 20px;">
+                После отправки сообщения брокеру:
+            </p>
+            <ul class="checklist">
+                <li>
+                    <div>
+                        <strong>Ожидайте ответа</strong><br>
+                        <span style="color: #718096;">Обычно брокеры отвечают в течение 15-30 минут в рабочее время</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>Проверяйте почту и телефон</strong><br>
+                        <span style="color: #718096;">Брокер может ответить по email, SMS или позвонить напрямую</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>Будьте готовы к переговорам</strong><br>
+                        <span style="color: #718096;">Брокер может предложить другую ставку или уточнить детали</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>Подтвердите бронирование</strong><br>
+                        <span style="color: #718096;">Если груз подтвержден, получите Rate Confirmation и BOL</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>Сохраните всю переписку</strong><br>
+                        <span style="color: #718096;">Журнал сообщений поможет в случае споров или недопонимания</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="content-card">
+            <h2 class="section-title">🎉 Поздравляем!</h2>
+            <p style="color: #4a5568; line-height: 1.8; margin-bottom: 20px;">
+                Вы завершили все 4 этапа работы диспетчера! Теперь вы знаете полный цикл от подготовки водителя 
+                до коммуникации с брокером. Практикуйтесь в симуляторе, чтобы отточить навыки и стать профессионалом.
+            </p>
+
+            <div class="action-buttons">
+                <a href="simulator.html" class="btn btn-primary">
+                    🚀 Запустить симулятор
+                </a>
+                <a href="simulator.html" class="btn btn-secondary">
+                    ← Вернуться к обзору этапов
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

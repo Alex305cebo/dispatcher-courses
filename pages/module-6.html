@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Модуль 6: Работа с водителями | Курсы - Диспетчера</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 30px 20px; display: flex; flex-direction: column; align-items: center; }
+        body::before { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3), transparent 50%), radial-gradient(circle at 80% 80%, rgba(138, 43, 226, 0.3), transparent 50%), radial-gradient(circle at 40% 20%, rgba(75, 0, 130, 0.2), transparent 50%); animation: backgroundMove 20s ease infinite; z-index: -1; }
+        @keyframes backgroundMove { 0%, 100% { transform: translate(0, 0) scale(1); } 25% { transform: translate(5%, 5%) scale(1.05); } 50% { transform: translate(-5%, 5%) scale(1.1); } 75% { transform: translate(5%, -5%) scale(1.05); } }
+        .container { max-width: 1050px; width: 100%; margin: 0 auto; }
+        .header { background: white; backdrop-filter: blur(10px); padding: 30px 40px; border-radius: 20px; margin-bottom: 30px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); }
+        .header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .module-badge { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 10px 20px; border-radius: 25px; font-weight: 600; font-size: 18px; }
+        .module-number { background: white; backdrop-filter: blur(10px); color: #16a34a; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+        .back-btn { padding: 10px 20px; background: #f3f4f6; color: #374151; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; }
+        .back-btn:hover { background: #e5e7eb; transform: translateY(-2px); }
+        h1 { color: #2d3748; font-size: 32px; margin-bottom: 10px; }
+        .subtitle { color: #718096; font-size: 18px; }
+        .content-card { background: white; backdrop-filter: blur(10px); border-radius: 20px; padding: 40px; margin-bottom: 25px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); }
+        .section-title { color: #2d3748; font-size: 26px; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 3px solid #16a34a; }
+        .section-content p { color: #4a5568; font-size: 18px; line-height: 1.9; margin-bottom: 18px; }
+        .lesson-card { background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border-left: 4px solid #16a34a; padding: 25px; margin: 20px 0; border-radius: 10px; }
+        .lesson-title { color: #166534; font-size: 22px; font-weight: 600; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .lesson-content { color: #15803d; font-size: 17px; line-height: 1.8; }
+        .info-box { background: #fffbeb; border: 2px solid #fbbf24; border-radius: 50px; padding: 25px; margin: 20px 0; }
+        .info-title { color: #92400e; font-size: 20px; font-weight: 600; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .action-buttons { display: flex; gap: 15px; margin-top: 30px; flex-wrap: wrap; }
+        .btn { padding: 15px 30px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 16px; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 10px; }
+        .btn-primary { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; box-shadow: 0 4px 15px rgba(22, 163, 74, 0.4); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(22, 163, 74, 0.6); }
+        .btn-secondary { background: white; backdrop-filter: blur(10px); color: #16a34a; border: 2px solid #16a34a; }
+        .btn-secondary:hover { background: #16a34a; color: white; }
+        @media (max-width: 768px) { .header-top { flex-direction: column; gap: 15px; } h1 { font-size: 26px; } .content-card { padding: 25px; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-top">
+                <div class="module-badge"><div class="module-number">6</div><span>Модуль 6 из 10</span></div>
+                <a href="modules.html" class="back-btn">← Назад к модулям</a>
+            </div>
+            <h1>Работа с водителями</h1>
+            <p class="subtitle">Эффективная коммуникация с водителями</p>
+        </div>
+        <div class="content-card">
+            <h2 class="section-title">📖 Обзор модуля</h2>
+            <div class="section-content">
+                <p>Работа с водителями - критически важная часть работы диспетчера. От качества коммуникации зависит выполнение рейсов, удовлетворенность водителей и репутация компании.</p>
+                <p>В этом модуле вы научитесь собирать информацию о водителе, проверять готовность трака, назначать грузы, контролировать выполнение рейса, решать конфликты и мотивировать водителей.</p>
+            </div>
+        </div>
+        <div class="lesson-card">
+            <div class="lesson-title"><span>📋</span> Урок 1: Сбор информации о водителе и проверка готовности трака</div>
+            <div class="lesson-content">
+                <p><strong>Информация, которую нужно собрать о водителе:</strong></p>
+                <ul style="text-align: center; list-style-position: inside;">
+                    <li><strong>CDL License:</strong> Класс лицензии (A, B, C), endorsements (H, N, T), срок действия</li>
+                    <li><strong>Medical Card:</strong> Действующая медицинская карта (обновляется каждые 2 года)</li>
+                    <li><strong>Driving Experience:</strong> Опыт вождения (новичок, 1-3 года, 3+ лет)</li>
+                    <li><strong>HOS Status:</strong> Доступные часы вождения (11-hour limit, 14-hour window)</li>
+                    <li><strong>Current Location:</strong> Текущее местоположение и время готовности</li>
+                    <li><strong>Truck Type:</strong> Тип трака и трейлера (53ft Dry Van, Reefer, Flatbed)</li>
+                    <li><strong>Contact Info:</strong> Телефон, email, предпочитаемый способ связи</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Проверка готовности трака:</strong></p>
+                <ul style="text-align: center; list-style-position: inside;">
+                    <li><strong>Pre-Trip Inspection:</strong> Водитель должен провести осмотр трака перед рейсом</li>
+                    <li><strong>Fuel Level:</strong> Достаточно топлива для рейса</li>
+                    <li><strong>Tire Condition:</strong> Состояние шин (давление, износ)</li>
+                    <li><strong>Brakes:</strong> Исправность тормозной системы</li>
+                    <li><strong>Lights:</strong> Работа всех фар и сигналов</li>
+                    <li><strong>ELD:</strong> Электронный логбук работает корректно</li>
+                </ul>
+            </div>
+        </div>
+        <div class="lesson-card">
+            <div class="lesson-title"><span>📦</span> Урок 2: Назначение грузов</div>
+            <div class="lesson-content">
+                <p><strong>Как правильно назначить груз водителю:</strong></p>
+                <ul style="text-align: center; list-style-position: inside;">
+                    <li><strong>Check HOS:</strong> Убедитесь, что у водителя достаточно часов для рейса</li>
+                    <li><strong>Load Details:</strong> Предоставьте полную информацию (pickup/delivery адреса, время, контакты)</li>
+                    <li><strong>Rate Confirmation:</strong> Отправьте RC водителю для ознакомления</li>
+                    <li><strong>Special Instructions:</strong> Укажите особые требования (appointment time, live load, drop & hook)</li>
+                    <li><strong>Route Planning:</strong> Предложите оптимальный маршрут с учетом HOS и погоды</li>
+                    <li><strong>Fuel Stops:</strong> Рекомендуйте остановки для заправки (используйте fuel cards)</li>
+                    <li><strong>Emergency Contacts:</strong> Предоставьте контакты для экстренных ситуаций</li>
+                    <li><strong>Confirm Understanding:</strong> Убедитесь, что водитель понял все детали</li>
+                </ul>
+            </div>
+        </div>
+        <div class="lesson-card">
+            <div class="lesson-title"><span>📍</span> Урок 3: Контроль выполнения рейса</div>
+            <div class="lesson-content">
+                <p><strong>Как контролировать рейс:</strong></p>
+                <ul style="text-align: center; list-style-position: inside;">
+                    <li><strong>Check-In Points:</strong> Установите точки связи (перед погрузкой, после погрузки, в пути, перед разгрузкой)</li>
+                    <li><strong>GPS Tracking:</strong> Используйте ELD для отслеживания местоположения в реальном времени</li>
+                    <li><strong>HOS Monitoring:</strong> Следите за оставшимися часами вождения</li>
+                    <li><strong>ETA Updates:</strong> Регулярно обновляйте ETA (estimated time of arrival)</li>
+                    <li><strong>Problem Reporting:</strong> Водитель должен немедленно сообщать о проблемах</li>
+                    <li><strong>Document Collection:</strong> Напоминайте о сборе документов (BOL, POD, scale tickets)</li>
+                    <li><strong>Delivery Confirmation:</strong> Получите подтверждение доставки с подписью и печатью</li>
+                    <li><strong>Post-Trip Report:</strong> Соберите отчет о рейсе (проблемы, задержки, detention)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="lesson-card">
+            <div class="lesson-title"><span>🤝</span> Урок 4: Решение конфликтов и мотивация водителей</div>
+            <div class="lesson-content">
+                <p><strong>Как решать конфликты:</strong></p>
+                <ul style="text-align: center; list-style-position: inside;">
+                    <li><strong>Listen First:</strong> Выслушайте водителя, не перебивая</li>
+                    <li><strong>Stay Calm:</strong> Сохраняйте спокойствие, даже если водитель раздражен</li>
+                    <li><strong>Empathy:</strong> Покажите понимание проблемы водителя</li>
+                    <li><strong>Find Solution:</strong> Ищите решение, которое устроит обе стороны</li>
+                    <li><strong>Clear Communication:</strong> Объясняйте решения четко и понятно</li>
+                    <li><strong>Follow Up:</strong> Проверьте, что проблема решена</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Как мотивировать водителей:</strong></p>
+                <ul style="text-align: center; list-style-position: inside;">
+                    <li><strong>Good Loads:</strong> Предлагайте прибыльные грузы с хорошими ставками</li>
+                    <li><strong>Home Time:</strong> Учитывайте желание водителя быть дома</li>
+                    <li><strong>Respect:</strong> Относитесь с уважением, цените их работу</li>
+                    <li><strong>Bonuses:</strong> Предлагайте бонусы за хорошую работу</li>
+                    <li><strong>Communication:</strong> Поддерживайте регулярную связь</li>
+                    <li><strong>Support:</strong> Помогайте в сложных ситуациях</li>
+                </ul>
+            </div>
+        </div>
+        <div class="info-box">
+            <div class="info-title"><span>💡</span> Важная информация</div>
+            <p style="color: #78350f; font-size: 17px; line-height: 1.8;">
+                <strong>Хорошие отношения с водителями = успешный бизнес!</strong> Водители - это ваши партнеры, а не подчиненные. Относитесь к ним с уважением, помогайте в сложных ситуациях, предлагайте хорошие грузы. Довольные водители работают лучше и остаются с вами надолго.
+            </p>
+        </div>
+        <div class="content-card">
+            <h2 class="section-title">🎯 Следующие шаги</h2>
+            <p style="color: #4a5568; font-size: 18px; line-height: 1.9; margin-bottom: 20px;">
+                Теперь вы знаете, как эффективно работать с водителями. Следующий модуль посвящен маршрутизации и планированию - оптимизации маршрутов и расчету времени.
+            </p>
+            <div class="action-buttons">
+                <a href="module-7.html" class="btn btn-primary">Следующий модуль: Маршрутизация →</a>
+                <a href="module-5.html" class="btn btn-secondary">← Предыдущий модуль</a>
+            </div>
+        </div>
+    </div>
+    <button id="scrollToTop" style="display: none; position: fixed; bottom: 30px; right: 30px; z-index: 1000; padding: 15px 20px; background: #4299e1; color: white; border: none; border-radius: 50%; cursor: pointer; font-size: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: all 0.3s ease;">↑</button>
+    <script>
+        localStorage.setItem('module_6_viewed', 'true');
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        window.addEventListener('scroll', () => { if (window.pageYOffset > 300) { scrollToTopBtn.style.display = 'block'; } else { scrollToTopBtn.style.display = 'none'; } });
+        scrollToTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    </script>
+</body>
+</html>

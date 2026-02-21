@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Модуль 10: Критические ситуации и безопасность | Курсы - Диспетчера</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 30px 20px; display: flex; flex-direction: column; align-items: center; }
+        body::before { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3), transparent 50%), radial-gradient(circle at 80% 80%, rgba(138, 43, 226, 0.3), transparent 50%), radial-gradient(circle at 40% 20%, rgba(75, 0, 130, 0.2), transparent 50%); animation: backgroundMove 20s ease infinite; z-index: -1; }
+        @keyframes backgroundMove { 0%, 100% { transform: translate(0, 0) scale(1); } 25% { transform: translate(5%, 5%) scale(1.05); } 50% { transform: translate(-5%, 5%) scale(1.1); } 75% { transform: translate(5%, -5%) scale(1.05); } }
+        .container { max-width: 1050px; width: 100%; margin: 0 auto; }
+        .header { background: white; backdrop-filter: blur(10px); padding: 30px 40px; border-radius: 20px; margin-bottom: 30px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); }
+        .header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .module-badge { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 10px 20px; border-radius: 25px; font-weight: 600; font-size: 18px; }
+        .module-number { background: white; backdrop-filter: blur(10px); color: #16a34a; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+        .back-btn { padding: 10px 20px; background: #f3f4f6; color: #374151; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; }
+        .back-btn:hover { background: #e5e7eb; transform: translateY(-2px); }
+        h1 { color: #2d3748; font-size: 32px; margin-bottom: 10px; }
+        .subtitle { color: #718096; font-size: 18px; }
+        .content-card { background: white; backdrop-filter: blur(10px); border-radius: 20px; padding: 40px; margin-bottom: 25px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); }
+        .section-title { color: #2d3748; font-size: 26px; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 3px solid #16a34a; }
+        .section-content p { color: #4a5568; font-size: 18px; line-height: 1.9; margin-bottom: 18px; }
+        .lesson-card { background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border-left: 4px solid #16a34a; padding: 25px; margin: 20px 0; border-radius: 10px; }
+        .lesson-title { color: #166534; font-size: 22px; font-weight: 600; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .lesson-content { color: #15803d; font-size: 17px; line-height: 1.8; }
+        .info-box { background: #fffbeb; border: 2px solid #fbbf24; border-radius: 50px; padding: 25px; margin: 20px 0; }
+        .info-title { color: #92400e; font-size: 20px; font-weight: 600; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .action-buttons { display: flex; gap: 15px; margin-top: 30px; flex-wrap: wrap; }
+        .btn { padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 16px; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .btn-primary { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; box-shadow: 0 4px 15px rgba(22, 163, 74, 0.4); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(22, 163, 74, 0.6); }
+        .btn-secondary { background: white; backdrop-filter: blur(10px); color: #16a34a; border: 2px solid #16a34a; }
+        .btn-secondary:hover { background: #16a34a; color: white; }
+        @media (max-width: 768px) { .header-top { flex-direction: column; gap: 15px; } h1 { font-size: 26px; } .content-card { padding: 25px; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-top">
+                <div class="module-badge"><div class="module-number">10</div><span>Модуль 10 из 10</span></div>
+                <a href="modules.html" class="back-btn">← Назад к модулям</a>
+            </div>
+            <h1>Критические ситуации и безопасность</h1>
+            <p class="subtitle">Управление аварийными ситуациями</p>
+        </div>
+        <div class="content-card">
+            <h2 class="section-title">📖 Обзор модуля</h2>
+            <div class="section-content">
+                <p>Умение правильно действовать в критических ситуациях - важнейший навык диспетчера. Аварии, поломки, задержки, экстремальная погода и другие проблемы требуют быстрых и правильных решений.</p>
+                <p>В этом модуле вы научитесь действовать при авариях, поломках оборудования, задержках, экстремальных погодных условиях, краже груза и страховых случаях.</p>
+            </div>
+        </div>
+        <div class="lesson-card">
+            <div class="lesson-title"><span>🚨</span> Урок 1: Протоколы при авариях</div>
+            <div class="lesson-content">
+                <p><strong>Немедленные действия при аварии:</strong></p>
+                <ul style="text-align: center; list-style-position: inside;">
+                    <li><strong>Безопасность:</strong> Убедитесь, что водитель в безопасности и не ранен</li>
+                    <li><strong>911:</strong> Вызовите полицию и скорую помощь если есть пострадавшие</li>
+                    <li><strong>Не покидать место:</strong> Водитель НЕ должен покидать место аварии</li>
+                    <li><strong>Фото и видео:</strong> Сделать фото/видео повреждений, номеров других машин, места аварии</li>
+                    <li><strong>Обмен информацией:</strong> Получить контакты и страховку других участников</li>
+                    <li><strong>Свидетели:</strong> Получить контакты свидетелей если есть</li>
+                    <li><strong>Police Report:</strong> Дождаться полицию и получить копию отчета</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Действия диспетчера:</strong></p>
+                <ul style="text-align: center; list-style-position: inside;">
+                    <li><strong>Связь с водителем:</strong> Поддерживайте постоянную связь</li>
+                    <li><strong>Уведомление страховой:</strong> Немедленно сообщите в страховую компанию</li>
+                    <li><strong>Уведомление брокера:</strong> Сообщите брокеру о задержке/проблеме</li>
+                    <li><strong>Документация:</strong> Соберите все документы (police report, фото, медицинские отчеты)</li>
+                    <li><strong>Альтернативный трак:</strong> Организуйте замену трака если груз нужно доставить</li>
+                    <li><strong>Drug Test:</strong> Водитель ОБЯЗАН пройти drug test после аварии</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="lesson-card">
+            <div class="lesson-title"><span>🔧</span> Урок 2: Поломки оборудования</div>
+            <div class="lesson-content">
+                <p><strong>Типичные поломки:</strong></p>
+                <ul style="text-align: center; list-style-position: inside;">
+                    <li><strong>Tire Blowout:</strong> Разрыв шины - самая частая проблема</li>
+                    <li><strong>Engine Problems:</strong> Перегрев, потеря мощности</li>
+                    <li><strong>Brake Issues:</strong> Проблемы с тормозами - КРИТИЧНО</li>
+                    <li><strong>Electrical Problems:</strong> Проблемы с электрикой, батареей</li>
+                    <li><strong>Reefer Failure:</strong> Отказ рефрижератора (критично для reefer loads)</li>
+                    <li><strong>Transmission:</strong> Проблемы с коробкой передач</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Действия при поломке:</strong></p>
+                <ul style="text-align: center; list-style-position: inside;">
+                    <li><strong>Безопасная остановка:</strong> Остановиться в безопасном месте (не на обочине хайвея)</li>
+                    <li><strong>Roadside Assistance:</strong> Вызвать помощь на дороге (многие компании предоставляют)</li>
+                    <li><strong>Оценка ситуации:</strong> Можно ли починить на месте или нужна эвакуация</li>
+                    <li><strong>Уведомление брокера:</strong> Сообщите о задержке и новом ETA</li>
+                    <li><strong>Альтернативы:</strong> Рассмотрите перегрузку груза на другой трак</li>
+                    <li><strong>Документация:</strong> Сохраните все чеки за ремонт</li>
+                    <li><strong>Layover Pay:</strong> Требуйте оплату за вынужденную остановку</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="lesson-card">
+            <div class="lesson-title"><span>⏰</span> Урок 3: Задержки и опоздания</div>
+            <div class="lesson-content">
+                <p><strong>Причины задержек:</strong></p>
+                <ul style="text-align: center; list-style-position: inside;">
+                    <li><strong>Traffic:</strong> Пробки, аварии на дороге</li>
+                    <li><strong>Weather:</strong> Снег, дождь, туман</li>
+                    <li><strong>Shipper Delays:</strong> Задержка погрузки</li>
+                    <li><strong>Mechanical Issues:</strong> Поломки</li>
+                    <li><strong>HOS Violations:</strong> Нехватка часов вождения</li>
+                    <li><strong>Weigh Station:</strong> Задержка на весовой</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Как минимизировать последствия:</strong></p>
+                <ul style="text-align: center; list-style-position: inside;">
+                    <li><strong>Раннее уведомление:</strong> Сообщите брокеру и получателю как можно раньше</li>
+                    <li><strong>Новый ETA:</strong> Предоставьте реалистичный новый ETA</li>
+                    <li><strong>Документация:</strong> Сохраните доказательства задержки (фото пробки, weather reports)</li>
+                    <li><strong>Reschedule:</strong> Попросите перенести appointment time</li>
+                    <li><strong>TONU Protection:</strong> Если груз отменен из-за задержки, требуйте TONU pay</li>
+                    <li><strong>Communication:</strong> Поддерживайте постоянную связь со всеми сторонами</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="lesson-card">
+            <div class="lesson-title"><span>🌪️</span> Урок 4: Экстремальные погодные условия</div>
+            <div class="lesson-content">
+                <p><strong>Типы опасной погоды:</strong></p>
+                <ul style="text-align: center; list-style-position: inside;">
+                    <li><strong>Snowstorms:</strong> Снежные бури - закрытие дорог, низкая видимость</li>
+                    <li><strong>Ice:</strong> Гололед - очень опасно для траков</li>
+                    <li><strong>Heavy Rain:</strong> Сильный дождь - flooding, hydroplaning</li>
+                    <li><strong>Fog:</strong> Туман - нулевая видимость</li>
+                    <li><strong>High Winds:</strong> Сильный ветер - опасно для high-profile траков</li>
+                    <li><strong>Hurricanes:</strong> Ураганы - эвакуация, закрытие дорог</li>
+                    <li><strong>Tornadoes:</strong> Торнадо - немедленное укрытие</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Протокол действий:</strong></p>
+                <ul style="text-align: center; list-style-position: inside;">
+                    <li><strong>Monitor Weather:</strong> Постоянно следите за прогнозом</li>
+                    <li><strong>Safety First:</strong> Безопасность водителя важнее доставки</li>
+                    <li><strong>Stop Driving:</strong> Остановитесь если условия опасны</li>
+                    <li><strong>Safe Location:</strong> Найдите безопасное место (truck stop, rest area)</li>
+                    <li><strong>Notify Broker:</strong> Сообщите о задержке из-за погоды</li>
+                    <li><strong>Wait It Out:</strong> Дождитесь улучшения условий</li>
+                    <li><strong>Force Majeure:</strong> Экстремальная погода - уважительная причина задержки</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="lesson-card">
+            <div class="lesson-title"><span>🚔</span> Урок 5: Кража груза и страховые случаи</div>
+            <div class="lesson-content">
+                <p><strong>Предотвращение кражи:</strong></p>
+                <ul style="text-align: center; list-style-position: inside;">
+                    <li><strong>Secure Parking:</strong> Паркуйтесь только на охраняемых стоянках</li>
+                    <li><strong>High-Risk Areas:</strong> Избегайте опасных районов (South CA, TX border, NJ)</li>
+                    <li><strong>Locks:</strong> Используйте качественные замки на трейлере</li>
+                    <li><strong>GPS Tracking:</strong> Установите GPS трекер на трейлер</li>
+                    <li><strong>Never Leave Unattended:</strong> Не оставляйте загруженный трак без присмотра</li>
+                    <li><strong>High-Value Loads:</strong> Особая осторожность с электроникой, фармацевтикой</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Действия при краже:</strong></p>
+                <ul style="text-align: center; list-style-position: inside;">
+                    <li><strong>911:</strong> Немедленно вызовите полицию</li>
+                    <li><strong>Police Report:</strong> Получите копию отчета</li>
+                    <li><strong>Insurance:</strong> Уведомите страховую компанию (cargo insurance)</li>
+                    <li><strong>Broker:</strong> Сообщите брокеру о краже</li>
+                    <li><strong>FBI:</strong> Для грузов >$100,000 может быть привлечено FBI</li>
+                    <li><strong>Documentation:</strong> Соберите все документы (BOL, RC, police report)</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Страховые случаи:</strong></p>
+                <ul style="text-align: center; list-style-position: inside;">
+                    <li><strong>Cargo Damage:</strong> Повреждение груза - cargo insurance покрывает</li>
+                    <li><strong>Liability Claims:</strong> Иски от третьих лиц - liability insurance</li>
+                    <li><strong>Physical Damage:</strong> Повреждение трака - physical damage insurance</li>
+                    <li><strong>Claims Process:</strong> Подайте claim как можно быстрее</li>
+                    <li><strong>Documentation:</strong> Предоставьте все документы и фото</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <div class="info-title"><span>💡</span> Важная информация</div>
+            <p style="color: #78350f; font-size: 17px; line-height: 1.8;">
+                <strong>Безопасность всегда на первом месте!</strong> Никакой груз не стоит жизни или здоровья водителя. При авариях, поломках или опасной погоде - безопасность важнее сроков доставки. Всегда поддерживайте связь с водителем, брокером и страховой компанией. Документируйте все проблемы - фото, отчеты, чеки. Хорошая страховка и правильные действия в критических ситуациях защитят ваш бизнес.
+            </p>
+        </div>
+
+        <div class="content-card">
+            <h2 class="section-title">🎉 Поздравляем с завершением курса!</h2>
+            <p style="color: #4a5568; font-size: 18px; line-height: 1.9; margin-bottom: 20px;">
+                Вы прошли все 10 модулей и получили комплексные знания о работе диспетчера грузоперевозок в США. Теперь вы знаете федеральные регламенты, HOS правила, работу с Load Boards, коммуникацию с брокерами и водителями, планирование маршрутов, типы грузов, финансовые расчеты и действия в критических ситуациях. Применяйте эти знания на практике и развивайте свою карьеру!
+            </p>
+            <div class="action-buttons">
+                <a href="modules.html" class="btn btn-primary">Вернуться к модулям</a>
+                <a href="testing.html" class="btn btn-secondary">Пройти тесты</a>
+            </div>
+        </div>
+    </div>
+    <button id="scrollToTop" style="display: none; position: fixed; bottom: 30px; right: 30px; z-index: 1000; padding: 15px 20px; background: #4299e1; color: white; border: none; border-radius: 50%; cursor: pointer; font-size: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: all 0.3s ease;">↑</button>
+    <script>
+        localStorage.setItem('module_10_viewed', 'true');
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        window.addEventListener('scroll', () => { if (window.pageYOffset > 300) { scrollToTopBtn.style.display = 'block'; } else { scrollToTopBtn.style.display = 'none'; } });
+        scrollToTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    </script>
+</body>
+</html>

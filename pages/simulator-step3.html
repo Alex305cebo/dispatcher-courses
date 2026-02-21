@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Этап 3: Проверка готовности | Симулятор диспетчера</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            min-height: 100vh;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 1050px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: white; backdrop-filter: blur(10px);
+            padding: 30px 40px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .step-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .step-number {
+            background: white; backdrop-filter: blur(10px);
+            color: #f59e0b;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .back-btn {
+            padding: 10px 20px;
+            background: #f3f4f6;
+            color: #374151;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #e5e7eb;
+            transform: translateY(-2px);
+        }
+
+        h1 {
+            color: #2d3748;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #718096;
+            font-size: 18px;
+        }
+
+        .content-card {
+            background: white; backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 25px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-title {
+            color: #2d3748;
+            font-size: 24px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #f59e0b;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            padding: 25px;
+            border-radius: 50px;
+            border-left: 4px solid #f59e0b;
+        }
+
+        .info-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .info-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 8px;
+        }
+
+        .info-text {
+            color: #4a5568;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        .checklist {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .checklist li {
+            padding: 15px;
+            margin-bottom: 10px;
+            background: #f7fafc;
+            border-radius: 8px;
+            display: flex;
+            align-items: start;
+            gap: 12px;
+        }
+
+        .checklist li::before {
+            content: '✓';
+            background: #f59e0b;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .example-box {
+            background: #dbeafe;
+            border: 2px solid #3b82f6;
+            border-radius: 50px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .example-title {
+            color: #1e3a8a;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .example-content {
+            color: #1e40af;
+            line-height: 1.8;
+        }
+
+        .comparison-table {
+            background: white; backdrop-filter: blur(10px);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 15px;
+        }
+
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1px;
+            background: #e5e7eb;
+        }
+
+        .comparison-cell {
+            background: white; backdrop-filter: blur(10px);
+            padding: 15px;
+            text-align: center;
+        }
+
+        .comparison-header {
+            background: #f3f4f6;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .status-ok {
+            color: #16a34a;
+            font-weight: 600;
+        }
+
+        .status-warning {
+            color: #dc2626;
+            font-weight: 600;
+        }
+
+        .tips-box {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            border-radius: 50px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .tips-title {
+            color: #1e40af;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tips-list {
+            list-style: none;
+        }
+
+        .tips-list li {
+            color: #1e3a8a;
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .tips-list li::before {
+            content: '⏰';
+            position: absolute;
+            left: 0;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.6);
+        }
+
+        .btn-secondary {
+            background: white; backdrop-filter: blur(10px);
+            color: #f59e0b;
+            border: 2px solid #f59e0b;
+        }
+
+        .btn-secondary:hover {
+            background: #f59e0b;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .content-card {
+                padding: 25px;
+            }
+
+            .comparison-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3), transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(138, 43, 226, 0.3), transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(75, 0, 130, 0.2), transparent 50%);
+    animation: backgroundMove 20s ease infinite;
+    z-index: -1;
+}
+
+@keyframes backgroundMove {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(5%, 5%) scale(1.05); }
+    50% { transform: translate(-5%, 5%) scale(1.1); }
+    75% { transform: translate(5%, -5%) scale(1.05); }
+}</style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-top">
+                <div class="step-badge">
+                    <div class="step-number">3</div>
+                    <span>Этап 3 из 4</span>
+                </div>
+                <a href="simulator.html" class="back-btn">← Назад к симулятору</a>
+            </div>
+            <h1>Проверка готовности</h1>
+            <p class="subtitle">Сверка времени и подтверждение назначения груза</p>
+        </div>
+
+        <div class="content-card">
+            <h2 class="section-title">⏰ Обзор этапа</h2>
+            <p style="color: #4a5568; line-height: 1.8; font-size: 16px; margin-bottom: 20px;">
+                Критически важный этап, на котором диспетчер проверяет совместимость времени освобождения трейлера 
+                с временем погрузки груза. Ошибка на этом этапе может привести к срыву сроков, штрафам и потере репутации.
+            </p>
+
+            <div class="info-grid">
+                <div class="info-box">
+                    <div class="info-icon">📅</div>
+                    <div class="info-title">Время трейлера</div>
+                    <div class="info-text">
+                        Когда трейлер будет свободен после выгрузки текущего груза и готов к новой загрузке.
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-icon">🕐</div>
+                    <div class="info-title">Время погрузки</div>
+                    <div class="info-text">
+                        Когда груз должен быть забран с места отправления согласно требованиям брокера.
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-icon">🚗</div>
+                    <div class="info-title">Время в пути</div>
+                    <div class="info-text">
+                        Расчет времени, необходимого водителю для проезда от текущего местоположения до места погрузки.
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-icon">✅</div>
+                    <div class="info-title">Автоназначение</div>
+                    <div class="info-text">
+                        Система автоматически подтверждает назначение, если все временные параметры совпадают.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2 class="section-title">✅ Чек-лист проверки</h2>
+            <ul class="checklist">
+                <li>
+                    <div>
+                        <strong>Проверить время освобождения трейлера</strong><br>
+                        <span style="color: #718096;">Убедиться, что водитель точно знает, когда завершит текущую выгрузку</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>Сверить с временем погрузки нового груза</strong><br>
+                        <span style="color: #718096;">Время погрузки должно быть позже времени освобождения + время в пути</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>Рассчитать deadhead time</strong><br>
+                        <span style="color: #718096;">Время проезда от места выгрузки до места погрузки нового груза</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>Учесть буферное время</strong><br>
+                        <span style="color: #718096;">Добавить 30-60 минут на непредвиденные задержки, оформление документов</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>Проверить HOS (Hours of Service)</strong><br>
+                        <span style="color: #718096;">У водителя должно быть достаточно доступных часов для выполнения рейса</span>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>Подтвердить назначение</strong><br>
+                        <span style="color: #718096;">Если все проверки пройдены, система автоматически назначает груз водителю</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="content-card">
+            <div class="example-box">
+                <div class="example-title">
+                    <span>📊</span>
+                    Пример расчета времени
+                </div>
+                <div class="example-content">
+                    <p style="margin-bottom: 15px;"><strong>Сценарий:</strong> Водитель в Далласе, груз нужно забрать в Хьюстоне</p>
+                    
+                    <div class="comparison-table">
+                        <div class="comparison-row">
+                            <div class="comparison-cell comparison-header">Параметр</div>
+                            <div class="comparison-cell comparison-header">Время</div>
+                            <div class="comparison-cell comparison-header">Статус</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">Освобождение трейлера</div>
+                            <div class="comparison-cell">08:00 AM</div>
+                            <div class="comparison-cell status-ok">✓ Готов</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">Время в пути (240 миль)</div>
+                            <div class="comparison-cell">4 часа</div>
+                            <div class="comparison-cell status-ok">✓ OK</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">Буферное время</div>
+                            <div class="comparison-cell">1 час</div>
+                            <div class="comparison-cell status-ok">✓ OK</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">Прибытие на погрузку</div>
+                            <div class="comparison-cell">01:00 PM</div>
+                            <div class="comparison-cell status-ok">✓ OK</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">Требуемое время погрузки</div>
+                            <div class="comparison-cell">02:00 PM</div>
+                            <div class="comparison-cell status-ok">✓ Успеет</div>
+                        </div>
+                    </div>
+
+                    <p style="margin-top: 15px; padding: 15px; background: #dcfce7; border-radius: 8px; color: #166534;">
+                        <strong>Результат:</strong> Водитель успеет вовремя. Есть запас 1 час на непредвиденные обстоятельства.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <div class="tips-box">
+                <div class="tips-title">
+                    <span>💡</span>
+                    Профессиональные советы
+                </div>
+                <ul class="tips-list">
+                    <li>Всегда добавляйте буферное время 30-60 минут — дороги непредсказуемы</li>
+                    <li>Учитывайте часовые пояса — ошибка может стоить опоздания на несколько часов</li>
+                    <li>Проверяйте погодные условия на маршруте — снег, дождь, туман замедляют движение</li>
+                    <li>Уточняйте часы работы места погрузки — некоторые склады закрываются на обед</li>
+                    <li>Помните про HOS — водитель может быть физически готов, но не иметь доступных часов</li>
+                    <li>Если времени впритык, лучше отказаться от груза, чем рисковать штрафами</li>
+                    <li>Документируйте все расчеты — в случае спора у вас будут доказательства</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2 class="section-title">⚠️ Критические ошибки</h2>
+            <div style="display: grid; gap: 15px;">
+                <div style="background: #fee2e2; padding: 30px 20px; border-radius: 10px; border-left: 4px solid #ef4444;">
+                    <strong style="color: #991b1b;">❌ Не учли время в пути</strong>
+                    <p style="color: #7f1d1d; margin-top: 8px;">Трейлер освобождается в 10:00, погрузка в 11:00, но расстояние 150 миль (2.5 часа пути). Водитель опоздает.</p>
+                </div>
+                <div style="background: #fee2e2; padding: 30px 20px; border-radius: 10px; border-left: 4px solid #ef4444;">
+                    <strong style="color: #991b1b;">❌ Забыли про часовые пояса</strong>
+                    <p style="color: #7f1d1d; margin-top: 8px;">Водитель в Central Time, погрузка в Eastern Time. Разница 1 час может сорвать весь план.</p>
+                </div>
+                <div style="background: #fee2e2; padding: 30px 20px; border-radius: 10px; border-left: 4px solid #ef4444;">
+                    <strong style="color: #991b1b;">❌ Не проверили HOS</strong>
+                    <p style="color: #7f1d1d; margin-top: 8px;">Водитель успевает по времени, но у него осталось только 3 часа вождения, а рейс требует 6 часов.</p>
+                </div>
+                <div style="background: #fee2e2; padding: 30px 20px; border-radius: 10px; border-left: 4px solid #ef4444;">
+                    <strong style="color: #991b1b;">❌ Нет буферного времени</strong>
+                    <p style="color: #7f1d1d; margin-top: 8px;">Расчет времени впритык без запаса. Любая задержка приведет к опозданию и штрафам.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2 class="section-title">📐 Формула расчета</h2>
+            <div style="background: #fffbeb; padding: 25px; border-radius: 50px; border: 2px solid #f59e0b;">
+                <h3 style="color: #92400e; margin-bottom: 15px;">Минимальное время прибытия:</h3>
+                <div style="background: white; backdrop-filter: blur(10px); padding: 30px 20px; border-radius: 8px; margin-bottom: 15px;">
+                    <p style="font-size: 18px; color: #2d3748; font-weight: 600; text-align: center;">
+                        Время прибытия = Время освобождения + (Deadhead миль ÷ 50 mph) + Буфер (1 час)
+                    </p>
+                </div>
+                <p style="color: #92400e; line-height: 1.8;">
+                    <strong>Пример:</strong> Освобождение в 08:00, deadhead 100 миль<br>
+                    Время прибытия = 08:00 + (100 ÷ 50) + 1:00 = 08:00 + 2:00 + 1:00 = <strong style="color: #d97706;">11:00 AM</strong><br>
+                    Если погрузка в 12:00 PM — водитель успеет с запасом 1 час.
+                </p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2 class="section-title">🎯 Следующие шаги</h2>
+            <p style="color: #4a5568; line-height: 1.8; margin-bottom: 20px;">
+                После подтверждения готовности и назначения груза, следующий этап — связь с брокером. 
+                Необходимо отправить профессиональное сообщение с запросом деталей и подтверждением готовности водителя.
+            </p>
+
+            <div class="action-buttons">
+                <a href="simulator.html" class="btn btn-primary">
+                    🚀 Запустить симулятор
+                </a>
+                <a href="simulator-step4.html" class="btn btn-secondary">
+                    Следующий этап: Связь с брокером →
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Модуль 3: Hours of Service (HOS) | Курсы - Диспетчера</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 30px 20px; display: flex; flex-direction: column; align-items: center; }
+        body::before { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3), transparent 50%), radial-gradient(circle at 80% 80%, rgba(138, 43, 226, 0.3), transparent 50%), radial-gradient(circle at 40% 20%, rgba(75, 0, 130, 0.2), transparent 50%); animation: backgroundMove 20s ease infinite; z-index: -1; }
+        @keyframes backgroundMove { 0%, 100% { transform: translate(0, 0) scale(1); } 25% { transform: translate(5%, 5%) scale(1.05); } 50% { transform: translate(-5%, 5%) scale(1.1); } 75% { transform: translate(5%, -5%) scale(1.05); } }
+        .container { max-width: 1050px; width: 100%; margin: 0 auto; }
+        .header { background: white; backdrop-filter: blur(10px); padding: 30px 40px; border-radius: 20px; margin-bottom: 30px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); }
+        .header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .module-badge { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 10px 20px; border-radius: 25px; font-weight: 600; font-size: 18px; }
+        .module-number { background: white; backdrop-filter: blur(10px); color: #16a34a; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+        .back-btn { padding: 10px 20px; background: #f3f4f6; color: #374151; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; }
+        .back-btn:hover { background: #e5e7eb; transform: translateY(-2px); }
+        h1 { color: #2d3748; font-size: 32px; margin-bottom: 10px; }
+        .subtitle { color: #718096; font-size: 18px; }
+        .content-card { background: white; backdrop-filter: blur(10px); border-radius: 20px; padding: 40px; margin-bottom: 25px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); }
+        .section-title { color: #2d3748; font-size: 26px; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 3px solid #16a34a; }
+        .section-content p { color: #4a5568; font-size: 18px; line-height: 1.9; margin-bottom: 18px; }
+        .lesson-card { background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border-left: 4px solid #16a34a; padding: 25px; margin: 20px 0; border-radius: 10px; }
+        .lesson-title { color: #166534; font-size: 22px; font-weight: 600; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .lesson-content { color: #15803d; font-size: 17px; line-height: 1.8; }
+        .info-box { background: #fffbeb; border: 2px solid #fbbf24; border-radius: 50px; padding: 25px; margin: 20px 0; }
+        .info-title { color: #92400e; font-size: 20px; font-weight: 600; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .action-buttons { display: flex; gap: 15px; margin-top: 30px; flex-wrap: wrap; }
+        .btn { padding: 15px 30px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 16px; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 10px; }
+        .btn-primary { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; box-shadow: 0 4px 15px rgba(22, 163, 74, 0.4); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(22, 163, 74, 0.6); }
+        .btn-secondary { background: white; backdrop-filter: blur(10px); color: #16a34a; border: 2px solid #16a34a; }
+        .btn-secondary:hover { background: #16a34a; color: white; }
+        @media (max-width: 768px) { .header-top { flex-direction: column; gap: 15px; } h1 { font-size: 26px; } .content-card { padding: 25px; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-top">
+                <div class="module-badge"><div class="module-number">3</div><span>Модуль 3 из 10</span></div>
+                <a href="modules.html" class="back-btn"> Назад к модулям</a>
+            </div>
+            <h1>Hours of Service (HOS)</h1>
+            <p class="subtitle">Правила рабочего времени водителей</p>
+        </div>
+        <div class="content-card">
+            <h2 class="section-title"> Обзор модуля</h2>
+            <div class="section-content">
+                <p>Hours of Service (HOS) - это федеральные правила, регулирующие рабочее время водителей коммерческих траков. Эти правила созданы для предотвращения усталости водителей и повышения безопасности на дорогах.</p>
+                <p>Диспетчер должен знать HOS правила наизусть, чтобы правильно планировать рейсы и избегать нарушений, которые могут привести к крупным штрафам.</p>
+            </div>
+        </div>
+        <div class="lesson-card">
+            <div class="lesson-title"><span></span> Урок 1: 11-Hour Driving Limit</div>
+            <div class="lesson-content">
+                <p><strong>Правило 11 часов вождения:</strong></p>
+                <ul style="text-align: center; list-style-position: inside;">
+                    <li><strong>Максимум 11 часов:</strong> Водитель может управлять траком не более 11 часов после 10 часов отдыха подряд</li>
+                    <li><strong>Driving time:</strong> Считается только время, когда трак движется</li>
+                    <li><strong>Важно:</strong> После 11 часов вождения водитель ОБЯЗАН взять минимум 10-часовой перерыв</li>
+                    <li><strong>Пример:</strong> Водитель начал в 6:00 AM, проехал 11 часов, закончил в 5:00 PM - следующий рейс может начать не раньше 3:00 AM</li>
+                    <li><strong>Нарушение:</strong> Штраф $1,000-$11,000 для водителя и перевозчика</li>
+                </ul>
+            </div>
+        </div>
+        <div class="lesson-card">
+            <div class="lesson-title"><span></span> Урок 2: 14-Hour On-Duty Window</div>
+            <div class="lesson-content">
+                <p><strong>14-часовое рабочее окно:</strong></p>
+                <ul style="text-align: center; list-style-position: inside;">
+                    <li><strong>14 часов с момента начала:</strong> Водитель может работать максимум 14 часов с момента выхода на смену</li>
+                    <li><strong>Включает все время:</strong> Вождение, погрузка/разгрузка, ожидание, осмотр трака</li>
+                    <li><strong>Нельзя продлить:</strong> 14-часовое окно НЕЛЬЗЯ продлить перерывами (кроме 30-минутного)</li>
+                    <li><strong>Пример:</strong> Начало в 6:00 AM - окно закрывается в 8:00 PM, независимо от перерывов</li>
+                    <li><strong>Критично:</strong> Диспетчер должен планировать рейсы так, чтобы водитель успел доехать до места отдыха до закрытия окна</li>
+                </ul>
+            </div>
+        </div>
+        <div class="lesson-card">
+            <div class="lesson-title"><span></span> Урок 3: 30-Minute Break Rule</div>
+            <div class="lesson-content">
+                <p><strong>Обязательный 30-минутный перерыв:</strong></p>
+                <ul style="text-align: center; list-style-position: inside;">
+                    <li><strong>После 8 часов:</strong> Водитель обязан взять минимум 30-минутный перерыв после 8 часов вождения</li>
+                    <li><strong>Off-Duty или Sleeper Berth:</strong> Перерыв должен быть в статусе Off-Duty или Sleeper Berth</li>
+                    <li><strong>Не продлевает 14-часовое окно:</strong> Перерыв не останавливает 14-часовой таймер</li>
+                    <li><strong>Пример:</strong> Водитель ехал 8 часов - обязан взять 30 минут перерыва перед продолжением</li>
+                    <li><strong>Важно:</strong> Диспетчер должен учитывать этот перерыв при планировании времени доставки</li>
+                </ul>
+            </div>
+        </div>
+        <div class="lesson-card">
+            <div class="lesson-title"><span></span> Урок 4: 60/70-Hour Duty Limits</div>
+            <div class="lesson-content">
+                <p><strong>Недельные лимиты рабочего времени:</strong></p>
+                <ul style="text-align: center; list-style-position: inside;">
+                    <li><strong>60-Hour/7-Day:</strong> Максимум 60 часов работы за 7 дней подряд (для компаний, работающих не каждый день)</li>
+                    <li><strong>70-Hour/8-Day:</strong> Максимум 70 часов работы за 8 дней подряд (для компаний, работающих каждый день)</li>
+                    <li><strong>Rolling Period:</strong> Считается скользящий период (не календарная неделя)</li>
+                    <li><strong>Пример:</strong> Если водитель отработал 70 часов за 8 дней, он не может работать, пока не "освободятся" часы</li>
+                    <li><strong>34-Hour Restart:</strong> Водитель может сбросить счетчик, взяв 34 часа отдыха подряд</li>
+                </ul>
+            </div>
+        </div>
+        <div class="lesson-card">
+            <div class="lesson-title"><span></span> Урок 5: 34-Hour Restart и ELD</div>
+            <div class="lesson-content">
+                <p><strong>34-Hour Restart:</strong></p>
+                <ul style="text-align: center; list-style-position: inside;">
+                    <li><strong>Сброс счетчика:</strong> 34 часа отдыха подряд сбрасывают 60/70-часовой счетчик</li>
+                    <li><strong>Без ограничений:</strong> Можно использовать в любое время</li>
+                    <li><strong>Пример:</strong> Водитель отработал 70 часов, взял 34 часа отдыха - счетчик обнулился</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>ELD (Electronic Logging Device):</strong></p>
+                <ul style="text-align: center; list-style-position: inside;">
+                    <li><strong>Обязательно:</strong> Все траки должны использовать ELD для автоматического учета HOS</li>
+                    <li><strong>Автоматическая запись:</strong> ELD автоматически записывает время вождения, местоположение, пробег</li>
+                    <li><strong>Популярные ELD:</strong> KeepTruckin, Samsara, Omnitracs, Geotab</li>
+                    <li><strong>Штраф за отсутствие:</strong> $1,000-$10,000</li>
+                </ul>
+            </div>
+        </div>
+        <div class="info-box">
+            <div class="info-title"><span></span> Важная информация</div>
+            <p style="color: #78350f; font-size: 17px; line-height: 1.8;">
+                <strong>HOS правила - основа работы диспетчера!</strong> Нарушения HOS приводят к огромным штрафам и могут закрыть компанию. Всегда планируйте рейсы с учетом 11-часового лимита вождения, 14-часового окна и обязательных перерывов. Используйте ELD для контроля времени водителей.
+            </p>
+        </div>
+        <div class="content-card">
+            <h2 class="section-title"> Следующие шаги</h2>
+            <p style="color: #4a5568; font-size: 18px; line-height: 1.9; margin-bottom: 20px;">
+                Теперь вы знаете HOS правила. Следующий модуль посвящен Load Boards и поиску грузов - ключевым навыкам для успешной работы диспетчера.
+            </p>
+            <div class="action-buttons">
+                <a href="module-4.html" class="btn btn-primary">Следующий модуль: Load Boards </a>
+                <a href="module-2.html" class="btn btn-secondary"> Предыдущий модуль</a>
+            </div>
+        </div>
+    </div>
+    <button id="scrollToTop" style="display: none; position: fixed; bottom: 30px; right: 30px; z-index: 1000; padding: 15px 20px; background: #4299e1; color: white; border: none; border-radius: 50%; cursor: pointer; font-size: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: all 0.3s ease;"></button>
+    <script>
+        localStorage.setItem('module_3_viewed', 'true');
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        window.addEventListener('scroll', () => { if (window.pageYOffset > 300) { scrollToTopBtn.style.display = 'block'; } else { scrollToTopBtn.style.display = 'none'; } });
+        scrollToTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    </script>
+</body>
+</html>

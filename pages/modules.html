@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10 Модулей обучения | Курсы - Диспетчера</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(34, 197, 94, 0.3), transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(21, 128, 61, 0.3), transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(22, 163, 74, 0.2), transparent 60%);
+            animation: backgroundMove 20s ease infinite;
+            z-index: -1;
+        }
+
+        @keyframes backgroundMove {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.1); }
+        }
+
+        .header {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 1050px;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            color: #2d3748;
+            font-size: 36px;
+        }
+
+        .back-btn {
+            padding: 12px 24px;
+            background: #16a34a;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #15803d;
+            transform: translateY(-2px);
+        }
+
+        .header-info {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            padding: 30px 20px;
+            border-radius: 10px;
+            border-left: 4px solid #16a34a;
+        }
+
+        .header-info p {
+            color: #15803d;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 1050px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .module-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-left: 5px solid #16a34a;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.6s ease;
+            display: flex;
+            flex-direction: column;
+            height: 420px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .module-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(22, 163, 74, 0.05) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .module-card:hover::before {
+            opacity: 1;
+        }
+
+        .module-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 45px rgba(22, 163, 74, 0.3);
+        }
+
+        .module-number {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .module-title {
+            color: #2d3748;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+            line-height: 1.4;
+            flex-shrink: 0;
+        }
+
+        .module-description {
+            color: #4a5568;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+            flex-shrink: 0;
+        }
+
+        .module-content-scroll {
+            flex-grow: 1;
+            overflow-y: auto;
+            overflow-x: hidden;
+            margin-bottom: 12px;
+            padding-right: 8px;
+        }
+
+        .module-content-scroll::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .module-content-scroll::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 10px;
+        }
+
+        .module-content-scroll::-webkit-scrollbar-thumb {
+            background: #16a34a;
+            border-radius: 10px;
+        }
+
+        .module-content-scroll::-webkit-scrollbar-thumb:hover {
+            background: #15803d;
+        }
+
+        .module-topics {
+            background: #f7fafc;
+            padding: 12px;
+            border-radius: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .module-topics h4 {
+            color: #2d3748;
+            font-size: 14px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .module-topics ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .module-topics li {
+            color: #4a5568;
+            font-size: 13px;
+            padding: 3px 0;
+            padding-left: 18px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .module-topics li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #16a34a;
+            font-weight: bold;
+        }
+
+        .module-meta {
+            display: flex;
+            gap: 10px;
+            color: #718096;
+            font-size: 13px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+            flex-shrink: 0;
+        }
+        
+        .module-buttons {
+            flex-shrink: 0;
+        }
+
+        .module-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .module-btn {
+            display: inline-block;
+            width: 100%;
+            padding: 12px 18px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 10;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .module-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(22, 163, 74, 0.4);
+        }
+
+        .test-btn {
+            display: inline-block;
+            width: 100%;
+            padding: 10px 18px;
+            background: white;
+            color: #16a34a;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 2px solid #16a34a;
+            position: relative;
+            z-index: 10;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .test-btn:hover {
+            background: #16a34a;
+            color: white;
+        }
+
+        .badge {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            background: #fee2e2;
+            color: #991b1b;
+            padding: 6px 12px;
+            border-radius: 18px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .badge.completed {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .badge.in-progress {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        @media (max-width: 1050px) {
+            .modules-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .modules-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-top {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .header h1 {
+                font-size: 28px;
+            }
+            
+            .module-card {
+                min-height: auto;
+            }
+        }
+    body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3), transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(138, 43, 226, 0.3), transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(75, 0, 130, 0.2), transparent 50%);
+    animation: backgroundMove 20s ease infinite;
+    z-index: -1;
+}
+
+@keyframes backgroundMove {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(5%, 5%) scale(1.05); }
+    50% { transform: translate(-5%, 5%) scale(1.1); }
+    75% { transform: translate(5%, -5%) scale(1.05); }
+}</style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <div class="header-top">
+                <h1>📚 10 Модулей обучения диспетчера</h1>
+                <a href="../index.html" class="back-btn">← Назад</a>
+            </div>
+            
+            <div id="overallStats" style="display:none;background:linear-gradient(135deg,#dcfce7,#bbf7d0);border:3px solid #16a34a;border-radius:16px;padding:25px;margin-bottom:20px">
+                <div style="font-size:22px;font-weight:800;color:#15803d;margin-bottom:18px;text-align:center">📊 Общая статистика по всем модулям</div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:15px;margin-bottom:15px">
+                    <div style="background:white;padding:15px;border-radius:10px;text-align:center;border:2px solid #16a34a">
+                        <div style="font-size:28px;font-weight:900;color:#16a34a" id="statsCompleted">0</div>
+                        <div style="font-size:13px;color:#64748b;margin-top:5px;font-weight:600">✅ Модулей пройдено</div>
+                    </div>
+                    <div style="background:white;padding:15px;border-radius:10px;text-align:center;border:2px solid #f59e0b">
+                        <div style="font-size:28px;font-weight:900;color:#f59e0b" id="statsInProgress">0</div>
+                        <div style="font-size:13px;color:#64748b;margin-top:5px;font-weight:600">⏳ В процессе</div>
+                    </div>
+                    <div style="background:white;padding:15px;border-radius:10px;text-align:center;border:2px solid #3b82f6">
+                        <div style="font-size:28px;font-weight:900;color:#3b82f6" id="statsAvgScore">0%</div>
+                        <div style="font-size:13px;color:#64748b;margin-top:5px;font-weight:600">📈 Средний балл</div>
+                    </div>
+                    <div style="background:white;padding:15px;border-radius:10px;text-align:center;border:2px solid #8b5cf6">
+                        <div style="font-size:28px;font-weight:900;color:#8b5cf6" id="statsProgress">0%</div>
+                        <div style="font-size:13px;color:#64748b;margin-top:5px;font-weight:600">🎯 Общий прогресс</div>
+                    </div>
+                </div>
+                <button onclick="resetAllModules()" style="background:linear-gradient(135deg,#ef4444,#dc2626);color:white;padding:12px 24px;border:none;border-radius:8px;font-weight:700;cursor:pointer;width:100%;transition:all 0.3s">🔄 Сбросить все модули</button>
+            </div>
+            
+            <div class="header-info">
+                <p>
+                    <strong>Комплексная программа подготовки диспетчера грузоперевозок США.</strong> 
+                    Каждый модуль включает теоретический материал из документации и тест для проверки знаний. 
+                    Пройдите все модули последовательно для получения полной квалификации.
+                </p>
+            </div>
+        </div>
+
+        <div class="modules-grid">
+
+            <div class="module-card">
+                <span class="badge" data-module="1">Не пройдено</span>
+                <div class="module-number">1</div>
+                <h2 class="module-title">Основы диспетчерской работы в США</h2>
+                <div class="module-content-scroll">
+                    <p class="module-description">
+                        Введение в профессию диспетчера грузоперевозок. Роль, обязанности, требования и карьерные перспективы.
+                    </p>
+                    <div class="module-topics">
+                        <h4>Темы модуля:</h4>
+                        <ul style="text-align: center; list-style-position: inside;">
+                            <li>Роль и обязанности диспетчера</li>
+                            <li>Структура транспортной отрасли США</li>
+                            <li>Требования к диспетчерам</li>
+                            <li>Зарплата и карьерный рост</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="module-buttons">
+                    <div class="module-meta">
+                        <span>📚 4 урока</span>
+                        <span>✅ Тест: 15 вопросов</span>
+                    </div>
+                    <a href="module-1.html" class="module-btn">Начать модуль →</a>
+                    <a href="test-1.html" class="test-btn">📝 Пройти тест</a>
+                </div>
+            </div>
+
+            <div class="module-card">
+                <span class="badge" data-module="2">Не пройдено</span>
+                <div class="module-number">2</div>
+                <h2 class="module-title">FMCSA и DOT регламенты</h2>
+                <div class="module-content-scroll">
+                    <p class="module-description">
+                        Федеральные правила безопасности перевозок. FMCSA требования, DOT номера, лицензии и сертификаты.
+                    </p>
+                    <div class="module-topics">
+                        <h4>Темы модуля:</h4>
+                        <ul style="text-align: center; list-style-position: inside;">
+                            <li>FMCSA: структура и функции</li>
+                            <li>DOT номера и регистрация</li>
+                            <li>MC Authority и Operating Authority</li>
+                            <li>Требования к водителям (CDL)</li>
+                            <li>Страхование и ответственность</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="module-buttons">
+                    <div class="module-meta">
+                        <span>📚 6 уроков</span>
+                        <span>✅ Тест: 20 вопросов</span>
+                    </div>
+                    <a href="module-2.html" class="module-btn">Начать модуль →</a>
+                    <a href="test-2.html" class="test-btn">📝 Пройти тест</a>
+                </div>
+            </div>
+
+            <div class="module-card">
+                <span class="badge" data-module="3">Не пройдено</span>
+                <div class="module-number">3</div>
+                <h2 class="module-title">Hours of Service (HOS)</h2>
+                <div class="module-content-scroll">
+                    <p class="module-description">
+                        Правила рабочего времени водителей. 11-часовое правило, 14-часовое окно, обязательные перерывы.
+                    </p>
+                    <div class="module-topics">
+                        <h4>Темы модуля:</h4>
+                        <ul style="text-align: center; list-style-position: inside;">
+                            <li>11-Hour Driving Limit</li>
+                            <li>14-Hour On-Duty Window</li>
+                            <li>30-Minute Break Rule</li>
+                            <li>60/70-Hour Duty Limits</li>
+                            <li>34-Hour Restart</li>
+                            <li>ELD (Electronic Logging Device)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="module-buttons">
+                    <div class="module-meta">
+                        <span>📚 5 уроков</span>
+                        <span>✅ Тест: 18 вопросов</span>
+                    </div>
+                    <a href="module-3.html" class="module-btn">Начать модуль →</a>
+                    <a href="test-3.html" class="test-btn">📝 Пройти тест</a>
+                </div>
+            </div>
+
+            <div class="module-card">
+                <span class="badge" data-module="4">Не пройдено</span>
+                <div class="module-number">4</div>
+                <h2 class="module-title">Load Boards и поиск грузов</h2>
+                <div class="module-content-scroll">
+                    <p class="module-description">
+                        Работа с платформами поиска грузов. DAT, TQL, C.H. Robinson, Arrive Logistics и другие крупные брокеры. Типы оборудования и ключевые термины.
+                    </p>
+                    <div class="module-topics">
+                        <h4>Темы модуля:</h4>
+                        <ul style="text-align: center; list-style-position: inside;">
+                            <li>Крупные Load Board брокеры (DAT, TQL, C.H. Robinson)</li>
+                            <li>Типы оборудования: Dry Van, Reefer, Flatbed, Hazmat</li>
+                            <li>Ключевые термины: Deadhead, RPM, TONU</li>
+                            <li>Detention и Layover платежи</li>
+                            <li>Анализ ставок и маршрутов</li>
+                            <li>Расчет прибыльности груза</li>
+                            <li>Проверка брокеров через RTS Pro и Carrier411</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="module-buttons">
+                    <div class="module-meta">
+                        <span>📚 8 уроков</span>
+                        <span>✅ Тест: 25 вопросов</span>
+                    </div>
+                    <a href="module-4.html" class="module-btn">Начать модуль →</a>
+                    <a href="test-4.html" class="test-btn">📝 Пройти тест</a>
+                </div>
+            </div>
+
+            <div class="module-card">
+                <span class="badge" data-module="5">Не пройдено</span>
+                <div class="module-number">5</div>
+                <h2 class="module-title">Коммуникация с брокерами</h2>
+                <div class="module-content-scroll">
+                    <p class="module-description">
+                        Профессиональное общение с брокерами. Проверка MC/DOT номеров, переговоры о ставках, образцы email, документооборот.
+                    </p>
+                    <div class="module-topics">
+                        <h4>Темы модуля:</h4>
+                        <ul style="text-align: center; list-style-position: inside;">
+                            <li>Проверка MC/DOT через RTS Pro и Carrier411</li>
+                            <li>Профессиональная переписка на английском</li>
+                            <li>Образцы email для запроса грузов</li>
+                            <li>Структура сообщений брокерам</li>
+                            <li>Переговоры о ставках и дополнительных платах</li>
+                            <li>Rate Confirmation (RC)</li>
+                            <li>Bill of Lading (BOL)</li>
+                            <li>Proof of Delivery (POD)</li>
+                            <li>Invoice Factoring для быстрой оплаты</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="module-buttons">
+                    <div class="module-meta">
+                        <span>📚 7 уроков</span>
+                        <span>✅ Тест: 20 вопросов</span>
+                    </div>
+                    <a href="module-5.html" class="module-btn">Начать модуль →</a>
+                    <a href="test-5.html" class="test-btn">📝 Пройти тест</a>
+                </div>
+            </div>
+
+            <div class="module-card">
+                <span class="badge" data-module="6">Не пройдено</span>
+                <div class="module-number">6</div>
+                <h2 class="module-title">Работа с водителями</h2>
+                <div class="module-content-scroll">
+                    <p class="module-description">
+                        Эффективная коммуникация с водителями. Назначение грузов, контроль выполнения, решение проблем.
+                    </p>
+                    <div class="module-topics">
+                        <h4>Темы модуля:</h4>
+                        <ul style="text-align: center; list-style-position: inside;">
+                            <li>Сбор информации о водителе</li>
+                            <li>Проверка готовности трака</li>
+                            <li>Назначение грузов</li>
+                            <li>Контроль выполнения рейса</li>
+                            <li>Решение конфликтов</li>
+                            <li>Мотивация водителей</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="module-buttons">
+                    <div class="module-meta">
+                        <span>📚 4 урока</span>
+                        <span>✅ Тест: 14 вопросов</span>
+                    </div>
+                    <a href="module-6.html" class="module-btn">Начать модуль →</a>
+                    <a href="test-6.html" class="test-btn">📝 Пройти тест</a>
+                </div>
+            </div>
+
+            <div class="module-card">
+                <span class="badge" data-module="7">Не пройдено</span>
+                <div class="module-number">7</div>
+                <h2 class="module-title">Маршрутизация и планирование</h2>
+                <div class="module-content-scroll">
+                    <p class="module-description">
+                        Оптимизация маршрутов и расчет времени. GPS навигация, учет погоды, дорожных условий и HOS.
+                    </p>
+                    <div class="module-topics">
+                        <h4>Темы модуля:</h4>
+                        <ul style="text-align: center; list-style-position: inside;">
+                            <li>Планирование маршрутов</li>
+                            <li>Расчет времени в пути</li>
+                            <li>Учет часовых поясов</li>
+                            <li>Погодные условия</li>
+                            <li>Дорожные ограничения</li>
+                            <li>Оптимизация deadhead</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="module-buttons">
+                    <div class="module-meta">
+                        <span>📚 6 уроков</span>
+                        <span>✅ Тест: 19 вопросов</span>
+                    </div>
+                    <a href="module-7.html" class="module-btn">Начать модуль →</a>
+                    <a href="test-7.html" class="test-btn">📝 Пройти тест</a>
+                </div>
+            </div>
+
+            <div class="module-card">
+                <span class="badge" data-module="8">Не пройдено</span>
+                <div class="module-number">8</div>
+                <h2 class="module-title">Типы грузов и оборудования</h2>
+                <div class="module-content-scroll">
+                    <p class="module-description">
+                        Классификация грузов и типов трейлеров. Dry Van, Reefer, Flatbed, специальные перевозки.
+                    </p>
+                    <div class="module-topics">
+                        <h4>Темы модуля:</h4>
+                        <ul style="text-align: center; list-style-position: inside;">
+                            <li>53ft Dry Van</li>
+                            <li>53ft Reefer (рефрижератор)</li>
+                            <li>Flatbed (платформа)</li>
+                            <li>Step Deck / Lowboy</li>
+                            <li>HAZMAT грузы</li>
+                            <li>Oversized / Heavy Haul</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="module-buttons">
+                    <div class="module-meta">
+                        <span>📚 5 уроков</span>
+                        <span>✅ Тест: 17 вопросов</span>
+                    </div>
+                    <a href="module-8.html" class="module-btn">Начать модуль →</a>
+                    <a href="test-8.html" class="test-btn">📝 Пройти тест</a>
+                </div>
+            </div>
+
+            <div class="module-card">
+                <span class="badge" data-module="9">Не пройдено</span>
+                <div class="module-number">9</div>
+                <h2 class="module-title">Финансы и расчеты</h2>
+                <div class="module-content-scroll">
+                    <p class="module-description">
+                        Расчет прибыльности рейсов. Учет расходов, топлива, deadhead, оптимизация доходов.
+                    </p>
+                    <div class="module-topics">
+                        <h4>Темы модуля:</h4>
+                        <ul style="text-align: center; list-style-position: inside;">
+                            <li>Расчет прибыльности груза</li>
+                            <li>Rate per mile анализ</li>
+                            <li>Учет расходов на топливо</li>
+                            <li>Deadhead costs</li>
+                            <li>Оптимизация маржи</li>
+                            <li>Факторинг и оплата</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="module-buttons">
+                    <div class="module-meta">
+                        <span>📚 4 урока</span>
+                        <span>✅ Тест: 15 вопросов</span>
+                    </div>
+                    <a href="module-9.html" class="module-btn">Начать модуль →</a>
+                    <a href="test-9.html" class="test-btn">📝 Пройти тест</a>
+                </div>
+            </div>
+
+            <div class="module-card">
+                <span class="badge" data-module="10">Не пройдено</span>
+                <div class="module-number">10</div>
+                <h2 class="module-title">Критические ситуации и безопасность</h2>
+                <div class="module-content-scroll">
+                    <p class="module-description">
+                        Управление аварийными ситуациями. Поломки, аварии, задержки, погодные условия, решение проблем.
+                    </p>
+                    <div class="module-topics">
+                        <h4>Темы модуля:</h4>
+                        <ul style="text-align: center; list-style-position: inside;">
+                            <li>Протоколы при авариях</li>
+                            <li>Поломки оборудования</li>
+                            <li>Задержки и опоздания</li>
+                            <li>Экстремальные погодные условия</li>
+                            <li>Кража груза</li>
+                            <li>Страховые случаи</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="module-buttons">
+                    <div class="module-meta">
+                        <span>📚 5 уроков</span>
+                        <span>✅ Тест: 18 вопросов</span>
+                    </div>
+                    <a href="module-10.html" class="module-btn">Начать модуль →</a>
+                    <a href="test-10.html" class="test-btn">📝 Пройти тест</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Функция для обновления статуса модулей
+        function updateModuleStatus() {
+            let completed = 0;
+            let inProgress = 0;
+            let totalScore = 0;
+            let testsCount = 0;
+            
+            for (let i = 1; i <= 10; i++) {
+                const badge = document.querySelector(`[data-module="${i}"]`);
+                const testResult = localStorage.getItem(`module_${i}_test_result`);
+                const moduleViewed = localStorage.getItem(`module_${i}_viewed`);
+                
+                if (badge) {
+                    if (testResult) {
+                        const percentage = parseInt(testResult);
+                        totalScore += percentage;
+                        testsCount++;
+                        
+                        if (percentage >= 70) {
+                            badge.textContent = `✅ Пройдено: ${percentage}%`;
+                            badge.className = 'badge completed';
+                            completed++;
+                        } else {
+                            badge.textContent = `⏳ Результат: ${percentage}%`;
+                            badge.className = 'badge in-progress';
+                            inProgress++;
+                        }
+                    } else if (moduleViewed) {
+                        badge.textContent = '👁️ Просмотрено';
+                        badge.className = 'badge in-progress';
+                        inProgress++;
+                    } else {
+                        badge.textContent = '🔒 Не начато';
+                        badge.className = 'badge';
+                    }
+                }
+            }
+            
+            // Обновляем общую статистику
+            if (completed > 0 || inProgress > 0) {
+                document.getElementById('overallStats').style.display = 'block';
+                document.getElementById('statsCompleted').textContent = completed;
+                document.getElementById('statsInProgress').textContent = inProgress;
+                const avgScore = testsCount > 0 ? Math.round(totalScore / testsCount) : 0;
+                document.getElementById('statsAvgScore').textContent = avgScore + '%';
+                const progress = Math.round(((completed + inProgress) / 10) * 100);
+                document.getElementById('statsProgress').textContent = progress + '%';
+            }
+        }
+        
+        function resetAllModules() {
+            if (confirm('Вы уверены что хотите сбросить ВСЕ модули? Весь прогресс будет удален.')) {
+                for (let i = 1; i <= 10; i++) {
+                    localStorage.removeItem(`module_${i}_test_result`);
+                    localStorage.removeItem(`module_${i}_viewed`);
+                    localStorage.removeItem(`module_${i}_test_answers`);
+                }
+                location.reload();
+            }
+        }
+
+        // Обновляем статус при загрузке страницы
+        updateModuleStatus();
+
+        // Обновляем статус каждые 2 секунды (на случай если пользователь вернулся с другой вкладки)
+        setInterval(updateModuleStatus, 2000);
+    </script>
+
+    <!-- Кнопка "Наверх" -->
+    <button id="scrollToTop" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 1000; padding: 10px 15px; background: rgba(66, 153, 225, 0.7); color: white; border: none; border-radius: 50%; cursor: pointer; font-size: 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); transition: all 0.3s ease; opacity: 0.6;">
+        ↑
+    </button>
+    <script>
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        scrollToTopBtn.addEventListener('mouseenter', () => {
+            scrollToTopBtn.style.opacity = '1';
+        });
+        scrollToTopBtn.addEventListener('mouseleave', () => {
+            scrollToTopBtn.style.opacity = '0.6';
+        });
+        window.addEventListener('scroll', () => {
+            const scrollPercent = (window.pageYOffset / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            if (scrollPercent > 25) {
+                scrollToTopBtn.style.display = 'block';
+            } else {
+                scrollToTopBtn.style.display = 'none';
+            }
+        });
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

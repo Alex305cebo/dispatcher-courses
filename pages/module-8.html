@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Модуль 8: Типы грузов и оборудования | Курсы - Диспетчера</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 30px 20px; display: flex; flex-direction: column; align-items: center; }
+        body::before { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3), transparent 50%), radial-gradient(circle at 80% 80%, rgba(138, 43, 226, 0.3), transparent 50%), radial-gradient(circle at 40% 20%, rgba(75, 0, 130, 0.2), transparent 50%); animation: backgroundMove 20s ease infinite; z-index: -1; }
+        @keyframes backgroundMove { 0%, 100% { transform: translate(0, 0) scale(1); } 25% { transform: translate(5%, 5%) scale(1.05); } 50% { transform: translate(-5%, 5%) scale(1.1); } 75% { transform: translate(5%, -5%) scale(1.05); } }
+        .container { max-width: 1050px; width: 100%; margin: 0 auto; }
+        .header { background: white; backdrop-filter: blur(10px); padding: 30px 40px; border-radius: 20px; margin-bottom: 30px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); }
+        .header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .module-badge { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 10px 20px; border-radius: 25px; font-weight: 600; font-size: 18px; }
+        .module-number { background: white; backdrop-filter: blur(10px); color: #16a34a; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+        .back-btn { padding: 10px 20px; background: #f3f4f6; color: #374151; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; }
+        .back-btn:hover { background: #e5e7eb; transform: translateY(-2px); }
+        h1 { color: #2d3748; font-size: 32px; margin-bottom: 10px; }
+        .subtitle { color: #718096; font-size: 18px; }
+        .content-card { background: white; backdrop-filter: blur(10px); border-radius: 20px; padding: 40px; margin-bottom: 25px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); }
+        .section-title { color: #2d3748; font-size: 26px; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 3px solid #16a34a; }
+        .section-content p { color: #4a5568; font-size: 18px; line-height: 1.9; margin-bottom: 18px; }
+        .lesson-card { background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border-left: 4px solid #16a34a; padding: 25px; margin: 20px 0; border-radius: 10px; }
+        .lesson-title { color: #166534; font-size: 22px; font-weight: 600; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .lesson-content { color: #15803d; font-size: 17px; line-height: 1.8; }
+        .info-box { background: #fffbeb; border: 2px solid #fbbf24; border-radius: 50px; padding: 25px; margin: 20px 0; }
+        .info-title { color: #92400e; font-size: 20px; font-weight: 600; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .action-buttons { display: flex; gap: 15px; margin-top: 30px; flex-wrap: wrap; }
+        .btn { padding: 15px 30px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 16px; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 10px; }
+        .btn-primary { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; box-shadow: 0 4px 15px rgba(22, 163, 74, 0.4); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(22, 163, 74, 0.6); }
+        .btn-secondary { background: white; backdrop-filter: blur(10px); color: #16a34a; border: 2px solid #16a34a; }
+        .btn-secondary:hover { background: #16a34a; color: white; }
+        @media (max-width: 768px) { .header-top { flex-direction: column; gap: 15px; } h1 { font-size: 26px; } .content-card { padding: 25px; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-top">
+                <div class="module-badge"><div class="module-number">8</div><span>Модуль 8 из 10</span></div>
+                <a href="modules.html" class="back-btn">← Назад к модулям</a>
+            </div>
+            <h1>Типы грузов и оборудования</h1>
+            <p class="subtitle">Классификация грузов и типов трейлеров</p>
+        </div>
+        <div class="content-card">
+            <h2 class="section-title">📖 Обзор модуля</h2>
+            <div class="section-content">
+                <p>Понимание типов грузов и оборудования критически важно для диспетчера. Разные грузы требуют разных трейлеров, и знание особенностей каждого типа помогает находить подходящие грузы и избегать проблем.</p>
+                <p>В этом модуле вы изучите основные типы трейлеров (Dry Van, Reefer, Flatbed, Step Deck, Lowboy), HAZMAT грузы и специальные перевозки (Oversized, Heavy Haul).</p>
+            </div>
+        </div>
+        <div class="lesson-card">
+            <div class="lesson-title"><span>📦</span> Урок 1: 53ft Dry Van</div>
+            <div class="lesson-content">
+                <p><strong>Самый распространенный тип трейлера:</strong></p>
+                <ul style="text-align: center; list-style-position: inside;">
+                    <li><strong>Размеры:</strong> 53 фута длина, 8.5 фута ширина, 9 футов высота внутри</li>
+                    <li><strong>Вместимость:</strong> 26 стандартных паллет (48" x 40")</li>
+                    <li><strong>Максимальный вес:</strong> 45,000 lbs груза (80,000 lbs общий вес с траком)</li>
+                    <li><strong>Типичные грузы:</strong> Розничные товары, упакованные продукты, электроника, одежда</li>
+                    <li><strong>Преимущества:</strong> Защита от погоды, безопасность, универсальность</li>
+                    <li><strong>Ставки:</strong> $1.50-2.50/mile в зависимости от маршрута</li>
+                    <li><strong>Популярные маршруты:</strong> CA-TX, TX-FL, IL-CA, NY-FL</li>
+                    <li><strong>Погрузка:</strong> Live load (2-4 часа) или Drop & Hook (30 минут)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="lesson-card">
+            <div class="lesson-title"><span>❄️</span> Урок 2: 53ft Reefer (рефрижератор)</div>
+            <div class="lesson-content">
+                <p><strong>Трейлер с температурным контролем:</strong></p>
+                <ul style="text-align: center; list-style-position: inside;">
+                    <li><strong>Размеры:</strong> 53 фута длина, немного меньше внутри из-за изоляции</li>
+                    <li><strong>Температура:</strong> От -20°F до +70°F</li>
+                    <li><strong>Типичные грузы:</strong> Мясо, молочные продукты, фрукты, овощи, замороженные продукты, фармацевтика</li>
+                    <li><strong>Преимущества:</strong> Более высокие ставки ($2.00-3.50/mile)</li>
+                    <li><strong>Недостатки:</strong> Выше расходы на топливо (reefer unit потребляет 0.5-1 галлон/час)</li>
+                    <li><strong>Требования:</strong> Постоянный мониторинг температуры, быстрая погрузка/разгрузка</li>
+                    <li><strong>Популярные маршруты:</strong> CA (produce) → East Coast, TX (meat) → Northeast</li>
+                    <li><strong>Сезонность:</strong> Высокий спрос летом (фрукты, овощи), зимой (праздники)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="lesson-card">
+            <div class="lesson-title"><span>🏗️</span> Урок 3: Flatbed (платформа)</div>
+            <div class="lesson-content">
+                <p><strong>Открытая платформа для крупных грузов:</strong></p>
+                <ul style="text-align: center; list-style-position: inside;">
+                    <li><strong>Размеры:</strong> 48 футов длина, 8.5 футов ширина</li>
+                    <li><strong>Типичные грузы:</strong> Стальные балки, пиломатериалы, строительные материалы, оборудование, трубы</li>
+                    <li><strong>Преимущества:</strong> Высокие ставки ($2.50-4.00/mile), меньше конкуренции</li>
+                    <li><strong>Требования:</strong> Навыки крепления груза (tarping, chains, straps)</li>
+                    <li><strong>Tarping:</strong> Покрытие груза брезентом (дополнительная плата $50-150)</li>
+                    <li><strong>Securement:</strong> Цепи, ремни, binders для крепления груза</li>
+                    <li><strong>Погрузка:</strong> Обычно с помощью крана или вилочного погрузчика</li>
+                    <li><strong>Сезонность:</strong> Высокий спрос весной/летом (строительный сезон)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="lesson-card">
+            <div class="lesson-title"><span>🚜</span> Урок 4: Step Deck / Lowboy</div>
+            <div class="lesson-content">
+                <p><strong>Специализированные платформы:</strong></p>
+                <ul style="text-align: center; list-style-position: inside;">
+                    <li><strong>Step Deck:</strong> Платформа с пониженной высотой (3.5 фута от земли)</li>
+                    <li><strong>Lowboy:</strong> Очень низкая платформа (1.5-2 фута от земли)</li>
+                    <li><strong>Типичные грузы:</strong> Высокое оборудование, экскаваторы, бульдозеры, трансформаторы</li>
+                    <li><strong>Преимущества:</strong> Очень высокие ставки ($3.00-6.00/mile)</li>
+                    <li><strong>Требования:</strong> Специальные навыки, permits для oversized loads</li>
+                    <li><strong>Вес:</strong> Lowboy может перевозить до 40,000-80,000 lbs</li>
+                    <li><strong>Permits:</strong> Необходимы разрешения для oversized/overweight грузов</li>
+                    <li><strong>Escort Vehicles:</strong> Иногда требуются сопровождающие машины</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="lesson-card">
+            <div class="lesson-title"><span>☢️</span> Урок 5: HAZMAT грузы и Oversized / Heavy Haul</div>
+            <div class="lesson-content">
+                <p><strong>HAZMAT (Hazardous Materials):</strong></p>
+                <ul style="text-align: center; list-style-position: inside;">
+                    <li><strong>Определение:</strong> Опасные материалы (химикаты, топливо, взрывчатка, радиоактивные материалы)</li>
+                    <li><strong>Требования:</strong> CDL с H endorsement, специальная подготовка</li>
+                    <li><strong>Страховка:</strong> Минимум $5,000,000 liability insurance</li>
+                    <li><strong>Ставки:</strong> Высокие ($3.00-5.00/mile) из-за рисков</li>
+                    <li><strong>Ограничения:</strong> Запрет на перевозку через туннели, мосты, густонаселенные районы</li>
+                    <li><strong>Placards:</strong> Обязательные знаки на траке с классом опасности</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Oversized / Heavy Haul:</strong></p>
+                <ul style="text-align: center; list-style-position: inside;">
+                    <li><strong>Определение:</strong> Грузы, превышающие стандартные размеры или вес</li>
+                    <li><strong>Размеры:</strong> Ширина >8.5 футов, высота >13.5 футов, длина >53 фута</li>
+                    <li><strong>Вес:</strong> >80,000 lbs</li>
+                    <li><strong>Permits:</strong> Необходимы разрешения от каждого штата на маршруте</li>
+                    <li><strong>Pilot Cars:</strong> Сопровождающие машины спереди/сзади</li>
+                    <li><strong>Ставки:</strong> Очень высокие ($5.00-15.00/mile)</li>
+                    <li><strong>Планирование:</strong> Требуется детальное планирование маршрута</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <div class="info-title"><span>💡</span> Важная информация</div>
+            <p style="color: #78350f; font-size: 17px; line-height: 1.8;">
+                <strong>Знание типов оборудования = больше возможностей!</strong> Начинайте с Dry Van (самый простой), затем переходите к Reefer (выше ставки), и при наличии опыта - к Flatbed и специализированным перевозкам. Каждый тип требует специфических знаний и навыков, но предлагает разные уровни дохода.
+            </p>
+        </div>
+
+        <div class="content-card">
+            <h2 class="section-title">🎯 Следующие шаги</h2>
+            <p style="color: #4a5568; font-size: 18px; line-height: 1.9; margin-bottom: 20px;">
+                Теперь вы знаете основные типы грузов и оборудования. Следующий модуль посвящен финансам и расчетам - как рассчитывать прибыльность рейсов и оптимизировать доходы.
+            </p>
+            <div class="action-buttons">
+                <a href="module-9.html" class="btn btn-primary">Следующий модуль: Финансы →</a>
+                <a href="module-7.html" class="btn btn-secondary">← Предыдущий модуль</a>
+            </div>
+        </div>
+    </div>
+    <button id="scrollToTop" style="display: none; position: fixed; bottom: 30px; right: 30px; z-index: 1000; padding: 15px 20px; background: #4299e1; color: white; border: none; border-radius: 50%; cursor: pointer; font-size: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: all 0.3s ease;">↑</button>
+    <script>
+        localStorage.setItem('module_8_viewed', 'true');
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        window.addEventListener('scroll', () => { if (window.pageYOffset > 300) { scrollToTopBtn.style.display = 'block'; } else { scrollToTopBtn.style.display = 'none'; } });
+        scrollToTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    </script>
+</body>
+</html>
