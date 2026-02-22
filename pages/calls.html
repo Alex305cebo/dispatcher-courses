@@ -206,6 +206,64 @@ body {
   border-radius: 12px;
   font-size: 15px;
   line-height: 1.5;
+  position: relative;
+  padding-right: 90px;
+}
+
+.audio-icon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 12px;
+  min-width: 70px;
+  height: 32px;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.2));
+  border: 2px solid rgba(16, 185, 129, 0.4);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  font-weight: 600;
+  color: #d1fae5;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);
+}
+
+.audio-icon::after {
+  content: 'Play';
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+.audio-icon:hover {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.3), rgba(5, 150, 105, 0.3));
+  border-color: rgba(16, 185, 129, 0.6);
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.audio-icon.playing {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.4), rgba(5, 150, 105, 0.4));
+  border-color: rgba(16, 185, 129, 0.7);
+  animation: pulse 1.5s infinite;
+}
+
+.audio-icon.playing::after {
+  content: 'Playing';
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.5);
+  }
 }
 
 .message.dispatcher .message-bubble {
@@ -269,10 +327,10 @@ body {
 
 .choice-btn {
   padding: 14px 18px;
-  background: rgba(99, 102, 241, 0.1);
-  border: 2px solid rgba(99, 102, 241, 0.3);
+  background: rgba(16, 185, 129, 0.1);
+  border: 2px solid rgba(16, 185, 129, 0.3);
   border-radius: 12px;
-  color: #e0e7ff;
+  color: #d1fae5;
   font-size: 15px;
   text-align: left;
   cursor: pointer;
@@ -280,8 +338,8 @@ body {
 }
 
 .choice-btn:hover {
-  background: rgba(99, 102, 241, 0.2);
-  border-color: rgba(99, 102, 241, 0.5);
+  background: rgba(16, 185, 129, 0.2);
+  border-color: rgba(16, 185, 129, 0.5);
   transform: translateX(4px);
 }
 
@@ -1119,19 +1177,23 @@ function initDialogue(dialogueId) {
     const step = dialogue.steps[stepIndex];
     
     if (step.type === 'broker') {
-      // Показать сообщение брокера
+      // Показать сообщение брокера с аудио иконкой внутри bubble
+      const audioFile = `audio/broker_response_${dialogueId}_${stepIndex}.mp3`;
       const messageDiv = document.createElement('div');
       messageDiv.className = 'message other fade-in';
       messageDiv.innerHTML = `
         <div class="message-avatar">🤝</div>
         <div class="message-content">
           <div class="message-label">Брокер</div>
-          <div class="message-bubble">${step.text}</div>
+          <div class="message-bubble">
+            ${step.text}
+            <span class="audio-icon" onclick="playBrokerAudio('${audioFile}', this)">🔊</span>
+          </div>
         </div>
       `;
       container.appendChild(messageDiv);
       
-      // Автоматически показать следующий шаг
+      // Автоматически показать следующий шаг (вопрос диспетчера)
       setTimeout(() => {
         currentStep++;
         if (currentStep < dialogue.steps.length) {
@@ -1234,11 +1296,39 @@ function selectChoice(dialogueId, stepIndex, optionIndex) {
     `;
     state.container.appendChild(selectedDiv);
     
-    // Продолжить диалог
+    // Продолжить диалог - пропустить следующий шаг broker и перейти к следующему choice
     setTimeout(() => {
       state.currentStep = stepIndex + 1;
+      // Показываем ответ брокера (следующий шаг)
       if (state.currentStep < state.dialogue.steps.length) {
-        state.showStep(state.currentStep);
+        const nextStep = state.dialogue.steps[state.currentStep];
+        if (nextStep.type === 'broker') {
+          // Показать ответ брокера с аудио иконкой внутри bubble
+          const audioFile = `audio/broker_response_${dialogueId}_${state.currentStep}.mp3`;
+          const brokerDiv = document.createElement('div');
+          brokerDiv.className = 'message other fade-in';
+          brokerDiv.innerHTML = `
+            <div class="message-avatar">🤝</div>
+            <div class="message-content">
+              <div class="message-label">Брокер</div>
+              <div class="message-bubble">
+                ${nextStep.text}
+                <span class="audio-icon" onclick="playBrokerAudio('${audioFile}', this)">🔊</span>
+              </div>
+            </div>
+          `;
+          state.container.appendChild(brokerDiv);
+          
+          // Переходим к следующему вопросу
+          setTimeout(() => {
+            state.currentStep++;
+            if (state.currentStep < state.dialogue.steps.length) {
+              state.showStep(state.currentStep);
+            }
+          }, 800);
+        } else {
+          state.showStep(state.currentStep);
+        }
       }
     }, 1500);
     
@@ -1290,6 +1380,38 @@ document.addEventListener('DOMContentLoaded', function() {
   fillDialogueWithLoadData(1);
   initDialogue(1);
 });
+
+// Функция воспроизведения аудио
+let currentAudio = null;
+
+function playBrokerAudio(audioFile, iconElement) {
+  // Остановить предыдущее аудио, если оно играет
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+    // Убрать класс playing со всех иконок
+    document.querySelectorAll('.audio-icon').forEach(icon => {
+      icon.classList.remove('playing');
+    });
+  }
+  
+  // Создать новое аудио
+  currentAudio = new Audio(audioFile);
+  
+  // Добавить класс playing к иконке
+  iconElement.classList.add('playing');
+  
+  // Воспроизвести
+  currentAudio.play().catch(err => {
+    console.log('Audio playback failed:', err);
+    iconElement.classList.remove('playing');
+  });
+  
+  // Убрать класс playing когда аудио закончится
+  currentAudio.onended = function() {
+    iconElement.classList.remove('playing');
+  };
+}
 </script>
 
 </body>
