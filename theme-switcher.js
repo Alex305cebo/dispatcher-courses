@@ -1,5 +1,25 @@
 // Universal Theme Switcher for all pages
 (function() {
+    // Detect page type and add data attribute
+    const path = window.location.pathname;
+    const body = document.body;
+    
+    if (path.includes('loadboard')) {
+        body.setAttribute('data-page', 'loadboard');
+    } else if (path.includes('module')) {
+        body.setAttribute('data-page', 'modules');
+    } else if (path.includes('simulator')) {
+        body.setAttribute('data-page', 'simulator');
+    } else if (path.includes('test')) {
+        body.setAttribute('data-page', 'testing');
+    } else if (path.includes('documentation')) {
+        body.setAttribute('data-page', 'documentation');
+    } else if (path.includes('cases')) {
+        body.setAttribute('data-page', 'cases');
+    } else {
+        body.setAttribute('data-page', 'home');
+    }
+
     // Add theme toggle button styles
     const style = document.createElement('style');
     style.textContent = `
@@ -30,6 +50,7 @@
             background: #f8f9fa;
         }
 
+        /* Default subtle pattern - dots */
         [data-theme="light"] body::before {
             background: 
                 radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.04), transparent 35%),
@@ -38,7 +59,91 @@
         }
 
         [data-theme="light"] body::after {
-            display: none !important;
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        /* Default - Dots pattern */
+        [data-theme="light"] body[data-page="home"]::after {
+            background-image: 
+                radial-gradient(circle, rgba(99, 102, 241, 0.04) 1.5px, transparent 1.5px);
+            background-size: 30px 30px;
+        }
+
+        /* Load Board - Hexagon pattern */
+        [data-theme="light"] body[data-page="loadboard"]::after {
+            background-image: 
+                linear-gradient(30deg, rgba(99, 102, 241, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(99, 102, 241, 0.03) 87.5%),
+                linear-gradient(150deg, rgba(99, 102, 241, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(99, 102, 241, 0.03) 87.5%),
+                linear-gradient(30deg, rgba(99, 102, 241, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(99, 102, 241, 0.03) 87.5%),
+                linear-gradient(150deg, rgba(99, 102, 241, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(99, 102, 241, 0.03) 87.5%);
+            background-size: 80px 140px;
+            background-position: 0 0, 0 0, 40px 70px, 40px 70px;
+        }
+
+        /* Modules page - Diagonal stripes */
+        [data-theme="light"] body[data-page="modules"]::after {
+            background-image: 
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 25px,
+                    rgba(99, 102, 241, 0.025) 25px,
+                    rgba(99, 102, 241, 0.025) 26px
+                );
+        }
+
+        /* Simulator - Wave pattern */
+        [data-theme="light"] body[data-page="simulator"]::after {
+            background-image: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 40px,
+                    rgba(99, 102, 241, 0.02) 40px,
+                    rgba(99, 102, 241, 0.02) 80px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 40px,
+                    rgba(139, 92, 246, 0.02) 40px,
+                    rgba(139, 92, 246, 0.02) 80px
+                );
+        }
+
+        /* Testing page - Grid pattern */
+        [data-theme="light"] body[data-page="testing"]::after {
+            background-image: 
+                linear-gradient(rgba(99, 102, 241, 0.03) 1.5px, transparent 1.5px),
+                linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1.5px, transparent 1.5px);
+            background-size: 50px 50px;
+        }
+
+        /* Documentation - Checkered pattern */
+        [data-theme="light"] body[data-page="documentation"]::after {
+            background-image: 
+                linear-gradient(45deg, rgba(99, 102, 241, 0.02) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(99, 102, 241, 0.02) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, rgba(99, 102, 241, 0.02) 75%),
+                linear-gradient(-45deg, transparent 75%, rgba(99, 102, 241, 0.02) 75%);
+            background-size: 60px 60px;
+            background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
+        }
+
+        /* Cases page - Circles pattern */
+        [data-theme="light"] body[data-page="cases"]::after {
+            background-image: 
+                radial-gradient(circle, rgba(99, 102, 241, 0.03) 8%, transparent 8%),
+                radial-gradient(circle, rgba(139, 92, 246, 0.03) 8%, transparent 8%);
+            background-size: 60px 60px;
+            background-position: 0 0, 30px 30px;
         }
 
         /* Cards - Apple-style elevated cards */
