@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Полная инструкция: Как созвониться с брокером | Симулятор диспетчера</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../shared-styles.css">
+    <script>!function(){var t=localStorage.getItem('dispatcher-theme')||'dark';'dark'===t&&document.documentElement.setAttribute('data-theme','dark')}();</script>
+    <link rel="stylesheet" href="../dark-theme.css">
+    <script src="../dark-mode.js"></script>
+    <style>
+        .instruction-container {
+            max-width: 1050px;
+            margin: 0 auto;
+            padding: 20px 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .instruction-header {
+            padding: 20px 0 16px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 20px;
+        }
+
+        .instruction-header h1 {
+            font-size: clamp(28px, 5vw, 40px);
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+            margin-bottom: 8px;
+        }
+
+        .instruction-header h1 span {
+            background: linear-gradient(135deg, #667eea, #a78bfa 50%, #60a5fa);
+            background-size: 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .instruction-header p {
+            font-size: 16px;
+            color: var(--text-2);
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(255,255,255,.05);
+            border: 1px solid var(--border);
+            color: var(--text);
+            text-decoration: none;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all .3s ease;
+            margin-bottom: 24px;
+        }
+
+        .back-btn:hover {
+            background: rgba(255,255,255,.08);
+            border-color: rgba(var(--primary-rgb), .3);
+            transform: translateX(-3px);
+        }
+
+        .step-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 16px;
+            backdrop-filter: blur(10px);
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: 900;
+            margin-right: 12px;
+            vertical-align: middle;
+        }
+
+        .step-title {
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: var(--text);
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .step-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .step-description {
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--text-2);
+            margin-bottom: 16px;
+        }
+
+        .step-content {
+            background: rgba(255,255,255,.02);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+
+        .step-content h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 10px;
+        }
+
+        .step-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .step-content li {
+            font-size: 14px;
+            color: var(--text-2);
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .step-content li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #34d399;
+            font-weight: 700;
+        }
+
+        .tip-box {
+            background: rgba(102,126,234,.08);
+            border-left: 4px solid #667eea;
+            border-radius: 10px;
+            padding: 14px;
+            margin-bottom: 16px;
+        }
+
+        .tip-box h5 {
+            color: #a5b4fc;
+            margin-bottom: 8px;
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .tip-box p {
+            color: var(--text-2);
+            font-size: 14px;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .warning-box {
+            background: rgba(251,146,60,.08);
+            border-left: 4px solid #fb923c;
+            border-radius: 10px;
+            padding: 14px;
+            margin-bottom: 16px;
+        }
+
+        .warning-box h5 {
+            color: #fdba74;
+            margin-bottom: 8px;
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .warning-box p {
+            color: var(--text-2);
+            font-size: 14px;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .example-box {
+            background: rgba(59,130,246,.08);
+            border: 1px solid rgba(59,130,246,.2);
+            border-radius: 10px;
+            padding: 14px;
+            margin-bottom: 16px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            color: var(--text-2);
+            line-height: 1.5;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all .3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            box-shadow: 0 4px 14px rgba(102,126,234,.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(102,126,234,.55);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,.05);
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,.08);
+            border-color: rgba(var(--primary-rgb), .3);
+        }
+
+        @media (max-width: 768px) {
+            .instruction-container {
+                padding: 16px 12px;
+            }
+
+            .step-card {
+                padding: 16px;
+            }
+
+            .step-title {
+                font-size: 20px;
+            }
+
+            .step-description {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-grid"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="instruction-container">
+        <a href="simulator.html" class="back-btn">← Вернуться к симулятору</a>
+
+        <div class="instruction-header">
+            <h1><span>Полная инструкция</span></h1>
+            <p>Как созвониться с брокером и договориться о грузе</p>
+        </div>
+
+        <!-- Шаг 1 -->
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">1</div>
+                <h2 class="step-title">Подготовка к звонку</h2>
+            </div>
+            <p class="step-description">Перед тем как звонить брокеру, убедитесь, что у вас есть вся необходимая информация о водителе и траке.</p>
+            
+            <div class="step-content">
+                <h4>Что нужно подготовить:</h4>
+                <ul>
+                    <li>Имя водителя и его номер телефона</li>
+                    <li>MC номер вашей компании</li>
+                    <li>Номер трака и трейлера</li>
+                    <li>Текущее местоположение водителя</li>
+                    <li>Время, когда трейлер будет свободен</li>
+                    <li>Тип оборудования (53ft Dry Van, Reefer и т.д.)</li>
+                    <li>Максимальный вес груза, который может взять водитель</li>
+                </ul>
+            </div>
+
+            <div class="tip-box">
+                <h5>💡 Совет</h5>
+                <p>Запишите всю информацию на листе бумаги или в заметках на телефоне. Это поможет вам не забыть важные детали во время разговора.</p>
+            </div>
+        </div>
+
+        <!-- Шаг 2 -->
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">2</div>
+                <h2 class="step-title">Поиск груза на Load Board</h2>
+            </div>
+            <p class="step-description">Найдите подходящий груз на DAT, Truckstop или другой load board, который соответствует возможностям вашего водителя.</p>
+            
+            <div class="step-content">
+                <h4>Критерии выбора груза:</h4>
+                <ul>
+                    <li>Маршрут подходит водителю (не слишком далеко от его текущего местоположения)</li>
+                    <li>Вес груза не превышает грузоподъемность трака</li>
+                    <li>Тип оборудования совпадает (Dry Van, Reefer, Flatbed и т.д.)</li>
+                    <li>Время погрузки совпадает с временем освобождения трейлера</li>
+                    <li>Ставка за груз приемлема (обычно $2-3 за милю для Dry Van)</li>
+                    <li>Брокер имеет хорошую репутацию</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <h5>⚠️ Важно</h5>
+                <p>Всегда проверяйте MC номер брокера на FMCSA.dot.gov перед тем как звонить. Это защитит вас от мошенников.</p>
+            </div>
+        </div>
+
+        <!-- Шаг 3 -->
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">3</div>
+                <h2 class="step-title">Первый контакт с брокером</h2>
+            </div>
+            <p class="step-description">Позвоните брокеру и представьтесь. Будьте вежливы и профессиональны.</p>
+            
+            <div class="step-content">
+                <h4>Как начать разговор:</h4>
+                <ul>
+                    <li>Поздоровайтесь и представьтесь: "Привет, это [ваше имя] из [название компании]"</li>
+                    <li>Скажите, что вы диспетчер и ищете груз</li>
+                    <li>Назовите номер груза, который вас интересует</li>
+                    <li>Спросите, доступен ли груз: "Груз #1234 еще доступен?"</li>
+                    <li>Если да, попросите подробную информацию</li>
+                </ul>
+            </div>
+
+            <div class="example-box">Пример:
+"Привет, это Иван из компании TransLogistics. Я диспетчер. Интересует груз #5678 из Лос-Анджелеса в Лас-Вегас. Груз еще доступен?"</div>
+        </div>
+
+        <!-- Шаг 4 -->
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">4</div>
+                <h2 class="step-title">Получение информации о грузе</h2>
+            </div>
+            <p class="step-description">Если груз доступен, попросите у брокера всю необходимую информацию.</p>
+            
+            <div class="step-content">
+                <h4>Информация, которую нужно получить:</h4>
+                <ul>
+                    <li>Точный адрес погрузки и контакт грузоотправителя</li>
+                    <li>Точный адрес разгрузки и контакт получателя</li>
+                    <li>Время погрузки (дата и время)</li>
+                    <li>Время разгрузки (дата и время)</li>
+                    <li>Описание груза (тип, вес, размеры, количество паллет)</li>
+                    <li>Специальные требования (Hazmat, температура, хрупкость и т.д.)</li>
+                    <li>Финальная ставка за груз</li>
+                    <li>Условия оплаты (когда платят, как платят)</li>
+                </ul>
+            </div>
+
+            <div class="tip-box">
+                <h5>💡 Совет</h5>
+                <p>Записывайте всю информацию во время разговора. Не полагайтесь на память. Это поможет избежать ошибок и недопониманий.</p>
+            </div>
+        </div>
+
+        <!-- Шаг 5 -->
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">5</div>
+                <h2 class="step-title">Переговоры о ставке</h2>
+            </div>
+            <p class="step-description">Если ставка вас не устраивает, попробуйте договориться о лучшей цене.</p>
+            
+            <div class="step-content">
+                <h4>Как вести переговоры:</h4>
+                <ul>
+                    <li>Знайте рыночные ставки для этого маршрута</li>
+                    <li>Не принимайте первое предложение</li>
+                    <li>Обоснуйте свою цену: "Обычно за этот маршрут платят $X за милю"</li>
+                    <li>Будьте готовы к компромиссам</li>
+                    <li>Помните о долгосрочных отношениях, а не только о текущей сделке</li>
+                    <li>Не работайте ниже себестоимости</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <h5>⚠️ Важно</h5>
+                <p>Если брокер не хочет договариваться и ставка слишком низкая, вежливо откажитесь. Есть другие грузы и брокеры.</p>
+            </div>
+        </div>
+
+        <!-- Шаг 6 -->
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">6</div>
+                <h2 class="step-title">Подтверждение груза</h2>
+            </div>
+            <p class="step-description">Когда вы согласились с условиями, подтвердите груз и получите письменное подтверждение.</p>
+            
+            <div class="step-content">
+                <h4>Что нужно сделать:</h4>
+                <ul>
+                    <li>Скажите брокеру: "Подтверждаю груз #1234 по ставке $X"</li>
+                    <li>Попросите отправить Rate Confirmation по email</li>
+                    <li>Дайте брокеру информацию о вашем водителе</li>
+                    <li>Скажите, когда водитель будет на месте погрузки</li>
+                    <li>Получите контакты грузоотправителя и получателя</li>
+                </ul>
+            </div>
+
+            <div class="tip-box">
+                <h5>💡 Совет</h5>
+                <p>Всегда получайте письменное подтверждение (Rate Confirmation). Это защитит вас в случае спора о ставке или условиях.</p>
+            </div>
+        </div>
+
+        <!-- Шаг 7 -->
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">7</div>
+                <h2 class="step-title">Информирование водителя</h2>
+            </div>
+            <p class="step-description">Позвоните водителю и сообщите ему все детали груза.</p>
+            
+            <div class="step-content">
+                <h4>Что нужно сообщить водителю:</h4>
+                <ul>
+                    <li>Номер груза и ставка</li>
+                    <li>Адрес погрузки и контакт грузоотправителя</li>
+                    <li>Адрес разгрузки и контакт получателя</li>
+                    <li>Время погрузки и разгрузки</li>
+                    <li>Описание груза и специальные требования</li>
+                    <li>Маршрут и примерное время в пути</li>
+                    <li>Номер телефона брокера (на случай проблем)</li>
+                </ul>
+            </div>
+
+            <div class="example-box">Пример:
+"Привет, [имя водителя]! У меня есть груз для тебя. Груз #5678, ставка $1350. Погрузка в Лос-Анджелесе завтра в 8:15, разгрузка в Лас-Вегасе в 14:30. Груз - общие товары, 45000 фунтов. Маршрут примерно 270 миль. Контакты грузоотправителя: [номер]. Ты согласен?"</div>
+        </div>
+
+        <!-- Шаг 8 -->
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">8</div>
+                <h2 class="step-title">Отправка документов</h2>
+            </div>
+            <p class="step-description">Отправьте водителю все необходимые документы по email или SMS.</p>
+            
+            <div class="step-content">
+                <h4>Документы, которые нужно отправить:</h4>
+                <ul>
+                    <li>Rate Confirmation (подтверждение ставки от брокера)</li>
+                    <li>BOL (Bill of Lading) - если доступен</li>
+                    <li>Контакты грузоотправителя и получателя</li>
+                    <li>Маршрут и GPS координаты</li>
+                    <li>Номер телефона брокера</li>
+                </ul>
+            </div>
+
+            <div class="tip-box">
+                <h5>💡 Совет</h5>
+                <p>Используйте WhatsApp, SMS или email для отправки документов. Убедитесь, что водитель получил и прочитал все документы.</p>
+            </div>
+        </div>
+
+        <!-- Шаг 9 -->
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">9</div>
+                <h2 class="step-title">Мониторинг груза</h2>
+            </div>
+            <p class="step-description">Отслеживайте груз во время доставки и будьте готовы помочь при возникновении проблем.</p>
+            
+            <div class="step-content">
+                <h4>Что нужно делать:</h4>
+                <ul>
+                    <li>Проверяйте GPS трекер каждые 2-3 часа</li>
+                    <li>Убедитесь, что водитель находится на правильном маршруте</li>
+                    <li>Проверяйте время прибытия</li>
+                    <li>Будьте готовы помочь при возникновении проблем (поломка, пробка и т.д.)</li>
+                    <li>Поддерживайте связь с водителем</li>
+                    <li>Уведомляйте получателя о времени прибытия</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <h5>⚠️ Важно</h5>
+                <p>Если возникла проблема (поломка, задержка и т.д.), немедленно свяжитесь с брокером и водителем. Информируйте их о ситуации.</p>
+            </div>
+        </div>
+
+        <!-- Шаг 10 -->
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">10</div>
+                <h2 class="step-title">Завершение доставки</h2>
+            </div>
+            <p class="step-description">После доставки груза завершите все необходимые процедуры.</p>
+            
+            <div class="step-content">
+                <h4>Что нужно сделать:</h4>
+                <ul>
+                    <li>Получите POD (Proof of Delivery) от водителя</li>
+                    <li>Проверьте, что груз доставлен в полном объеме и без повреждений</li>
+                    <li>Создайте счет (Invoice) для оплаты</li>
+                    <li>Отправьте счет брокеру</li>
+                    <li>Отслеживайте платеж</li>
+                    <li>Обновите TMS (Transportation Management System) с информацией о доставке</li>
+                    <li>Спасибо водителю за хорошую работу</li>
+                </ul>
+            </div>
+
+            <div class="tip-box">
+                <h5>💡 Совет</h5>
+                <p>Ведите хорошие отношения с брокерами и водителями. Это поможет вам получить больше грузов в будущем и лучшие условия.</p>
+            </div>
+        </div>
+
+        <!-- Итоговая информация -->
+        <div class="step-card" style="background: linear-gradient(135deg, rgba(102,126,234,.1) 0%, rgba(167,139,250,.1) 100%); border: 1px solid rgba(102,126,234,.2);">
+            <h2 class="step-title" style="margin-bottom: 24px;">✅ Вы готовы!</h2>
+            <p class="step-description">Теперь вы знаете все шаги, необходимые для того, чтобы созвониться с брокером и договориться о грузе. Помните:</p>
+            
+            <div class="step-content">
+                <ul>
+                    <li>Всегда будьте профессиональны и вежливы</li>
+                    <li>Проверяйте информацию о брокере перед звонком</li>
+                    <li>Записывайте все детали во время разговора</li>
+                    <li>Получайте письменное подтверждение</li>
+                    <li>Информируйте водителя о всех деталях</li>
+                    <li>Отслеживайте груз во время доставки</li>
+                    <li>Завершайте все процедуры после доставки</li>
+                </ul>
+            </div>
+
+            <div class="action-buttons">
+                <a href="simulator.html" class="btn btn-primary">← Вернуться к симулятору</a>
+                <a href="../pages/documentation.html" class="btn btn-secondary">📖 Полная документация</a>
+            </div>
+        </div>
+    </div>
+
+    <button id="scrollToTop" style="display: none; position: fixed; bottom: 24px; right: 24px; z-index: 1000; width: 42px; height: 42px; border-radius: 12px; background: rgba(102,126,234,.75); color: white; border: none; cursor: pointer; font-size: 17px; transition: all .3s ease; backdrop-filter: blur(8px); box-shadow: 0 4px 14px rgba(102,126,234,.35); align-items: center; justify-content: center; display: flex;">↑</button>
+
+    <script>
+        const stt = document.getElementById('scrollToTop');
+        window.addEventListener('scroll', () => {
+            stt.style.display = window.pageYOffset > 320 ? 'flex' : 'none';
+        });
+        stt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    </script>
+</body>
+</html>
