@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
@@ -903,18 +903,32 @@ function generateDialogueVariants() {
     greetings: [
       (load) => `Good morning! This is John Smith from XYZ Transport. I'm calling about load #${load.id}, ${load.from.split(',')[0]} to ${load.to.split(',')[0]}, that was posted on DAT. Is it still available?`,
       (load) => `Hi, this is Sarah Johnson with ABC Logistics. I saw your posting for load #${load.id} from ${load.from.split(',')[0]} to ${load.to.split(',')[0]}. Is this load still open?`,
-      (load) => `Hello! My name is Mike Davis from Premier Carriers. I'm interested in load #${load.id}, the ${load.from.split(',')[0]} to ${load.to.split(',')[0]} run. Can you tell me if it's still available?`
+      (load) => `Hello! My name is Mike Davis from Premier Carriers. I'm interested in load #${load.id}, the ${load.from.split(',')[0]} to ${load.to.split(',')[0]} run. Can you tell me if it's still available?`,
+      (load) => `Good afternoon! This is Lisa Martinez calling from Elite Transport regarding load #${load.id}, ${load.from.split(',')[0]} to ${load.to.split(',')[0]}. Is this shipment still available?`,
+      (load) => `Hi there! Tom Wilson with Reliable Freight here. I'm calling about your load #${load.id}, ${load.from.split(',')[0]} to ${load.to.split(',')[0]}. Is it still open?`,
+      (load) => `Hello, this is Jennifer Brown from Swift Carriers. I'm interested in load #${load.id} going from ${load.from.split(',')[0]} to ${load.to.split(',')[0]}. Is it still available?`,
+      (load) => `Good morning! Robert Garcia with National Transport calling. I saw load #${load.id}, ${load.from.split(',')[0]} to ${load.to.split(',')[0]} on the board. Is this still open?`,
+      (load) => `Hi! This is Amanda Lee from Express Logistics. I'm calling regarding load #${load.id}, the ${load.from.split(',')[0]} to ${load.to.split(',')[0]} shipment. Is it still available?`
     ],
     badGreetings: [
       (load) => `Hi there! I'm calling about a load I saw posted on DAT. Do you have any trucks available right now? I need to move some freight today.`,
       (load) => `Hey, how's it going? I saw your posting on the load board earlier. Can you tell me more about what you've got available for pickup?`,
-      (load) => `Hello, I'm interested in the ${load.from.split(',')[0]} load. What's the rate you're offering for this?`
+      (load) => `Hello, I'm interested in the ${load.from.split(',')[0]} load. What's the rate you're offering for this?`,
+      (load) => `Hi! I have a truck ready to go. Do you have anything going from ${load.from.split(',')[0]} area?`,
+      (load) => `Good morning! I'm looking for loads. What do you have available today?`,
+      (load) => `Hey there! Calling about freight. Got anything heading west?`,
+      (load) => `Hi, I saw some loads posted. Can you send me details on what's available?`,
+      (load) => `Hello! My truck is empty and I need a load. What rates are you paying?`
     ],
     brokerAvailable: [
       (load) => `Yes, load #${load.id} is still available.<br>What equipment do you have?`,
       (load) => `Great timing! Load #${load.id} is open.<br>What type of truck do you have available?`,
       (load) => `Perfect, we still need a carrier for #${load.id}.<br>What equipment are you running?`,
-      (load) => `Yes, that load is still open.<br>Tell me about your equipment.`
+      (load) => `Yes, that load is still open.<br>Tell me about your equipment.`,
+      (load) => `Absolutely, #${load.id} is available.<br>What kind of trailer do you have?`,
+      (load) => `Good news, it's still open.<br>What equipment can you provide?`,
+      (load) => `Yes sir, load #${load.id} hasn't been covered yet.<br>What are you running?`,
+      (load) => `That's correct, still looking for a truck.<br>What equipment do you operate?`
     ],
     equipmentConfirm: [
       (load) => {
@@ -928,11 +942,28 @@ function generateDialogueVariants() {
                               load.equipment === 'flatbed' ? '53-foot flatbed trailer' : 
                               '53-foot dry van';
         return `I have a ${equipmentFull} ready to go.<br>The weight is ${load.weight.toLocaleString()} lbs, correct${load.needsTemp ? '? Any temperature requirements' : ''}?`;
+      },
+      (load) => {
+        const equipmentName = load.equipment === 'reefer' ? 'reefer' : load.equipment === 'flatbed' ? 'flatbed' : 'dry van';
+        return `We can cover this with our ${equipmentName}.<br>Please confirm ${load.weight.toLocaleString()} lbs${load.needsTemp ? ' and temperature specs' : ' and any special requirements'}.`;
+      },
+      (load) => {
+        const equipmentFull = load.equipment === 'reefer' ? '53-foot reefer unit' : 
+                              load.equipment === 'flatbed' ? '53-foot flatbed with tarps' : 
+                              '53-foot dry van with lift gate';
+        return `I've got a ${equipmentFull} that can handle this.<br>Weight is ${load.weight.toLocaleString()} lbs${load.needsTemp ? ', and what temp do you need' : ', any special handling'}?`;
+      },
+      (load) => {
+        const equipmentName = load.equipment === 'reefer' ? 'refrigerated trailer' : load.equipment === 'flatbed' ? 'flatbed' : 'dry van';
+        return `We operate a ${equipmentName} that's perfect for this.<br>Confirming ${load.weight.toLocaleString()} pounds${load.needsTemp ? ' with temperature control' : ''}?`;
       }
     ],
     badEquipment: [
       (load) => `We have a standard trailer that should work for most loads.<br>What are the dimensions and weight of your freight?<br>Any special handling needed?`,
-      (load) => `I have a truck ready to go.<br>Before we discuss equipment details, could you first tell me what the rate is for this particular shipment?`
+      (load) => `I have a truck ready to go.<br>Before we discuss equipment details, could you first tell me what the rate is for this particular shipment?`,
+      (load) => `Yeah, we've got equipment available.<br>Can you email me all the details so I can review them?`,
+      (load) => `We run various types of trailers.<br>What's the pay on this load first?`,
+      (load) => `I have a trailer that can probably handle it.<br>Let me know the rate and I'll confirm the equipment.`
     ],
     brokerDetails: [
       (load) => {
@@ -946,20 +977,44 @@ function generateDialogueVariants() {
       (load) => {
         const tempInfo = load.needsTemp ? '<br>Maintain 34-37°F during transport.' : '';
         return `That's right, ${load.weight.toLocaleString()} lbs, ${load.cargo.toLowerCase()}.${tempInfo}<br>Pickup at 8 AM tomorrow, delivery by 5 PM.`;
+      },
+      (load) => {
+        const tempInfo = load.needsTemp ? '<br>Temperature control at 35-36°F required.' : '';
+        return `Exactly, ${load.weight.toLocaleString()} pounds of ${load.cargo.toLowerCase()}.${tempInfo}<br>Loading tomorrow 8 AM, unloading same day by 5 PM.`;
+      },
+      (load) => {
+        const tempInfo = load.needsTemp ? '<br>Keep temperature between 34-38°F.' : '';
+        return `Yes sir, ${load.weight.toLocaleString()} lbs, ${load.cargo.toLowerCase()}.${tempInfo}<br>Pickup tomorrow morning at 8, delivery by 5 PM.`;
+      },
+      (load) => {
+        const tempInfo = load.needsTemp ? '<br>Reefer set to 35-37°F please.' : '';
+        return `Affirmative, ${load.weight.toLocaleString()} lbs of ${load.cargo.toLowerCase()}.${tempInfo}<br>Pick up 8 AM tomorrow, drop off by 5 PM same day.`;
       }
     ],
     rateQuestion: [
       (load) => `Perfect, we can handle that${load.needsTemp ? ' temperature range' : ''}.<br>I see the posting shows $${load.rate}.<br>Is that your final rate, or is there room for negotiation?`,
-      (load) => `Excellent, we're equipped for that${load.needsTemp ? ' temperature control' : ''}.<br>The rate listed is $${load.rate}.<br>Is there any flexibility on that number?`
+      (load) => `Excellent, we're equipped for that${load.needsTemp ? ' temperature control' : ''}.<br>The rate listed is $${load.rate}.<br>Is there any flexibility on that number?`,
+      (load) => `Great, we can meet those requirements${load.needsTemp ? ' including temperature' : ''}.<br>I noticed $${load.rate} posted.<br>Can we discuss the rate?`,
+      (load) => `Sounds good, we're set up for that${load.needsTemp ? ' temp control' : ''}.<br>The posted rate is $${load.rate}.<br>Is that negotiable at all?`,
+      (load) => `No problem, we can accommodate that${load.needsTemp ? ' temperature' : ''}.<br>I see $${load.rate} on the posting.<br>Any room to move on the rate?`,
+      (load) => `Understood, we're ready for that${load.needsTemp ? ' with proper temp control' : ''}.<br>Rate shows $${load.rate}.<br>Is that firm or can we work on it?`
     ],
     badRateQuestion: [
       (load) => `Sounds good to me.<br>Go ahead and send over all the paperwork and documentation.<br>I'll review it and get back to you shortly with confirmation.`,
-      (load) => `That seems like a tight schedule for ${load.miles} miles.<br>I'm not sure we can make the 5 PM delivery.<br>Do you have any flexibility on timing?`
+      (load) => `That seems like a tight schedule for ${load.miles} miles.<br>I'm not sure we can make the 5 PM delivery.<br>Do you have any flexibility on timing?`,
+      (load) => `Okay, I think we can do that.<br>Just email me everything and I'll confirm later today.`,
+      (load) => `Alright, that works.<br>Send me the rate con and I'll sign it right away.`,
+      (load) => `Perfect! Let's book it.<br>What's the next step?`
     ],
     brokerRateResponse: [
       (load) => `The rate is $${load.rate} as posted.<br>It's ${load.miles < 300 ? 'a short haul' : load.miles < 600 ? 'a medium haul' : 'a long haul'}, pretty standard rate for this route.`,
       (load) => `$${load.rate} is what we have budgeted for this shipment.<br>That's $${(load.rate/load.miles).toFixed(2)} per mile, which is fair for this lane.`,
-      (load) => `We're offering $${load.rate} for this load.<br>Given the ${load.miles} miles, that's a competitive rate.`
+      (load) => `We're offering $${load.rate} for this load.<br>Given the ${load.miles} miles, that's a competitive rate.`,
+      (load) => `The posted rate of $${load.rate} is what we can do.<br>That works out to $${(load.rate/load.miles).toFixed(2)} per mile.`,
+      (load) => `I can confirm $${load.rate} for this shipment.<br>For ${load.miles} miles, that's market rate right now.`,
+      (load) => `We're at $${load.rate} on this one.<br>It's ${load.miles < 300 ? 'short distance' : load.miles < 600 ? 'medium distance' : 'long haul'}, standard pricing.`,
+      (load) => `The rate we have is $${load.rate}.<br>That's about $${(load.rate/load.miles).toFixed(2)} per mile, which is what the market is paying.`,
+      (load) => `$${load.rate} total for the run.<br>Given the ${load.miles}-mile distance, that's a fair rate.`
     ],
     negotiationStart: [
       (load, counterOffer) => `I appreciate the offer, but considering the ${load.miles}-mile distance and current market rates, we would need at least $${counterOffer} to make this work for us.`,
@@ -970,7 +1025,11 @@ function generateDialogueVariants() {
       (load, brokerCounter) => `That's too high for us.<br>Best I can do is $${brokerCounter}.`,
       (load, brokerCounter) => `I can't go that high.<br>How about $${brokerCounter}?`,
       (load, brokerCounter) => `That's above our budget.<br>I can offer $${brokerCounter} as my best price.`,
-      (load, brokerCounter) => `We can't meet that number.<br>$${brokerCounter} is the highest I can go.`
+      (load, brokerCounter) => `We can't meet that number.<br>$${brokerCounter} is the highest I can go.`,
+      (load, brokerCounter) => `That's a bit steep for us.<br>I can bump it up to $${brokerCounter}.`,
+      (load, brokerCounter) => `I hear you, but that's too much.<br>My max is $${brokerCounter}.`,
+      (load, brokerCounter) => `I wish I could, but I can't.<br>$${brokerCounter} is my ceiling on this one.`,
+      (load, brokerCounter) => `That's outside our range.<br>I can go up to $${brokerCounter}, that's it.`
     ],
     middleOffer: [
       (load, middleOffer) => `I understand your position.<br>How about we meet in the middle at $${middleOffer}?<br>My driver is already in ${load.from.split(',')[0]} and can pick up on time.`,
@@ -981,7 +1040,11 @@ function generateDialogueVariants() {
       (load, finalOffer) => `Alright, $${finalOffer} and we have a deal.<br>I'll send the rate confirmation.`,
       (load, finalOffer) => `Okay, I can do $${finalOffer}.<br>Let's book it. Sending confirmation now.`,
       (load, finalOffer) => `Fine, $${finalOffer} is acceptable.<br>I'll get the paperwork over to you right away.`,
-      (load, finalOffer) => `Deal at $${finalOffer}.<br>I'll email you the confirmation in a minute.`
+      (load, finalOffer) => `Deal at $${finalOffer}.<br>I'll email you the confirmation in a minute.`,
+      (load, finalOffer) => `You got it, $${finalOffer}.<br>Rate con coming your way now.`,
+      (load, finalOffer) => `Alright, let's do $${finalOffer}.<br>I'll send over the confirmation right now.`,
+      (load, finalOffer) => `Okay, $${finalOffer} works.<br>Booking it now, you'll get the rate con shortly.`,
+      (load, finalOffer) => `Fair enough, $${finalOffer} it is.<br>I'll have the confirmation to you in a moment.`
     ]
   };
 }
@@ -1338,6 +1401,11 @@ function selectChoice(dialogueId, stepIndex, optionIndex) {
             </div>
           `;
           state.container.appendChild(brokerDiv);
+          
+          // Прокрутка к ответу брокера
+          setTimeout(() => {
+            brokerDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }, 100);
           
           // Переходим к следующему вопросу
           setTimeout(() => {
