@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>10 Модулей обучения | Курсы Диспетчера</title>
+  <title>12 Модулей обучения | Курсы Диспетчера</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -258,7 +258,7 @@
     <div class="page-header-top">
       <div>
         <div class="page-badge">📚 Шаг 02</div>
-        <h1><span>10 Модулей обучения</span></h1>
+        <h1><span>12 Модулей обучения</span></h1>
         <div class="sub">Комплексная программа подготовки диспетчера</div>
       </div>
       <a href="../index.html" class="back-btn">← Назад</a>
@@ -293,7 +293,7 @@
   <div class="info-banner">
     <strong>Комплексная программа подготовки диспетчера грузоперевозок США.</strong>
     Каждый модуль включает теоретический материал и тест для проверки знаний.
-    Пройдите все модули последовательно для полной квалификации.
+    Пройдите все 12 модулей последовательно для полной квалификации.
   </div>
 
   <!-- Modules grid -->
@@ -599,6 +599,68 @@
       </div>
     </div>
 
+    <!-- Module 11 — Cyan -->
+    <div class="module-card" style="--c:#67e8f9;--cr:103,232,249;">
+      <div class="module-wm">11</div>
+      <span class="badge" data-module="11">🔒 Не начато</span>
+      <div class="card-body">
+        <div class="module-num-badge">11</div>
+        <h2 class="module-title">Технологии и программное обеспечение</h2>
+        <p class="module-description">TMS системы, GPS трекинг, ELD устройства, Load Board платформы и CRM.</p>
+        <div class="module-topics">
+          <h4>Темы модуля</h4>
+          <ul>
+            <li>TMS (Transportation Management System)</li>
+            <li>GPS трекинг и мониторинг</li>
+            <li>ELD устройства и приложения</li>
+            <li>Load Board платформы (DAT, Truckstop)</li>
+            <li>CRM системы для диспетчеров</li>
+            <li>Документооборот и электронные подписи</li>
+            <li>Мобильные приложения для водителей</li>
+          </ul>
+        </div>
+        <div class="module-meta">
+          <span>📚 6 уроков</span>
+          <span>✅ Тест: 20 вопросов</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <a href="module-11.html" class="module-btn">Начать модуль →</a>
+        <a href="test-11.html" class="test-btn">📝 Пройти тест</a>
+      </div>
+    </div>
+
+    <!-- Module 12 — Violet -->
+    <div class="module-card" style="--c:#d8b4fe;--cr:216,180,254;">
+      <div class="module-wm">12</div>
+      <span class="badge" data-module="12">🔒 Не начато</span>
+      <div class="card-body">
+        <div class="module-num-badge">12</div>
+        <h2 class="module-title">Профессиональное развитие и карьера</h2>
+        <p class="module-description">Построение карьеры диспетчера. Сертификации, навыки, поиск работы, собственный бизнес.</p>
+        <div class="module-topics">
+          <h4>Темы модуля</h4>
+          <ul>
+            <li>Карьерные пути в логистике</li>
+            <li>Профессиональные сертификации</li>
+            <li>Резюме и портфолио диспетчера</li>
+            <li>Поиск работы и собеседования</li>
+            <li>Открытие собственной компании</li>
+            <li>Получение MC Authority</li>
+            <li>Масштабирование бизнеса</li>
+          </ul>
+        </div>
+        <div class="module-meta">
+          <span>📚 7 уроков</span>
+          <span>✅ Тест: 22 вопроса</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <a href="module-12.html" class="module-btn">Начать модуль →</a>
+        <a href="test-12.html" class="test-btn">📝 Пройти тест</a>
+      </div>
+    </div>
+
   </div><!-- /modules-grid -->
 </div><!-- /page -->
 
@@ -608,7 +670,7 @@
   /* ---- Module status ---- */
   function updateModuleStatus() {
     let completed = 0, inProgress = 0, totalScore = 0, testsCount = 0;
-    for (let i = 1; i <= 10; i++) {
+    for (let i = 1; i <= 12; i++) {
       const badge = document.querySelector(`[data-module="${i}"]`);
       const testResult  = localStorage.getItem(`module_${i}_test_result`);
       const moduleViewed = localStorage.getItem(`module_${i}_viewed`);
@@ -638,14 +700,14 @@
       document.getElementById('statsInProgress').textContent = inProgress;
       const avg = testsCount > 0 ? Math.round(totalScore / testsCount) : 0;
       document.getElementById('statsAvgScore').textContent  = avg + '%';
-      const prog = Math.round(((completed + inProgress) / 10) * 100);
+      const prog = Math.round(((completed + inProgress) / 12) * 100);
       document.getElementById('statsProgress').textContent  = prog + '%';
     }
   }
 
   function resetAllModules() {
     if (confirm('Сбросить ВСЕ модули? Весь прогресс будет удален.')) {
-      for (let i = 1; i <= 10; i++) {
+      for (let i = 1; i <= 12; i++) {
         localStorage.removeItem(`module_${i}_test_result`);
         localStorage.removeItem(`module_${i}_viewed`);
         localStorage.removeItem(`module_${i}_test_answers`);

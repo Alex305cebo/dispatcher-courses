@@ -1,5 +1,4 @@
 /* Dark Theme Styles */
-/* Default is dark theme, light theme is optional */
 
 :root {
     --bg:      #070b14;
@@ -12,41 +11,7 @@
     --primary-rgb: 102,126,234;
 }
 
-/* Light Theme (optional) */
-[data-theme="light"] {
-    --bg:      #f8fafc;
-    --card:    rgba(255,255,255,0.9);
-    --border:  rgba(0,0,0,0.1);
-    --text:    #1e293b;
-    --text-2:  #475569;
-    --text-3:  #94a3b8;
-    --primary: #667eea;
-    --primary-rgb: 102,126,234;
-}
-
-[data-theme="light"] body {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
-
-[data-theme="light"] .bg-grid {
-    background-image:
-        linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px);
-}
-
-[data-theme="light"] .orb-1 {
-    background: radial-gradient(circle, rgba(255,255,255,.2), transparent 70%);
-}
-
-[data-theme="light"] .orb-2 {
-    background: radial-gradient(circle, rgba(255,255,255,.15), transparent 70%);
-}
-
-[data-theme="light"] .orb-3 {
-    background: radial-gradient(circle, rgba(255,255,255,.1), transparent 70%);
-}
-
-/* Smooth transitions for theme switching */
+/* Smooth transitions */
 body,
 .card,
 .content-card,
