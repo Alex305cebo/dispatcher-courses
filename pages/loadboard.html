@@ -189,14 +189,14 @@
 
         .load-card {
             perspective: 1000px;
-            height: 520px;
+            height: 620px;
             cursor: pointer;
         }
 
         .load-card-inner {
             position: relative;
             width: 100%;
-            height: 520px;
+            height: 620px;
             transition: transform 0.6s;
             transform-style: preserve-3d;
         }
@@ -209,7 +209,7 @@
         .load-card-back {
             position: absolute;
             width: 100%;
-            height: 520px;
+            height: 620px;
             backface-visibility: hidden;
             background: var(--card-bg);
             backdrop-filter: blur(10px);
@@ -227,6 +227,46 @@
         .load-card-back {
             transform: rotateY(180deg);
             border-left: 3px solid #3b82f6;
+            overflow-y: auto;
+        }
+
+        /* Красивый скроллбар для карточек */
+        .load-card-back::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .load-card-back::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 3px;
+        }
+
+        .load-card-back::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--primary), #3b82f6);
+            border-radius: 3px;
+        }
+
+        .load-card-back::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+        }
+
+        /* Для мобильных устройств */
+        @media (max-width: 768px) {
+            .load-card-front::-webkit-scrollbar,
+            .load-card-back::-webkit-scrollbar {
+                width: 4px;
+            }
+
+            .load-card-front::-webkit-scrollbar-track,
+            .load-card-back::-webkit-scrollbar-track {
+                background: rgba(255, 255, 255, 0.05);
+                border-radius: 2px;
+            }
+
+            .load-card-front::-webkit-scrollbar-thumb,
+            .load-card-back::-webkit-scrollbar-thumb {
+                background: linear-gradient(135deg, var(--primary), #3b82f6);
+                border-radius: 2px;
+            }
         }
 
         .load-card:hover .load-card-front {
@@ -392,11 +432,35 @@
 
         .flip-hint {
             position: absolute;
-            bottom: 6px;
-            right: 6px;
-            font-size: 10px;
-            color: var(--text-secondary);
-            opacity: 0.6;
+            bottom: 8px;
+            right: 8px;
+            font-size: 14px;
+            color: var(--text);
+            opacity: 0.3;
+            font-weight: 700;
+            animation: fadeOut 4s forwards;
+        }
+
+        @keyframes fadeOut {
+            0% {
+                opacity: 0.7;
+            }
+            70% {
+                opacity: 0.7;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .load-card:hover .flip-hint {
+            animation: fadeIn 0.3s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 0.7;
+            }
         }
 
         #scrollToTop {
@@ -461,16 +525,17 @@
             }
 
             .load-card {
-                height: 520px;
+                height: 620px;
             }
 
             .load-card-inner {
-                height: 520px;
+                height: 620px;
             }
 
             .load-card-front,
             .load-card-back {
-                height: 520px;
+                height: 620px;
+                overflow-y: auto;
             }
 
             .load-route-header {
@@ -492,6 +557,26 @@
                 bottom: 20px;
                 right: 20px;
                 font-size: 18px;
+            }
+
+            .flip-hint {
+                animation: fadeOutMobile 5s forwards;
+            }
+
+            @keyframes fadeOutMobile {
+                0% {
+                    opacity: 0.7;
+                }
+                80% {
+                    opacity: 0.7;
+                }
+                100% {
+                    opacity: 0;
+                }
+            }
+
+            .load-card:hover .flip-hint {
+                animation: fadeOutMobile 5s forwards;
             }
         }
     </style>
@@ -667,28 +752,28 @@
             
             if (ratePerMile >= 8) {
                 profitRating = 10;
-                profitAnalysis = 'Исключительная ставка! Значительно выше рыночной. Редкая возможность максимизировать прибыль.';
+                profitAnalysis = 'Исключительная ставка! Значительно выше рынка.';
             } else if (ratePerMile >= 6) {
                 profitRating = 9;
-                profitAnalysis = 'Отличная ставка, превышает средние показатели рынка на 40-60%. Высокая рентабельность рейса.';
+                profitAnalysis = 'Отличная ставка, +40-60% к рынку. Высокая рентабельность.';
             } else if (ratePerMile >= 5) {
                 profitRating = 8;
-                profitAnalysis = 'Очень хорошая ставка, выше среднерыночной на 25-40%. Рекомендуется для приоритетного рассмотрения.';
+                profitAnalysis = 'Очень хорошая ставка, +25-40% к рынку.';
             } else if (ratePerMile >= 4) {
                 profitRating = 7;
-                profitAnalysis = 'Хорошая ставка, соответствует верхней границе рыночного диапазона. Стабильная прибыль гарантирована.';
+                profitAnalysis = 'Хорошая ставка, верхняя граница рынка.';
             } else if (ratePerMile >= 3.5) {
                 profitRating = 6;
-                profitAnalysis = 'Средняя ставка, в пределах рыночной нормы. Прибыль умеренная, подходит для заполнения графика.';
+                profitAnalysis = 'Средняя ставка, в пределах нормы.';
             } else if (ratePerMile >= 3) {
                 profitRating = 5;
-                profitAnalysis = 'Ниже среднего, но приемлемо. Рассмотрите, если маршрут совпадает с вашим направлением.';
+                profitAnalysis = 'Ниже среднего, но приемлемо.';
             } else if (ratePerMile >= 2.5) {
                 profitRating = 4;
-                profitAnalysis = 'Низкая ставка. Прибыль минимальная, берите только если нет альтернатив или для возврата в базу.';
+                profitAnalysis = 'Низкая ставка. Минимальная прибыль.';
             } else {
                 profitRating = 3;
-                profitAnalysis = 'Очень низкая ставка. Высокий риск убытков. Не рекомендуется, кроме критической необходимости.';
+                profitAnalysis = 'Очень низкая ставка. Риск убытков.';
             }
 
             // Анализ рисков
@@ -697,37 +782,37 @@
 
             // Финансовые риски
             if (load.creditScore < 85) {
-                risks.push('⚠️ Средний кредитный рейтинг компании - возможны задержки оплаты');
+                risks.push('⚠️ Средний кредитный рейтинг - возможны задержки');
                 riskScore += 2;
             }
             if (load.daysToPayAvg > 30) {
-                risks.push('⚠️ Длительный срок оплаты (>30 дней) - влияет на денежный поток');
+                risks.push('⚠️ Длительный срок оплаты (>30 дней)');
                 riskScore += 2;
             }
             if (estimatedProfit < 500) {
-                risks.push('⚠️ Низкая прибыль - может не покрыть непредвиденные расходы');
+                risks.push('⚠️ Низкая прибыль');
                 riskScore += 1;
             }
 
             // Операционные риски
             if (load.equipment === '53ft Reefer') {
-                risks.push('🌡️ Рефрижератор - требует постоянный мониторинг температуры, риск порчи груза');
+                risks.push('🌡️ Рефрижератор - контроль температуры');
                 riskScore += 1;
             }
             if (load.equipment === 'Flatbed') {
-                risks.push('🌧️ Открытая платформа - зависимость от погодных условий, требуется крепление');
+                risks.push('🌧️ Открытая платформа - зависимость от погоды');
                 riskScore += 1;
             }
             if (load.weight >= 45000) {
-                risks.push('⚖️ Тяжелый груз - повышенный расход топлива, износ оборудования, ограничения на дорогах');
+                risks.push('⚖️ Тяжелый груз - повышенный расход топлива');
                 riskScore += 1;
             }
             if (load.distance > 800) {
-                risks.push('🛣️ Очень длинная дистанция - требуется несколько дней, усталость водителя, HOS ограничения');
+                risks.push('🛣️ Длинная дистанция - HOS ограничения');
                 riskScore += 1;
             }
             if (load.deadhead > 100) {
-                risks.push('📍 Большой deadhead - дополнительные расходы на подъезд без оплаты');
+                risks.push('📍 Большой deadhead - доп. расходы');
                 riskScore += 2;
             }
 
@@ -736,35 +821,35 @@
             let advantageScore = 0;
 
             if (load.creditScore >= 90) {
-                advantages.push('✅ Высокий кредитный рейтинг (90+) - надежный плательщик, минимальный риск');
+                advantages.push('✅ Высокий кредитный рейтинг (90+) - надежный плательщик');
                 advantageScore += 2;
             }
             if (load.daysToPayAvg <= 15) {
-                advantages.push('💰 Быстрая оплата (≤15 дней) - отличный денежный поток');
+                advantages.push('💰 Быстрая оплата (≤15 дней)');
                 advantageScore += 2;
             }
             if (ratePerMile >= 5) {
-                advantages.push('💵 Премиальная ставка - значительно выше рынка, максимальная прибыль');
+                advantages.push('💵 Премиальная ставка - выше рынка');
                 advantageScore += 3;
             }
             if (load.pickupState === load.deliveryState) {
-                advantages.push('🗺️ Внутриштатная перевозка - меньше регуляций, проще логистика');
+                advantages.push('🗺️ Внутриштатная перевозка');
                 advantageScore += 1;
             }
             if (load.distance < 150) {
-                advantages.push('⚡ Короткий маршрут - быстрая доставка, можно сделать несколько рейсов в день');
+                advantages.push('⚡ Короткий маршрут - быстрая доставка');
                 advantageScore += 2;
             }
             if (load.deadhead < 50) {
-                advantages.push('📍 Минимальный deadhead - экономия топлива и времени на подъезд');
+                advantages.push('📍 Минимальный deadhead');
                 advantageScore += 1;
             }
             if (estimatedProfit > 1500) {
-                advantages.push('💎 Высокая прибыль - отличная рентабельность рейса');
+                advantages.push('💎 Высокая прибыль');
                 advantageScore += 2;
             }
             if (load.equipment === '53ft Dry Van') {
-                advantages.push('📦 Стандартный трейлер - универсальный груз, минимальные требования');
+                advantages.push('📦 Стандартный трейлер');
                 advantageScore += 1;
             }
 
@@ -789,19 +874,19 @@
             const pickupHour = parseInt(load.pickupTime.split(':')[0]);
 
             if (pickupHour >= 7 && pickupHour <= 9) {
-                timingAnalysis += 'Утренняя погрузка - возможны очереди на складе. ';
+                timingAnalysis += 'Утренняя погрузка - возможны очереди. ';
             } else if (pickupHour >= 14 && pickupHour <= 17) {
-                timingAnalysis += 'Дневная погрузка - оптимальное время, меньше очередей. ';
+                timingAnalysis += 'Дневная погрузка - оптимальное время. ';
             }
 
             if (driveTime > 11) {
-                timingAnalysis += 'Требуется остановка на отдых по HOS правилам (>11 часов вождения). ';
+                timingAnalysis += 'Требуется остановка по HOS (>11ч). ';
             }
 
             if (load.distance > 500) {
-                timingAnalysis += 'Многодневный рейс - планируйте остановки и отдых заранее.';
+                timingAnalysis += 'Многодневный рейс.';
             } else {
-                timingAnalysis += 'Однодневный рейс - можно завершить за одну смену.';
+                timingAnalysis += 'Однодневный рейс.';
             }
 
             // Сравнение с рынком
@@ -984,13 +1069,6 @@
                         <div class="load-card-back">
                             <div class="analysis-title">📊 Анализ груза #${load.id}</div>
                             
-                            ${load.profit ? `
-                            <div style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.05)); padding: 10px; border-radius: 6px; margin-bottom: 10px; border: 1px solid rgba(34, 197, 94, 0.3);">
-                                <div style="font-size: 12px; color: var(--text-secondary); margin-bottom: 2px;">💰 Прибыль</div>
-                                <div style="font-size: 26px; font-weight: 900; color: #22c55e;">$${load.profit.toFixed(2)}</div>
-                            </div>
-                            ` : ''}
-                            
                             <div class="analysis-section">
                                 <div class="metric-row">
                                     <span class="metric-label">Рейтинг прибыльности</span>
@@ -1005,6 +1083,12 @@
                             </div>
 
                             <div class="analysis-section">
+                                ${load.profit ? `
+                                <div class="metric-row">
+                                    <span class="metric-label">💰 Прибыль</span>
+                                    <span class="metric-value" style="color: #22c55e; font-weight: 700;">$${load.profit.toFixed(2)}</span>
+                                </div>
+                                ` : ''}
                                 ${load.totalMiles ? `
                                 <div class="metric-row">
                                     <span class="metric-label">Общий пробег (с deadhead)</span>
@@ -1116,7 +1200,19 @@
                 return matchPickupState && matchDeliveryState && matchEquipment && matchRate;
             });
 
-            renderLoads(filtered);
+            // Shuffle filtered results
+            const shuffledFiltered = shuffleArray(filtered);
+            renderLoads(shuffledFiltered);
+        }
+
+        // Shuffle function for randomizing load order
+        function shuffleArray(array) {
+            const shuffled = [...array];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+            return shuffled;
         }
 
         // Event listeners
@@ -1125,8 +1221,9 @@
         document.getElementById('equipmentFilter').addEventListener('change', applyFilters);
         document.getElementById('minRate').addEventListener('input', applyFilters);
 
-        // Initial render
-        renderLoads(loads);
+        // Initial render with randomized order
+        const shuffledLoads = shuffleArray(loads);
+        renderLoads(shuffledLoads);
 
         // Scroll to top button
         const scrollToTopBtn = document.getElementById('scrollToTop');
