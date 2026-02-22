@@ -537,6 +537,10 @@ body {
     ← Назад к курсам
   </a>
 
+  <a href="simulator.html" class="back-btn" id="backToSimulator" style="display: none; margin-left: 12px;">
+    ← Назад к симулятору
+  </a>
+
   <div class="header">
     <h1>📞 Тренировка звонков</h1>
     <p>Профессиональная коммуникация с брокерами и водителями</p>
@@ -1503,6 +1507,16 @@ function playBrokerAudio(audioFile, iconElement) {
     iconElement.classList.remove('playing');
   };
 }
+
+// Показать кнопку "Назад к симулятору" если пришли из simulator.html
+document.addEventListener('DOMContentLoaded', function() {
+  const url = window.location.href;
+  const backToSimulatorBtn = document.getElementById('backToSimulator');
+  
+  if (url.includes('from=simulator')) {
+    backToSimulatorBtn.style.display = 'inline-flex';
+  }
+});
 </script>
 
 </body>
