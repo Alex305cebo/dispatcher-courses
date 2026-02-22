@@ -45,17 +45,36 @@
             --success: #10b981;
         }
 
-        /* Modern Light Theme - Clean & Minimal */
+        /* Modern Light Theme - Professional animated background */
         [data-theme="light"] body {
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #d8dce8 0%, #cfd4e3 100%);
+            position: relative;
         }
 
-        /* Default subtle pattern - dots */
+        /* Animated gradient overlay */
         [data-theme="light"] body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
             background: 
-                radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.04), transparent 35%),
-                radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.04), transparent 35%),
-                radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.02), transparent 50%) !important;
+                radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.12), transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.12), transparent 50%);
+            animation: gradientShift 20s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: translate(-5%, 5%) scale(1.08);
+                opacity: 0.85;
+            }
         }
 
         [data-theme="light"] body::after {
@@ -66,84 +85,167 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.5;
+            opacity: 1;
+            pointer-events: none;
         }
 
-        /* Default - Dots pattern */
+        /* Home - Floating dots */
         [data-theme="light"] body[data-page="home"]::after {
+            background-color: transparent;
             background-image: 
-                radial-gradient(circle, rgba(99, 102, 241, 0.04) 1.5px, transparent 1.5px);
-            background-size: 30px 30px;
+                radial-gradient(circle, rgba(99, 102, 241, 0.25) 3px, transparent 3px),
+                radial-gradient(circle, rgba(139, 92, 246, 0.18) 2px, transparent 2px),
+                radial-gradient(circle, rgba(59, 130, 246, 0.15) 2.5px, transparent 2.5px);
+            background-size: 60px 60px, 40px 40px, 80px 80px;
+            background-position: 0 0, 20px 20px, 40px 40px;
+            animation: floatPattern 25s linear infinite;
         }
 
-        /* Load Board - Hexagon pattern */
+        @keyframes floatPattern {
+            0% {
+                background-position: 0 0, 20px 20px, 40px 40px;
+            }
+            100% {
+                background-position: 60px 60px, 80px 80px, 120px 120px;
+            }
+        }
+
+        /* Load Board - Sliding hexagons */
         [data-theme="light"] body[data-page="loadboard"]::after {
+            background-color: transparent;
             background-image: 
-                linear-gradient(30deg, rgba(99, 102, 241, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(99, 102, 241, 0.03) 87.5%),
-                linear-gradient(150deg, rgba(99, 102, 241, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(99, 102, 241, 0.03) 87.5%),
-                linear-gradient(30deg, rgba(99, 102, 241, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(99, 102, 241, 0.03) 87.5%),
-                linear-gradient(150deg, rgba(99, 102, 241, 0.03) 12%, transparent 12.5%, transparent 87%, rgba(99, 102, 241, 0.03) 87.5%);
-            background-size: 80px 140px;
-            background-position: 0 0, 0 0, 40px 70px, 40px 70px;
+                linear-gradient(30deg, rgba(99, 102, 241, 0.18) 12%, transparent 12.5%, transparent 87%, rgba(99, 102, 241, 0.18) 87.5%),
+                linear-gradient(150deg, rgba(99, 102, 241, 0.18) 12%, transparent 12.5%, transparent 87%, rgba(99, 102, 241, 0.18) 87.5%),
+                linear-gradient(30deg, rgba(139, 92, 246, 0.14) 12%, transparent 12.5%, transparent 87%, rgba(139, 92, 246, 0.14) 87.5%),
+                linear-gradient(150deg, rgba(139, 92, 246, 0.14) 12%, transparent 12.5%, transparent 87%, rgba(139, 92, 246, 0.14) 87.5%);
+            background-size: 100px 175px;
+            background-position: 0 0, 0 0, 50px 87.5px, 50px 87.5px;
+            animation: slideHexagons 35s linear infinite;
         }
 
-        /* Modules page - Diagonal stripes */
+        @keyframes slideHexagons {
+            0% {
+                background-position: 0 0, 0 0, 50px 87.5px, 50px 87.5px;
+            }
+            100% {
+                background-position: 100px 175px, 100px 175px, 150px 262.5px, 150px 262.5px;
+            }
+        }
+
+        /* Modules - Diagonal wave */
         [data-theme="light"] body[data-page="modules"]::after {
+            background-color: transparent;
             background-image: 
                 repeating-linear-gradient(
                     45deg,
                     transparent,
-                    transparent 25px,
-                    rgba(99, 102, 241, 0.025) 25px,
-                    rgba(99, 102, 241, 0.025) 26px
+                    transparent 30px,
+                    rgba(99, 102, 241, 0.15) 30px,
+                    rgba(99, 102, 241, 0.15) 33px,
+                    transparent 33px,
+                    transparent 60px,
+                    rgba(139, 92, 246, 0.12) 60px,
+                    rgba(139, 92, 246, 0.12) 63px
                 );
+            animation: diagonalSlide 22s linear infinite;
         }
 
-        /* Simulator - Wave pattern */
+        @keyframes diagonalSlide {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 63px 63px;
+            }
+        }
+
+        /* Simulator - Pulsing grid */
         [data-theme="light"] body[data-page="simulator"]::after {
+            background-color: transparent;
             background-image: 
-                repeating-linear-gradient(
-                    0deg,
-                    transparent,
-                    transparent 40px,
-                    rgba(99, 102, 241, 0.02) 40px,
-                    rgba(99, 102, 241, 0.02) 80px
-                ),
-                repeating-linear-gradient(
-                    90deg,
-                    transparent,
-                    transparent 40px,
-                    rgba(139, 92, 246, 0.02) 40px,
-                    rgba(139, 92, 246, 0.02) 80px
-                );
+                linear-gradient(rgba(99, 102, 241, 0.2) 2.5px, transparent 2.5px),
+                linear-gradient(90deg, rgba(99, 102, 241, 0.2) 2.5px, transparent 2.5px),
+                linear-gradient(rgba(139, 92, 246, 0.12) 1.5px, transparent 1.5px),
+                linear-gradient(90deg, rgba(139, 92, 246, 0.12) 1.5px, transparent 1.5px);
+            background-size: 80px 80px, 80px 80px, 20px 20px, 20px 20px;
+            animation: pulseGrid 12s ease-in-out infinite;
         }
 
-        /* Testing page - Grid pattern */
+        @keyframes pulseGrid {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.75;
+                transform: scale(1.03);
+            }
+        }
+
+        /* Testing - Moving graph paper */
         [data-theme="light"] body[data-page="testing"]::after {
+            background-color: transparent;
             background-image: 
-                linear-gradient(rgba(99, 102, 241, 0.03) 1.5px, transparent 1.5px),
-                linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1.5px, transparent 1.5px);
-            background-size: 50px 50px;
+                linear-gradient(rgba(99, 102, 241, 0.2) 2.5px, transparent 2.5px),
+                linear-gradient(90deg, rgba(99, 102, 241, 0.2) 2.5px, transparent 2.5px),
+                linear-gradient(rgba(99, 102, 241, 0.1) 1.5px, transparent 1.5px),
+                linear-gradient(90deg, rgba(99, 102, 241, 0.1) 1.5px, transparent 1.5px);
+            background-size: 80px 80px, 80px 80px, 20px 20px, 20px 20px;
+            animation: moveGraph 28s linear infinite;
         }
 
-        /* Documentation - Checkered pattern */
+        @keyframes moveGraph {
+            0% {
+                background-position: 0 0, 0 0, 0 0, 0 0;
+            }
+            100% {
+                background-position: 80px 80px, 80px 80px, 20px 20px, 20px 20px;
+            }
+        }
+
+        /* Documentation - Rotating blueprint */
         [data-theme="light"] body[data-page="documentation"]::after {
+            background-color: transparent;
             background-image: 
-                linear-gradient(45deg, rgba(99, 102, 241, 0.02) 25%, transparent 25%),
-                linear-gradient(-45deg, rgba(99, 102, 241, 0.02) 25%, transparent 25%),
-                linear-gradient(45deg, transparent 75%, rgba(99, 102, 241, 0.02) 75%),
-                linear-gradient(-45deg, transparent 75%, rgba(99, 102, 241, 0.02) 75%);
-            background-size: 60px 60px;
-            background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
+                linear-gradient(45deg, rgba(99, 102, 241, 0.15) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(99, 102, 241, 0.15) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, rgba(139, 92, 246, 0.15) 75%),
+                linear-gradient(-45deg, transparent 75%, rgba(139, 92, 246, 0.15) 75%);
+            background-size: 80px 80px;
+            background-position: 0 0, 0 40px, 40px -40px, -40px 0px;
+            animation: rotateBlueprint 30s linear infinite;
         }
 
-        /* Cases page - Circles pattern */
+        @keyframes rotateBlueprint {
+            0% {
+                background-position: 0 0, 0 40px, 40px -40px, -40px 0px;
+            }
+            100% {
+                background-position: 80px 80px, 80px 120px, 120px 40px, 40px 80px;
+            }
+        }
+
+        /* Cases - Bouncing dots */
         [data-theme="light"] body[data-page="cases"]::after {
+            background-color: transparent;
             background-image: 
-                radial-gradient(circle, rgba(99, 102, 241, 0.03) 8%, transparent 8%),
-                radial-gradient(circle, rgba(139, 92, 246, 0.03) 8%, transparent 8%);
-            background-size: 60px 60px;
-            background-position: 0 0, 30px 30px;
+                radial-gradient(circle, rgba(99, 102, 241, 0.22) 18%, transparent 18%),
+                radial-gradient(circle, rgba(139, 92, 246, 0.18) 15%, transparent 15%),
+                radial-gradient(circle, rgba(59, 130, 246, 0.15) 12%, transparent 12%);
+            background-size: 70px 70px, 90px 90px, 110px 110px;
+            background-position: 0 0, 35px 35px, 55px 55px;
+            animation: bounceDots 18s ease-in-out infinite;
+        }
+
+        @keyframes bounceDots {
+            0%, 100% {
+                background-position: 0 0, 35px 35px, 55px 55px;
+                opacity: 1;
+            }
+            50% {
+                background-position: 12px 12px, 47px 47px, 67px 67px;
+                opacity: 0.85;
+            }
         }
 
         /* Cards - Apple-style elevated cards */
