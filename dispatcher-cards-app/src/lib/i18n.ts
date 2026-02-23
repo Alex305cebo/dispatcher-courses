@@ -7,14 +7,12 @@ export const locales: Locale[] = ['en', 'ru']
 
 export const defaultLocale: Locale = 'ru'
 
-type Messages = typeof ru
-
-const messages: Record<Locale, Messages> = {
-  en: en as Messages,
+const messages: any = {
+  en,
   ru,
 }
 
-export function getMessages(locale: Locale): Messages {
+export function getMessages(locale: Locale): any {
   return messages[locale] || messages[defaultLocale]
 }
 
