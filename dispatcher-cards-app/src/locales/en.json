@@ -1,0 +1,17 @@
+{
+  "app": {
+    "title": "Trainer",
+    "subtitle": "Dispatcher Questions"
+  },
+  "navigation": {
+    "back": "Back"
+  },
+  "theme": {
+    "light": "Light theme",
+    "dark": "Dark theme"
+  },
+  "language": {
+    "ru": "Русский",
+    "en": "English"
+  }
+}

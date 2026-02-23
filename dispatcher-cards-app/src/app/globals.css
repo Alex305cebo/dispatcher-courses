@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 248 250 252;
+    --foreground: 15 23 42;
+  }
+
+  .dark {
+    --background: 10 14 26;
+    --foreground: 248 250 252;
+  }
+  
+  html,
+  body {
+    overflow: hidden;
+    height: 100svh;
+    touch-action: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@layer utilities {
+  /* Safe viewport height для мобильных устройств */
+  .h-screen-safe {
+    height: 100svh;
+  }
+  
+  .min-h-screen-safe {
+    min-height: 100svh;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: rgb(var(--foreground));
+  background: rgb(var(--background));
+}
