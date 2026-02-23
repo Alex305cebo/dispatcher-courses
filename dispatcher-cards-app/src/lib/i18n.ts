@@ -10,7 +10,7 @@ export const defaultLocale: Locale = 'ru'
 type Messages = typeof ru
 
 const messages: Record<Locale, Messages> = {
-  en,
+  en: en as Messages,
   ru,
 }
 
