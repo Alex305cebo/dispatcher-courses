@@ -35,10 +35,6 @@ export default function DispatcherCard({
   const opacityLeft = useTransform(x, [-150, -50, 0], [1, 0.5, 0])
   const opacityRight = useTransform(x, [0, 50, 150], [0, 0.5, 1])
   
-  // Динамический padding в зависимости от длины вопроса
-  const questionLength = question?.question?.length || 0
-  const cardPadding = questionLength > 150 ? 'p-3' : 'p-4'
-  
   // Слушаем CustomEvent для переворота карточки
   useEffect(() => {
     const handleFlipEvent = () => {
@@ -79,17 +75,8 @@ export default function DispatcherCard({
     }
   }
   
-  // Чистое название категории без префикса "categories."
-  const cleanCategoryName = t(`categories.${question?.category || 'default'}`).replace('categories.', '')
-  
-  // Наводка из hint или первые 5 слов вопроса
-  const getHintText = () => {
-    if (question?.hint) {
-      return question.hint
-    }
-    const words = question?.question?.split(' ') || []
-    return words.slice(0, 5).join(' ') + '...'
-  }
+  // Название категории без префикса
+  const categoryName = question?.category || 'Загрузка'
   
   return (
     <motion.div
@@ -125,36 +112,32 @@ export default function DispatcherCard({
           </div>
         )}
         
-        {/* Card Front Side - ТОЛЬКО вопрос и наводка БЕЗ ОТВЕТА */}
+        {/* Card Front Side - text (вопрос) и hint (наводка) */}
         <div 
-          className={`absolute inset-0 rounded-2xl ${cardPadding} backdrop-blur-xl border-2 border-white/30 bg-slate-900/90 flex flex-col shadow-2xl overflow-hidden`}
+          className="absolute inset-0 rounded-2xl p-4 backdrop-blur-xl border-2 border-white/30 bg-slate-900/90 flex flex-col shadow-2xl overflow-hidden"
           style={{ 
             backfaceVisibility: 'hidden',
             transform: 'rotateY(0deg)'
           }}
         >
           
-          {/* Category Badge - Чистое название */}
+          {/* Category Badge */}
           <div className="inline-flex items-center gap-1.5 self-start px-2.5 py-1 rounded-full mb-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-[10px] font-semibold shadow-lg flex-shrink-0">
             <span className="text-sm">🎯</span>
-            <span>{cleanCategoryName}</span>
+            <span>{categoryName}</span>
           </div>
           
-          {/* Question - Заголовок вопроса */}
-          <h2 className="text-base font-bold mb-3 leading-tight text-white flex-shrink-0 max-h-[120px] overflow-y-auto">
-            {question?.question || 'Загрузка...'}
+          {/* Text - Вопрос (минимальный размер) */}
+          <h2 className="text-sm font-bold mb-2 leading-tight text-white flex-shrink-0 max-h-[80px] overflow-y-auto scrollbar-thin">
+            {question?.text || 'Загрузка...'}
           </h2>
           
-          {/* Наводка - БЕЗ ОТВЕТА, только контекст */}
-          <div className="flex-shrink-0 mb-3 p-3 rounded-xl bg-purple-500/10 border border-purple-500/30">
-            <p className="text-[10px] font-semibold text-purple-300 mb-1.5">💡 Наводка:</p>
-            <p className="text-gray-300 text-xs leading-relaxed opacity-80 italic">
-              {getHintText()}
+          {/* Hint - Наводка (серый, мелкий) с красивым скроллингом */}
+          <div className="flex-1 overflow-y-auto mb-3 scrollbar-thin scrollbar-thumb-purple-500/50 scrollbar-track-transparent hover:scrollbar-thumb-purple-500/70">
+            <p className="text-gray-400 text-xs leading-relaxed italic pr-2">
+              {question?.hint || 'Подумайте над вопросом...'}
             </p>
           </div>
-          
-          {/* Spacer для заполнения пространства */}
-          <div className="flex-1"></div>
           
           {/* Подсказка о перевороте */}
           <div className="text-center flex-shrink-0 mt-2">
@@ -187,9 +170,9 @@ export default function DispatcherCard({
           )}
         </div>
 
-        {/* Card Back Side - ПОЛНАЯ аналитика и правильный ответ */}
+        {/* Card Back Side - analytics (полный разбор) */}
         <div 
-          className="absolute inset-0 rounded-2xl p-4 backdrop-blur-xl border-2 border-purple-500/50 bg-purple-900/90 flex flex-col shadow-2xl overflow-hidden"
+          className="absolute inset-0 rounded-2xl p-5 backdrop-blur-xl border-2 border-purple-500/50 bg-gradient-to-br from-purple-900/95 to-indigo-900/95 flex flex-col shadow-2xl overflow-hidden"
           style={{ 
             backfaceVisibility: 'hidden',
             transform: 'rotateY(180deg)'
@@ -198,26 +181,36 @@ export default function DispatcherCard({
           <div className="flex flex-col h-full">
             {/* Правильный ответ - Крупно */}
             <div className="text-center mb-4 flex-shrink-0">
-              <div className="text-5xl mb-2">
+              <div className="text-6xl mb-3">
                 {question?.isCorrect ? '✓' : '✗'}
               </div>
-              <h3 className="text-2xl font-bold text-white mb-1">
-                Правильный ответ: {question?.isCorrect ? 'ДА' : 'НЕТ'}
+              <h3 className="text-3xl font-black text-white mb-2 drop-shadow-lg">
+                {question?.isCorrect ? 'ДА' : 'НЕТ'}
               </h3>
+              <div className="inline-block px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-sm">
+                <p className="text-sm font-semibold text-purple-200">
+                  Правильный ответ
+                </p>
+              </div>
             </div>
             
-            {/* Полная аналитика (description) - Scrollable */}
-            <div className="flex-1 overflow-y-auto mb-3">
-              <h4 className="text-sm font-bold text-purple-200 mb-2">📊 Объяснение:</h4>
-              <p className="text-gray-200 text-xs leading-relaxed">
-                {question?.description || 'Объяснение отсутствует'}
-              </p>
+            {/* Analytics - Полный разбор - Scrollable с красивым скроллингом */}
+            <div className="flex-1 overflow-y-auto mb-4 px-2 scrollbar-thin scrollbar-thumb-purple-300/50 scrollbar-track-transparent hover:scrollbar-thumb-purple-300/70">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                <h4 className="text-sm font-bold text-purple-200 mb-3 flex items-center gap-2">
+                  <span className="text-lg">📊</span>
+                  Подробный разбор:
+                </h4>
+                <p className="text-gray-100 text-sm leading-relaxed pr-2">
+                  {question?.analytics || 'Пример: Согласно правилам FMCSA, водитель может управлять траком максимум 11 часов после 10 последовательных часов отдыха. Это важное правило безопасности, которое помогает предотвратить усталость водителей и снизить риск аварий на дорогах.'}
+                </p>
+              </div>
             </div>
             
             {/* Подсказка о возврате */}
             <div className="text-center flex-shrink-0">
-              <p className="text-purple-200 text-[10px] opacity-70">
-                Нажмите снова, чтобы вернуться к вопросу
+              <p className="text-purple-200 text-xs opacity-80 font-medium">
+                👆 Нажмите снова, чтобы вернуться к вопросу
               </p>
             </div>
           </div>

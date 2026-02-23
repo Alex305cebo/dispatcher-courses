@@ -1,12 +1,22 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import SwipeCardStack from '@/components/SwipeCardStack'
 import ResultsModal from '@/components/ResultsModal'
 import ThemeToggle from '@/components/ThemeToggle'
-import { questions } from '@/data/questions'
+import { questions as allQuestions } from '@/data/questions'
 import { createTranslator, defaultLocale } from '@/lib/i18n'
+
+// Функция для перемешивания массива (Fisher-Yates shuffle)
+function shuffleArray<T>(array: T[]): T[] {
+  const shuffled = [...array]
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+  }
+  return shuffled
+}
 
 export default function Home() {
   const [showResults, setShowResults] = useState(false)
@@ -18,25 +28,26 @@ export default function Home() {
   const [isRestarting, setIsRestarting] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
   
+  // Рандомизация и выбор 30 вопросов за сессию
+  const [sessionQuestions, setSessionQuestions] = useState<typeof allQuestions>([])
+  
+  // Инициализация вопросов при первом рендере
+  useEffect(() => {
+    if (sessionQuestions.length === 0) {
+      const shuffled = shuffleArray(allQuestions)
+      setSessionQuestions(shuffled.slice(0, 30))
+    }
+  }, [sessionQuestions.length])
+  
   const t = createTranslator(defaultLocale)
   
-  const currentQuestion = questions[currentIndex]
+  const currentQuestion = sessionQuestions[currentIndex] || null
   const categoryIcon = currentQuestion?.category === 'Законодательство' ? '⚖️' :
                        currentQuestion?.category === 'Финансы' ? '💰' :
                        currentQuestion?.category === 'Переговоры' ? '🤝' :
                        currentQuestion?.category === 'Основы работы' ? '🚛' :
                        currentQuestion?.category === 'Безопасность' ? '🛡️' :
                        currentQuestion?.category === 'Документация' ? '📄' : '🎯'
-  
-  // Подсказка БЕЗ спойлеров - используем hint или первые 5 слов вопроса
-  const getHeaderHint = () => {
-    if (currentQuestion?.hint) {
-      return currentQuestion.hint
-    }
-    // Если hint нет, берем первые 5 слов вопроса
-    const words = currentQuestion?.question?.split(' ') || []
-    return words.slice(0, 5).join(' ') + '...'
-  }
   
   const handleComplete = (finalResults: { 
     correct: number; 
@@ -69,6 +80,10 @@ export default function Home() {
     setShowResults(false)
     setResults({ correct: 0, wrong: 0, byCategory: {} })
     setCurrentIndex(0)
+    
+    // Новая рандомизация при рестарте
+    const shuffled = shuffleArray(allQuestions)
+    setSessionQuestions(shuffled.slice(0, 30))
     
     setTimeout(() => {
       setIsRestarting(false)
@@ -130,38 +145,38 @@ export default function Home() {
       {/* Main Grid Layout - Desktop View с эффектом телефона */}
       <main className="relative z-10 h-screen w-full max-w-[430px] mx-auto border-x border-white/10 bg-slate-900/50 backdrop-blur-sm">
         
-        {/* Flex Container - Header, Content, Footer с justify-between */}
-        <div className="h-full flex flex-col justify-between">
+        {/* Grid Container - auto Header, 1fr Content, auto Footer */}
+        <div className="h-full grid grid-rows-[auto_1fr_auto]">
           
-          {/* HEADER ZONE - h-auto min-h-[60px] - БЕЗ СПОЙЛЕРОВ */}
-          <header className="relative z-50 flex flex-nowrap items-center justify-between gap-2 px-3 py-2 h-auto min-h-[60px] bg-slate-900/90 backdrop-blur-sm border-b border-white/10">
+          {/* HEADER ZONE - h-auto - ТОЛЬКО НАВОДКА */}
+          <header className="relative z-50 flex flex-nowrap items-center justify-between gap-2 px-3 py-2 h-auto bg-slate-900/90 backdrop-blur-sm border-b border-white/10">
             {/* Left: Category Icon + Name */}
             <div className="flex items-center gap-1 text-[10px] font-semibold text-white flex-shrink-0">
               <span className="text-sm">{categoryIcon}</span>
               <span className="truncate max-w-[60px]">{currentQuestion?.category || 'Загрузка'}</span>
             </div>
             
-            {/* Center: Подсказка БЕЗ ответа - line-clamp-2 whitespace-normal */}
+            {/* Center: Short Hint - line-clamp-2 whitespace-normal для 2 строк */}
             <div className="flex-1 px-2 text-center">
               <p className="text-[11px] text-purple-300 line-clamp-2 whitespace-normal leading-tight">
-                💡 Подсказка: {getHeaderHint()}
+                💡 Наводка: {currentQuestion?.shortHint || 'Подумайте над вопросом...'}
               </p>
             </div>
             
             {/* Right: Counter + Theme Toggle */}
             <div className="flex items-center gap-2 flex-shrink-0">
               <span className="text-[10px] font-bold text-white whitespace-nowrap">
-                {currentIndex + 1}/{questions.length}
+                {currentIndex + 1}/30
               </span>
               <ThemeToggle />
             </div>
           </header>
 
-          {/* CONTENT ZONE - Flexible flex-1 - z-10 */}
-          <div className="relative z-10 flex-1 overflow-hidden flex flex-col">
-            {!isRestarting && (
+          {/* CONTENT ZONE - Flexible 1fr - z-10 */}
+          <div className="relative z-10 overflow-hidden flex flex-col">
+            {!isRestarting && sessionQuestions.length > 0 && (
               <SwipeCardStack
-                questions={questions}
+                questions={sessionQuestions}
                 onComplete={handleComplete}
                 onSuccess={handleSuccess}
                 onError={handleError}
@@ -172,7 +187,7 @@ export default function Home() {
             )}
           </div>
 
-          {/* FOOTER ZONE - Компактный - z-50 */}
+          {/* FOOTER ZONE - Auto height - z-50 */}
           <footer className="relative z-50 bg-slate-900/90 backdrop-blur-sm border-t border-white/10">
             {/* Кнопки рендерятся внутри SwipeCardStack */}
           </footer>
@@ -185,7 +200,7 @@ export default function Home() {
         isOpen={showResults}
         correct={results.correct}
         wrong={results.wrong}
-        total={questions.length}
+        total={sessionQuestions.length}
         byCategory={results.byCategory}
         onRestart={handleRestart}
         onClose={handleClose}

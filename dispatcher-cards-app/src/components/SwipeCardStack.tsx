@@ -31,6 +31,9 @@ export default function SwipeCardStack({
   const [categoryStats, setCategoryStats] = useState<Record<string, { correct: number; total: number }>>({})
   const swipeHandlerRef = useRef<((direction: 'left' | 'right') => void) | null>(null)
 
+  // Лимит ошибок: 15 из 30 вопросов
+  const maxWrongAnswers = 15
+
   useEffect(() => {
     if (onIndexChange) {
       onIndexChange(currentIndex)
@@ -67,17 +70,22 @@ export default function SwipeCardStack({
     }
     
     setTimeout(() => {
+      const newCorrectCount = correctCount + (isCorrect ? 1 : 0)
+      const newWrongCount = wrongCount + (isCorrect ? 0 : 1)
+      const newCategoryStats = {
+        ...categoryStats,
+        [currentCard?.category || 'default']: {
+          correct: (categoryStats[currentCard?.category || 'default']?.correct || 0) + (isCorrect ? 1 : 0),
+          total: (categoryStats[currentCard?.category || 'default']?.total || 0) + 1
+        }
+      }
+      
+      // Проверка: если закончились вопросы - показываем результаты
       if (currentIndex + 1 >= cards.length) {
         onComplete({ 
-          correct: correctCount + (isCorrect ? 1 : 0), 
-          wrong: wrongCount + (isCorrect ? 0 : 1),
-          byCategory: {
-            ...categoryStats,
-            [currentCard?.category || 'default']: {
-              correct: (categoryStats[currentCard?.category || 'default']?.correct || 0) + (isCorrect ? 1 : 0),
-              total: (categoryStats[currentCard?.category || 'default']?.total || 0) + 1
-            }
-          }
+          correct: newCorrectCount, 
+          wrong: newWrongCount,
+          byCategory: newCategoryStats
         })
       } else {
         setCurrentIndex(prev => prev + 1)
@@ -92,7 +100,7 @@ export default function SwipeCardStack({
   }
 
   const visibleCards = cards.slice(currentIndex, currentIndex + 2)
-  const progress = ((currentIndex) / cards.length) * 100
+  const progress = ((currentIndex) / 30) * 100
 
   return (
     <>

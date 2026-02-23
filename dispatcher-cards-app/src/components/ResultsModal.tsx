@@ -35,8 +35,8 @@ export default function ResultsModal({
   }
   
   const getPerformanceMessage = () => {
-    if (percentage >= 80) return t('results.excellent')
-    if (percentage >= 60) return t('results.good')
+    if (percentage >= 90) return t('results.excellent')
+    if (percentage >= 70) return t('results.good')
     return t('results.needsPractice')
   }
   
