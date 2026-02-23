@@ -498,6 +498,23 @@ body::before {
           </div>
         </div>
 
+        <div class="course-card">
+          <div class="course-image">🎯</div>
+          <div class="course-content">
+            <h3 class="course-title">Тренажёр вопросов</h3>
+            <div class="course-progress">
+              <div class="progress-label">
+                <span>Интерактивные карточки</span>
+                <span>Новое!</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 0%"></div>
+              </div>
+            </div>
+            <button class="btn-continue" onclick="window.location.href='quiz-cards.html'">Начать тренировку →</button>
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -614,20 +631,27 @@ body::before {
 
 <script src="auth.js"></script>
 <script>
-// Check if user is logged in
+// Check if user is logged in (TEMPORARILY DISABLED)
 const user = checkAuth();
-if (!user) {
-  alert('Пожалуйста, войдите в систему');
-  window.location.href = 'login.html';
-}
+// Временно отключена проверка авторизации
+// if (!user) {
+//   alert('Пожалуйста, войдите в систему');
+//   window.location.href = 'login.html';
+// }
 
-// Update user info
-document.getElementById('userName').textContent = user.firstName;
-document.getElementById('profileName').textContent = user.firstName + ' ' + user.lastName;
-document.getElementById('profileEmail').textContent = user.email;
-document.getElementById('firstName').value = user.firstName;
-document.getElementById('lastName').value = user.lastName;
-document.getElementById('email').value = user.email;
+// Update user info - используем демо данные если пользователь не авторизован
+const displayUser = user || {
+  firstName: 'Гость',
+  lastName: 'Демо',
+  email: 'demo@example.com'
+};
+
+document.getElementById('userName').textContent = displayUser.firstName;
+document.getElementById('profileName').textContent = displayUser.firstName + ' ' + displayUser.lastName;
+document.getElementById('profileEmail').textContent = displayUser.email;
+document.getElementById('firstName').value = displayUser.firstName;
+document.getElementById('lastName').value = displayUser.lastName;
+document.getElementById('email').value = displayUser.email;
 
 // Tab switching
 function switchTab(tabName) {

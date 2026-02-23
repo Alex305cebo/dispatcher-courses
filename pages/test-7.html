@@ -1,9 +1,11 @@
-п»ї<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>РўРµСЃС‚: РњРѕРґСѓР»СЊ 7 - РњР°СЂС€СЂСѓС‚РёР·Р°С†РёСЏ Рё РїР»Р°РЅРёСЂРѕРІР°РЅРёРµ | РљСѓСЂСЃС‹ - Р”РёСЃРїРµС‚С‡РµСЂР°</title>
+    <title>Тест: Модуль 7 - Маршрутизация и планирование | Курсы - Диспетчера</title>
+    <script src="auth-check.js"></script>
+    <script src="content-protection.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 30px 20px; display: flex; flex-direction: column; align-items: center; }
@@ -89,48 +91,48 @@
     <div class="container">
         <div class="header">
             <div class="header-top">
-                <div class="test-badge">рџ“ќ РўРµСЃС‚: РњРѕРґСѓР»СЊ 7</div>
-                <a href="modules.html" class="back-btn">в†ђ РќР°Р·Р°Рґ</a>
+                <div class="test-badge">?? Тест: Модуль 7</div>
+                <a href="modules.html" class="back-btn">< Назад</a>
             </div>
-            <h1>РњР°СЂС€СЂСѓС‚РёР·Р°С†РёСЏ Рё РїР»Р°РЅРёСЂРѕРІР°РЅРёРµ</h1>
-            <p class="subtitle">19 РІРѕРїСЂРѕСЃРѕРІ РґР»СЏ РїСЂРѕРІРµСЂРєРё Р·РЅР°РЅРёР№</p>
+            <h1>Маршрутизация и планирование</h1>
+            <p class="subtitle">19 вопросов для проверки знаний</p>
             <div class="progress-bar"><div class="progress-fill" id="progressBar"></div></div>
         </div>
 
         <div id="questionsContainer"></div>
 
         <div class="results" id="results">
-            <h2 style="color: #2d3748; font-size: 32px; margin-bottom: 20px;">Р РµР·СѓР»СЊС‚Р°С‚С‹ С‚РµСЃС‚Р°</h2>
+            <h2 style="color: #2d3748; font-size: 32px; margin-bottom: 20px;">Результаты теста</h2>
             <div class="score" id="scoreDisplay"></div>
             <p class="result-message" id="resultMessage"></p>
             <div class="nav-buttons">
-                <button class="btn btn-primary" onclick="location.href='module-8.html'">РЎР»РµРґСѓСЋС‰РёР№ РјРѕРґСѓР»СЊ в†’</button>
-                <button class="btn btn-secondary" onclick="location.reload()">РџСЂРѕР№С‚Рё Р·Р°РЅРѕРІРѕ</button>
+                <button class="btn btn-primary" onclick="location.href='module-8.html'">Следующий модуль ></button>
+                <button class="btn btn-secondary" onclick="location.reload()">Пройти заново</button>
             </div>
         </div>
     </div>
 
     <script>
         const questions = [
-            {q: "РЎСЂРµРґРЅСЏСЏ СЃРєРѕСЂРѕСЃС‚СЊ С‚СЂР°РєР° РґР»СЏ СЂР°СЃС‡РµС‚Р° РІСЂРµРјРµРЅРё:", a: ["40 mph", "50 mph", "60 mph", "70 mph"], correct: 1},
-            {q: "РЎРєРѕР»СЊРєРѕ С‡Р°СЃРѕРІС‹С… РїРѕСЏСЃРѕРІ РІ РєРѕРЅС‚РёРЅРµРЅС‚Р°Р»СЊРЅРѕР№ РЎРЁРђ?", a: ["2", "3", "4", "5"], correct: 2},
-            {q: "EST СЌС‚Рѕ:", a: ["Eastern Standard Time", "European Standard Time", "Extra Standard Time", "Early Standard Time"], correct: 0},
-            {q: "Р Р°Р·РЅРёС†Р° РјРµР¶РґСѓ EST Рё PST:", a: ["1 С‡Р°СЃ", "2 С‡Р°СЃР°", "3 С‡Р°СЃР°", "4 С‡Р°СЃР°"], correct: 2},
-            {q: "Р§С‚Рѕ РЅСѓР¶РЅРѕ РґРѕР±Р°РІРёС‚СЊ Рє РІСЂРµРјРµРЅРё РІ РїСѓС‚Рё?", a: ["РќРёС‡РµРіРѕ", "РџРµСЂРµСЂС‹РІС‹, Р·Р°РїСЂР°РІРєРё, РїСЂРѕР±РєРё (10-20%)", "РўРѕР»СЊРєРѕ Р·Р°РїСЂР°РІРєРё", "РўРѕР»СЊРєРѕ РїСЂРѕР±РєРё"], correct: 1},
-            {q: "Р›СѓС‡С€РёР№ РёРЅСЃС‚СЂСѓРјРµРЅС‚ РґР»СЏ РїР»Р°РЅРёСЂРѕРІР°РЅРёСЏ РјР°СЂС€СЂСѓС‚Р°:", a: ["РљР°СЂС‚Р°", "Google Maps, PC Miler, Trucker Path", "РљРѕРјРїР°СЃ", "РРЅС‚СѓРёС†РёСЏ"], correct: 1},
-            {q: "Р§С‚Рѕ С‚Р°РєРѕРµ Truck Restrictions?", a: ["РћРіСЂР°РЅРёС‡РµРЅРёСЏ РґР»СЏ С‚СЂР°РєРѕРІ", "РўРёРї РіСЂСѓР·Р°", "РЎС‚СЂР°С…РѕРІРєР°", "РЎС‚Р°РІРєР°"], correct: 0},
-            {q: "Р“РґРµ РїСЂРѕРІРµСЂРёС‚СЊ РїРѕРіРѕРґСѓ РґР»СЏ РјР°СЂС€СЂСѓС‚Р°?", a: ["РќРёРіРґРµ", "Weather.com, Trucker Path", "РўРѕР»СЊРєРѕ СЂР°РґРёРѕ", "РўРѕР»СЊРєРѕ РўР’"], correct: 1},
-            {q: "Р§С‚Рѕ РґРµР»Р°С‚СЊ РїСЂРё РїР»РѕС…РѕР№ РїРѕРіРѕРґРµ?", a: ["РРіРЅРѕСЂРёСЂРѕРІР°С‚СЊ", "РџСЂРµРґСѓРїСЂРµРґРёС‚СЊ РІРѕРґРёС‚РµР»СЏ Рё Р±СЂРѕРєРµСЂР°, СЃРєРѕСЂСЂРµРєС‚РёСЂРѕРІР°С‚СЊ ETA", "РћС‚РјРµРЅРёС‚СЊ РіСЂСѓР·", "РќРёС‡РµРіРѕ"], correct: 1},
-            {q: "РћРїС‚РёРјР°Р»СЊРЅРѕРµ РІСЂРµРјСЏ РґР»СЏ СЃС‚Р°СЂС‚Р° РґР°Р»СЊРЅРµРіРѕ СЂРµР№СЃР°:", a: ["Р’РµС‡РµСЂ РїСЏС‚РЅРёС†С‹", "РЈС‚СЂРѕ РїРѕРЅРµРґРµР»СЊРЅРёРєР°", "РќРѕС‡СЊ", "Р’С‹С…РѕРґРЅС‹Рµ"], correct: 1},
-            {q: "Р§С‚Рѕ С‚Р°РєРѕРµ Weigh Station?", a: ["Р—Р°РїСЂР°РІРєР°", "РЎС‚Р°РЅС†РёСЏ РІР·РІРµС€РёРІР°РЅРёСЏ С‚СЂР°РєРѕРІ", "РћС‚РµР»СЊ", "Р РµСЃС‚РѕСЂР°РЅ"], correct: 1},
-            {q: "РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РІРµСЃ РґР»СЏ Interstate:", a: ["60,000 lbs", "70,000 lbs", "80,000 lbs", "90,000 lbs"], correct: 2},
-            {q: "Р§С‚Рѕ С‚Р°РєРѕРµ Truck Stop?", a: ["РћСЃС‚Р°РЅРѕРІРєР° РґР»СЏ С‚СЂР°РєРѕРІ СЃ СѓСЃР»СѓРіР°РјРё", "РћР±С‹С‡РЅР°СЏ Р·Р°РїСЂР°РІРєР°", "РџР°СЂРєРѕРІРєР°", "РћС‚РµР»СЊ"], correct: 0},
-            {q: "РџРѕРїСѓР»СЏСЂРЅС‹Рµ Truck Stop СЃРµС‚Рё:", a: ["McDonald's", "Pilot, Flying J, Love's, TA", "Starbucks", "Walmart"], correct: 1},
-            {q: "РљР°Рє С‡Р°СЃС‚Рѕ РІРѕРґРёС‚РµР»СЋ РЅСѓР¶РµРЅ РѕС‚РґС‹С…?", a: ["РљР°Р¶РґС‹Р№ С‡Р°СЃ", "РљР°Р¶РґС‹Рµ 8-11 С‡Р°СЃРѕРІ (HOS)", "Р Р°Р· РІ РґРµРЅСЊ", "РќРёРєРѕРіРґР°"], correct: 1},
-            {q: "Р§С‚Рѕ СѓС‡РёС‚С‹РІР°С‚СЊ РїСЂРё РїР»Р°РЅРёСЂРѕРІР°РЅРёРё РјР°СЂС€СЂСѓС‚Р°?", a: ["РўРѕР»СЊРєРѕ СЂР°СЃСЃС‚РѕСЏРЅРёРµ", "Р Р°СЃСЃС‚РѕСЏРЅРёРµ, HOS, РїРѕРіРѕРґР°, РѕРіСЂР°РЅРёС‡РµРЅРёСЏ, РІСЂРµРјСЏ", "РўРѕР»СЊРєРѕ РІСЂРµРјСЏ", "РўРѕР»СЊРєРѕ РїРѕРіРѕРґСѓ"], correct: 1},
-            {q: "Deadhead РѕРїС‚РёРјРёР·Р°С†РёСЏ РѕР·РЅР°С‡Р°РµС‚:", a: ["РЈРІРµР»РёС‡РёС‚СЊ РїСѓСЃС‚РѕР№ РїСЂРѕР±РµРі", "РњРёРЅРёРјРёР·РёСЂРѕРІР°С‚СЊ РїСѓСЃС‚РѕР№ РїСЂРѕР±РµРі", "РРіРЅРѕСЂРёСЂРѕРІР°С‚СЊ РїСѓСЃС‚РѕР№ РїСЂРѕР±РµРі", "РўРѕР»СЊРєРѕ РїСѓСЃС‚РѕР№ РїСЂРѕР±РµРі"], correct: 1},
-            {q: "Р§С‚Рѕ С‚Р°РєРѕРµ Backhaul Planning?", a: ["РџР»Р°РЅРёСЂРѕРІР°РЅРёРµ РѕР±СЂР°С‚РЅРѕРіРѕ РіСЂСѓР·Р°", "РџР»Р°РЅРёСЂРѕРІР°РЅРёРµ РїРµСЂРІРѕРіРѕ РіСЂСѓР·Р°", "РћС‚РјРµРЅР° РіСЂСѓР·Р°", "РўРёРї СЃС‚СЂР°С…РѕРІРєРё"], correct: 0},
-            {q: "Р›СѓС‡С€РёР№ РёРЅСЃС‚СЂСѓРјРµРЅС‚ РґР»СЏ РѕС‚СЃР»РµР¶РёРІР°РЅРёСЏ С‚СЂР°РєР°:", a: ["РўРµР»РµС„РѕРЅ", "GPS С‚СЂРµРєРёРЅРі (Samsara, KeepTruckin)", "РљР°СЂС‚Р°", "РРЅС‚СѓРёС†РёСЏ"], correct: 1}
+            {q: "Средняя скорость трака для расчета времени:", a: ["40 mph", "50 mph", "60 mph", "70 mph"], correct: 1},
+            {q: "Сколько часовых поясов в континентальной США?", a: ["2", "3", "4", "5"], correct: 2},
+            {q: "EST это:", a: ["Eastern Standard Time", "European Standard Time", "Extra Standard Time", "Early Standard Time"], correct: 0},
+            {q: "Разница между EST и PST:", a: ["1 час", "2 часа", "3 часа", "4 часа"], correct: 2},
+            {q: "Что нужно добавить к времени в пути?", a: ["Ничего", "Перерывы, заправки, пробки (10-20%)", "Только заправки", "Только пробки"], correct: 1},
+            {q: "Лучший инструмент для планирования маршрута:", a: ["Карта", "Google Maps, PC Miler, Trucker Path", "Компас", "Интуиция"], correct: 1},
+            {q: "Что такое Truck Restrictions?", a: ["Ограничения для траков", "Тип груза", "Страховка", "Ставка"], correct: 0},
+            {q: "Где проверить погоду для маршрута?", a: ["Нигде", "Weather.com, Trucker Path", "Только радио", "Только ТВ"], correct: 1},
+            {q: "Что делать при плохой погоде?", a: ["Игнорировать", "Предупредить водителя и брокера, скорректировать ETA", "Отменить груз", "Ничего"], correct: 1},
+            {q: "Оптимальное время для старта дальнего рейса:", a: ["Вечер пятницы", "Утро понедельника", "Ночь", "Выходные"], correct: 1},
+            {q: "Что такое Weigh Station?", a: ["Заправка", "Станция взвешивания траков", "Отель", "Ресторан"], correct: 1},
+            {q: "Максимальный вес для Interstate:", a: ["60,000 lbs", "70,000 lbs", "80,000 lbs", "90,000 lbs"], correct: 2},
+            {q: "Что такое Truck Stop?", a: ["Остановка для траков с услугами", "Обычная заправка", "Парковка", "Отель"], correct: 0},
+            {q: "Популярные Truck Stop сети:", a: ["McDonald's", "Pilot, Flying J, Love's, TA", "Starbucks", "Walmart"], correct: 1},
+            {q: "Как часто водителю нужен отдых?", a: ["Каждый час", "Каждые 8-11 часов (HOS)", "Раз в день", "Никогда"], correct: 1},
+            {q: "Что учитывать при планировании маршрута?", a: ["Только расстояние", "Расстояние, HOS, погода, ограничения, время", "Только время", "Только погоду"], correct: 1},
+            {q: "Deadhead оптимизация означает:", a: ["Увеличить пустой пробег", "Минимизировать пустой пробег", "Игнорировать пустой пробег", "Только пустой пробег"], correct: 1},
+            {q: "Что такое Backhaul Planning?", a: ["Планирование обратного груза", "Планирование первого груза", "Отмена груза", "Тип страховки"], correct: 0},
+            {q: "Лучший инструмент для отслеживания трака:", a: ["Телефон", "GPS трекинг (Samsara, KeepTruckin)", "Карта", "Интуиция"], correct: 1}
         ];
 
         let currentQuestion = 0;
@@ -143,7 +145,7 @@
                 const card = document.createElement('div');
                 card.className = 'question-card' + (index === 0 ? ' active' : '');
                 card.innerHTML = `
-                    <div class="question-number">Р’РѕРїСЂРѕСЃ ${index + 1} РёР· ${questions.length}</div>
+                    <div class="question-number">Вопрос ${index + 1} из ${questions.length}</div>
                     <div class="question-text">${q.q}</div>
                     <div class="answers">
                         ${q.a.map((answer, i) => `<div class="answer" onclick="selectAnswer(${index}, ${i})">${answer}</div>`).join('')}
@@ -198,7 +200,7 @@
             const percentage = Math.round((score / questions.length) * 100);
             const passed = percentage >= 70;
             
-            // РЎРѕС…СЂР°РЅСЏРµРј СЂРµР·СѓР»СЊС‚Р°С‚ РІ localStorage
+            // Сохраняем результат в localStorage
             localStorage.setItem('module_7_test_result', percentage);
             localStorage.setItem('module_7_test_score', score);
             localStorage.setItem('module_7_test_total', questions.length);
@@ -212,8 +214,8 @@
             scoreDisplay.className = 'score ' + (passed ? 'pass' : 'fail');
             
             document.getElementById('resultMessage').textContent = passed ? 
-                `РџРѕР·РґСЂР°РІР»СЏРµРј! Р’С‹ СѓСЃРїРµС€РЅРѕ РїСЂРѕС€Р»Рё С‚РµСЃС‚ (${score}/${questions.length})` :
-                `РўРµСЃС‚ РЅРµ РїСЂРѕР№РґРµРЅ. РќРµРѕР±С…РѕРґРёРјРѕ РЅР°Р±СЂР°С‚СЊ РјРёРЅРёРјСѓРј 70% (${score}/${questions.length})`;
+                `Поздравляем! Вы успешно прошли тест (${score}/${questions.length})` :
+                `Тест не пройден. Необходимо набрать минимум 70% (${score}/${questions.length})`;
         }
 
         initTest();

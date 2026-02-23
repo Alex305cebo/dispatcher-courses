@@ -1,4 +1,5 @@
 // Общий скрипт для проверки авторизации на всех страницах
+// ⚠️ ВРЕМЕННО ОТКЛЮЧЕНА ПРОВЕРКА АВТОРИЗАЦИИ - ДОСТУП ОТКРЫТ ВСЕМ
 
 // Проверка авторизации
 function checkAuth() {
@@ -66,6 +67,19 @@ async function verifyToken() {
     console.error('Error verifying token:', error);
     return false;
   }
+}
+
+// Проверка доступа к защищённым страницам
+function requireAuth() {
+  const user = checkAuth();
+  
+  if (!user) {
+    alert('Для доступа к курсам необходимо войти в систему или зарегистрироваться');
+    window.location.href = 'login.html';
+    return false;
+  }
+  
+  return true;
 }
 
 // Инициализация при загрузке страницы

@@ -1,9 +1,11 @@
-п»ї<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>РўРµСЃС‚: РњРѕРґСѓР»СЊ 4 - Load Boards Рё РїРѕРёСЃРє РіСЂСѓР·РѕРІ | РљСѓСЂСЃС‹ - Р”РёСЃРїРµС‚С‡РµСЂР°</title>
+    <title>Тест: Модуль 4 - Load Boards и поиск грузов | Курсы - Диспетчера</title>
+    <script src="auth-check.js"></script>
+    <script src="content-protection.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 30px 20px; display: flex; flex-direction: column; align-items: center; }
@@ -89,51 +91,51 @@
     <div class="container">
         <div class="header">
             <div class="header-top">
-                <div class="test-badge">рџ“ќ РўРµСЃС‚: РњРѕРґСѓР»СЊ 4</div>
-                <a href="modules.html" class="back-btn">в†ђ РќР°Р·Р°Рґ</a>
+                <div class="test-badge">?? Тест: Модуль 4</div>
+                <a href="modules.html" class="back-btn">< Назад</a>
             </div>
-            <h1>Load Boards Рё РїРѕРёСЃРє РіСЂСѓР·РѕРІ</h1>
-            <p class="subtitle">22 РІРѕРїСЂРѕСЃР° РґР»СЏ РїСЂРѕРІРµСЂРєРё Р·РЅР°РЅРёР№</p>
+            <h1>Load Boards и поиск грузов</h1>
+            <p class="subtitle">22 вопроса для проверки знаний</p>
             <div class="progress-bar"><div class="progress-fill" id="progressBar"></div></div>
         </div>
 
         <div id="questionsContainer"></div>
 
         <div class="results" id="results">
-            <h2 style="color: #2d3748; font-size: 32px; margin-bottom: 20px;">Р РµР·СѓР»СЊС‚Р°С‚С‹ С‚РµСЃС‚Р°</h2>
+            <h2 style="color: #2d3748; font-size: 32px; margin-bottom: 20px;">Результаты теста</h2>
             <div class="score" id="scoreDisplay"></div>
             <p class="result-message" id="resultMessage"></p>
             <div class="nav-buttons">
-                <button class="btn btn-primary" onclick="location.href='module-5.html'">РЎР»РµРґСѓСЋС‰РёР№ РјРѕРґСѓР»СЊ в†’</button>
-                <button class="btn btn-secondary" onclick="location.reload()">РџСЂРѕР№С‚Рё Р·Р°РЅРѕРІРѕ</button>
+                <button class="btn btn-primary" onclick="location.href='module-5.html'">Следующий модуль ></button>
+                <button class="btn btn-secondary" onclick="location.reload()">Пройти заново</button>
             </div>
         </div>
     </div>
 
     <script>
         const questions = [
-            {q: "РЎР°РјР°СЏ РїРѕРїСѓР»СЏСЂРЅР°СЏ Load Board РІ РЎРЁРђ:", a: ["Uber Freight", "DAT", "Amazon Relay", "Convoy"], correct: 1},
-            {q: "Р§С‚Рѕ С‚Р°РєРѕРµ Deadhead Miles?", a: ["РџСѓСЃС‚РѕР№ РїСЂРѕР±РµРі Р±РµР· РіСЂСѓР·Р°", "РћР±С‰РёР№ РїСЂРѕР±РµРі", "Р’РµСЃ РіСЂСѓР·Р°", "Р’СЂРµРјСЏ РІ РїСѓС‚Рё"], correct: 0},
-            {q: "Rate per Mile СЂР°СЃСЃС‡РёС‚С‹РІР°РµС‚СЃСЏ РєР°Рє:", a: ["РћР±С‰Р°СЏ СЃС‚Р°РІРєР° / Loaded Miles", "РћР±С‰Р°СЏ СЃС‚Р°РІРєР° / Total Miles", "Р’РµСЃ / РњРёР»Рё", "Р’СЂРµРјСЏ / РњРёР»Рё"], correct: 1},
-            {q: "Р§С‚Рѕ РѕР·РЅР°С‡Р°РµС‚ 'Hot Load'?", a: ["Р“СЂСѓР· СЃ РІС‹СЃРѕРєРѕР№ С‚РµРјРїРµСЂР°С‚СѓСЂРѕР№", "РЎСЂРѕС‡РЅС‹Р№ РіСЂСѓР· СЃ С…РѕСЂРѕС€РµР№ СЃС‚Р°РІРєРѕР№", "РћРїР°СЃРЅС‹Р№ РіСЂСѓР·", "РўСЏР¶РµР»С‹Р№ РіСЂСѓР·"], correct: 1},
-            {q: "Truckstop.com РїСЂРёРЅР°РґР»РµР¶РёС‚:", a: ["DAT", "Uber", "Amazon", "РќРµР·Р°РІРёСЃРёРјР°СЏ РєРѕРјРїР°РЅРёСЏ"], correct: 0},
-            {q: "Р§С‚Рѕ С‚Р°РєРѕРµ Backhaul?", a: ["РћР±СЂР°С‚РЅС‹Р№ РіСЂСѓР·", "РџРµСЂРІС‹Р№ РіСЂСѓР·", "РџСѓСЃС‚РѕР№ РїСЂРѕР±РµРі", "РўРёРї С‚СЂРµР№Р»РµСЂР°"], correct: 0},
-            {q: "123Loadboard СЃРїРµС†РёР°Р»РёР·РёСЂСѓРµС‚СЃСЏ РЅР°:", a: ["РўРѕР»СЊРєРѕ Dry Van", "Р’СЃРµС… С‚РёРїР°С… РіСЂСѓР·РѕРІ", "РўРѕР»СЊРєРѕ Reefer", "РўРѕР»СЊРєРѕ Flatbed"], correct: 1},
-            {q: "РњРёРЅРёРјР°Р»СЊРЅР°СЏ С…РѕСЂРѕС€Р°СЏ СЃС‚Р°РІРєР° РґР»СЏ Dry Van:", a: ["$1.00/mile", "$1.50/mile", "$2.00/mile", "$3.00/mile"], correct: 2},
-            {q: "Р§С‚Рѕ С‚Р°РєРѕРµ Load-to-Truck Ratio?", a: ["РЎРѕРѕС‚РЅРѕС€РµРЅРёРµ РіСЂСѓР·РѕРІ Рє С‚СЂР°РєР°Рј", "Р’РµСЃ РіСЂСѓР·Р°", "Р Р°Р·РјРµСЂ С‚СЂР°РєР°", "РўРёРї РіСЂСѓР·Р°"], correct: 0},
-            {q: "Р’С‹СЃРѕРєРёР№ Load-to-Truck Ratio РѕР·РЅР°С‡Р°РµС‚:", a: ["РњРЅРѕРіРѕ С‚СЂР°РєРѕРІ, РјР°Р»Рѕ РіСЂСѓР·РѕРІ", "РњРЅРѕРіРѕ РіСЂСѓР·РѕРІ, РјР°Р»Рѕ С‚СЂР°РєРѕРІ", "Р Р°РІРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ", "РќРµС‚ РіСЂСѓР·РѕРІ"], correct: 1},
-            {q: "Р§С‚Рѕ С‚Р°РєРѕРµ Partial Load?", a: ["РџРѕР»РЅС‹Р№ РіСЂСѓР·", "Р§Р°СЃС‚РёС‡РЅС‹Р№ РіСЂСѓР· (LTL)", "РџСѓСЃС‚РѕР№ С‚СЂР°Рє", "РўРёРї С‚СЂРµР№Р»РµСЂР°"], correct: 1},
-            {q: "Direct Freight Services СЌС‚Рѕ:", a: ["Load Board", "РўРёРї РіСЂСѓР·Р°", "РЎС‚СЂР°С…РѕРІРєР°", "Р‘СЂРѕРєРµСЂ"], correct: 0},
-            {q: "Р§С‚Рѕ РѕР·РЅР°С‡Р°РµС‚ 'Book It Now'?", a: ["Р—Р°Р±СЂРѕРЅРёСЂРѕРІР°С‚СЊ РіСЂСѓР· РЅРµРјРµРґР»РµРЅРЅРѕ", "РћС‚РјРµРЅРёС‚СЊ РіСЂСѓР·", "РР·РјРµРЅРёС‚СЊ СЃС‚Р°РІРєСѓ", "РџРѕР·РІРѕРЅРёС‚СЊ Р±СЂРѕРєРµСЂСѓ"], correct: 0},
-            {q: "РћРїС‚РёРјР°Р»СЊРЅС‹Р№ Deadhead РґР»СЏ РїСЂРёР±С‹Р»СЊРЅРѕСЃС‚Рё:", a: ["0-50 РјРёР»СЊ", "100-200 РјРёР»СЊ", "300-500 РјРёР»СЊ", "Р‘РѕР»РµРµ 500 РјРёР»СЊ"], correct: 0},
-            {q: "Р§С‚Рѕ С‚Р°РєРѕРµ Lane?", a: ["РџРѕР»РѕСЃР° РґРІРёР¶РµРЅРёСЏ", "РњР°СЂС€СЂСѓС‚ РјРµР¶РґСѓ РіРѕСЂРѕРґР°РјРё", "РўРёРї РіСЂСѓР·Р°", "РЎС‚СЂР°С…РѕРІРєР°"], correct: 1},
-            {q: "Hot Lane СЌС‚Рѕ:", a: ["РџРѕРїСѓР»СЏСЂРЅС‹Р№ РїСЂРёР±С‹Р»СЊРЅС‹Р№ РјР°СЂС€СЂСѓС‚", "РћРїР°СЃРЅС‹Р№ РјР°СЂС€СЂСѓС‚", "Р”Р»РёРЅРЅС‹Р№ РјР°СЂС€СЂСѓС‚", "РљРѕСЂРѕС‚РєРёР№ РјР°СЂС€СЂСѓС‚"], correct: 0},
-            {q: "РЎСЂРµРґРЅСЏСЏ СЃС‚РѕРёРјРѕСЃС‚СЊ РїРѕРґРїРёСЃРєРё РЅР° DAT:", a: ["$50/РјРµСЃСЏС†", "$100/РјРµСЃСЏС†", "$200/РјРµСЃСЏС†", "$500/РјРµСЃСЏС†"], correct: 1},
-            {q: "Р§С‚Рѕ С‚Р°РєРѕРµ Freight Matching?", a: ["РђРІС‚РѕРјР°С‚РёС‡РµСЃРєРёР№ РїРѕРґР±РѕСЂ РіСЂСѓР·РѕРІ", "Р СѓС‡РЅРѕР№ РїРѕРёСЃРє", "РўРёРї СЃС‚СЂР°С…РѕРІРєРё", "Р’РёРґ РѕРїР»Р°С‚С‹"], correct: 0},
-            {q: "Load Board РїРѕРєР°Р·С‹РІР°РµС‚:", a: ["РўРѕР»СЊРєРѕ С†РµРЅСѓ", "РўРѕР»СЊРєРѕ РјР°СЂС€СЂСѓС‚", "Р¦РµРЅСѓ, РјР°СЂС€СЂСѓС‚, С‚РёРї РіСЂСѓР·Р°, РІРµСЃ, РґР°С‚С‹", "РўРѕР»СЊРєРѕ С‚РёРї РіСЂСѓР·Р°"], correct: 2},
-            {q: "Р§С‚Рѕ С‚Р°РєРѕРµ Posted Rate?", a: ["РћРїСѓР±Р»РёРєРѕРІР°РЅРЅР°СЏ СЃС‚Р°РІРєР° Р±СЂРѕРєРµСЂР°", "Р’Р°С€Р° СЃС‚Р°РІРєР°", "РЎСЂРµРґРЅСЏСЏ СЃС‚Р°РІРєР°", "РњРёРЅРёРјР°Р»СЊРЅР°СЏ СЃС‚Р°РІРєР°"], correct: 0},
-            {q: "Negotiable Rate РѕР·РЅР°С‡Р°РµС‚:", a: ["Р¤РёРєСЃРёСЂРѕРІР°РЅРЅР°СЏ СЃС‚Р°РІРєР°", "РЎС‚Р°РІРєР° РїРѕРґР»РµР¶РёС‚ РѕР±СЃСѓР¶РґРµРЅРёСЋ", "РњРёРЅРёРјР°Р»СЊРЅР°СЏ СЃС‚Р°РІРєР°", "РњР°РєСЃРёРјР°Р»СЊРЅР°СЏ СЃС‚Р°РІРєР°"], correct: 1},
-            {q: "Р›СѓС‡С€РµРµ РІСЂРµРјСЏ РґР»СЏ РїРѕРёСЃРєР° РіСЂСѓР·РѕРІ:", a: ["Р’С‹С…РѕРґРЅС‹Рµ", "РџРѕРЅРµРґРµР»СЊРЅРёРє-РџСЏС‚РЅРёС†Р° СѓС‚СЂРѕРј", "РќРѕС‡СЊСЋ", "РџСЂР°Р·РґРЅРёРєРё"], correct: 1}
+            {q: "Самая популярная Load Board в США:", a: ["Uber Freight", "DAT", "Amazon Relay", "Convoy"], correct: 1},
+            {q: "Что такое Deadhead Miles?", a: ["Пустой пробег без груза", "Общий пробег", "Вес груза", "Время в пути"], correct: 0},
+            {q: "Rate per Mile рассчитывается как:", a: ["Общая ставка / Loaded Miles", "Общая ставка / Total Miles", "Вес / Мили", "Время / Мили"], correct: 1},
+            {q: "Что означает 'Hot Load'?", a: ["Груз с высокой температурой", "Срочный груз с хорошей ставкой", "Опасный груз", "Тяжелый груз"], correct: 1},
+            {q: "Truckstop.com принадлежит:", a: ["DAT", "Uber", "Amazon", "Независимая компания"], correct: 0},
+            {q: "Что такое Backhaul?", a: ["Обратный груз", "Первый груз", "Пустой пробег", "Тип трейлера"], correct: 0},
+            {q: "123Loadboard специализируется на:", a: ["Только Dry Van", "Всех типах грузов", "Только Reefer", "Только Flatbed"], correct: 1},
+            {q: "Минимальная хорошая ставка для Dry Van:", a: ["$1.00/mile", "$1.50/mile", "$2.00/mile", "$3.00/mile"], correct: 2},
+            {q: "Что такое Load-to-Truck Ratio?", a: ["Соотношение грузов к тракам", "Вес груза", "Размер трака", "Тип груза"], correct: 0},
+            {q: "Высокий Load-to-Truck Ratio означает:", a: ["Много траков, мало грузов", "Много грузов, мало траков", "Равное количество", "Нет грузов"], correct: 1},
+            {q: "Что такое Partial Load?", a: ["Полный груз", "Частичный груз (LTL)", "Пустой трак", "Тип трейлера"], correct: 1},
+            {q: "Direct Freight Services это:", a: ["Load Board", "Тип груза", "Страховка", "Брокер"], correct: 0},
+            {q: "Что означает 'Book It Now'?", a: ["Забронировать груз немедленно", "Отменить груз", "Изменить ставку", "Позвонить брокеру"], correct: 0},
+            {q: "Оптимальный Deadhead для прибыльности:", a: ["0-50 миль", "100-200 миль", "300-500 миль", "Более 500 миль"], correct: 0},
+            {q: "Что такое Lane?", a: ["Полоса движения", "Маршрут между городами", "Тип груза", "Страховка"], correct: 1},
+            {q: "Hot Lane это:", a: ["Популярный прибыльный маршрут", "Опасный маршрут", "Длинный маршрут", "Короткий маршрут"], correct: 0},
+            {q: "Средняя стоимость подписки на DAT:", a: ["$50/месяц", "$100/месяц", "$200/месяц", "$500/месяц"], correct: 1},
+            {q: "Что такое Freight Matching?", a: ["Автоматический подбор грузов", "Ручной поиск", "Тип страховки", "Вид оплаты"], correct: 0},
+            {q: "Load Board показывает:", a: ["Только цену", "Только маршрут", "Цену, маршрут, тип груза, вес, даты", "Только тип груза"], correct: 2},
+            {q: "Что такое Posted Rate?", a: ["Опубликованная ставка брокера", "Ваша ставка", "Средняя ставка", "Минимальная ставка"], correct: 0},
+            {q: "Negotiable Rate означает:", a: ["Фиксированная ставка", "Ставка подлежит обсуждению", "Минимальная ставка", "Максимальная ставка"], correct: 1},
+            {q: "Лучшее время для поиска грузов:", a: ["Выходные", "Понедельник-Пятница утром", "Ночью", "Праздники"], correct: 1}
         ];
 
         let currentQuestion = 0;
@@ -146,7 +148,7 @@
                 const card = document.createElement('div');
                 card.className = 'question-card' + (index === 0 ? ' active' : '');
                 card.innerHTML = `
-                    <div class="question-number">Р’РѕРїСЂРѕСЃ ${index + 1} РёР· ${questions.length}</div>
+                    <div class="question-number">Вопрос ${index + 1} из ${questions.length}</div>
                     <div class="question-text">${q.q}</div>
                     <div class="answers">
                         ${q.a.map((answer, i) => `<div class="answer" onclick="selectAnswer(${index}, ${i})">${answer}</div>`).join('')}
@@ -201,7 +203,7 @@
             const percentage = Math.round((score / questions.length) * 100);
             const passed = percentage >= 70;
             
-            // РЎРѕС…СЂР°РЅСЏРµРј СЂРµР·СѓР»СЊС‚Р°С‚ РІ localStorage
+            // Сохраняем результат в localStorage
             localStorage.setItem('module_4_test_result', percentage);
             localStorage.setItem('module_4_test_score', score);
             localStorage.setItem('module_4_test_total', questions.length);
@@ -215,8 +217,8 @@
             scoreDisplay.className = 'score ' + (passed ? 'pass' : 'fail');
             
             document.getElementById('resultMessage').textContent = passed ? 
-                `РџРѕР·РґСЂР°РІР»СЏРµРј! Р’С‹ СѓСЃРїРµС€РЅРѕ РїСЂРѕС€Р»Рё С‚РµСЃС‚ (${score}/${questions.length})` :
-                `РўРµСЃС‚ РЅРµ РїСЂРѕР№РґРµРЅ. РќРµРѕР±С…РѕРґРёРјРѕ РЅР°Р±СЂР°С‚СЊ РјРёРЅРёРјСѓРј 70% (${score}/${questions.length})`;
+                `Поздравляем! Вы успешно прошли тест (${score}/${questions.length})` :
+                `Тест не пройден. Необходимо набрать минимум 70% (${score}/${questions.length})`;
         }
 
         initTest();
