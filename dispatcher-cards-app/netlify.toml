@@ -1,6 +1,7 @@
 [build]
+  base = "dispatcher-cards-app"
   command = "npm run build"
-  publish = ".next"
+  publish = "dispatcher-cards-app/.next"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
