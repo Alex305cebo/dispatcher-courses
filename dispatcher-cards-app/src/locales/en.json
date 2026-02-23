@@ -13,5 +13,23 @@
   "language": {
     "ru": "Русский",
     "en": "English"
+  },
+  "results": {
+    "title": "Test Results",
+    "excellent": "Excellent! You know the material very well!",
+    "good": "Good! Keep it up!",
+    "needsPractice": "Needs practice. Review the material.",
+    "correctAnswers": "Correct",
+    "wrongAnswers": "Wrong",
+    "successRate": "Success Rate",
+    "restart": "Start Over",
+    "backToDashboard": "Back to Dashboard"
+  },
+  "categories": {
+    "Законодательство": "Legislation",
+    "Финансы": "Finance",
+    "Проверка брокера": "Broker Check",
+    "HOS & FMCSA": "HOS & FMCSA",
+    "Финансы и Метрики": "Finance & Metrics"
   }
 }
