@@ -391,6 +391,50 @@ body {
 }
 
 /* ═══════════════════════════════════════════════════════════
+   LEARNING PATH INFO
+   ═══════════════════════════════════════════════════════════ */
+.learning-path-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.info-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+}
+
+.info-icon {
+  font-size: 32px;
+  flex-shrink: 0;
+}
+
+.info-content {
+  flex: 1;
+}
+
+.info-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.info-value {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* ═══════════════════════════════════════════════════════════
    EXTRAS SECTION
    ═══════════════════════════════════════════════════════════ */
 .extras {
@@ -419,7 +463,7 @@ body {
 
 .extras-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 20px;
 }
 
@@ -457,6 +501,199 @@ body {
 }
 
 .extra-text p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #94a3b8;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SUCCESS STORIES
+   ═══════════════════════════════════════════════════════════ */
+.success-section {
+  margin-top: 80px;
+  padding: 64px 0;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.success-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.success-header h3 {
+  font-size: 36px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.success-header p {
+  font-size: 16px;
+  color: #94a3b8;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  padding: 0 32px;
+}
+
+.testimonial-card {
+  padding: 32px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.testimonial-rating {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.testimonial-text {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #cbd5e1;
+  margin-bottom: 24px;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.author-avatar {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.author-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 2px;
+}
+
+.author-role {
+  font-size: 13px;
+  color: #64748b;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CAREER PATH
+   ═══════════════════════════════════════════════════════════ */
+.career-section {
+  margin-top: 80px;
+}
+
+.career-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.career-header h3 {
+  font-size: 36px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.career-header p {
+  font-size: 16px;
+  color: #94a3b8;
+}
+
+.career-timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.career-timeline::before {
+  content: '';
+  position: absolute;
+  left: 24px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, #6366f1, #8b5cf6);
+}
+
+.timeline-item {
+  position: relative;
+  display: flex;
+  gap: 32px;
+  margin-bottom: 48px;
+}
+
+.timeline-marker {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  border: 4px solid #0a0e1a;
+  border-radius: 50%;
+  font-size: 18px;
+  font-weight: 800;
+  color: #ffffff;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.timeline-content {
+  flex: 1;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(99, 102, 241, 0.3);
+  transform: translateX(8px);
+}
+
+.timeline-content h4 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.timeline-salary {
+  font-size: 16px;
+  font-weight: 700;
+  color: #10b981;
+  margin-bottom: 8px;
+}
+
+.timeline-desc {
   font-size: 14px;
   line-height: 1.6;
   color: #94a3b8;
@@ -519,6 +756,10 @@ body {
     font-size: 36px;
   }
   
+  .learning-path-info {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
   .card {
     padding: 24px;
   }
@@ -537,6 +778,34 @@ body {
   
   .extras-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    padding: 0 16px;
+  }
+  
+  .success-section {
+    padding: 48px 0;
+  }
+  
+  .success-header h3,
+  .career-header h3 {
+    font-size: 28px;
+  }
+  
+  .career-timeline::before {
+    left: 16px;
+  }
+  
+  .timeline-marker {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+  
+  .timeline-item {
+    gap: 16px;
   }
   
   #fab {
@@ -569,6 +838,10 @@ body {
 <!-- HERO -->
 <section class="hero">
   <div class="container">
+    <div class="hero-badge">
+      <span>🎓</span>
+      <span>Сертифицированная программа обучения</span>
+    </div>
     <h1>
       Курсы<br>
       <span class="gradient">Диспетчера</span>
@@ -597,10 +870,43 @@ body {
 <section class="section">
   <div class="container">
     <div class="section-header">
+      <span class="section-badge">🚀 Программа обучения</span>
       <h2 class="section-title">Путь к профессии</h2>
       <p class="section-subtitle">
         Следуйте шагам по порядку — каждый строится на предыдущем
       </p>
+    </div>
+    
+    <!-- Progress Indicator -->
+    <div class="learning-path-info">
+      <div class="info-card">
+        <div class="info-icon">⏱️</div>
+        <div class="info-content">
+          <div class="info-title">Длительность</div>
+          <div class="info-value">4-6 недель</div>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">📊</div>
+        <div class="info-content">
+          <div class="info-title">Уровень</div>
+          <div class="info-value">От начального</div>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">🎯</div>
+        <div class="info-content">
+          <div class="info-title">Формат</div>
+          <div class="info-value">Онлайн + практика</div>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">🏆</div>
+        <div class="info-content">
+          <div class="info-title">Сертификат</div>
+          <div class="info-value">По окончании</div>
+        </div>
+      </div>
     </div>
 
     <div class="cards-grid">
@@ -615,15 +921,15 @@ body {
         <div class="card-content">
           <div class="card-icon">📖</div>
           <div class="card-text">
-            <h3>Документация</h3>
-            <p>Критически важная база знаний: правила FMCSA, DOT, HOS и профессиональные стандарты США</p>
+            <h3>Документация и нормативная база</h3>
+            <p>Фундаментальные знания федеральных правил США: изучите регламенты FMCSA, требования DOT, систему Hours of Service, правила безопасности перевозок и профессиональную терминологию индустрии</p>
           </div>
         </div>
         <ul class="card-features">
-          <li>FMCSA правила и DOT регламенты</li>
-          <li>Hours of Service (HOS)</li>
-          <li>Работа с Load Boards</li>
-          <li>Коммуникация с брокерами</li>
+          <li>Федеральные правила FMCSA и DOT</li>
+          <li>Система Hours of Service (HOS) и логбуки</li>
+          <li>Работа с Load Boards и биржами грузов</li>
+          <li>Профессиональная коммуникация с брокерами</li>
         </ul>
         <a href="pages/documentation.html" class="card-button">
           Изучить документацию
@@ -640,15 +946,15 @@ body {
         <div class="card-content">
           <div class="card-icon">📚</div>
           <div class="card-text">
-            <h3>Модули обучения</h3>
-            <p>12 комплексных модулей с теорией из документации и практическими заданиями</p>
+            <h3>Структурированные модули обучения</h3>
+            <p>12 последовательных модулей от основ до продвинутых техник: изучите поиск грузов, расчёт ставок, планирование маршрутов, работу с документацией, управление рисками и оптимизацию прибыли</p>
           </div>
         </div>
         <ul class="card-features">
-          <li>12 модулей с тестами</li>
-          <li>Теория по каждой теме</li>
-          <li>Практические задания</li>
-          <li>Мгновенная проверка</li>
+          <li>12 тематических модулей с прогрессией</li>
+          <li>Детальная теория с примерами из практики</li>
+          <li>Интерактивные задания и кейсы</li>
+          <li>Автоматическая проверка и обратная связь</li>
         </ul>
         <a href="pages/modules.html" class="card-button">
           Перейти к модулям
@@ -665,15 +971,15 @@ body {
         <div class="card-content">
           <div class="card-icon">🎯</div>
           <div class="card-text">
-            <h3>Симулятор диспетчера</h3>
-            <p>Отработайте все этапы реальной работы диспетчера в безопасной среде</p>
+            <h3>Интерактивный симулятор диспетчера</h3>
+            <p>Полный цикл работы диспетчера в реалистичной среде: поиск груза на Load Board, переговоры с брокером, назначение водителя, отслеживание маршрута и решение проблем в пути</p>
           </div>
         </div>
         <ul class="card-features">
-          <li>Реальные рабочие сценарии</li>
-          <li>Пошаговый процесс</li>
-          <li>Ошибки без последствий</li>
-          <li>Оценка результатов</li>
+          <li>Реалистичные сценарии рабочего дня</li>
+          <li>Пошаговое прохождение всех этапов</li>
+          <li>Безопасная среда для экспериментов</li>
+          <li>Детальная оценка и рекомендации</li>
         </ul>
         <a href="pages/simulator.html" class="card-button">
           Запустить симулятор
@@ -690,15 +996,15 @@ body {
         <div class="card-content">
           <div class="card-icon">📋</div>
           <div class="card-text">
-            <h3>Тестирование знаний</h3>
-            <p>Проверьте свои знания и получите сертификат об окончании курса</p>
+            <h3>Комплексное тестирование знаний</h3>
+            <p>Финальная проверка всех навыков: терминология индустрии, правила FMCSA/DOT, расчёты ставок, ситуационные задачи и принятие решений. Получите сертификат о прохождении курса</p>
           </div>
         </div>
         <ul class="card-features">
-          <li>Финальный экзамен</li>
-          <li>Проверка терминологии</li>
-          <li>Ситуационные задачи</li>
-          <li>Сертификат по окончании</li>
+          <li>Многоуровневый финальный экзамен</li>
+          <li>Проверка профессиональной терминологии</li>
+          <li>Реалистичные ситуационные задачи</li>
+          <li>Официальный сертификат об окончании</li>
         </ul>
         <a href="pages/testing.html" class="card-button">
           Пройти тестирование
@@ -715,15 +1021,15 @@ body {
         <div class="card-content">
           <div class="card-icon">💼</div>
           <div class="card-text">
-            <h3>Практические кейсы</h3>
-            <p>Реальные ситуации из практики диспетчера — решайте и анализируйте</p>
+            <h3>Практические кейсы из реальной работы</h3>
+            <p>Решайте сложные ситуации из практики опытных диспетчеров: срочные замены водителей, оптимизация убыточных маршрутов, конфликты с брокерами, форс-мажоры и нестандартные грузы</p>
           </div>
         </div>
         <ul class="card-features">
-          <li>Реальные кейсы</li>
-          <li>Срочные ситуации</li>
-          <li>Оптимизация маршрутов</li>
-          <li>Работа с конфликтами</li>
+          <li>Кейсы из реальной диспетчерской практики</li>
+          <li>Срочные ситуации с ограниченным временем</li>
+          <li>Оптимизация маршрутов и прибыльности</li>
+          <li>Разрешение конфликтов и переговоры</li>
         </ul>
         <a href="pages/cases.html" class="card-button">
           Решать кейсы
@@ -740,15 +1046,15 @@ body {
         <div class="card-content">
           <div class="card-icon">📞</div>
           <div class="card-text">
-            <h3>Тренировка звонков</h3>
-            <p>Профессиональная коммуникация с брокерами и водителями</p>
+            <h3>Тренировка телефонных переговоров</h3>
+            <p>Освойте профессиональную коммуникацию: готовые скрипты для брокеров и водителей, реальные аудио-примеры диалогов, техники переговоров и интерактивные ролевые сценарии</p>
           </div>
         </div>
         <ul class="card-features">
-          <li>Скрипты для брокеров</li>
-          <li>Скрипты для водителей</li>
-          <li>Аудио примеры</li>
-          <li>Ролевые игры</li>
+          <li>Проверенные скрипты для брокеров и шипперов</li>
+          <li>Скрипты для водителей на всех этапах</li>
+          <li>Реальные аудио-примеры разговоров</li>
+          <li>Интерактивные ролевые игры с AI</li>
         </ul>
         <a href="pages/calls.html" class="card-button">
           Начать тренировку
@@ -765,15 +1071,15 @@ body {
         <div class="card-content">
           <div class="card-icon">🔍</div>
           <div class="card-text">
-            <h3>Load Board тренажёр</h3>
-            <p>Освойте поиск грузов и анализ маршрутов в реальном времени</p>
+            <h3>Профессиональный Load Board тренажёр</h3>
+            <p>Мастер-класс по работе с биржами грузов: продвинутые фильтры поиска, анализ прибыльности маршрутов, сравнение площадок (DAT, Truckstop), стратегии торга и оценка рисков</p>
           </div>
         </div>
         <ul class="card-features">
-          <li>Поиск грузов</li>
-          <li>Анализ прибыльности</li>
-          <li>Сравнение площадок</li>
-          <li>Стратегии ставок</li>
+          <li>Расширенный поиск с множеством фильтров</li>
+          <li>Калькулятор прибыльности и RPM</li>
+          <li>Сравнение DAT, Truckstop, 123Loadboard</li>
+          <li>Стратегии торга и оценка ставок</li>
         </ul>
         <a href="pages/loadboard.html" class="card-button">
           Открыть тренажёр
@@ -791,15 +1097,15 @@ body {
         <div class="card-content">
           <div class="card-icon">📊</div>
           <div class="card-text">
-            <h3>Работа с документами</h3>
-            <p>Правильное оформление всей транспортной документации</p>
+            <h3>Документооборот и оформление</h3>
+            <p>Полный цикл работы с транспортной документацией: создание Rate Confirmation, проверка BOL, получение POD, работа с факторингом, оформление инвойсов и взаимодействие с бухгалтерией</p>
           </div>
         </div>
         <ul class="card-features">
-          <li>Rate Confirmation</li>
-          <li>BOL (Bill of Lading)</li>
-          <li>POD (Proof of Delivery)</li>
-          <li>Факторинг и инвойсы</li>
+          <li>Rate Confirmation и договоры перевозки</li>
+          <li>BOL (Bill of Lading) и проверка грузов</li>
+          <li>POD (Proof of Delivery) и подтверждения</li>
+          <li>Факторинг, инвойсы и финансовые документы</li>
         </ul>
         <div class="card-button disabled">
           🔒 Скоро будет доступно
@@ -816,15 +1122,15 @@ body {
         <div class="card-content">
           <div class="card-icon">🚨</div>
           <div class="card-text">
-            <h3>Экстренные ситуации</h3>
-            <p>Подготовка к нестандартным ситуациям на маршруте</p>
+            <h3>Управление экстренными ситуациями</h3>
+            <p>Протоколы действий в критических ситуациях: поломка трака в пути, отказ водителя, задержки на погрузке/разгрузке, проблемы с документами, аварии и форс-мажорные обстоятельства</p>
           </div>
         </div>
         <ul class="card-features">
-          <li>Поломка трака в пути</li>
-          <li>Отказ водителя</li>
-          <li>Задержки на погрузке</li>
-          <li>Проблемы с документами</li>
+          <li>Поломка трака и организация замены</li>
+          <li>Отказ водителя и срочный поиск замены</li>
+          <li>Задержки на погрузке и компенсации</li>
+          <li>Проблемы с документами и их решение</li>
         </ul>
         <div class="card-button disabled">
           🔒 Скоро будет доступно
@@ -851,6 +1157,113 @@ body {
             <p>Расширенные фильтры и поиск</p>
           </div>
         </a>
+        <a href="#" class="extra-card">
+          <div class="extra-icon">📚</div>
+          <div class="extra-text">
+            <h4>База знаний</h4>
+            <p>Глоссарий терминов и FAQ</p>
+          </div>
+        </a>
+        <a href="#" class="extra-card">
+          <div class="extra-icon">💬</div>
+          <div class="extra-text">
+            <h4>Сообщество</h4>
+            <p>Общение с другими студентами</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    
+    <!-- Success Stories -->
+    <div class="success-section">
+      <div class="success-header">
+        <h3>Что говорят наши выпускники</h3>
+        <p>Реальные отзывы студентов, прошедших обучение</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-text">"Курс дал мне всё необходимое для старта. Через 2 недели после окончания уже работаю диспетчером с зарплатой $3500/месяц"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">АМ</div>
+            <div class="author-info">
+              <div class="author-name">Алексей М.</div>
+              <div class="author-role">Диспетчер • 3 месяца опыта</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-text">"Симулятор и практические кейсы — это просто бомба! Когда пришла на реальную работу, уже знала что делать"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">ЕК</div>
+            <div class="author-info">
+              <div class="author-name">Елена К.</div>
+              <div class="author-role">Диспетчер • 6 месяцев опыта</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-text">"Лучшее вложение в своё образование. Сейчас управляю 8 траками и зарабатываю $5000+ в месяц"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">ДС</div>
+            <div class="author-info">
+              <div class="author-name">Дмитрий С.</div>
+              <div class="author-role">Старший диспетчер • 1 год опыта</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Career Path -->
+    <div class="career-section">
+      <div class="career-header">
+        <h3>Карьерный путь диспетчера</h3>
+        <p>Ваш рост от новичка до профессионала</p>
+      </div>
+      <div class="career-timeline">
+        <div class="timeline-item">
+          <div class="timeline-marker">1</div>
+          <div class="timeline-content">
+            <h4>Стажёр-диспетчер</h4>
+            <p class="timeline-salary">$2,000 - $2,500/мес</p>
+            <p class="timeline-desc">Первые 1-2 месяца: обучение, работа под контролем</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-marker">2</div>
+          <div class="timeline-content">
+            <h4>Младший диспетчер</h4>
+            <p class="timeline-salary">$2,500 - $3,500/мес</p>
+            <p class="timeline-desc">3-6 месяцев: управление 3-5 траками самостоятельно</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-marker">3</div>
+          <div class="timeline-content">
+            <h4>Диспетчер</h4>
+            <p class="timeline-salary">$3,500 - $5,000/мес</p>
+            <p class="timeline-desc">6-12 месяцев: управление 5-8 траками, полная автономия</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-marker">4</div>
+          <div class="timeline-content">
+            <h4>Старший диспетчер</h4>
+            <p class="timeline-salary">$5,000 - $7,000/мес</p>
+            <p class="timeline-desc">1-2 года: управление 10+ траками, наставничество</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-marker">5</div>
+          <div class="timeline-content">
+            <h4>Руководитель отдела</h4>
+            <p class="timeline-salary">$7,000+/мес</p>
+            <p class="timeline-desc">2+ года: управление командой диспетчеров</p>
+          </div>
+        </div>
       </div>
     </div>
 

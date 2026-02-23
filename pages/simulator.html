@@ -959,15 +959,33 @@
                     <!-- Email Section -->
                     <div class="info-box" style="border: 1px solid rgba(59, 130, 246, 0.3); background: rgba(59, 130, 246, 0.08);">
                         <h4 style="color: #93c5fd;">✉️ Письмо брокеру</h4>
-                        <div class="form-group">
-                            <label class="form-label">Email брокера</label>
-                            <input type="text" id="brokerContact" class="form-input" value="broker@loadboard.com">
+                        
+                        <!-- Полезная информация о письмах -->
+                        <div style="background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 8px; padding: 14px; margin-bottom: 16px;">
+                            <h5 style="color: #93c5fd; margin: 0 0 10px 0; font-size: 15px; font-weight: 700;">📧 Когда использовать email вместо звонка:</h5>
+                            <ul style="margin: 0; padding-left: 20px; color: #cbd5e1; font-size: 14px; line-height: 1.8;">
+                                <li><strong style="color: #93c5fd;">Нет номера брокера:</strong> В объявлении указан только email</li>
+                                <li><strong style="color: #93c5fd;">Нерабочее время:</strong> Брокер не отвечает или офис закрыт</li>
+                                <li><strong style="color: #93c5fd;">Документация:</strong> Нужна письменная фиксация всех деталей</li>
+                                <li><strong style="color: #93c5fd;">Детальный запрос:</strong> Много вопросов по специфике груза</li>
+                                <li><strong style="color: #93c5fd;">Языковой барьер:</strong> Легче написать, чем говорить</li>
+                            </ul>
                         </div>
-                        <div class="form-group">
-                            <label class="form-label">Тема</label>
-                            <input type="text" id="emailSubject" class="form-input" placeholder="Richmond, VA to Atlanta, GA *** CHECKING YOUR LOAD ***">
+                        
+                        <!-- Скрытые поля -->
+                        <div style="display: none;">
+                            <div class="form-group">
+                                <label class="form-label">Email брокера</label>
+                                <input type="text" id="brokerContact" class="form-input" value="broker@loadboard.com">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Тема</label>
+                                <input type="text" id="emailSubject" class="form-input" placeholder="Richmond, VA to Atlanta, GA *** CHECKING YOUR LOAD ***">
+                            </div>
+                            <div class="message-preview" id="messagePreview" style="margin-top: 16px;"></div>
                         </div>
-                        <div class="message-preview" id="messagePreview" style="margin-top: 16px;"></div>
+                        
+                        <!-- Шаблон письма -->
                         <div style="background: rgba(59, 130, 246, 0.08); border: 1px solid rgba(59, 130, 246, 0.2); padding: 12px; border-radius: 8px; margin-top: 12px; font-size: 12px; color: #8892aa;">
                             <p style="margin: 0 0 8px 0; font-weight: 600; color: #93c5fd;">📝 Email Template Example:</p>
                             <p style="margin: 0; line-height: 1.6; color: #f0f4ff; font-family: monospace;">
@@ -986,24 +1004,80 @@
                                 Thank you
                             </p>
                         </div>
-                        <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 12px;">
-                            <button class="btn btn-primary" onclick="copyMessage()" style="background: linear-gradient(135deg, #3b82f6, #2563eb);">📋 Скопировать письмо</button>
+                        
+                        <!-- Кнопка копирования -->
+                        <div style="margin-top: 12px;">
+                            <button class="btn btn-primary" onclick="copyMessage()" style="background: linear-gradient(135deg, #3b82f6, #2563eb); width: 100%;">📋 Скопировать письмо</button>
+                        </div>
+                        
+                        <!-- Скрытая кнопка отправки -->
+                        <div style="display: none;">
                             <button class="btn btn-success" onclick="sendMessage()">✉️ Отправить письмо</button>
                         </div>
                     </div>
 
                     <!-- Phone Call Section -->
                     <div class="info-box" style="border: 1px solid rgba(34, 197, 94, 0.3); background: rgba(34, 197, 94, 0.08);">
-                        <h4 style="color: #86efac;">☎️ Звонок брокеру</h4>
-                        <div class="form-group">
-                            <label class="form-label">Телефон брокера</label>
-                            <input type="text" id="brokerPhone" class="form-input" value="+1 (555) 123-4567" readonly style="background: rgba(255, 255, 255, 0.03); color: #f0f4ff;">
+                        <h4 style="color: #86efac; margin-bottom: 16px;">☎️ Звонок брокеру</h4>
+                        
+                        <!-- Большая заметная кнопка звонка -->
+                        <button class="btn btn-success" onclick="window.location.href='calls.html?from=simulator'" style="width: 100%; padding: 18px 24px; font-size: 18px; font-weight: 700; margin-bottom: 20px; background: linear-gradient(135deg, #10b981, #059669); box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4); animation: pulse-call 2s infinite;">
+                            📞 Начать звонок брокеру
+                        </button>
+                        
+                        <style>
+                            @keyframes pulse-call {
+                                0%, 100% { transform: scale(1); box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4); }
+                                50% { transform: scale(1.02); box-shadow: 0 10px 30px rgba(16, 185, 129, 0.6); }
+                            }
+                        </style>
+                        
+                        <!-- Полезная информация перед звонком -->
+                        <div style="background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.3); border-radius: 8px; padding: 14px; margin-bottom: 16px;">
+                            <h5 style="color: #86efac; margin: 0 0 10px 0; font-size: 15px; font-weight: 700;">📝 Что нужно знать перед звонком:</h5>
+                            <ul style="margin: 0; padding-left: 20px; color: #cbd5e1; font-size: 14px; line-height: 1.8;">
+                                <li><strong style="color: #86efac;">Будьте готовы:</strong> Имейте под рукой все данные о траке, водителе и маршруте</li>
+                                <li><strong style="color: #86efac;">Говорите уверенно:</strong> Профессиональный тон повышает доверие брокера</li>
+                                <li><strong style="color: #86efac;">Задавайте вопросы:</strong> Уточните commodity, вес, особые требования</li>
+                                <li><strong style="color: #86efac;">Торгуйтесь:</strong> Если ставка низкая, предложите свою цену с обоснованием</li>
+                                <li><strong style="color: #86efac;">Запишите детали:</strong> Имя брокера, reference number, инструкции</li>
+                            </ul>
                         </div>
-                        <div class="form-group">
-                            <label class="form-label">Телефон водителя</label>
-                            <input type="text" id="driverPhoneStep4" class="form-input" readonly style="background: rgba(255, 255, 255, 0.03); color: #f0f4ff;">
+                        
+                        <!-- Ключевые фразы -->
+                        <div style="background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 8px; padding: 14px; margin-bottom: 16px;">
+                            <h5 style="color: #93c5fd; margin: 0 0 10px 0; font-size: 15px; font-weight: 700;">💬 Ключевые фразы для звонка:</h5>
+                            <div style="display: grid; gap: 8px;">
+                                <div style="background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 6px; border-left: 3px solid #3b82f6;">
+                                    <strong style="color: #93c5fd; font-size: 13px;">Начало:</strong>
+                                    <p style="margin: 4px 0 0 0; color: #cbd5e1; font-size: 13px; font-style: italic;">"Hi, this is Alex from Swift Logistics. I'm calling about load #DAT-45892. Is it still available?"</p>
+                                </div>
+                                <div style="background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 6px; border-left: 3px solid #3b82f6;">
+                                    <strong style="color: #93c5fd; font-size: 13px;">Информация о траке:</strong>
+                                    <p style="margin: 4px 0 0 0; color: #cbd5e1; font-size: 13px; font-style: italic;">"I have a 53' Dry Van available in Charlotte, NC, ready to pick up tomorrow morning at 8 AM"</p>
+                                </div>
+                                <div style="background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 6px; border-left: 3px solid #3b82f6;">
+                                    <strong style="color: #93c5fd; font-size: 13px;">Уточнение деталей:</strong>
+                                    <p style="margin: 4px 0 0 0; color: #cbd5e1; font-size: 13px; font-style: italic;">"Could you confirm the commodity, weight, and any special requirements? Do I need straps or tarps?"</p>
+                                </div>
+                                <div style="background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 6px; border-left: 3px solid #3b82f6;">
+                                    <strong style="color: #93c5fd; font-size: 13px;">Торг:</strong>
+                                    <p style="margin: 4px 0 0 0; color: #cbd5e1; font-size: 13px; font-style: italic;">"The rate seems a bit low for this distance. Can we do $1,850? That's $3.20 per mile which is fair for both of us"</p>
+                                </div>
+                            </div>
                         </div>
-                        <button class="btn btn-success" onclick="window.location.href='calls.html?from=simulator'" style="width: 100%; margin-top: 12px; background: linear-gradient(135deg, #10b981, #059669);">📞 Начать звонок</button>
+                        
+                        <!-- Скрытые поля с телефонами -->
+                        <div style="display: none;">
+                            <div class="form-group">
+                                <label class="form-label">Телефон брокера</label>
+                                <input type="text" id="brokerPhone" class="form-input" value="+1 (555) 123-4567" readonly style="background: rgba(255, 255, 255, 0.03); color: #f0f4ff;">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Телефон водителя</label>
+                                <input type="text" id="driverPhoneStep4" class="form-input" readonly style="background: rgba(255, 255, 255, 0.03); color: #f0f4ff;">
+                            </div>
+                        </div>
                         
                         <!-- Conversation Log inside Phone Call -->
                         <div id="phoneConversationLog" style="margin-top: 16px; display: none;">
