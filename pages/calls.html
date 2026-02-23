@@ -548,7 +548,7 @@ body {
 
   <div class="tabs">
     <div class="tab active" onclick="switchTab('brokers')">🤝 Звонки брокерам</div>
-    <div class="tab disabled" title="В разработке">🚛 Звонки водителям <span style="font-size: 11px; opacity: 0.7;">(В разработке)</span></div>
+    <div class="tab" onclick="switchTab('drivers')">🚛 Звонки водителям</div>
     <div class="tab disabled" title="В разработке">🎧 Аудио примеры <span style="font-size: 11px; opacity: 0.7;">(В разработке)</span></div>
   </div>
 
@@ -592,89 +592,31 @@ body {
   <div id="drivers" class="content">
     <div class="scripts-grid">
       
-      <!-- Script 3: Load Assignment -->
+      <!-- Script 1: Load Assignment - Interactive -->
       <div class="script-card">
         <div class="script-header">
           <div class="script-icon">📦</div>
           <div class="script-title">
             <h3>Назначение груза водителю</h3>
-            <p>Передача всей необходимой информации</p>
+            <p>Интерактивный диалог - передача информации о грузе</p>
           </div>
         </div>
         
         <div class="script-body">
-          <div class="dialogue">
-            <div class="message dispatcher">
-              <div class="message-avatar">👤</div>
-              <div class="message-content">
-                <div class="message-label">Диспетчер</div>
-                <div class="message-bubble">
-                  Hi John! I have a great load for you. Are you ready to take down the details?
-                </div>
-              </div>
-            </div>
-
-            <div class="message other">
-              <div class="message-avatar">🚛</div>
-              <div class="message-content">
-                <div class="message-label">Водитель</div>
-                <div class="message-bubble">
-                  Sure, go ahead!
-                </div>
-              </div>
-            </div>
-
-            <div class="message dispatcher">
-              <div class="message-avatar">👤</div>
-              <div class="message-content">
-                <div class="message-label">Диспетчер</div>
-                <div class="message-bubble">
-                  Pickup: ABC Warehouse, 123 Main St, Chicago, IL 60601.<br>
-                  Tomorrow at 8 AM.<br>
-                  Contact: Mike Johnson, (555) 123-4567.<br><br>
-                  Delivery: XYZ Distribution, 456 Oak Ave, Dallas, TX 75201.<br>
-                  Day after tomorrow by 5 PM.<br>
-                  Contact: Sarah Williams, (555) 987-6543.<br><br>
-                  Load: 42,000 lbs palletized freight.<br>
-                  Rate: $2,000.<br>
-                  Any questions?
-                </div>
-              </div>
-            </div>
-
-            <div class="message other">
-              <div class="message-avatar">🚛</div>
-              <div class="message-content">
-                <div class="message-label">Водитель</div>
-                <div class="message-bubble">
-                  Got it all.<br>
-                  I'll head to Chicago tonight and call the shipper in the morning.
-                </div>
-              </div>
-            </div>
-
-            <div class="message dispatcher">
-              <div class="message-avatar">👤</div>
-              <div class="message-content">
-                <div class="message-label">Диспетчер</div>
-                <div class="message-bubble">
-                  Perfect!<br>
-                  I'm sending all documents to your email now.<br>
-                  Keep me updated on your progress.<br>
-                  Drive safe!
-                </div>
-              </div>
-            </div>
+          <div id="dialogue-2" class="dialogue">
+            <!-- Диалог будет генерироваться JavaScript -->
           </div>
         </div>
 
         <div class="tips">
-          <h4>💡 Что важно передать водителю</h4>
+          <h4>💡 Ключевые моменты</h4>
           <ul>
-            <li>Полные адреса с контактами отправителя и получателя</li>
-            <li>Точное время погрузки и доставки</li>
-            <li>Вес, тип груза и особые требования</li>
-            <li>Ставку и способ оплаты</li>
+            <li>Убедитесь, что водитель готов записывать информацию</li>
+            <li>Передайте полные адреса с контактами отправителя и получателя</li>
+            <li>Уточните точное время погрузки и доставки</li>
+            <li>Подтвердите вес, тип груза и особые требования</li>
+            <li>Сообщите ставку и способ оплаты</li>
+            <li>Убедитесь, что водитель всё понял и готов к отправке</li>
           </ul>
         </div>
       </div>
@@ -699,6 +641,9 @@ body {
                   Hey, I've got a problem.<br>
                   The truck broke down near Memphis.<br>
                   Looks like it's the transmission.
+                  <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 13px; color: #a5b4fc; font-style: italic;">
+                    У нас возникла проблема. Грузовик вышел из строя рядом с Мемфисом. По-видимому, неисправна коробка передач.
+                  </div>
                 </div>
               </div>
             </div>
@@ -710,6 +655,9 @@ body {
                 <div class="message-bubble">
                   Okay, stay calm. Are you in a safe location?<br>
                   What's your exact location and what does the mechanic say?
+                  <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 13px; color: #d1fae5; font-style: italic;">
+                    Хорошо, сохраняй спокойствие. Ты находишься в безопасном месте? Назови точное местоположение и что говорит механик?
+                  </div>
                 </div>
               </div>
             </div>
@@ -721,6 +669,9 @@ body {
                 <div class="message-bubble">
                   I'm at a truck stop off I-40, exit 25.<br>
                   Mechanic says it'll take 6-8 hours to fix.
+                  <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 13px; color: #a5b4fc; font-style: italic;">
+                    Я на автостоянке у выезда 25 на I-40. Механик говорит, что ремонт займёт 6-8 часов.
+                  </div>
                 </div>
               </div>
             </div>
@@ -735,6 +686,9 @@ body {
                   I'll call the broker and receiver to inform them about the delay.<br>
                   Send me photos of the truck and the repair invoice.<br>
                   We'll handle this together.
+                  <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 13px; color: #d1fae5; font-style: italic;">
+                    Понял. Вот план действий: немедленно начни ремонт. Я свяжусь с брокером и получателем, чтобы уведомить их о задержке. Отправь мне фотографии грузовика и счёт-фактуру от механика. Мы решим эту проблему вместе.
+                  </div>
                 </div>
               </div>
             </div>
@@ -746,6 +700,9 @@ body {
                 <div class="message-bubble">
                   Thanks, I appreciate it.<br>
                   I'll keep you updated every hour.
+                  <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 13px; color: #a5b4fc; font-style: italic;">
+                    Спасибо за поддержку. Буду информировать тебя о ходе работ каждый час.
+                  </div>
                 </div>
               </div>
             </div>
@@ -1124,6 +1081,66 @@ const dialogues = {
         text: ''
       }
     ]
+  },
+  2: {
+    load: null,
+    steps: [
+      // Шаг 1: Приветствие и готовность
+      {
+        type: 'choice',
+        prompt: '',
+        options: []
+      },
+      {
+        type: 'driver',
+        text: ''
+      },
+      // Шаг 2: Передача адреса отправителя
+      {
+        type: 'choice',
+        prompt: '',
+        options: []
+      },
+      {
+        type: 'driver',
+        text: ''
+      },
+      // Шаг 3: Передача адреса получателя
+      {
+        type: 'choice',
+        prompt: '',
+        options: []
+      },
+      {
+        type: 'driver',
+        text: ''
+      },
+      // Шаг 4: Передача деталей груза
+      {
+        type: 'choice',
+        prompt: '',
+        options: []
+      },
+      {
+        type: 'driver',
+        text: ''
+      },
+      // Шаг 5: Подтверждение и документы
+      {
+        type: 'choice',
+        prompt: '',
+        options: []
+      },
+      {
+        type: 'driver',
+        text: ''
+      },
+      // Завершение
+      {
+        type: 'complete',
+        text: ''
+      }
+    ]
   }
 };
 
@@ -1251,6 +1268,78 @@ function fillDialogueWithLoadData(dialogueId) {
     dialogue.steps[11].text = 'Perfect!<br>Rate confirmation sent to your email.<br>Thank you for your business!';
     
     dialogue.steps[12].text = `✅ Отличная работа! Вы успешно провели полный звонок брокеру по грузу #${load.id} и договорились о ставке $${finalOffer} вместо начальных $${load.rate} (+$${finalOffer - load.rate} или +${Math.round((finalOffer - load.rate) / load.rate * 100)}%). Это $${(finalOffer/load.miles).toFixed(2)}/милю - хорошая ставка!`;
+  } else if (dialogueId === 2) {
+    // Полный диалог: назначение груза водителю
+    const pickupTime = '8:00 AM';
+    const deliveryTime = '5:00 PM';
+    
+    // Шаг 0: Приветствие
+    dialogue.steps[0].prompt = `📋 Груз #${load.id}: ${load.from} → ${load.to} | ${load.miles} миль<br>📦 ${load.cargo} | ${load.weight.toLocaleString()} lbs | 💰 $${load.rate}<br><br>Вы звоните водителю, чтобы назначить ему груз. Как вы начнете разговор?`;
+    
+    const greetingOptions = [
+      { text: `Hey, I got a load for you if you want it.<br>It's going from ${load.from.split(',')[0]} to ${load.to.split(',')[0]}.<br>You interested?`, correct: false, feedback: 'Слишком неформально и расплывчато. Водителю нужна полная информация, а не просто предложение.' },
+      { text: `Hi John! I have a great load for you.<br>It's ${load.miles} miles from ${load.from} to ${load.to}.<br>Are you ready to take down the details?`, correct: true, feedback: `Отлично! Профессиональное приветствие, указали маршрут и расстояние, спросили готовность.` },
+      { text: `Listen, I need to assign you a load right now.<br>Can you take it or not?<br>I have other drivers waiting.`, correct: false, feedback: 'Слишком агрессивно и давящее. Водитель должен чувствовать себя ценным, а не под давлением.' }
+    ];
+    greetingOptions.sort(() => Math.random() - 0.5);
+    dialogue.steps[0].options = greetingOptions;
+    
+    dialogue.steps[1].text = `Sure, go ahead! I'm ready to write it down.`;
+    
+    // Шаг 2: Адрес отправителя
+    dialogue.steps[2].prompt = `Водитель готов. Как вы передадите адрес отправителя?`;
+    
+    const pickupOptions = [
+      { text: `Pickup is in ${load.from}.<br>You know where that is, right?`, correct: false, feedback: `Слишком расплывчато. Водителю нужен полный адрес, время и контакт отправителя.` },
+      { text: `Pickup: ${load.from}.<br>Tomorrow at ${pickupTime}.<br>Contact: Mike Johnson, (555) 123-4567.<br>It's ${load.weight.toLocaleString()} lbs of ${load.cargo.toLowerCase()}.`, correct: true, feedback: `Отлично! Полный адрес, время, контакт и описание груза.` },
+      { text: `The shipper is in ${load.from}.<br>Call them when you get there and they'll tell you what to do.`, correct: false, feedback: `Недостаточно информации. Водителю нужны точное время, контакт и детали груза.` }
+    ];
+    pickupOptions.sort(() => Math.random() - 0.5);
+    dialogue.steps[2].options = pickupOptions;
+    
+    dialogue.steps[3].text = `Got it. Pickup in ${load.from} tomorrow at ${pickupTime}. What about delivery?`;
+    
+    // Шаг 4: Адрес получателя
+    dialogue.steps[4].prompt = `Водитель записал отправителя. Как вы передадите адрес получателя?`;
+    
+    const deliveryOptions = [
+      { text: `Delivery is in ${load.to}.<br>You'll figure it out when you get there.`, correct: false, feedback: `Слишком неопределённо. Водителю нужен полный адрес, время и контакт получателя.` },
+      { text: `Delivery: ${load.to}.<br>Day after tomorrow by ${deliveryTime}.<br>Contact: Sarah Williams, (555) 987-6543.<br>Make sure you call them 2 hours before arrival.`, correct: true, feedback: `Отлично! Полный адрес, время, контакт и инструкция по уведомлению.` },
+      { text: `Drop it off in ${load.to} sometime this week.`, correct: false, feedback: `Слишком расплывчато. Нужно точное время доставки, адрес и контакт получателя.` }
+    ];
+    deliveryOptions.sort(() => Math.random() - 0.5);
+    dialogue.steps[4].options = deliveryOptions;
+    
+    dialogue.steps[5].text = `Got it. Delivery in ${load.to} by ${deliveryTime}. What about the load details?`;
+    
+    // Шаг 6: Детали груза
+    dialogue.steps[6].prompt = `Водитель записал получателя. Как вы передадите детали груза?`;
+    
+    const loadDetailsOptions = [
+      { text: `It's ${load.cargo.toLowerCase()}.<br>Weight is around ${load.weight.toLocaleString()} lbs.<br>Rate is $${load.rate}.`, correct: true, feedback: `Отлично! Указали тип груза, вес и ставку. Вся необходимая информация.` },
+      { text: `It's some freight.<br>Pretty heavy.<br>You'll get paid $${load.rate}.`, correct: false, feedback: `Слишком неопределённо. Водителю нужны точный тип груза, вес и ставка.` },
+      { text: `${load.cargo.toLowerCase()}, ${load.weight.toLocaleString()} lbs.<br>Rate is $${load.rate}.<br>Special handling: ${load.needsTemp ? 'Keep temperature at 35-37°F' : 'Standard handling'}.`, correct: true, feedback: `Отлично! Полная информация: тип, вес, ставка и особые требования.` }
+    ];
+    loadDetailsOptions.sort(() => Math.random() - 0.5);
+    dialogue.steps[6].options = loadDetailsOptions;
+    
+    dialogue.steps[7].text = `Perfect! I got all the details. When should I head out?`;
+    
+    // Шаг 8: Подтверждение и документы
+    dialogue.steps[8].prompt = `Водитель готов. Как вы завершите разговор?`;
+    
+    const confirmOptions = [
+      { text: `Head out tonight so you're there by 8 AM.<br>I'm sending all documents to your email now.<br>Drive safe!`, correct: true, feedback: `Отлично! Указали время отправления, подтвердили отправку документов и пожелали безопасности.` },
+      { text: `Just head out whenever you want.<br>You'll figure it out.`, correct: false, feedback: `Слишком неопределённо. Водителю нужны точные инструкции по времени отправления и подтверждение документов.` },
+      { text: `Head out tonight.<br>I'll email you the documents later if I remember.`, correct: false, feedback: `Неответственно. Документы нужно отправить сразу, а не "если вспомните".` }
+    ];
+    confirmOptions.sort(() => Math.random() - 0.5);
+    dialogue.steps[8].options = confirmOptions;
+    
+    dialogue.steps[9].text = `Thanks! I'll head out tonight and call you when I'm on the road.`;
+    
+    // Завершение
+    dialogue.steps[10].text = `✅ Отличная работа! Вы успешно назначили груз #${load.id} водителю по маршруту ${load.from} → ${load.to} (${load.miles} миль). Передали все необходимые детали: адреса, время, контакты, вес груза и ставку $${load.rate}. Водитель готов к отправке!`;
   }
 }
 
@@ -1275,6 +1364,29 @@ function initDialogue(dialogueId) {
           <div class="message-bubble">
             ${step.text}
             <span class="audio-icon" onclick="playBrokerAudio('${audioFile}', this)">🔊</span>
+          </div>
+        </div>
+      `;
+      container.appendChild(messageDiv);
+      
+      // Автоматически показать следующий шаг (вопрос диспетчера)
+      setTimeout(() => {
+        currentStep++;
+        if (currentStep < dialogue.steps.length) {
+          showStep(currentStep);
+        }
+      }, 800);
+      
+    } else if (step.type === 'driver') {
+      // Показать сообщение водителя
+      const messageDiv = document.createElement('div');
+      messageDiv.className = 'message other fade-in';
+      messageDiv.innerHTML = `
+        <div class="message-avatar">🚛</div>
+        <div class="message-content">
+          <div class="message-label">Водитель</div>
+          <div class="message-bubble">
+            ${step.text}
           </div>
         </div>
       `;
@@ -1383,10 +1495,10 @@ function selectChoice(dialogueId, stepIndex, optionIndex) {
     `;
     state.container.appendChild(selectedDiv);
     
-    // Продолжить диалог - пропустить следующий шаг broker и перейти к следующему choice
+    // Продолжить диалог - пропустить следующий шаг broker/driver и перейти к следующему choice
     setTimeout(() => {
       state.currentStep = stepIndex + 1;
-      // Показываем ответ брокера (следующий шаг)
+      // Показываем ответ брокера или водителя (следующий шаг)
       if (state.currentStep < state.dialogue.steps.length) {
         const nextStep = state.dialogue.steps[state.currentStep];
         if (nextStep.type === 'broker') {
@@ -1409,6 +1521,33 @@ function selectChoice(dialogueId, stepIndex, optionIndex) {
           // Прокрутка к ответу брокера
           setTimeout(() => {
             brokerDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }, 100);
+          
+          // Переходим к следующему вопросу
+          setTimeout(() => {
+            state.currentStep++;
+            if (state.currentStep < state.dialogue.steps.length) {
+              state.showStep(state.currentStep);
+            }
+          }, 800);
+        } else if (nextStep.type === 'driver') {
+          // Показать ответ водителя
+          const driverDiv = document.createElement('div');
+          driverDiv.className = 'message other fade-in';
+          driverDiv.innerHTML = `
+            <div class="message-avatar">🚛</div>
+            <div class="message-content">
+              <div class="message-label">Водитель</div>
+              <div class="message-bubble">
+                ${nextStep.text}
+              </div>
+            </div>
+          `;
+          state.container.appendChild(driverDiv);
+          
+          // Прокрутка к ответу водителя
+          setTimeout(() => {
+            driverDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
           }, 100);
           
           // Переходим к следующему вопросу
@@ -1465,6 +1604,12 @@ function switchTab(tabName) {
   
   // Add active to clicked tab
   event.target.classList.add('active');
+  
+  // Initialize dialogue 2 if drivers tab is clicked and not already initialized
+  if (tabName === 'drivers' && !window.dialogue2State) {
+    fillDialogueWithLoadData(2);
+    initDialogue(2);
+  }
 }
 
 // Инициализация при загрузке страницы
