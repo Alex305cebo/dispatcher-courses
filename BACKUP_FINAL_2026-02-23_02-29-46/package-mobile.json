@@ -1,0 +1,35 @@
+{
+  "name": "dispatcher-courses-mobile",
+  "version": "1.0.0",
+  "description": "Курсы обучение и подготовка Диспетчера - Мобильное приложение",
+  "author": "Dispatcher Courses Team",
+  "license": "MIT",
+  "scripts": {
+    "install:capacitor": "npm install @capacitor/core @capacitor/cli @capacitor/android @capacitor/ios @capacitor/splash-screen @capacitor/status-bar",
+    "init": "npx cap init 'Диспетчер США' 'com.dispatcher.courses' --web-dir=.",
+    "add:android": "npx cap add android",
+    "add:ios": "npx cap add ios",
+    "sync": "npx cap sync",
+    "sync:android": "npx cap sync android",
+    "sync:ios": "npx cap sync ios",
+    "open:android": "npx cap open android",
+    "open:ios": "npx cap open ios",
+    "build:android": "npx cap sync android && cd android && ./gradlew assembleRelease",
+    "build:ios": "npx cap sync ios && cd ios/App && xcodebuild -workspace App.xcworkspace -scheme App -configuration Release",
+    "copy": "npx cap copy",
+    "update": "npx cap update",
+    "doctor": "npx cap doctor",
+    "generate:icons": "pwa-asset-generator logo.png icons/ --background '#667eea' --padding '10%'"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^5.0.0",
+    "pwa-asset-generator": "^6.3.0"
+  },
+  "dependencies": {
+    "@capacitor/android": "^5.0.0",
+    "@capacitor/core": "^5.0.0",
+    "@capacitor/ios": "^5.0.0",
+    "@capacitor/splash-screen": "^5.0.0",
+    "@capacitor/status-bar": "^5.0.0"
+  }
+}
