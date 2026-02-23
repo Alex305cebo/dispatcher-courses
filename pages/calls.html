@@ -219,9 +219,10 @@ body {
   padding: 12px 16px;
   border-radius: 12px;
   font-size: 15px;
-  line-height: 1.5;
+  line-height: 1.8;
   position: relative;
   padding-right: 90px;
+  white-space: pre-line;
 }
 
 .audio-icon {
@@ -792,32 +793,107 @@ if (history.scrollRestoration) {
 }
 window.scrollTo(0, 0);
 
+// Функция добавления перевода к тексту
+function addTranslation(text) {
+  // Словарь переводов ключевых фраз
+  const translations = {
+    "That's too high for us": "Это слишком высоко для нас",
+    "Best I can do is": "Лучшее что я могу предложить",
+    "I can't go that high": "Я не могу пойти так высоко",
+    "How about": "Как насчет",
+    "That's above our budget": "Это выше нашего бюджета",
+    "I can offer": "Я могу предложить",
+    "as my best price": "как мою лучшую цену",
+    "We can't meet that number": "Мы не можем достичь этой цифры",
+    "is the highest I can go": "это максимум куда я могу пойти",
+    "That's a bit steep for us": "Это немного круто для нас",
+    "I can bump it up to": "Я могу поднять до",
+    "I hear you, but that's too much": "Я вас слышу, но это слишком много",
+    "My max is": "Мой максимум",
+    "I wish I could, but I can't": "Хотел бы я, но не могу",
+    "is my ceiling on this one": "это мой потолок на этом",
+    "That's outside our range": "Это вне нашего диапазона",
+    "I can go up to": "Я могу пойти до",
+    "that's it": "вот и всё",
+    "I understand your position": "Я понимаю вашу позицию",
+    "meet in the middle at": "встретимся посередине на",
+    "My driver is already in": "Мой водитель уже в",
+    "and can pick up on time": "и может забрать вовремя",
+    "Let's find a compromise here": "Давайте найдем компромисс",
+    "What if we settle at": "Что если мы договоримся на",
+    "We have a truck nearby": "У нас есть грузовик рядом",
+    "can guarantee on-time pickup": "можем гарантировать своевременную погрузку",
+    "Can we agree on": "Можем договориться на",
+    "Our driver is local": "Наш водитель местный",
+    "ready to go immediately": "готов ехать немедленно",
+    "and we have a deal": "и у нас сделка",
+    "I'll send the rate confirmation": "Я отправлю подтверждение ставки",
+    "I can do": "Я могу сделать",
+    "Let's book it": "Давайте забронируем",
+    "Sending confirmation now": "Отправляю подтверждение сейчас",
+    "is acceptable": "приемлемо",
+    "I'll get the paperwork over to you": "Я отправлю вам документы",
+    "right away": "прямо сейчас",
+    "Deal at": "Сделка на",
+    "I'll email you the confirmation": "Я отправлю вам подтверждение по email",
+    "in a minute": "через минуту",
+    "You got it": "Договорились",
+    "Rate con coming your way now": "Подтверждение ставки уже в пути",
+    "let's do": "давайте сделаем",
+    "I'll send over the confirmation": "Я отправлю подтверждение",
+    "works": "подходит",
+    "Booking it now": "Бронирую сейчас",
+    "you'll get the rate con shortly": "вы получите подтверждение ставки скоро",
+    "Fair enough": "Справедливо",
+    "it is": "так и есть",
+    "I'll have the confirmation to you": "У вас будет подтверждение",
+    "in a moment": "через мгновение"
+  };
+  
+  // Если текст уже содержит перевод (div с italic), возвращаем как есть
+  if (text.includes('font-style: italic')) {
+    return text;
+  }
+  
+  return text;
+}
+
 // Генератор случайных грузов
 function generateRandomLoad(loadId) {
   const routes = [
     { from: 'Los Angeles, CA', to: 'Phoenix, AZ', miles: 370 },
-    { from: 'Chicago, IL', to: 'Dallas, TX', miles: 920 },
-    { from: 'New York, NY', to: 'Miami, FL', miles: 1280 },
-    { from: 'Seattle, WA', to: 'Portland, OR', miles: 175 },
-    { from: 'Denver, CO', to: 'Salt Lake City, UT', miles: 525 },
-    { from: 'Atlanta, GA', to: 'Nashville, TN', miles: 250 },
-    { from: 'Houston, TX', to: 'New Orleans, LA', miles: 350 },
-    { from: 'Boston, MA', to: 'Philadelphia, PA', miles: 310 },
-    { from: 'Detroit, MI', to: 'Cleveland, OH', miles: 170 },
-    { from: 'San Francisco, CA', to: 'Las Vegas, NV', miles: 570 }
+    { from: 'Chicago, IL', to: 'Memphis, TN', miles: 530 },
+    { from: 'Dallas, TX', to: 'Atlanta, GA', miles: 780 },
+    { from: 'Denver, CO', to: 'Kansas City, MO', miles: 600 },
+    { from: 'Seattle, WA', to: 'Boise, ID', miles: 505 },
+    { from: 'Miami, FL', to: 'Charlotte, NC', miles: 650 },
+    { from: 'Boston, MA', to: 'Cleveland, OH', miles: 640 },
+    { from: 'Detroit, MI', to: 'Nashville, TN', miles: 550 },
+    { from: 'San Francisco, CA', to: 'Portland, OR', miles: 635 },
+    { from: 'Philadelphia, PA', to: 'Atlanta, GA', miles: 745 },
+    { from: 'Phoenix, AZ', to: 'Albuquerque, NM', miles: 465 },
+    { from: 'Minneapolis, MN', to: 'St. Louis, MO', miles: 560 },
+    { from: 'Charlotte, NC', to: 'Jacksonville, FL', miles: 505 },
+    { from: 'Las Vegas, NV', to: 'Salt Lake City, UT', miles: 420 },
+    { from: 'Kansas City, MO', to: 'Memphis, TN', miles: 450 },
+    { from: 'Portland, OR', to: 'Sacramento, CA', miles: 585 },
+    { from: 'Indianapolis, IN', to: 'Atlanta, GA', miles: 515 },
+    { from: 'Columbus, OH', to: 'Charlotte, NC', miles: 485 },
+    { from: 'San Antonio, TX', to: 'Oklahoma City, OK', miles: 465 },
+    { from: 'Houston, TX', to: 'Memphis, TN', miles: 570 }
   ];
   
   const cargoTypes = [
-    { name: 'Electronics', equipment: 'dry van', temp: false },
-    { name: 'Vegetables', equipment: 'reefer', temp: true },
-    { name: 'Furniture', equipment: 'dry van', temp: false },
-    { name: 'Frozen Food', equipment: 'reefer', temp: true },
-    { name: 'Auto Parts', equipment: 'dry van', temp: false },
-    { name: 'Beverages', equipment: 'dry van', temp: false },
-    { name: 'Pharmaceuticals', equipment: 'reefer', temp: true },
-    { name: 'Machinery', equipment: 'flatbed', temp: false },
-    { name: 'Clothing', equipment: 'dry van', temp: false },
-    { name: 'Dairy Products', equipment: 'reefer', temp: true }
+    { name: 'Electronics', equipment: 'dry van', temp: false, multiplier: 1.0 },
+    { name: 'Fresh Vegetables', equipment: 'reefer', temp: true, multiplier: 1.25 },
+    { name: 'Furniture', equipment: 'dry van', temp: false, multiplier: 1.0 },
+    { name: 'Frozen Food', equipment: 'reefer', temp: true, multiplier: 1.25 },
+    { name: 'Auto Parts', equipment: 'dry van', temp: false, multiplier: 1.0 },
+    { name: 'Beverages', equipment: 'dry van', temp: false, multiplier: 1.0 },
+    { name: 'Pharmaceuticals', equipment: 'reefer', temp: true, multiplier: 1.3 },
+    { name: 'Steel Beams', equipment: 'flatbed', temp: false, multiplier: 1.2 },
+    { name: 'Clothing', equipment: 'dry van', temp: false, multiplier: 1.0 },
+    { name: 'Dairy Products', equipment: 'reefer', temp: true, multiplier: 1.25 }
   ];
   
   const brokers = [
@@ -836,7 +912,8 @@ function generateRandomLoad(loadId) {
   const broker = brokers[Math.floor(Math.random() * brokers.length)];
   
   const weight = 35000 + Math.floor(Math.random() * 10000); // 35,000 - 45,000 lbs
-  const baseRate = route.miles * (1.8 + Math.random() * 0.8); // $1.80-$2.60 per mile
+  const ratePerMile = 2.0 + Math.random() * 1.0; // $2.00-$3.00 per mile for dry van
+  const baseRate = route.miles * ratePerMile * cargo.multiplier;
   const rate = Math.round(baseRate / 50) * 50; // Round to nearest $50
   const paymentDays = [15, 20, 25, 30][Math.floor(Math.random() * 4)];
   
@@ -862,24 +939,24 @@ function generateRandomLoad(loadId) {
 function generateDialogueVariants() {
   return {
     greetings: [
-      (load) => `Good morning! This is John Smith from XYZ Transport. I'm calling about the load from ${load.from.split(',')[0]} to ${load.to.split(',')[0]} that was posted on DAT. Is it still available?`,
-      (load) => `Hi, this is Sarah Johnson with ABC Logistics. I saw your posting for a load from ${load.from.split(',')[0]} to ${load.to.split(',')[0]}. Is this load still open?`,
-      (load) => `Hello! My name is Mike Davis from Premier Carriers. I'm interested in the load from ${load.from.split(',')[0]} to ${load.to.split(',')[0]}. Can you tell me if it's still available?`,
-      (load) => `Good afternoon! This is Lisa Martinez calling from Elite Transport regarding the load from ${load.from.split(',')[0]} to ${load.to.split(',')[0]}. Is this shipment still available?`,
-      (load) => `Hi there! Tom Wilson with Reliable Freight here. I'm calling about your load from ${load.from.split(',')[0]} to ${load.to.split(',')[0]}. Is it still open?`,
-      (load) => `Hello, this is Jennifer Brown from Swift Carriers. I'm interested in a load going from ${load.from.split(',')[0]} to ${load.to.split(',')[0]}. Is it still available?`,
-      (load) => `Good morning! Robert Garcia with National Transport calling. I saw a load from ${load.from.split(',')[0]} to ${load.to.split(',')[0]} on the board. Is this still open?`,
-      (load) => `Hi! This is Amanda Lee from Express Logistics. I'm calling regarding the load from ${load.from.split(',')[0]} to ${load.to.split(',')[0]}. Is it still available?`
+      (load) => `Good morning! This is John Smith from XYZ Transport. I'm calling about the load from ${load.from.split(',')[0]} to ${load.to.split(',')[0]} that was posted on DAT. Is it still available?<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Доброе утро! Это Джон Смит из XYZ Transport. Звоню по поводу груза из ${load.from.split(',')[0]} в ${load.to.split(',')[0]}, который был размещен на DAT. Он еще доступен?</div>`,
+      (load) => `Hi, this is Sarah Johnson with ABC Logistics. I saw your posting for a load from ${load.from.split(',')[0]} to ${load.to.split(',')[0]}. Is this load still open?<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Привет, это Сара Джонсон из ABC Logistics. Я видела ваше объявление о грузе из ${load.from.split(',')[0]} в ${load.to.split(',')[0]}. Этот груз еще открыт?</div>`,
+      (load) => `Hello! My name is Mike Davis from Premier Carriers. I'm interested in the load from ${load.from.split(',')[0]} to ${load.to.split(',')[0]}. Can you tell me if it's still available?<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Здравствуйте! Меня зовут Майк Дэвис из Premier Carriers. Меня интересует груз из ${load.from.split(',')[0]} в ${load.to.split(',')[0]}. Можете сказать, он еще доступен?</div>`,
+      (load) => `Good afternoon! This is Lisa Martinez calling from Elite Transport regarding the load from ${load.from.split(',')[0]} to ${load.to.split(',')[0]}. Is this shipment still available?<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Добрый день! Это Лиза Мартинес из Elite Transport звоню по поводу груза из ${load.from.split(',')[0]} в ${load.to.split(',')[0]}. Эта отправка еще доступна?</div>`,
+      (load) => `Hi there! Tom Wilson with Reliable Freight here. I'm calling about your load from ${load.from.split(',')[0]} to ${load.to.split(',')[0]}. Is it still open?<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Привет! Том Уилсон из Reliable Freight. Звоню по поводу вашего груза из ${load.from.split(',')[0]} в ${load.to.split(',')[0]}. Он еще открыт?</div>`,
+      (load) => `Hello, this is Jennifer Brown from Swift Carriers. I'm interested in a load going from ${load.from.split(',')[0]} to ${load.to.split(',')[0]}. Is it still available?<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Здравствуйте, это Дженнифер Браун из Swift Carriers. Меня интересует груз из ${load.from.split(',')[0]} в ${load.to.split(',')[0]}. Он еще доступен?</div>`,
+      (load) => `Good morning! Robert Garcia with National Transport calling. I saw a load from ${load.from.split(',')[0]} to ${load.to.split(',')[0]} on the board. Is this still open?<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Доброе утро! Роберт Гарсия из National Transport. Я видел груз из ${load.from.split(',')[0]} в ${load.to.split(',')[0]} на доске. Он еще открыт?</div>`,
+      (load) => `Hi! This is Amanda Lee from Express Logistics. I'm calling regarding the load from ${load.from.split(',')[0]} to ${load.to.split(',')[0]}. Is it still available?<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Привет! Это Аманда Ли из Express Logistics. Звоню по поводу груза из ${load.from.split(',')[0]} в ${load.to.split(',')[0]}. Он еще доступен?</div>`
     ],
     badGreetings: [
-      (load) => `Hi there! I'm calling about a load I saw posted on DAT. Do you have any trucks available right now? I need to move some freight today.`,
-      (load) => `Hey, how's it going? I saw your posting on the load board earlier. Can you tell me more about what you've got available for pickup?`,
-      (load) => `Hello, I'm interested in the ${load.from.split(',')[0]} load. What's the rate you're offering for this?`,
-      (load) => `Hi! I have a truck ready to go. Do you have anything going from ${load.from.split(',')[0]} area?`,
-      (load) => `Good morning! I'm looking for loads. What do you have available today?`,
-      (load) => `Hey there! Calling about freight. Got anything heading west?`,
-      (load) => `Hi, I saw some loads posted. Can you send me details on what's available?`,
-      (load) => `Hello! My truck is empty and I need a load. What rates are you paying?`
+      (load) => `Hi there! I'm calling about a load I saw posted on DAT. Do you have any trucks available right now? I need to move some freight today.<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Привет! Звоню по поводу груза, который видел на DAT. У вас есть свободные грузовики? Мне нужно перевезти груз сегодня.</div>`,
+      (load) => `Hey, how's it going? I saw your posting on the load board earlier. Can you tell me more about what you've got available for pickup?<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Привет, как дела? Видел ваше объявление на доске грузов. Расскажите подробнее, что у вас доступно для погрузки?</div>`,
+      (load) => `Hello, I'm interested in the ${load.from.split(',')[0]} load. What's the rate you're offering for this?<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Здравствуйте, меня интересует груз из ${load.from.split(',')[0]}. Какую ставку вы предлагаете?</div>`,
+      (load) => `Hi! I have a truck ready to go. Do you have anything going from ${load.from.split(',')[0]} area?<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Привет! У меня есть готовый грузовик. Есть что-нибудь из района ${load.from.split(',')[0]}?</div>`,
+      (load) => `Good morning! I'm looking for loads. What do you have available today?<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Доброе утро! Ищу грузы. Что у вас есть сегодня?</div>`,
+      (load) => `Hey there! Calling about freight. Got anything heading west?<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Привет! Звоню насчет грузов. Есть что-нибудь на запад?</div>`,
+      (load) => `Hi, I saw some loads posted. Can you send me details on what's available?<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Привет, видел размещенные грузы. Можете прислать детали по доступным?</div>`,
+      (load) => `Hello! My truck is empty and I need a load. What rates are you paying?<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Здравствуйте! Мой грузовик пустой и мне нужен груз. Какие ставки вы платите?</div>`
     ],
     brokerDetails: [
       (load) => {
