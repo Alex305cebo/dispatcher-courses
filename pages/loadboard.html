@@ -132,7 +132,7 @@
 
         .stat-box .label {
             color: var(--text-secondary);
-            font-size: 14px;
+            font-size: 16px;
             margin-top: 4px;
         }
 
@@ -164,7 +164,7 @@
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--border);
             border-radius: 8px;
-            font-size: 14px;
+            font-size: 16px;
             color: var(--text);
         }
 
@@ -177,7 +177,7 @@
             margin-bottom: 5px;
             color: var(--text-secondary);
             font-weight: 600;
-            font-size: 14px;
+            font-size: 16px;
         }
 
         .loads-grid {
@@ -284,7 +284,7 @@
         }
 
         .load-route-header {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 700;
             color: var(--text);
             text-align: center;
@@ -309,7 +309,7 @@
         .route-text {
             color: var(--text);
             font-weight: 600;
-            font-size: 14px;
+            font-size: 16px;
         }
 
         .load-details {
@@ -317,17 +317,17 @@
             grid-template-columns: 1fr 1fr;
             gap: 6px;
             margin-bottom: 8px;
-            font-size: 12px;
+            font-size: 16px;
         }
 
         .detail-item {
             color: var(--text);
-            font-size: 12px;
+            font-size: 16px;
         }
 
         .detail-label {
             color: var(--text-secondary);
-            font-size: 11px;
+            font-size: 16px;
         }
 
         .load-footer {
@@ -345,7 +345,7 @@
             color: #a78bfa;
             padding: 4px 10px;
             border-radius: 6px;
-            font-size: 11px;
+            font-size: 16px;
             font-weight: 600;
         }
 
@@ -355,7 +355,7 @@
             color: var(--success);
             padding: 4px 10px;
             border-radius: 6px;
-            font-size: 11px;
+            font-size: 16px;
             font-weight: 600;
         }
 
@@ -364,7 +364,7 @@
         }
 
         .analysis-title {
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 700;
             color: var(--text);
             margin-bottom: 6px;
@@ -374,7 +374,7 @@
         }
 
         .analysis-content {
-            font-size: 12px;
+            font-size: 16px;
             color: var(--text-secondary);
             line-height: 1.5;
         }
@@ -388,13 +388,13 @@
 
         .metric-label {
             color: var(--text-secondary);
-            font-size: 11px;
+            font-size: 16px;
         }
 
         .metric-value {
             color: var(--text);
             font-weight: 600;
-            font-size: 12px;
+            font-size: 16px;
         }
 
         .rating-bar {
@@ -417,7 +417,7 @@
             padding: 8px;
             border-radius: 8px;
             margin-top: 8px;
-            font-size: 12px;
+            font-size: 16px;
         }
 
         .recommendation.positive {
@@ -434,7 +434,7 @@
             position: absolute;
             bottom: 8px;
             right: 8px;
-            font-size: 14px;
+            font-size: 16px;
             color: var(--text);
             opacity: 0.3;
             font-weight: 700;
@@ -572,7 +572,7 @@
                 height: 45px;
                 bottom: 20px;
                 right: 20px;
-                font-size: 18px;
+                font-size: 16px;
             }
 
             #themeToggle {
@@ -1019,19 +1019,19 @@
                                 <div class="load-rate">$${load.rate.toLocaleString()}</div>
                             </div>
                             <div class="load-route">
-                                <div style="font-size: 12px; color: var(--text-secondary); margin-bottom: 4px;">Груз #${load.id}</div>
+                                <div style="font-size: 16px; color: var(--text-secondary); margin-bottom: 4px;">Груз #${load.id}</div>
                                 <div class="route-text">
                                     🚛 ${load.pickupCity}, ${load.pickupState} → ${load.deliveryCity}, ${load.deliveryState}
                                 </div>
                             </div>
                             ${load.company ? `
                             <div style="background: rgba(139, 92, 246, 0.1); padding: 6px 8px; border-radius: 6px; margin: 6px 0; border-left: 2px solid var(--primary);">
-                                <div style="font-weight: 700; color: var(--text); margin-bottom: 2px; font-size: 12px;">🏢 ${load.company}</div>
-                                <div style="font-size: 11px; color: var(--text-secondary); display: flex; justify-content: space-between;">
+                                <div style="font-weight: 700; color: var(--text); margin-bottom: 2px; font-size: 16px;">🏢 ${load.company}</div>
+                                <div style="font-size: 16px; color: var(--text-secondary); display: flex; justify-content: space-between;">
                                     <span>📍 ${load.companyLocation}</span>
                                     <span>⭐ ${load.creditScore}/100</span>
                                 </div>
-                                <div style="font-size: 11px; color: var(--text-secondary); margin-top: 2px;">
+                                <div style="font-size: 16px; color: var(--text-secondary); margin-top: 2px;">
                                     💰 Оплата: ${load.daysToPayAvg} дней
                                 </div>
                             </div>
@@ -1089,7 +1089,7 @@
                                 </div>
                             </div>
                             ${load.contactEmail ? `
-                            <div style="background: rgba(59, 130, 246, 0.1); padding: 6px 8px; border-radius: 6px; margin-top: 6px; font-size: 11px;">
+                            <div style="background: rgba(59, 130, 246, 0.1); padding: 6px 8px; border-radius: 6px; margin-top: 6px; font-size: 16px;">
                                 <div style="color: var(--text-secondary);">📧 ${load.contactEmail}</div>
                                 <div style="color: var(--text-secondary); margin-top: 2px;">📞 ${load.contactPhone}</div>
                             </div>
@@ -1111,7 +1111,7 @@
                                 <div class="rating-bar">
                                     <div class="rating-fill" style="width: ${analysis.profitRating * 10}%"></div>
                                 </div>
-                                <div style="font-size: 11px; color: var(--text-secondary); margin-top: 6px; line-height: 1.4;">
+                                <div style="font-size: 16px; color: var(--text-secondary); margin-top: 6px; line-height: 1.4;">
                                     ${analysis.profitAnalysis}
                                 </div>
                             </div>
@@ -1158,8 +1158,8 @@
 
                             ${analysis.advantages.length > 0 ? `
                             <div class="analysis-section">
-                                <div class="analysis-title" style="font-size: 14px; color: #22c55e;">✅ Преимущества</div>
-                                <div class="analysis-content" style="font-size: 11px; line-height: 1.5;">
+                                <div class="analysis-title" style="font-size: 16px; color: #22c55e;">✅ Преимущества</div>
+                                <div class="analysis-content" style="font-size: 16px; line-height: 1.5;">
                                     ${analysis.advantages.map(a => `• ${a}`).join('<br>')}
                                 </div>
                             </div>
@@ -1167,42 +1167,42 @@
 
                             ${analysis.risks.length > 0 ? `
                             <div class="analysis-section">
-                                <div class="analysis-title" style="font-size: 14px; color: #f59e0b;">⚠️ Риски и особенности</div>
-                                <div class="analysis-content" style="font-size: 11px; line-height: 1.5;">
+                                <div class="analysis-title" style="font-size: 16px; color: #f59e0b;">⚠️ Риски и особенности</div>
+                                <div class="analysis-content" style="font-size: 16px; line-height: 1.5;">
                                     ${analysis.risks.map(r => `• ${r}`).join('<br>')}
                                 </div>
                             </div>
                             ` : ''}
 
                             <div class="analysis-section">
-                                <div class="analysis-title" style="font-size: 14px;">🗺️ Анализ маршрута</div>
-                                <div class="analysis-content" style="font-size: 11px; line-height: 1.4;">
+                                <div class="analysis-title" style="font-size: 16px;">🗺️ Анализ маршрута</div>
+                                <div class="analysis-content" style="font-size: 16px; line-height: 1.4;">
                                     ${analysis.routeAnalysis}
                                 </div>
                             </div>
 
                             <div class="analysis-section">
-                                <div class="analysis-title" style="font-size: 14px;">⏰ Анализ времени</div>
-                                <div class="analysis-content" style="font-size: 11px; line-height: 1.4;">
+                                <div class="analysis-title" style="font-size: 16px;">⏰ Анализ времени</div>
+                                <div class="analysis-content" style="font-size: 16px; line-height: 1.4;">
                                     ${analysis.timingAnalysis}
                                 </div>
                             </div>
 
                             ${load.spotDate ? `
                             <div class="analysis-section">
-                                <div class="analysis-title" style="font-size: 14px;">📈 Сравнение с рынком</div>
-                                <div class="analysis-content" style="font-size: 11px; line-height: 1.4;">
+                                <div class="analysis-title" style="font-size: 16px;">📈 Сравнение с рынком</div>
+                                <div class="analysis-content" style="font-size: 16px; line-height: 1.4;">
                                     ${analysis.marketComparison}
                                 </div>
-                                <div style="background: rgba(255, 255, 255, 0.05); padding: 6px; border-radius: 6px; font-size: 11px; margin-top: 6px;">
+                                <div style="background: rgba(255, 255, 255, 0.05); padding: 6px; border-radius: 6px; font-size: 16px; margin-top: 6px;">
                                     <div style="color: var(--text-secondary);">Spot: ${load.spotDate} | Contract: ${load.contractRate}</div>
                                 </div>
                             </div>
                             ` : ''}
 
                             <div class="recommendation ${analysis.recommendationClass}">
-                                <strong style="font-size: 13px;">${analysis.recommendation}</strong><br>
-                                <small style="opacity: 0.9; font-size: 11px; line-height: 1.4; display: block; margin-top: 4px;">${analysis.reason}</small>
+                                <strong style="font-size: 16px;">${analysis.recommendation}</strong><br>
+                                <small style="opacity: 0.9; font-size: 16px; line-height: 1.4; display: block; margin-top: 4px;">${analysis.reason}</small>
                             </div>
                             
                             <div class="flip-hint">🔄 Нажмите чтобы вернуться</div>

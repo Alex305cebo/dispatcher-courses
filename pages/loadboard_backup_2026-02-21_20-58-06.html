@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -132,7 +132,7 @@
 
         .stat-box .label {
             color: var(--text-secondary);
-            font-size: 14px;
+            font-size: 16px;
             margin-top: 4px;
         }
 
@@ -164,7 +164,7 @@
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--border);
             border-radius: 8px;
-            font-size: 14px;
+            font-size: 16px;
             color: var(--text);
         }
 
@@ -177,7 +177,7 @@
             margin-bottom: 5px;
             color: var(--text-secondary);
             font-weight: 600;
-            font-size: 14px;
+            font-size: 16px;
         }
 
         .loads-grid {
@@ -269,7 +269,7 @@
         .route-text {
             color: var(--text);
             font-weight: 600;
-            font-size: 14px;
+            font-size: 16px;
         }
 
         .load-details {
@@ -324,7 +324,7 @@
         }
 
         .analysis-title {
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 700;
             color: var(--text);
             margin-bottom: 6px;
@@ -1051,7 +1051,7 @@
 
                             ${analysis.advantages.length > 0 ? `
                             <div class="analysis-section">
-                                <div class="analysis-title" style="font-size: 14px; color: #22c55e;">✅ Преимущества</div>
+                                <div class="analysis-title" style="font-size: 16px; color: #22c55e;">✅ Преимущества</div>
                                 <div class="analysis-content" style="font-size: 11px; line-height: 1.5;">
                                     ${analysis.advantages.map(a => `• ${a}`).join('<br>')}
                                 </div>
@@ -1060,7 +1060,7 @@
 
                             ${analysis.risks.length > 0 ? `
                             <div class="analysis-section">
-                                <div class="analysis-title" style="font-size: 14px; color: #f59e0b;">⚠️ Риски и особенности</div>
+                                <div class="analysis-title" style="font-size: 16px; color: #f59e0b;">⚠️ Риски и особенности</div>
                                 <div class="analysis-content" style="font-size: 11px; line-height: 1.5;">
                                     ${analysis.risks.map(r => `• ${r}`).join('<br>')}
                                 </div>
@@ -1068,14 +1068,14 @@
                             ` : ''}
 
                             <div class="analysis-section">
-                                <div class="analysis-title" style="font-size: 14px;">🗺️ Анализ маршрута</div>
+                                <div class="analysis-title" style="font-size: 16px;">🗺️ Анализ маршрута</div>
                                 <div class="analysis-content" style="font-size: 11px; line-height: 1.4;">
                                     ${analysis.routeAnalysis}
                                 </div>
                             </div>
 
                             <div class="analysis-section">
-                                <div class="analysis-title" style="font-size: 14px;">⏰ Анализ времени</div>
+                                <div class="analysis-title" style="font-size: 16px;">⏰ Анализ времени</div>
                                 <div class="analysis-content" style="font-size: 11px; line-height: 1.4;">
                                     ${analysis.timingAnalysis}
                                 </div>
@@ -1083,7 +1083,7 @@
 
                             ${load.spotDate ? `
                             <div class="analysis-section">
-                                <div class="analysis-title" style="font-size: 14px;">📈 Сравнение с рынком</div>
+                                <div class="analysis-title" style="font-size: 16px;">📈 Сравнение с рынком</div>
                                 <div class="analysis-content" style="font-size: 11px; line-height: 1.4;">
                                     ${analysis.marketComparison}
                                 </div>
