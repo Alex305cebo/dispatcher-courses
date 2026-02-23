@@ -117,6 +117,7 @@ export default function DispatcherCard({
           className="absolute inset-0 rounded-2xl p-4 backdrop-blur-xl border-2 border-white/30 bg-slate-900/90 flex flex-col shadow-2xl overflow-hidden"
           style={{ 
             backfaceVisibility: 'hidden',
+            WebkitBackfaceVisibility: 'hidden',
             transform: 'rotateY(0deg)'
           }}
         >
@@ -127,14 +128,14 @@ export default function DispatcherCard({
             <span>{categoryName}</span>
           </div>
           
-          {/* Text - Вопрос (минимальный размер) */}
-          <h2 className="text-sm font-bold mb-2 leading-tight text-white flex-shrink-0 max-h-[80px] overflow-y-auto scrollbar-thin">
+          {/* Text - Вопрос (полностью видимый) */}
+          <h2 className="text-[16.5px] font-bold mb-2 leading-tight text-white flex-shrink-0">
             {question?.text || 'Загрузка...'}
           </h2>
           
           {/* Hint - Наводка (серый, мелкий) с красивым скроллингом */}
-          <div className="flex-1 overflow-y-auto mb-3 scrollbar-thin scrollbar-thumb-purple-500/50 scrollbar-track-transparent hover:scrollbar-thumb-purple-500/70">
-            <p className="text-gray-400 text-xs leading-relaxed italic pr-2">
+          <div className="flex-1 overflow-y-auto mb-3 scrollbar-thin scrollbar-thumb-purple-500/50 scrollbar-track-transparent hover:scrollbar-thumb-purple-500/70 touch-pan-y">
+            <p className="text-[12px] text-gray-400 leading-relaxed italic pr-2">
               {question?.hint || 'Подумайте над вопросом...'}
             </p>
           </div>
@@ -172,13 +173,15 @@ export default function DispatcherCard({
 
         {/* Card Back Side - analytics (полный разбор) */}
         <div 
-          className="absolute inset-0 rounded-2xl p-5 backdrop-blur-xl border-2 border-purple-500/50 bg-gradient-to-br from-purple-900/95 to-indigo-900/95 flex flex-col shadow-2xl overflow-hidden"
+          className="absolute inset-0 rounded-2xl backdrop-blur-xl border-2 border-purple-500/50 bg-gradient-to-br from-purple-900/95 to-indigo-900/95 shadow-2xl overflow-hidden"
           style={{ 
             backfaceVisibility: 'hidden',
+            WebkitBackfaceVisibility: 'hidden',
             transform: 'rotateY(180deg)'
           }}
         >
-          <div className="flex flex-col h-full">
+          {/* Слой с текстом поверх */}
+          <div className="relative z-10 p-5 flex flex-col h-full">
             {/* Правильный ответ - Крупно */}
             <div className="text-center mb-4 flex-shrink-0">
               <div className="text-6xl mb-3">
@@ -189,13 +192,13 @@ export default function DispatcherCard({
               </h3>
               <div className="inline-block px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-sm">
                 <p className="text-sm font-semibold text-purple-200">
-                  Правильный ответ
+                  Правильный ответ на вопрос
                 </p>
               </div>
             </div>
             
             {/* Analytics - Полный разбор - Scrollable с красивым скроллингом */}
-            <div className="flex-1 overflow-y-auto mb-4 px-2 scrollbar-thin scrollbar-thumb-purple-300/50 scrollbar-track-transparent hover:scrollbar-thumb-purple-300/70">
+            <div className="flex-1 overflow-y-auto mb-4 px-2 scrollbar-thin scrollbar-thumb-purple-300/50 scrollbar-track-transparent hover:scrollbar-thumb-purple-300/70 touch-pan-y">
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
                 <h4 className="text-sm font-bold text-purple-200 mb-3 flex items-center gap-2">
                   <span className="text-lg">📊</span>

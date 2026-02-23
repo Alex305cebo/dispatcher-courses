@@ -80,8 +80,10 @@ export default function SwipeCardStack({
         }
       }
       
-      // Проверка: если закончились вопросы - показываем результаты
-      if (currentIndex + 1 >= cards.length) {
+      // КРИТИЧЕСКОЕ ПРАВИЛО: Результаты показываются ТОЛЬКО после прохождения всех 30 вопросов
+      // currentIndex начинается с 0, поэтому после 30-го вопроса currentIndex будет 29
+      // После свайпа 30-го вопроса currentIndex + 1 = 30
+      if (currentIndex + 1 >= 30) {
         onComplete({ 
           correct: newCorrectCount, 
           wrong: newWrongCount,
