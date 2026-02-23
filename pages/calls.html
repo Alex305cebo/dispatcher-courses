@@ -622,6 +622,62 @@ body {
         </div>
       </div>
 
+      <!-- Script 2: Driver Check-in - Interactive -->
+      <div class="script-card">
+        <div class="script-header">
+          <div class="script-icon">📍</div>
+          <div class="script-title">
+            <h3>Проверка статуса водителя</h3>
+            <p>Интерактивный диалог - контроль выполнения рейса</p>
+          </div>
+        </div>
+        
+        <div class="script-body">
+          <div id="dialogue-3" class="dialogue">
+            <!-- Диалог будет генерироваться JavaScript -->
+          </div>
+        </div>
+
+        <div class="tips">
+          <h4>💡 Ключевые моменты</h4>
+          <ul>
+            <li>Регулярно проверяйте местоположение и статус водителя</li>
+            <li>Убедитесь что водитель соблюдает график</li>
+            <li>Проверьте состояние груза и оборудования</li>
+            <li>Напомните о необходимости звонка за 2 часа до прибытия</li>
+            <li>Поддерживайте позитивную коммуникацию</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Script 3: Load Refusal - Interactive -->
+      <div class="script-card">
+        <div class="script-header">
+          <div class="script-icon">🔄</div>
+          <div class="script-title">
+            <h3>Отказ водителя от груза</h3>
+            <p>Интерактивный диалог - поиск альтернативного груза</p>
+          </div>
+        </div>
+        
+        <div class="script-body">
+          <div id="dialogue-4" class="dialogue">
+            <!-- Диалог будет генерироваться JavaScript -->
+          </div>
+        </div>
+
+        <div class="tips">
+          <h4>💡 Ключевые моменты</h4>
+          <ul>
+            <li>Выслушайте причину отказа без давления</li>
+            <li>Предложите альтернативные варианты грузов</li>
+            <li>Учитывайте предпочтения водителя по маршруту</li>
+            <li>Быстро найдите замену для отклоненного груза</li>
+            <li>Сохраняйте профессиональные отношения</li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Script 4: Problem Resolution -->
       <div class="script-card">
         <div class="script-header">
@@ -1337,47 +1393,49 @@ function fillDialogueWithLoadData(dialogueId) {
     dialogue.steps[10].text = `✅ Отличная работа! Вы успешно провели звонок брокеру по маршруту ${load.from} → ${load.to} и договорились о ставке ${finalOffer} вместо начальных ${load.rate} (+${finalOffer - load.rate} или +${Math.round((finalOffer - load.rate) / load.rate * 100)}%). Это ${(finalOffer/load.miles).toFixed(2)}/милю - хорошая ставка!`;
   } else if (dialogueId === 2) {
     // Полный диалог: назначение груза водителю
-    const pickupTime = '8:00 AM';
-    const deliveryTime = '5:00 PM';
+    const pickupHour = 6 + Math.floor(Math.random() * 8); // 6-13
+    const pickupTime = `${pickupHour}:00`;
+    const deliveryTime = ['9:00', '10:00', '11:00'][Math.floor(Math.random() * 3)];
+    const emptyTime = ['11:00', '12:00', '13:00'][Math.floor(Math.random() * 3)];
     
     // Шаг 0: Приветствие
     dialogue.steps[0].prompt = `📋 ${load.from} → ${load.to} | ${load.miles} миль<br>📦 ${load.cargo} | ${load.weight.toLocaleString()} lbs | 💰 $${load.rate}<br><br>Вы звоните водителю, чтобы назначить ему груз. Как вы начнете разговор?`;
     
     const greetingOptions = [
-      { text: `Hey, I got a load for you if you want it.<br>It's going from ${load.from.split(',')[0]} to ${load.to.split(',')[0]}.<br>You interested?`, correct: false, feedback: 'Слишком неформально и расплывчато. Водителю нужна полная информация, а не просто предложение.' },
-      { text: `Hi John! I have a great load for you.<br>It's ${load.miles} miles from ${load.from} to ${load.to}.<br>Are you ready to take down the details?`, correct: true, feedback: `Отлично! Профессиональное приветствие, указали маршрут и расстояние, спросили готовность.` },
-      { text: `Listen, I need to assign you a load right now.<br>Can you take it or not?<br>I have other drivers waiting.`, correct: false, feedback: 'Слишком агрессивно и давящее. Водитель должен чувствовать себя ценным, а не под давлением.' }
+      { text: `Hey, I got a load for you if you want it.<br>It's going from ${load.from.split(',')[0]} to ${load.to.split(',')[0]}.<br>You interested?<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Привет, у меня есть груз если хочешь.<br>Из ${load.from.split(',')[0]} в ${load.to.split(',')[0]}.<br>Интересно?</div>`, correct: false, feedback: 'Слишком неформально. Нужно профессионально представить груз и проверить готовность водителя.' },
+      { text: `Hi Mike! I have a confirmed load for you.<br>${load.from} to ${load.to}, ${load.miles} miles, ${load.rate}.<br>When will your trailer be empty and ready for the next pickup?<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Привет Майк! У меня подтвержденный груз для тебя.<br>${load.from} в ${load.to}, ${load.miles} миль, ${load.rate}.<br>Когда твой трейлер будет пустым и готов к следующей погрузке?</div>`, correct: true, feedback: `Отлично! Профессионально, указали ключевые детали и проверили готовность водителя.` },
+      { text: `Listen, I need you to take this load right now.<br>Can you do it or not?<br>I don't have time to wait.<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Слушай, мне нужно чтобы ты взял этот груз прямо сейчас.<br>Можешь или нет?<br>У меня нет времени ждать.</div>`, correct: false, feedback: 'Слишком агрессивно. Водитель - ваш партнер, а не подчиненный. Нужно уважительное общение.' }
     ];
     greetingOptions.sort(() => Math.random() - 0.5);
     dialogue.steps[0].options = greetingOptions;
     
-    dialogue.steps[1].text = `Sure, go ahead! I'm ready to write it down.`;
+    dialogue.steps[1].text = `Hey! I'm delivering right now, should be done by ${emptyTime} today.<br>I'll be empty and ready for pickup tomorrow morning.<br>What are the details?<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Привет! Я сейчас на доставке, должен закончить к ${emptyTime} сегодня.<br>Буду пустым и готов к погрузке завтра утром.<br>Какие детали?</div>`;
     
     // Шаг 2: Адрес отправителя
-    dialogue.steps[2].prompt = `Водитель готов. Как вы передадите адрес отправителя?`;
+    dialogue.steps[2].prompt = `Водитель готов. Как вы отправите информацию о грузе?`;
     
     const pickupOptions = [
-      { text: `Pickup is in ${load.from}.<br>You know where that is, right?`, correct: false, feedback: `Слишком расплывчато. Водителю нужен полный адрес, время и контакт отправителя.` },
-      { text: `Pickup: ${load.from}.<br>Tomorrow at ${pickupTime}.<br>Contact: Mike Johnson, (555) 123-4567.<br>It's ${load.weight.toLocaleString()} lbs of ${load.cargo.toLowerCase()}.`, correct: true, feedback: `Отлично! Полный адрес, время, контакт и описание груза.` },
-      { text: `The shipper is in ${load.from}.<br>Call them when you get there and they'll tell you what to do.`, correct: false, feedback: `Недостаточно информации. Водителю нужны точное время, контакт и детали груза.` }
+      { text: `I'll text you everything right now.<br>Check your phone in a minute.<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Отправлю тебе всё прямо сейчас в сообщении.<br>Проверь телефон через минуту.</div>`, correct: false, feedback: `Недостаточно профессионально. Лучше отправить на email с полными деталями и подтвердить устно ключевую информацию.` },
+      { text: `Perfect! I'm sending all load details to your email now: rate confirmation, BOL, shipper and receiver contacts.<br>Pickup: ${load.from}, tomorrow at ${pickupTime}.<br>Delivery: ${load.to}, day after tomorrow by ${deliveryTime}.<br>Load: ${load.weight.toLocaleString()} lbs of ${load.cargo.toLowerCase()}${load.needsTemp ? ', reefer at 35-37°F' : ''}.<br>Rate: ${load.rate}.<br>Can you confirm you received the email?<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Отлично! Отправляю все детали груза на твой email: подтверждение ставки, BOL, контакты отправителя и получателя.<br>Погрузка: ${load.from}, завтра в ${pickupTime}.<br>Доставка: ${load.to}, послезавтра к ${deliveryTime}.<br>Груз: ${load.weight.toLocaleString()} фунтов ${load.cargo.toLowerCase()}${load.needsTemp ? ', рефрижератор 35-37°F' : ''}.<br>Ставка: ${load.rate}.<br>Можешь подтвердить что получил email?</div>`, correct: true, feedback: `Отлично! Профессионально отправили документы на email и устно подтвердили ключевые детали.` },
+      { text: `Just check the load board, all info is there.<br>Let me know if you have questions.<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Просто проверь доску грузов, вся информация там.<br>Дай знать если есть вопросы.</div>`, correct: false, feedback: `Слишком расплывчато. Диспетчер должен активно отправить всю информацию водителю, а не ждать что он сам найдет.` }
     ];
     pickupOptions.sort(() => Math.random() - 0.5);
     dialogue.steps[2].options = pickupOptions;
     
-    dialogue.steps[3].text = `Got it. Pickup in ${load.from} tomorrow at ${pickupTime}. What about delivery?`;
+    dialogue.steps[3].text = `Got it, checking my email now...<br>Yes, I see everything. Rate con, BOL, all contacts.<br>Looks good!<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Понял, проверяю email сейчас...<br>Да, вижу всё. Подтверждение ставки, BOL, все контакты.<br>Выглядит хорошо!</div>`;
     
     // Шаг 4: Адрес получателя
-    dialogue.steps[4].prompt = `Водитель записал отправителя. Как вы передадите адрес получателя?`;
+    dialogue.steps[4].prompt = `Водитель получил документы. Что важно уточнить?`;
     
     const deliveryOptions = [
-      { text: `Delivery is in ${load.to}.<br>You'll figure it out when you get there.`, correct: false, feedback: `Слишком неопределённо. Водителю нужен полный адрес, время и контакт получателя.` },
-      { text: `Delivery: ${load.to}.<br>Day after tomorrow by ${deliveryTime}.<br>Contact: Sarah Williams, (555) 987-6543.<br>Make sure you call them 2 hours before arrival.`, correct: true, feedback: `Отлично! Полный адрес, время, контакт и инструкция по уведомлению.` },
-      { text: `Drop it off in ${load.to} sometime this week.`, correct: false, feedback: `Слишком расплывчато. Нужно точное время доставки, адрес и контакт получателя.` }
+      { text: `Great! Just call me if anything comes up.<br>Drive safe!<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Отлично! Просто позвони если что-то возникнет.<br>Езжай безопасно!</div>`, correct: false, feedback: `Пропущены важные инструкции. Нужно напомнить о необходимости держать связь и отправлять документы.` },
+      { text: `Perfect! Call me when you're 2 hours out from pickup, and again 2 hours before delivery.<br>After pickup, send me photos of the BOL and seal number right away.<br>Keep me updated on your progress.<br>Any questions about the load?<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Отлично! Позвони мне за 2 часа до погрузки, и снова за 2 часа до доставки.<br>После погрузки сразу отправь мне фото BOL и номер пломбы.<br>Держи меня в курсе своего прогресса.<br>Есть вопросы по грузу?</div>`, correct: true, feedback: `Отлично! Дали четкие инструкции по коммуникации с диспетчером и документации. Профессиональный подход.` },
+      { text: `Okay, you know what to do.<br>Just get it delivered on time.<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Ладно, ты знаешь что делать.<br>Просто доставь вовремя.</div>`, correct: false, feedback: `Слишком расплывчато. Всегда давайте четкие инструкции, даже опытным водителям.` }
     ];
     deliveryOptions.sort(() => Math.random() - 0.5);
     dialogue.steps[4].options = deliveryOptions;
     
-    dialogue.steps[5].text = `Got it. Delivery in ${load.to} by ${deliveryTime}. What about the load details?`;
+    dialogue.steps[5].text = `No questions, everything is clear.<br>I'll head out tonight to be there by ${pickupTime}.<br>I'll keep you updated on my progress.<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Вопросов нет, всё понятно.<br>Выеду сегодня вечером чтобы быть там к ${pickupTime}.<br>Буду держать тебя в курсе.</div>`;
     
     // Шаг 6: Детали груза
     dialogue.steps[6].prompt = `Водитель записал получателя. Как вы передадите детали груза?`;
@@ -1407,6 +1465,85 @@ function fillDialogueWithLoadData(dialogueId) {
     
     // Завершение
     dialogue.steps[10].text = `✅ Отличная работа! Вы успешно назначили груз водителю по маршруту ${load.from} → ${load.to} (${load.miles} миль). Передали все необходимые детали: адреса, время, контакты, вес груза и ставку $${load.rate}. Водитель готов к отправке!`;
+  } else if (dialogueId === 3) {
+    // Диалог: Проверка статуса водителя
+    const currentHour = 6 + Math.floor(Math.random() * 12);
+    const hoursToPickup = Math.floor(Math.random() * 4) + 2;
+    const etaHour = currentHour + hoursToPickup;
+    
+    dialogue.steps[0].prompt = `📋 ${load.from} → ${load.to} | ${load.miles} миль<br>📦 ${load.cargo} | ${load.weight.toLocaleString()} lbs | 💰 ${load.rate}<br><br>Водитель в пути к месту погрузки. Как вы проверите его статус?`;
+    
+    const checkOptions = [
+      { text: `Where are you?<br>Are you going to be on time?<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Где ты?<br>Успеешь вовремя?</div>`, correct: false, feedback: 'Слишком резко. Нужно более профессионально и дружелюбно.' },
+      { text: `Hey Mike! Just checking in on your progress.<br>What's your current location and ETA to the pickup?<br>Everything going smoothly?<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Привет Майк! Проверяю как дела.<br>Где ты сейчас и когда прибудешь к погрузке?<br>Всё идёт гладко?</div>`, correct: true, feedback: 'Отлично! Дружелюбно, профессионально и проверили все важные моменты.' },
+      { text: `Call me when you get there.<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Позвони когда приедешь.</div>`, correct: false, feedback: 'Недостаточно. Нужно активно контролировать процесс, а не ждать.' }
+    ];
+    checkOptions.sort(() => Math.random() - 0.5);
+    dialogue.steps[0].options = checkOptions;
+    
+    dialogue.steps[1].text = `Hey! I'm about ${hoursToPickup} hours out, near ${['Nashville', 'Louisville', 'Indianapolis', 'St. Louis'][Math.floor(Math.random() * 4)]}.<br>Should arrive around ${etaHour}:00.<br>Everything is good, truck is running fine.<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Привет! Примерно в ${hoursToPickup} часах езды, около ${['Нэшвилла', 'Луисвилла', 'Индианаполиса', 'Сент-Луиса'][Math.floor(Math.random() * 4)]}.<br>Должен прибыть около ${etaHour}:00.<br>Всё хорошо, грузовик работает отлично.</div>`;
+    
+    dialogue.steps[2].prompt = `Водитель на правильном пути. Что важно напомнить?`;
+    
+    const reminderOptions = [
+      { text: `Okay, good.<br>Drive safe.<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Хорошо.<br>Езжай безопасно.</div>`, correct: false, feedback: 'Пропущены важные напоминания о процедурах.' },
+      { text: `Perfect! Remember to call me when you're 2 hours out so I can notify the shipper.<br>After loading, send me BOL photos and seal number immediately.<br>Any questions or concerns?<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Отлично! Не забудь позвонить мне за 2 часа чтобы я уведомил отправителя.<br>После погрузки сразу отправь фото BOL и номер пломбы.<br>Есть вопросы или проблемы?</div>`, correct: true, feedback: 'Отлично! Напомнили о всех важных процедурах и проверили наличие вопросов.' },
+      { text: `Just get there on time.<br>That's all I need.<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Просто приезжай вовремя.<br>Это всё что нужно.</div>`, correct: false, feedback: 'Слишком холодно. Нужно поддерживать водителя и напоминать о процедурах.' }
+    ];
+    reminderOptions.sort(() => Math.random() - 0.5);
+    dialogue.steps[2].options = reminderOptions;
+    
+    dialogue.steps[3].text = `No questions, everything is clear.<br>I'll call you in about ${hoursToPickup - 2} hours.<br>Thanks for checking in!<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Вопросов нет, всё понятно.<br>Позвоню тебе примерно через ${hoursToPickup - 2} часа.<br>Спасибо что проверил!</div>`;
+    
+    dialogue.steps[4].text = `✅ Отличная работа! Вы профессионально проверили статус водителя, подтвердили что он на правильном пути и напомнили о важных процедурах. Водитель чувствует поддержку и знает что делать!`;
+    
+  } else if (dialogueId === 4) {
+    // Диалог: Отказ водителя от груза
+    const refusalReasons = [
+      { reason: 'too far from home', translation: 'слишком далеко от дома' },
+      { reason: 'wrong direction', translation: 'не в том направлении' },
+      { reason: 'rate is too low', translation: 'ставка слишком низкая' }
+    ];
+    const selectedReason = refusalReasons[Math.floor(Math.random() * refusalReasons.length)];
+    const altLoad = generateRandomLoad();
+    
+    dialogue.steps[0].prompt = `📋 ${load.from} → ${load.to} | ${load.miles} миль<br>📦 ${load.cargo} | ${load.weight.toLocaleString()} lbs | 💰 ${load.rate}<br><br>Вы предлагаете водителю груз. Как начнете?`;
+    
+    const offerOptions = [
+      { text: `I have a load for you.<br>Take it or leave it.<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">У меня есть груз для тебя.<br>Бери или нет.</div>`, correct: false, feedback: 'Слишком агрессивно. Водитель имеет право выбирать грузы.' },
+      { text: `Hey Mike! I have a load available: ${load.from} to ${load.to}, ${load.miles} miles, ${load.rate}.<br>Pickup tomorrow morning.<br>Does this work for you?<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Привет Майк! У меня есть доступный груз: ${load.from} в ${load.to}, ${load.miles} миль, ${load.rate}.<br>Погрузка завтра утром.<br>Тебе подходит?</div>`, correct: true, feedback: 'Отлично! Профессионально представили груз и спросили мнение водителя.' },
+      { text: `You need to take this load.<br>I already booked it for you.<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Тебе нужно взять этот груз.<br>Я уже забронировал его для тебя.</div>`, correct: false, feedback: 'Неправильно. Нельзя бронировать груз без согласия водителя.' }
+    ];
+    offerOptions.sort(() => Math.random() - 0.5);
+    dialogue.steps[0].options = offerOptions;
+    
+    dialogue.steps[1].text = `Hey, thanks for the offer, but I think I'll pass on this one.<br>It's ${selectedReason.reason} for me right now.<br>Do you have anything else available?<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Привет, спасибо за предложение, но я пропущу этот груз.<br>Он ${selectedReason.translation} для меня сейчас.<br>Есть что-то ещё?</div>`;
+    
+    dialogue.steps[2].prompt = `Водитель отказался от груза. Как вы отреагируете?`;
+    
+    const reactionOptions = [
+      { text: `Fine, I'll find someone else.<br>You're missing out.<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Ладно, найду кого-то другого.<br>Ты упускаешь возможность.</div>`, correct: false, feedback: 'Слишком негативно. Это разрушит отношения с водителем.' },
+      { text: `No problem, I understand!<br>Let me check what else I have available.<br>What direction are you looking for?<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Без проблем, понимаю!<br>Дай мне проверить что ещё есть.<br>В каком направлении ты ищешь?</div>`, correct: true, feedback: 'Отлично! Проявили понимание и готовность найти альтернативу.' },
+      { text: `You always refuse loads.<br>This is getting frustrating.<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Ты всегда отказываешься от грузов.<br>Это начинает раздражать.</div>`, correct: false, feedback: 'Непрофессионально. Водитель имеет право выбирать грузы.' }
+    ];
+    reactionOptions.sort(() => Math.random() - 0.5);
+    dialogue.steps[2].options = reactionOptions;
+    
+    dialogue.steps[3].text = `I'm looking for something heading ${['east', 'west', 'south', 'north'][Math.floor(Math.random() * 4)]}, closer to home.<br>Preferably ${Math.floor(Math.random() * 200) + 400}-${Math.floor(Math.random() * 200) + 600} miles.<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Ищу что-то на ${['восток', 'запад', 'юг', 'север'][Math.floor(Math.random() * 4)]}, ближе к дому.<br>Желательно ${Math.floor(Math.random() * 200) + 400}-${Math.floor(Math.random() * 200) + 600} миль.</div>`;
+    
+    dialogue.steps[4].prompt = `Водитель указал предпочтения. Как предложите альтернативу?`;
+    
+    const alternativeOptions = [
+      { text: `I don't have anything like that.<br>Let me know if you change your mind.<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">У меня нет ничего такого.<br>Дай знать если передумаешь.</div>`, correct: false, feedback: 'Слишком пассивно. Нужно активно искать решение.' },
+      { text: `Perfect! I have another option: ${altLoad.from} to ${altLoad.to}, ${altLoad.miles} miles, ${altLoad.rate}.<br>This should work better for you.<br>Interested?<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Отлично! У меня есть другой вариант: ${altLoad.from} в ${altLoad.to}, ${altLoad.miles} миль, ${altLoad.rate}.<br>Это должно лучше подойти.<br>Интересно?</div>`, correct: true, feedback: 'Отлично! Быстро нашли альтернативу согласно предпочтениям водителя.' },
+      { text: `That's too picky.<br>You need to be more flexible.<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Это слишком привередливо.<br>Тебе нужно быть более гибким.</div>`, correct: false, feedback: 'Непрофессионально. Уважайте предпочтения водителя.' }
+    ];
+    alternativeOptions.sort(() => Math.random() - 0.5);
+    dialogue.steps[4].options = alternativeOptions;
+    
+    dialogue.steps[5].text = `Yes! That's much better for me.<br>I'll take this one.<br>Send me the details!<div style="margin-top: 8px; font-size: 11px; color: #94a3b8; font-style: italic;">Да! Это намного лучше для меня.<br>Я возьму этот груз.<br>Отправь мне детали!</div>`;
+    
+    dialogue.steps[6].text = `✅ Отличная работа! Вы профессионально отреагировали на отказ водителя, выслушали его предпочтения и быстро нашли альтернативный груз ${altLoad.from} → ${altLoad.to} (${altLoad.miles} миль, ${altLoad.rate}). Водитель доволен и готов работать!`;
   }
 }
 
@@ -1497,6 +1634,9 @@ function initDialogue(dialogueId) {
           <div class="message-bubble" style="background: rgba(16, 185, 129, 0.2); border-color: rgba(16, 185, 129, 0.5); color: #d1fae5; font-weight: 600;">
             ${step.text}
           </div>
+          <button class="choice-btn" style="margin-top: 16px; background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.2)); border: 2px solid rgba(16, 185, 129, 0.4); color: #d1fae5; font-weight: 600;" onclick="restartDialogue(${dialogueId})">
+            🔄 Начать новый диалог
+          </button>
         </div>
       `;
       container.appendChild(completeDiv);
@@ -1516,6 +1656,18 @@ function initDialogue(dialogueId) {
     showStep,
     container
   };
+}
+
+function restartDialogue(dialogueId) {
+  // Очистить контейнер диалога
+  const container = document.getElementById(`dialogue-${dialogueId}`);
+  container.innerHTML = '';
+  
+  // Перезаполнить диалог новыми данными
+  fillDialogueWithLoadData(dialogueId);
+  
+  // Перезапустить диалог
+  initDialogue(dialogueId);
 }
 
 function selectChoice(dialogueId, stepIndex, optionIndex) {
@@ -1676,6 +1828,18 @@ function switchTab(tabName) {
   if (tabName === 'drivers' && !window.dialogue2State) {
     fillDialogueWithLoadData(2);
     initDialogue(2);
+  }
+  
+  // Initialize dialogue 3 if drivers tab is clicked and not already initialized
+  if (tabName === 'drivers' && !window.dialogue3State) {
+    fillDialogueWithLoadData(3);
+    initDialogue(3);
+  }
+  
+  // Initialize dialogue 4 if drivers tab is clicked and not already initialized
+  if (tabName === 'drivers' && !window.dialogue4State) {
+    fillDialogueWithLoadData(4);
+    initDialogue(4);
   }
 }
 
