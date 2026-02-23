@@ -142,8 +142,8 @@ export default function DispatcherCard({
           
           {/* Подсказка о перевороте */}
           <div className="text-center flex-shrink-0 mt-2">
-            <p className="text-purple-300 text-[9px] opacity-60">
-              Нажмите на карточку или кнопку ℹ️, чтобы увидеть ответ
+            <p className="text-purple-300 text-[11px] opacity-70">
+              Сделай свайп либо нажми на карточку для правильного ответа
             </p>
           </div>
           
