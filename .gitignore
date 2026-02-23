@@ -23,3 +23,10 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
+
+# Backups - exclude large files
+.backups/*.zip
+.backups/*.z01
+.backups/*.z02
+.backups/*.z03
+.backups/*.z04
