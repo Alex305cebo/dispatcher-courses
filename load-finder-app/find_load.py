@@ -1,5 +1,7 @@
 """
-Находит первый груз из Miami, FL и показывает контакты брокера
+Универсальный поиск груза по городу
+Использование: python find_load.py "City, ST"
+Пример: python find_load.py "Greenville, SC"
 """
 import sys
 import io
@@ -17,13 +19,24 @@ import time
 import json
 import re
 
+# Получаем город из аргументов
+if len(sys.argv) < 2:
+    print("❌ Укажите город!")
+    print("Использование: python find_load.py \"City, ST\"")
+    print("Пример: python find_load.py \"Greenville, SC\"")
+    sys.exit(1)
+
+search_city = sys.argv[1]
+city_name = search_city.split(',')[0].strip()
+city_safe = city_name.lower().replace(' ', '_')
+
 # Загружаем credentials
 with open("credentials.json", "r") as f:
     creds = json.load(f)
     credentials = creds.get("truckerpath", {})
 
 print("="*70)
-print("🚛 ПОИСК ГРУЗА ИЗ MIAMI, FL С КОНТАКТАМИ БРОКЕРА")
+print(f"🚛 ПОИСК ГРУЗА ИЗ {search_city.upper()}")
 print("="*70)
 
 # Инициализация браузера (HEADLESS - невидимый режим)
@@ -38,7 +51,7 @@ service = Service(ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service, options=chrome_options)
 
 try:
-    # ========== ЛОГИН (РАБОЧИЙ КОД) ==========
+    # ========== ЛОГИН ==========
     print("\n🔐 Вход в TruckerPath Loadboard...")
     
     driver.delete_all_cookies()
@@ -46,7 +59,6 @@ try:
     time.sleep(1.5)
     
     # Нажимаем Log In
-    print("   🔘 Ищем кнопку 'Log In'...")
     login_button_found = False
     
     try:
@@ -56,7 +68,6 @@ try:
                 driver.execute_script("arguments[0].scrollIntoView(true);", btn)
                 time.sleep(1)
                 driver.execute_script("arguments[0].click();", btn)
-                print("   ✅ Кнопка 'Log In' нажата!")
                 login_button_found = True
                 break
     except:
@@ -70,24 +81,20 @@ try:
                     driver.execute_script("arguments[0].scrollIntoView(true);", div)
                     time.sleep(1)
                     driver.execute_script("arguments[0].click();", div)
-                    print("   ✅ Div 'Log In' нажат!")
                     login_button_found = True
                     break
         except:
             pass
     
     # Ждем модальное окно
-    print("   ⏳ Ожидаем модальное окно логина...")
     try:
         email_input = WebDriverWait(driver, 15).until(
             EC.presence_of_element_located((By.CSS_SELECTOR, "input[placeholder='Email address'], input[type='email'], input[id*='email']"))
         )
-        print("   ✅ Модальное окно появилось!")
     except:
         email_input = WebDriverWait(driver, 15).until(
             EC.presence_of_element_located((By.ID, "sign-in_email"))
         )
-        print("   ✅ Форма логина появилась!")
     
     time.sleep(2)
     
@@ -96,7 +103,6 @@ try:
     email_input.clear()
     email_input.click()
     email_input.send_keys(credentials['username'])
-    print(f"   ✅ Email: {credentials['username']}")
     
     # Заполняем Password
     try:
@@ -107,12 +113,10 @@ try:
     password_input.clear()
     password_input.click()
     password_input.send_keys(credentials['password'])
-    print(f"   ✅ Password: ***")
     
     time.sleep(0.8)
     
     # Нажимаем SIGN IN
-    print("   🔘 Нажимаем кнопку 'SIGN IN'...")
     signin_found = False
     
     try:
@@ -120,7 +124,6 @@ try:
             EC.element_to_be_clickable((By.CSS_SELECTOR, "button.tlant-btn-primary"))
         )
         signin_btn.click()
-        print("   ✅ Кнопка 'SIGN IN' нажата!")
         signin_found = True
     except:
         pass
@@ -134,7 +137,6 @@ try:
                     driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", btn)
                     time.sleep(1)
                     driver.execute_script("arguments[0].click();", btn)
-                    print("   ✅ Кнопка 'SIGN IN' нажата (JS)!")
                     signin_found = True
                     break
         except:
@@ -142,19 +144,17 @@ try:
     
     if not signin_found:
         password_input.send_keys(Keys.RETURN)
-        print("   ✅ Нажат Enter!")
     
     time.sleep(5)
     print("✅ Вход выполнен!")
     
-    # ========== ПОИСК MIAMI, FL ==========
-    print("\n🔍 Поиск грузов из Miami, FL...")
+    # ========== ПОИСК ==========
+    print(f"\n🔍 Поиск грузов из {search_city}...")
     
     driver.refresh()
     time.sleep(3)
     
     # Ищем поле Pick Up
-    print("   📝 Ищем поле Pick Up...")
     pickup_input = None
     
     try:
@@ -180,14 +180,13 @@ try:
         pickup_input.click()
         time.sleep(0.5)
         pickup_input.clear()
-        pickup_input.send_keys("Miami, FL")
-        print("   ✅ Pick Up: Miami, FL")
+        pickup_input.send_keys(search_city)
+        print(f"   ✅ Pick Up: {search_city}")
         time.sleep(1.5)
         pickup_input.send_keys(Keys.RETURN)
         time.sleep(1)
     
     # Нажимаем SEARCH
-    print("   🔘 Ищем кнопку SEARCH...")
     search_btn = None
     
     try:
@@ -204,45 +203,41 @@ try:
         print("   ✅ Кнопка SEARCH нажата!")
         time.sleep(5)
     
-    driver.save_screenshot("search_results.png")
-    print("   📸 Скриншот: search_results.png")
+    driver.save_screenshot(f"{city_safe}_search_results.png")
     
     # ========== КЛИК НА ПЕРВЫЙ ГРУЗ ==========
-    print("\n🖱️ Ищем первый груз из Miami, FL...")
+    print(f"\n🖱️ Ищем первый груз из {city_name}...")
     
     # Находим все строки таблицы
     rows = driver.find_elements(By.CSS_SELECTOR, "tr, div[role='row'], [class*='row']")
     
-    first_miami_row = None
+    first_row = None
     for row in rows:
         try:
             text = row.text
-            if 'Miami' in text and 'FL' in text:
+            if city_name in text:
                 print(f"   ✅ Найден груз: {text[:100]}...")
-                first_miami_row = row
+                first_row = row
                 break
         except:
             continue
     
-    if not first_miami_row:
-        print("❌ Груз из Miami не найден!")
+    if not first_row:
+        print(f"❌ Груз из {city_name} не найден!")
         
-        # Показываем весь текст страницы
         page_text = driver.find_element(By.TAG_NAME, "body").text
-        with open("no_miami_text.txt", "w", encoding="utf-8") as f:
+        with open(f"{city_safe}_no_results.txt", "w", encoding="utf-8") as f:
             f.write(page_text)
-        print("   📄 Текст страницы: no_miami_text.txt")
         
     else:
         # КЛИКАЕМ НА ГРУЗ
         print("\n🖱️ Кликаем на груз...")
-        driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", first_miami_row)
+        driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", first_row)
         time.sleep(1)
-        driver.execute_script("arguments[0].click();", first_miami_row)
+        driver.execute_script("arguments[0].click();", first_row)
         time.sleep(3)
         
-        driver.save_screenshot("after_click.png")
-        print("   📸 Скриншот после клика: after_click.png")
+        driver.save_screenshot(f"{city_safe}_after_click.png")
         
         # ========== ИЗВЛЕКАЕМ ДЕТАЛИ ==========
         print("\n📋 Извлекаем детали груза...")
@@ -250,18 +245,17 @@ try:
         # Получаем весь текст страницы
         page_text = driver.find_element(By.TAG_NAME, "body").text
         
-        with open("load_details.txt", "w", encoding="utf-8") as f:
+        with open(f"{city_safe}_load_details.txt", "w", encoding="utf-8") as f:
             f.write(page_text)
-        print("   💾 Текст сохранен: load_details.txt")
         
         # Парсим контакты
         details = {}
         
         # Телефон (разные форматы)
         phone_patterns = [
-            r'(\d{3}[-.\s]?\d{3}[-.\s]?\d{4})',  # 555-123-4567 или 555.123.4567
-            r'\((\d{3})\)\s*(\d{3})[-.\s]?(\d{4})',  # (555) 123-4567
-            r'(\d{10})',  # 5551234567
+            r'(\d{3}[-.\s]?\d{3}[-.\s]?\d{4})',
+            r'\((\d{3})\)\s*(\d{3})[-.\s]?(\d{4})',
+            r'(\d{10})',
         ]
         
         for pattern in phone_patterns:
@@ -291,7 +285,6 @@ try:
             details['weight'] = weight_match.group(0)
         
         # Маршрут (origin → destination) - улучшенный парсинг
-        # Ищем паттерн: City, ST to City, ST или City, ST → City, ST
         route_patterns = [
             r'([A-Z][a-zA-Z\s]+,\s*[A-Z]{2})\s+to\s+([A-Z][a-zA-Z\s]+,\s*[A-Z]{2})',
             r'([A-Z][a-zA-Z\s]+,\s*[A-Z]{2})\s*→\s*([A-Z][a-zA-Z\s]+,\s*[A-Z]{2})',
@@ -307,7 +300,6 @@ try:
         
         # Если не нашли маршрут, ищем отдельно origin и destination в тексте
         if 'origin' not in details:
-            # Ищем все города с штатами
             cities = re.findall(r'([A-Z][a-zA-Z\s]+,\s*[A-Z]{2})', page_text)
             if len(cities) >= 2:
                 details['origin'] = cities[0].strip()
@@ -325,12 +317,12 @@ try:
                 break
         
         # Сохраняем в JSON
-        with open("miami_load.json", "w", encoding="utf-8") as f:
+        with open(f"{city_safe}_load.json", "w", encoding="utf-8") as f:
             json.dump(details, f, indent=2, ensure_ascii=False)
         
         # ========== ПОКАЗЫВАЕМ РЕЗУЛЬТАТ ==========
         print("\n" + "="*70)
-        print("✅ ИНФОРМАЦИЯ О ГРУЗЕ ИЗ MIAMI, FL:")
+        print(f"✅ ИНФОРМАЦИЯ О ГРУЗЕ ИЗ {search_city.upper()}:")
         print("="*70)
         print(f"📍 Маршрут: {details.get('origin', 'N/A')} → {details.get('destination', 'N/A')}")
         print(f"💰 Ставка: {details.get('rate', 'НЕ НАЙДЕНА')}")
@@ -340,7 +332,7 @@ try:
         print(f"\n📞 ТЕЛЕФОН: {details.get('phone', '❌ НЕ НАЙДЕН')}")
         print(f"📧 EMAIL: {details.get('email', '❌ НЕ НАЙДЕН')}")
         print("="*70)
-        print("\n💾 Результат сохранен: miami_load.json")
+        print(f"\n💾 Результат сохранен: {city_safe}_load.json")
     
     print("\n⏳ Закрываем браузер...")
     time.sleep(2)
@@ -350,8 +342,7 @@ except Exception as e:
     import traceback
     traceback.print_exc()
     try:
-        driver.save_screenshot("error.png")
-        print("   📸 Скриншот ошибки: error.png")
+        driver.save_screenshot(f"{city_safe}_error.png")
     except:
         pass
 

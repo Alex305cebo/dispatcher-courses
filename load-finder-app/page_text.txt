@@ -43,7 +43,7 @@ Weight
 Broker DTP/CS
 Market Average
 Price
-13m
+21m
 Ontario, CA
 43 Feb. 24
 North Las Vegas, NV
@@ -52,7 +52,7 @@ Jakebrake Logistics LLC
 Unlock
 Unlock
 $600
-15m
+6m
 Long Beach, CA
 19 Feb. 25
 Ontario, CA
@@ -61,7 +61,7 @@ Dispatch
 Unlock
 Unlock
 --
-35m
+44m
 Santa Clarita, CA
 29 Feb. 26
 Bristol, PA
@@ -70,7 +70,7 @@ Zengistics
 Unlock
 Unlock
 $6,600
-36m
+44m
 Santa Clarita, CA
 29 Feb. 26
 Logan Township, NJ
@@ -79,7 +79,7 @@ Zengistics
 Unlock
 Unlock
 $6,600
-6m
+15m
 Santa Clarita, CA
 29 Feb. 27
 Bristol, PA
@@ -124,7 +124,7 @@ Armstrong Transportation Management
 Unlock
 Unlock
 $5,800
-6m
+15m
 Ontario, CA
 42 Feb. 26
 Tampa, FL
@@ -133,7 +133,7 @@ Ryder Freight Brokerage
 Unlock
 Unlock
 $5,000
-36m
+44m
 Santa Clarita, CA
 29 Feb. 26
 Rock Hill, SC
@@ -142,7 +142,7 @@ Zengistics
 Unlock
 Unlock
 $4,800
-36m
+44m
 Santa Clarita, CA
 29 Feb. 26
 Rock Hill, SC
@@ -151,7 +151,7 @@ Zengistics
 Unlock
 Unlock
 $4,800
-35m
+44m
 Santa Clarita, CA
 29 Feb. 26
 Rock Hill, SC
@@ -241,7 +241,7 @@ Integrated Connection LLC
 Unlock
 Unlock
 $4,500
-3m
+11m
 Santa Fe Spgs, CA
 20 Feb. 26
 Chattanooga, TN
@@ -313,7 +313,7 @@ Fort Freight
 Unlock
 Unlock
 --
-36m
+45m
 Wilmington, CA
 16 Feb. 27
 Denver, CO
@@ -340,7 +340,7 @@ FORWARD AIR LOGISTICS SERVICES
 Unlock
 Unlock
 $3,616
-36m
+45m
 Buena Park, CA
 24 Feb. 27
 Everett, WA
@@ -394,7 +394,7 @@ Koola
 Unlock
 Unlock
 $3,000
-6m
+15m
 Santa Ana, CA
 35 Feb. 24
 Woodinville, WA
@@ -421,7 +421,7 @@ Fortune Logistics
 Unlock
 Unlock
 $3,000
-36m
+44m
 Vernon, CA
 10 Feb. 24
 Portland, OR
@@ -430,7 +430,7 @@ California Freight
 Unlock
 Unlock
 $2,900
-12m
+20m
 Santa Fe Spgs, CA
 20 Feb. 25
 Brookshire, TX
@@ -439,7 +439,7 @@ Dispatch
 Unlock
 Unlock
 $2,900
-2m
+11m
 Santa Fe Spgs, CA
 20 Feb. 25
 Brookshire, TX
@@ -457,7 +457,7 @@ Geodis
 Unlock
 Unlock
 $2,800
-2m
+11m
 Santa Fe Spgs, CA
 20 Feb. 25
 Dallas, TX
@@ -520,7 +520,7 @@ United Transportation Services, Inc.
 Unlock
 Unlock
 --
-59m
+1h
 Fullerton, CA
 28 Feb. 25
 Fife, WA
@@ -592,11 +592,11 @@ Beemac Logistics / Hybrid Global Logistics Services
 Unlock
 Unlock
 $2,150
-19m
+7m
 Carson, CA
 13 Feb. 26
 Houston, TX
-1 559mi R,V 10
+1 557mi R,V 10
 Dispatch
 Unlock
 Unlock
@@ -628,7 +628,7 @@ United Transportation Services, Inc.
 Unlock
 Unlock
 --
-35m
+44m
 Placentia, CA
 31 Mar. 04
 Norfolk, VA
@@ -646,7 +646,7 @@ SCHULZ LOGISTICS LLC
 Unlock
 Unlock
 --
-6m
+15m
 Ontario, CA
 45 Feb. 28
 Crossville, TN
@@ -727,7 +727,7 @@ AMX Logistics
 Unlock
 Unlock
 $1,650
-35m
+44m
 Long Beach, CA
 15 Mar. 02
 La Vergne, TN
@@ -781,7 +781,7 @@ Transend Logistics
 Unlock
 Unlock
 $1,400
-6m
+15m
 Eastvale, CA
 49 Mar. 03
 Brisbane, CA
@@ -817,7 +817,7 @@ Beemac Logistics / Hybrid Global Logistics Services
 Unlock
 Unlock
 $1,350
-6m
+15m
 Eastvale, CA
 49 Mar. 04
 Brisbane, CA
@@ -835,7 +835,7 @@ Beemac Logistics / Hybrid Global Logistics Services
 Unlock
 Unlock
 $1,300
-6m
+15m
 Torrance, CA
 12 Feb. 25
 Mcclellan Park, CA
@@ -862,7 +862,7 @@ Worldwide Express Globaltranz
 Unlock
 Unlock
 $1,240
-6m
+15m
 Oxnard, CA
 44 Feb. 24
 Las Vegas, NV
@@ -934,7 +934,7 @@ Koola
 Unlock
 Unlock
 $1,150
-36m
+45m
 Placentia, CA
 31 Feb. 26
 Rochester, NY
@@ -945,7 +945,16 @@ Unlock
 $1,150
 Load More
 Recommendation Loads Based On Your Search
-2h
+3h
+Carrot River, SK
+113 Feb. 24
+Troy & Il - Edwardsville, IL
+1 880mi F 48 000
+Jakebrake Logistics LLC
+Unlock
+Unlock
+$3,200
+3h
 Carrot River, SK
 113 Feb. 24
 Jerseyville & Il - Bethalto, IL
@@ -954,7 +963,7 @@ Jakebrake Logistics LLC
 Unlock
 Unlock
 $3,200
-2h
+3h
 Carrot River, SK
 113 Feb. 24
 Hillsboro & Il - Litchfield, IL
@@ -963,7 +972,7 @@ Jakebrake Logistics LLC
 Unlock
 Unlock
 $3,200
-2h
+3h
 Carrot River, SK
 113 Feb. 24
 Marshall & Mo - Plattsburg, MO
@@ -972,7 +981,7 @@ Jakebrake Logistics LLC
 Unlock
 Unlock
 $3,200
-25m
+4m
 Carrot River, SK
 113 Feb. 24
 Osage Beach, MO
@@ -981,7 +990,7 @@ Jakebrake Logistics LLC
 Unlock
 Unlock
 $3,200
-2h
+3h
 Carrot River, SK
 113 Feb. 24
 Paris & Il - Champaign, IL
@@ -990,7 +999,7 @@ Jakebrake Logistics LLC
 Unlock
 Unlock
 $3,200
-2h
+3h
 Carrot River, SK
 113 Feb. 24
 Camdenton & Mo - Eldon, MO
@@ -999,7 +1008,7 @@ Jakebrake Logistics LLC
 Unlock
 Unlock
 $3,200
-22m
+5m
 Carrot River, SK
 113 Feb. 24
 Versailles, MO
@@ -1008,34 +1017,7 @@ Jakebrake Logistics LLC
 Unlock
 Unlock
 $3,100
-18m
-Carrot River, SK
-113 Feb. 24
-Marshall, MO
-1 735mi F 48 000
-Jakebrake Logistics LLC
-Unlock
-Unlock
-$3,000
-13m
-Carrot River, SK
-113 Feb. 24
-Jerseyville, IL
-1 906mi F 48 000
-Jakebrake Logistics LLC
-Unlock
-Unlock
-$3,000
-13m
-Carrot River, SK
-113 Feb. 24
-Troy, IL
-1 877mi F 48 000
-Jakebrake Logistics LLC
-Unlock
-Unlock
-$3,000
-13m
+21m
 Carrot River, SK
 113 Feb. 24
 Camdenton, MO
@@ -1044,7 +1026,25 @@ Jakebrake Logistics LLC
 Unlock
 Unlock
 $3,000
-13m
+21m
+Carrot River, SK
+113 Feb. 24
+Jerseyville, IL
+1 906mi F 48 000
+Jakebrake Logistics LLC
+Unlock
+Unlock
+$3,000
+22m
+Carrot River, SK
+113 Feb. 24
+Troy, IL
+1 877mi F 48 000
+Jakebrake Logistics LLC
+Unlock
+Unlock
+$3,000
+22m
 Carrot River, SK
 113 Feb. 24
 Paris, IL
@@ -1053,7 +1053,7 @@ Jakebrake Logistics LLC
 Unlock
 Unlock
 $3,000
-13m
+21m
 Carrot River, SK
 113 Feb. 24
 Hillsboro, IL
@@ -1062,16 +1062,16 @@ Jakebrake Logistics LLC
 Unlock
 Unlock
 $3,000
-22m
+27m
 Carrot River, SK
 113 Feb. 24
-Wichita, KS
-1 410mi F 48 000
+Marshall, MO
+1 735mi F 48 000
 Jakebrake Logistics LLC
 Unlock
 Unlock
 $3,000
-12m
+21m
 Carrot River, SK
 113 Feb. 24
 Belleville, IL
@@ -1080,7 +1080,7 @@ Jakebrake Logistics LLC
 Unlock
 Unlock
 $2,900
-2h
+3h
 Carrot River, SK
 113 Feb. 24
 Conroe, TX
@@ -1089,7 +1089,7 @@ Jakebrake Logistics LLC
 Unlock
 Unlock
 $2,800
-27m
+36m
 Little Rock, AR
 1486 Feb. 25
 Bell Gardens, CA
@@ -1098,7 +1098,7 @@ Bieri Brokerage
 Unlock
 Unlock
 $2,750
-25m
+33m
 Little Rock, AR
 1486 Feb. 26
 Bell Gardens, CA
@@ -1107,7 +1107,7 @@ Bieri Brokerage
 Unlock
 Unlock
 $2,750
-2m
+11m
 Little Rock, AR
 1485 Feb. 24
 Bell Gardens, CA

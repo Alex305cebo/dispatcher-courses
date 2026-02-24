@@ -1,5 +1,5 @@
 """
-Находит первый груз из Miami, FL и показывает контакты брокера
+Находит первый груз из Atlanta, GA и показывает контакты брокера
 """
 import sys
 import io
@@ -23,7 +23,7 @@ with open("credentials.json", "r") as f:
     credentials = creds.get("truckerpath", {})
 
 print("="*70)
-print("🚛 ПОИСК ГРУЗА ИЗ MIAMI, FL С КОНТАКТАМИ БРОКЕРА")
+print("🚛 ПОИСК ГРУЗА ИЗ ATLANTA, GA С КОНТАКТАМИ БРОКЕРА")
 print("="*70)
 
 # Инициализация браузера (HEADLESS - невидимый режим)
@@ -38,7 +38,7 @@ service = Service(ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service, options=chrome_options)
 
 try:
-    # ========== ЛОГИН (РАБОЧИЙ КОД) ==========
+    # ========== ЛОГИН ==========
     print("\n🔐 Вход в TruckerPath Loadboard...")
     
     driver.delete_all_cookies()
@@ -147,8 +147,8 @@ try:
     time.sleep(5)
     print("✅ Вход выполнен!")
     
-    # ========== ПОИСК MIAMI, FL ==========
-    print("\n🔍 Поиск грузов из Miami, FL...")
+    # ========== ПОИСК ATLANTA, GA ==========
+    print("\n🔍 Поиск грузов из Atlanta, GA...")
     
     driver.refresh()
     time.sleep(3)
@@ -180,8 +180,8 @@ try:
         pickup_input.click()
         time.sleep(0.5)
         pickup_input.clear()
-        pickup_input.send_keys("Miami, FL")
-        print("   ✅ Pick Up: Miami, FL")
+        pickup_input.send_keys("Atlanta, GA")
+        print("   ✅ Pick Up: Atlanta, GA")
         time.sleep(1.5)
         pickup_input.send_keys(Keys.RETURN)
         time.sleep(1)
@@ -204,45 +204,45 @@ try:
         print("   ✅ Кнопка SEARCH нажата!")
         time.sleep(5)
     
-    driver.save_screenshot("search_results.png")
-    print("   📸 Скриншот: search_results.png")
+    driver.save_screenshot("atlanta_search_results.png")
+    print("   📸 Скриншот: atlanta_search_results.png")
     
     # ========== КЛИК НА ПЕРВЫЙ ГРУЗ ==========
-    print("\n🖱️ Ищем первый груз из Miami, FL...")
+    print("\n🖱️ Ищем первый груз из Atlanta, GA...")
     
     # Находим все строки таблицы
     rows = driver.find_elements(By.CSS_SELECTOR, "tr, div[role='row'], [class*='row']")
     
-    first_miami_row = None
+    first_atlanta_row = None
     for row in rows:
         try:
             text = row.text
-            if 'Miami' in text and 'FL' in text:
+            if 'Atlanta' in text and 'GA' in text:
                 print(f"   ✅ Найден груз: {text[:100]}...")
-                first_miami_row = row
+                first_atlanta_row = row
                 break
         except:
             continue
     
-    if not first_miami_row:
-        print("❌ Груз из Miami не найден!")
+    if not first_atlanta_row:
+        print("❌ Груз из Atlanta не найден!")
         
         # Показываем весь текст страницы
         page_text = driver.find_element(By.TAG_NAME, "body").text
-        with open("no_miami_text.txt", "w", encoding="utf-8") as f:
+        with open("no_atlanta_text.txt", "w", encoding="utf-8") as f:
             f.write(page_text)
-        print("   📄 Текст страницы: no_miami_text.txt")
+        print("   📄 Текст страницы: no_atlanta_text.txt")
         
     else:
         # КЛИКАЕМ НА ГРУЗ
         print("\n🖱️ Кликаем на груз...")
-        driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", first_miami_row)
+        driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", first_atlanta_row)
         time.sleep(1)
-        driver.execute_script("arguments[0].click();", first_miami_row)
+        driver.execute_script("arguments[0].click();", first_atlanta_row)
         time.sleep(3)
         
-        driver.save_screenshot("after_click.png")
-        print("   📸 Скриншот после клика: after_click.png")
+        driver.save_screenshot("atlanta_after_click.png")
+        print("   📸 Скриншот после клика: atlanta_after_click.png")
         
         # ========== ИЗВЛЕКАЕМ ДЕТАЛИ ==========
         print("\n📋 Извлекаем детали груза...")
@@ -250,9 +250,9 @@ try:
         # Получаем весь текст страницы
         page_text = driver.find_element(By.TAG_NAME, "body").text
         
-        with open("load_details.txt", "w", encoding="utf-8") as f:
+        with open("atlanta_load_details.txt", "w", encoding="utf-8") as f:
             f.write(page_text)
-        print("   💾 Текст сохранен: load_details.txt")
+        print("   💾 Текст сохранен: atlanta_load_details.txt")
         
         # Парсим контакты
         details = {}
@@ -325,12 +325,12 @@ try:
                 break
         
         # Сохраняем в JSON
-        with open("miami_load.json", "w", encoding="utf-8") as f:
+        with open("atlanta_load.json", "w", encoding="utf-8") as f:
             json.dump(details, f, indent=2, ensure_ascii=False)
         
         # ========== ПОКАЗЫВАЕМ РЕЗУЛЬТАТ ==========
         print("\n" + "="*70)
-        print("✅ ИНФОРМАЦИЯ О ГРУЗЕ ИЗ MIAMI, FL:")
+        print("✅ ИНФОРМАЦИЯ О ГРУЗЕ ИЗ ATLANTA, GA:")
         print("="*70)
         print(f"📍 Маршрут: {details.get('origin', 'N/A')} → {details.get('destination', 'N/A')}")
         print(f"💰 Ставка: {details.get('rate', 'НЕ НАЙДЕНА')}")
@@ -340,7 +340,7 @@ try:
         print(f"\n📞 ТЕЛЕФОН: {details.get('phone', '❌ НЕ НАЙДЕН')}")
         print(f"📧 EMAIL: {details.get('email', '❌ НЕ НАЙДЕН')}")
         print("="*70)
-        print("\n💾 Результат сохранен: miami_load.json")
+        print("\n💾 Результат сохранен: atlanta_load.json")
     
     print("\n⏳ Закрываем браузер...")
     time.sleep(2)
@@ -350,8 +350,8 @@ except Exception as e:
     import traceback
     traceback.print_exc()
     try:
-        driver.save_screenshot("error.png")
-        print("   📸 Скриншот ошибки: error.png")
+        driver.save_screenshot("atlanta_error.png")
+        print("   📸 Скриншот ошибки: atlanta_error.png")
     except:
         pass
 
