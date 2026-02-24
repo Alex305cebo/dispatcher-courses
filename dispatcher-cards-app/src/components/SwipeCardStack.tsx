@@ -12,6 +12,7 @@ interface SwipeCardStackProps {
   onError: () => void
   onFlip: () => void
   onIndexChange?: (index: number) => void
+  maxWrongAnswers?: number
   t: (key: string) => string
 }
 
@@ -22,6 +23,7 @@ export default function SwipeCardStack({
   onError,
   onFlip,
   onIndexChange,
+  maxWrongAnswers = 15,
   t
 }: SwipeCardStackProps) {
   const [cards] = useState<Question[]>(questions)
@@ -30,9 +32,8 @@ export default function SwipeCardStack({
   const [wrongCount, setWrongCount] = useState(0)
   const [categoryStats, setCategoryStats] = useState<Record<string, { correct: number; total: number }>>({})
   const swipeHandlerRef = useRef<((direction: 'left' | 'right') => void) | null>(null)
-
-  // Лимит ошибок: 15 из 30 вопросов
-  const maxWrongAnswers = 15
+  
+  const totalQuestions = questions.length
 
   useEffect(() => {
     if (onIndexChange) {
@@ -80,10 +81,10 @@ export default function SwipeCardStack({
         }
       }
       
-      // КРИТИЧЕСКОЕ ПРАВИЛО: Результаты показываются ТОЛЬКО после прохождения всех 30 вопросов
-      // currentIndex начинается с 0, поэтому после 30-го вопроса currentIndex будет 29
-      // После свайпа 30-го вопроса currentIndex + 1 = 30
-      if (currentIndex + 1 >= 30) {
+      // КРИТИЧЕСКОЕ ПРАВИЛО: Результаты показываются ТОЛЬКО после прохождения всех вопросов
+      // currentIndex начинается с 0, поэтому после последнего вопроса currentIndex будет totalQuestions - 1
+      // После свайпа последнего вопроса currentIndex + 1 = totalQuestions
+      if (currentIndex + 1 >= totalQuestions) {
         onComplete({ 
           correct: newCorrectCount, 
           wrong: newWrongCount,
@@ -102,7 +103,7 @@ export default function SwipeCardStack({
   }
 
   const visibleCards = cards.slice(currentIndex, currentIndex + 2)
-  const progress = ((currentIndex) / 30) * 100
+  const progress = ((currentIndex) / totalQuestions) * 100
 
   return (
     <>

@@ -1352,12 +1352,17 @@ animateStats();
 </script>
 <script src="auth.js"></script>
 <script>
-// Защита доступа к странице курса
+// Защита доступа к странице курса (ОТКЛЮЧЕНО - ДОСТУП ОТКРЫТ ВСЕМ)
 document.addEventListener('DOMContentLoaded', function() {
+  // Проверка авторизации отключена - доступ открыт всем
+  console.log('Доступ к курсу открыт для всех пользователей');
+  
+  /* СТАРЫЙ КОД - ЗАКОММЕНТИРОВАН
   if (!requireAuth()) {
     // Функция requireAuth уже перенаправит на login.html
     return;
   }
+  */
 });
 </script>
 

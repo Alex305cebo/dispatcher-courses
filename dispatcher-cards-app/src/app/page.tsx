@@ -1,106 +1,55 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
-import SwipeCardStack from '@/components/SwipeCardStack'
-import ResultsModal from '@/components/ResultsModal'
-import ThemeToggle from '@/components/ThemeToggle'
-import { questions as allQuestions } from '@/data/questions'
-import { createTranslator, defaultLocale } from '@/lib/i18n'
+import { useRouter } from 'next/navigation'
 
-// Функция для перемешивания массива (Fisher-Yates shuffle)
-function shuffleArray<T>(array: T[]): T[] {
-  const shuffled = [...array]
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
-  }
-  return shuffled
-}
-
-export default function Home() {
-  const [showResults, setShowResults] = useState(false)
-  const [results, setResults] = useState({ 
-    correct: 0, 
-    wrong: 0, 
-    byCategory: {} as Record<string, { correct: number; total: number }> 
-  })
-  const [isRestarting, setIsRestarting] = useState(false)
-  const [currentIndex, setCurrentIndex] = useState(0)
+export default function HomePage() {
+  const router = useRouter()
+  const [name, setName] = useState('')
+  const [selectedDifficulty, setSelectedDifficulty] = useState<'easy' | 'medium' | 'hard'>('medium')
   
-  // Рандомизация и выбор 30 вопросов за сессию
-  const [sessionQuestions, setSessionQuestions] = useState<typeof allQuestions>([])
-  
-  // Инициализация вопросов при первом рендере
-  useEffect(() => {
-    if (sessionQuestions.length === 0) {
-      const shuffled = shuffleArray(allQuestions)
-      setSessionQuestions(shuffled.slice(0, 30))
+  const difficulties = [
+    {
+      id: 'easy',
+      name: 'Легкий',
+      icon: '🟢',
+      questions: 15,
+      maxErrors: 10,
+      description: 'Идеально для начинающих',
+      color: 'from-green-500 to-emerald-500'
+    },
+    {
+      id: 'medium',
+      name: 'Средний',
+      icon: '🟡',
+      questions: 30,
+      maxErrors: 15,
+      description: 'Стандартный тест',
+      color: 'from-yellow-500 to-orange-500'
+    },
+    {
+      id: 'hard',
+      name: 'Сложный',
+      icon: '🔴',
+      questions: 50,
+      maxErrors: 20,
+      description: 'Для профессионалов',
+      color: 'from-red-500 to-pink-500'
     }
-  }, [sessionQuestions.length])
+  ]
   
-  const t = createTranslator(defaultLocale)
-  
-  const currentQuestion = sessionQuestions[currentIndex] || null
-  const categoryIcon = currentQuestion?.category === 'Законодательство' ? '⚖️' :
-                       currentQuestion?.category === 'Финансы' ? '💰' :
-                       currentQuestion?.category === 'Переговоры' ? '🤝' :
-                       currentQuestion?.category === 'Основы работы' ? '🚛' :
-                       currentQuestion?.category === 'Безопасность' ? '🛡️' :
-                       currentQuestion?.category === 'Документация' ? '📄' : '🎯'
-  
-  const handleComplete = (finalResults: { 
-    correct: number; 
-    wrong: number; 
-    byCategory: Record<string, { correct: number; total: number }> 
-  }) => {
-    setResults(finalResults)
-    setShowResults(true)
-  }
-  
-  const handleSuccess = () => {
-    // Звук успеха или анимация
-  }
-  
-  const handleError = () => {
-    // Звук ошибки или анимация
-  }
-  
-  const handleFlip = () => {
-    // Переворот карточки через CustomEvent
-    window.dispatchEvent(new CustomEvent('flipCard'))
-  }
-  
-  const handleIndexChange = (newIndex: number) => {
-    setCurrentIndex(newIndex)
-  }
-  
-  const handleRestart = () => {
-    setIsRestarting(true)
-    setShowResults(false)
-    setResults({ correct: 0, wrong: 0, byCategory: {} })
-    setCurrentIndex(0)
-    
-    // Новая рандомизация при рестарте
-    const shuffled = shuffleArray(allQuestions)
-    setSessionQuestions(shuffled.slice(0, 30))
-    
-    setTimeout(() => {
-      setIsRestarting(false)
-    }, 300)
-  }
-  
-  const handleClose = () => {
-    window.location.href = '/dashboard.html'
+  const handleStart = () => {
+    const userName = name.trim() || 'Гость'
+    router.push(`/test?difficulty=${selectedDifficulty}&name=${encodeURIComponent(userName)}`)
   }
   
   return (
     <>
-      {/* Background - за пределами grid */}
+      {/* Background */}
       <div className="fixed inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900"></div>
         
-        {/* Animated particles */}
         <div className="absolute inset-0 overflow-hidden opacity-30">
           <motion.div
             animate={{
@@ -126,86 +75,121 @@ export default function Home() {
             }}
             className="absolute bottom-0 right-0 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl"
           />
-          <motion.div
-            animate={{
-              scale: [1, 1.3, 1],
-              x: [0, 100, 0],
-              y: [0, -100, 0],
-            }}
-            transition={{
-              duration: 15,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            className="absolute top-1/2 left-1/2 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl"
-          />
         </div>
       </div>
 
-      {/* Main Grid Layout - Desktop View с эффектом телефона */}
-      <main className="relative z-10 h-screen w-full max-w-[430px] mx-auto border-x border-white/10 bg-slate-900/50 backdrop-blur-sm">
+      {/* Main Content */}
+      <main className="relative z-10 min-h-screen w-full max-w-[430px] mx-auto border-x border-white/10 bg-slate-900/50 backdrop-blur-sm flex flex-col">
         
-        {/* Grid Container - auto Header, 1fr Content, auto Footer */}
-        <div className="h-full grid grid-rows-[auto_1fr_auto]">
+        <div className="flex-1 flex flex-col justify-center px-6 py-8">
           
-          {/* HEADER ZONE - h-auto - ТОЛЬКО НАВОДКА */}
-          <header className="relative z-50 flex flex-nowrap items-center justify-between gap-2 px-3 py-2 h-auto bg-slate-900/90 backdrop-blur-sm border-b border-white/10">
-            {/* Left: Category Icon + Name */}
-            <div className="flex items-center gap-1 text-[10px] font-semibold text-white flex-shrink-0">
-              <span className="text-sm">{categoryIcon}</span>
-              <span className="truncate max-w-[60px]">{currentQuestion?.category || 'Загрузка'}</span>
-            </div>
-            
-            {/* Center: Short Hint - line-clamp-2 whitespace-normal для 2 строк */}
-            <div className="flex-1 px-2 text-center">
-              <p className="text-[11px] text-purple-300 line-clamp-2 whitespace-normal leading-tight">
-                💡 Наводка: {currentQuestion?.shortHint || 'Подумайте над вопросом...'}
-              </p>
-            </div>
-            
-            {/* Right: Counter + Theme Toggle */}
-            <div className="flex items-center gap-2 flex-shrink-0">
-              <span className="text-[10px] font-bold text-white whitespace-nowrap">
-                {currentIndex + 1}/30
-              </span>
-              <ThemeToggle />
-            </div>
-          </header>
+          {/* Header */}
+          <motion.div
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-8"
+          >
+            <div className="text-6xl mb-4">🚛</div>
+            <h1 className="text-3xl font-black text-white mb-2">
+              Dispatcher Cards
+            </h1>
+            <p className="text-gray-400 text-sm">
+              Тренировка знаний диспетчера
+            </p>
+          </motion.div>
 
-          {/* CONTENT ZONE - Flexible 1fr - z-10 */}
-          <div className="relative z-10 overflow-hidden flex flex-col">
-            {!isRestarting && sessionQuestions.length > 0 && (
-              <SwipeCardStack
-                questions={sessionQuestions}
-                onComplete={handleComplete}
-                onSuccess={handleSuccess}
-                onError={handleError}
-                onFlip={handleFlip}
-                onIndexChange={handleIndexChange}
-                t={t}
-              />
-            )}
-          </div>
+          {/* Name Input */}
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mb-6"
+          >
+            <label className="block text-white text-sm font-semibold mb-2">
+              👤 Ваше имя
+            </label>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Введите ваше имя"
+              className="w-full px-4 py-3 rounded-xl bg-white/10 border-2 border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 transition-colors"
+            />
+          </motion.div>
 
-          {/* FOOTER ZONE - Auto height - z-50 */}
-          <footer className="relative z-50 bg-slate-900/90 backdrop-blur-sm border-t border-white/10">
-            {/* Кнопки рендерятся внутри SwipeCardStack */}
-          </footer>
-          
+          {/* Difficulty Selection */}
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mb-8"
+          >
+            <label className="block text-white text-sm font-semibold mb-3">
+              🎯 Выберите сложность
+            </label>
+            <div className="space-y-3">
+              {difficulties.map((diff) => (
+                <motion.button
+                  key={diff.id}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => setSelectedDifficulty(diff.id as any)}
+                  className={`w-full p-4 rounded-xl border-2 transition-all ${
+                    selectedDifficulty === diff.id
+                      ? 'border-white bg-white/10 shadow-lg'
+                      : 'border-white/20 bg-white/5 hover:border-white/40'
+                  }`}
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <span className="text-3xl">{diff.icon}</span>
+                      <div className="text-left">
+                        <div className="text-white font-bold text-base">
+                          {diff.name}
+                        </div>
+                        <div className="text-gray-400 text-xs">
+                          {diff.description}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-white text-sm font-semibold">
+                        {diff.questions} вопросов
+                      </div>
+                      <div className="text-gray-400 text-xs">
+                        макс. {diff.maxErrors} ошибок
+                      </div>
+                    </div>
+                  </div>
+                </motion.button>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Start Button */}
+          <motion.button
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={handleStart}
+            className="w-full py-4 rounded-xl font-bold text-white text-lg bg-gradient-to-r from-purple-500 to-pink-500 shadow-lg hover:shadow-xl transition-shadow"
+          >
+            🚀 Начать тест
+          </motion.button>
+
         </div>
-      </main>
 
-      {/* Results Modal */}
-      <ResultsModal
-        isOpen={showResults}
-        correct={results.correct}
-        wrong={results.wrong}
-        total={sessionQuestions.length}
-        byCategory={results.byCategory}
-        onRestart={handleRestart}
-        onClose={handleClose}
-        t={t}
-      />
+        {/* Footer */}
+        <div className="px-6 py-4 border-t border-white/10">
+          <p className="text-center text-gray-500 text-xs">
+            © 2024 Dispatcher Training App
+          </p>
+        </div>
+
+      </main>
     </>
   )
 }

@@ -123,26 +123,26 @@ export default function DispatcherCard({
         >
           
           {/* Category Badge */}
-          <div className="inline-flex items-center gap-1.5 self-start px-2.5 py-1 rounded-full mb-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-[10px] font-semibold shadow-lg flex-shrink-0">
-            <span className="text-sm">🎯</span>
+          <div className="inline-flex items-center gap-1.5 self-start px-2.5 py-1 rounded-full mb-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-[12px] font-semibold shadow-lg flex-shrink-0">
+            <span className="text-base">🎯</span>
             <span>{categoryName}</span>
           </div>
           
           {/* Text - Вопрос (полностью видимый) */}
-          <h2 className="text-[16.5px] font-bold mb-2 leading-tight text-white flex-shrink-0">
+          <h2 className="text-[20px] font-bold mb-2 leading-tight text-white flex-shrink-0">
             {question?.text || 'Загрузка...'}
           </h2>
           
           {/* Hint - Наводка (серый, мелкий) с красивым скроллингом */}
           <div className="flex-1 overflow-y-auto mb-3 scrollbar-thin scrollbar-thumb-purple-500/50 scrollbar-track-transparent hover:scrollbar-thumb-purple-500/70 touch-pan-y">
-            <p className="text-[12px] text-gray-400 leading-relaxed italic pr-2">
+            <p className="text-[14.5px] text-gray-400 leading-relaxed italic pr-2">
               {question?.hint || 'Подумайте над вопросом...'}
             </p>
           </div>
           
           {/* Подсказка о перевороте */}
           <div className="text-center flex-shrink-0 mt-2">
-            <p className="text-purple-300 text-[11px] opacity-70">
+            <p className="text-purple-300 text-[13px] opacity-70">
               Сделай свайп либо нажми на карточку для правильного ответа
             </p>
           </div>
@@ -184,14 +184,14 @@ export default function DispatcherCard({
           <div className="relative z-10 p-5 flex flex-col h-full">
             {/* Правильный ответ - Крупно */}
             <div className="text-center mb-4 flex-shrink-0">
-              <div className="text-6xl mb-3">
+              <div className="text-7xl mb-3">
                 {question?.isCorrect ? '✓' : '✗'}
               </div>
-              <h3 className="text-3xl font-black text-white mb-2 drop-shadow-lg">
+              <h3 className="text-4xl font-black text-white mb-2 drop-shadow-lg">
                 {question?.isCorrect ? 'ДА' : 'НЕТ'}
               </h3>
               <div className="inline-block px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-sm">
-                <p className="text-sm font-semibold text-purple-200">
+                <p className="text-base font-semibold text-purple-200">
                   Правильный ответ на вопрос
                 </p>
               </div>
@@ -200,11 +200,11 @@ export default function DispatcherCard({
             {/* Analytics - Полный разбор - Scrollable с красивым скроллингом */}
             <div className="flex-1 overflow-y-auto mb-4 px-2 scrollbar-thin scrollbar-thumb-purple-300/50 scrollbar-track-transparent hover:scrollbar-thumb-purple-300/70 touch-pan-y">
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                <h4 className="text-sm font-bold text-purple-200 mb-3 flex items-center gap-2">
-                  <span className="text-lg">📊</span>
+                <h4 className="text-base font-bold text-purple-200 mb-3 flex items-center gap-2">
+                  <span className="text-xl">📊</span>
                   Подробный разбор:
                 </h4>
-                <p className="text-gray-100 text-sm leading-relaxed pr-2">
+                <p className="text-gray-100 text-base leading-relaxed pr-2">
                   {question?.analytics || 'Пример: Согласно правилам FMCSA, водитель может управлять траком максимум 11 часов после 10 последовательных часов отдыха. Это важное правило безопасности, которое помогает предотвратить усталость водителей и снизить риск аварий на дорогах.'}
                 </p>
               </div>
@@ -212,7 +212,7 @@ export default function DispatcherCard({
             
             {/* Подсказка о возврате */}
             <div className="text-center flex-shrink-0">
-              <p className="text-purple-200 text-xs opacity-80 font-medium">
+              <p className="text-purple-200 text-sm opacity-80 font-medium">
                 👆 Нажмите снова, чтобы вернуться к вопросу
               </p>
             </div>

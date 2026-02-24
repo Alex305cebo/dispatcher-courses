@@ -77,10 +77,10 @@ export default function ResultsModal({
 
             {/* Header - компактный, текст уменьшен на 30% */}
             <div className="text-center mb-2">
-              <h2 className="text-lg font-bold mb-0.5 text-white">
+              <h2 className="text-xl font-bold mb-0.5 text-white">
                 {t('results.title')}
               </h2>
-              <p className={`text-xs font-semibold ${
+              <p className={`text-sm font-semibold ${
                 percentage >= 80 ? 'text-green-400' : 
                 percentage >= 60 ? 'text-purple-400' : 'text-red-400'
               }`}>
@@ -96,10 +96,10 @@ export default function ResultsModal({
                 transition={{ delay: 0.3 }}
                 className="rounded-xl p-1.5 text-center bg-green-500/20 border-2 border-green-500/30"
               >
-                <div className="text-base font-black text-green-400 mb-0">
+                <div className="text-xl font-black text-green-400 mb-0">
                   {correct}
                 </div>
-                <div className="text-[7px] font-semibold uppercase tracking-wide text-gray-300">
+                <div className="text-[9px] font-semibold uppercase tracking-wide text-gray-300">
                   {t('results.correctAnswers')}
                 </div>
               </motion.div>
@@ -110,10 +110,10 @@ export default function ResultsModal({
                 transition={{ delay: 0.4 }}
                 className="rounded-xl p-1.5 text-center bg-red-500/20 border-2 border-red-500/30"
               >
-                <div className="text-base font-black text-red-400 mb-0">
+                <div className="text-xl font-black text-red-400 mb-0">
                   {wrong}
                 </div>
-                <div className="text-[7px] font-semibold uppercase tracking-wide text-gray-300">
+                <div className="text-[9px] font-semibold uppercase tracking-wide text-gray-300">
                   {t('results.wrongAnswers')}
                 </div>
               </motion.div>
@@ -124,10 +124,10 @@ export default function ResultsModal({
                 transition={{ delay: 0.5 }}
                 className="rounded-xl p-1.5 text-center bg-purple-500/20 border-2 border-purple-500/30"
               >
-                <div className="text-base font-black text-purple-400 mb-0">
+                <div className="text-xl font-black text-purple-400 mb-0">
                   {percentage}%
                 </div>
-                <div className="text-[7px] font-semibold uppercase tracking-wide text-gray-300">
+                <div className="text-[9px] font-semibold uppercase tracking-wide text-gray-300">
                   {t('results.successRate')}
                 </div>
               </motion.div>
@@ -141,14 +141,14 @@ export default function ResultsModal({
                 transition={{ delay: 0.6 }}
                 className="p-1.5 rounded-xl bg-white/5 border border-white/10"
               >
-                <h3 className="text-[10px] font-bold text-white mb-1 uppercase tracking-wide">
+                <h3 className="text-[12px] font-bold text-white mb-1 uppercase tracking-wide">
                   📊 По категориям
                 </h3>
                 <div className="space-y-0.5">
                   {Object.entries(byCategory).map(([category, stats]) => {
                     const catPercentage = Math.round((stats.correct / stats.total) * 100)
                     return (
-                      <div key={category} className="flex items-center justify-between text-[10px]">
+                      <div key={category} className="flex items-center justify-between text-[12px]">
                         <span className="text-gray-300">{categoryNames[category] || category}</span>
                         <div className="flex items-center gap-1">
                           <span className="text-white font-semibold">

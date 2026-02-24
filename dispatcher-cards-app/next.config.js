@@ -1,17 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Раскомментируйте для статического экспорта (если нет Node.js на сервере)
-  // output: 'export',
-  // images: {
-  //   unoptimized: true
-  // },
+  // Для Node.js деплоя на Hostinger (НЕ статический экспорт)
+  // output: 'export', // Отключено для Node.js деплоя
   
-  // Для деплоя в подпапку (например, /cards)
-  // basePath: '/cards',
+  images: {
+    unoptimized: true
+  },
   
   reactStrictMode: true,
   
-  // Отключаем ESLint и TypeScript проверки во время сборки (для Vercel)
+  // Отключаем ESLint и TypeScript проверки во время сборки
   eslint: {
     ignoreDuringBuilds: true,
   },
