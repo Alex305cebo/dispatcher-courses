@@ -13,7 +13,7 @@ Daily free load views left: 4
 UPGRADE NOW
 Feb 24 - Mar 24
 *Pick Up Date
-Miami, FL, US
+Los Angeles, CA, US
 *Pick Up
 200
 DH-P (mi)
@@ -43,1099 +43,1079 @@ Weight
 Broker DTP/CS
 Market Average
 Price
-2h
-Miami, FL
-8 Feb. 24
-Greer, SC
-735mi F 48 000
-Jakebrake Logistics LLC
-Unlock
-Unlock
-$1,300
-5h
-Miami, FL
-8 Feb. 24
-Greenville, NC
-845mi F 48 000
-Jakebrake Logistics LLC
-Unlock
-Unlock
-$1,300
-1d
-Miami, FL
-8 Feb. 25
-Los Angeles, CA
-2 736mi R 42
-Dispatch
-Unlock
-Unlock
---
-6m
-Miami, FL
-8 Feb. 26
-Greer, SC
-735mi F,SD 48 000
-Bieri Brokerage
-Unlock
-Unlock
-$1,300
-4m
-Miami, FL
-8 Feb. 27
-Greer, SC
-734mi F,SD 48 000
-Bieri Brokerage
-Unlock
-Unlock
-$1,300
-1d
-Miami, FL
-8 Feb. 26
-Los Angeles, CA
-2 736mi R 42
-Dispatch
-Unlock
-Unlock
---
-43m
-Miami, FL
-3 Feb. 25
-Compton, CA
-2 735mi SD 20 000
-California Freight
-Unlock
-Unlock
-$5,300
-11d
-Miami, FL
-9 Feb. 28
-Monroe Township, NJ
-1 557mi R 42 500
-CURV LOGISTICS GROUP INC
-Unlock
-Unlock
---
-14d
-Miami, FL
-9 Feb. 28
-Sterling, IL
-1 443mi R 42 500
-CURV LOGISTICS GROUP INC
-Unlock
-Unlock
---
-11d
-Miami, FL
-9 Mar. 03
-Monroe Township, NJ
-1 557mi R 42 500
-CURV LOGISTICS GROUP INC
-Unlock
-Unlock
---
-15m
-Medley, FL
-3 Feb. 27
-Glen Allen, VA
-1 035mi R 31 300
-DUPRE LOGISTICS LLC
-Unlock
-Unlock
-$2,600
 13m
-Homestead, FL
-29 Feb. 26
-Greencastle, PA
-1 163mi R 30
-Dispatch
-Unlock
-Unlock
-$2,500
-7d
-Miami, FL
-8 Feb. 27
-Bronx, NY
-1 305mi R 41
-Dispatch
-Unlock
-Unlock
---
-18m
-Homestead, FL
-29 Feb. 26
-Salisbury, NC
-800mi R 30
-Dispatch
-Unlock
-Unlock
-$2,200
-10h
-Miami, FL
-4 Feb. 27
-Jessup, MD
-1 077mi V 30 000
-North American Logistics Services
-Unlock
-Unlock
---
-7h
-Miami, FL
-4 Feb. 25
-Oconomowoc, WI
-1 515mi R -
-Triple T Transport
-Unlock
-Unlock
-$1,800
-43m
-Delray Beach, FL
-44 Feb. 26
-Manor, TX
-1 312mi R 32 715
-A&Z Trucking
-Unlock
-Unlock
---
-8h
-Miami, FL
-4 Feb. 25
-Keller, TX
-1 354mi R -
-Triple T Transport
-Unlock
-Unlock
-$1,700
-10h
-Pembroke Park, FL
-11 Feb. 25
-Louisville, KY
-1 079mi V 44 232
-Red Classic Transportation Services, LLC
-Unlock
-Unlock
---
-10h
-Pembroke Park, FL
-11 Mar. 01
-Louisville, KY
-1 079mi V 44 232
-Red Classic Transportation Services, LLC
-Unlock
-Unlock
---
-10h
-Pembroke Park, FL
-11 Mar. 01
-Louisville, KY
-1 079mi V 44 232
-Red Classic Transportation Services, LLC
-Unlock
-Unlock
---
-15m
-Miami, FL
-6 Feb. 25
-Lockport, IL
-1 388mi V 42 000
-RJW Logistics
-Unlock
-Unlock
-$1,650
-10h
-Pembroke Park, FL
-11 Mar. 01
-Lexington, KY
-1 040mi V 44 232
-Red Classic Transportation Services, LLC
-Unlock
-Unlock
---
-10h
-Pembroke Park, FL
-11 Mar. 01
-Lexington, KY
-1 040mi V 44 232
-Red Classic Transportation Services, LLC
-Unlock
-Unlock
---
-8h
-Miami, FL
-4 Feb. 25
-Keller, TX
-1 347mi R -
-Triple T Transport
-Unlock
-Unlock
-$1,600
-10h
-Pembroke Park, FL
-11 Feb. 25
-Akron, OH
-1 192mi V 44 232
-Red Classic Transportation Services, LLC
-Unlock
-Unlock
-$1,600
-10h
-Pembroke Park, FL
-11 Feb. 25
-Lockbourne, OH
-1 131mi V 44 232
-Red Classic Transportation Services, LLC
-Unlock
-Unlock
-$1,600
-10h
-Pembroke Park, FL
-11 Feb. 25
-Lockbourne, OH
-1 131mi V 44 232
-Red Classic Transportation Services, LLC
-Unlock
-Unlock
-$1,600
-5h
-Miami, FL
-6 Feb. 27
-Lockport, IL
-1 389mi V 42 000
-RJW Logistics
-Unlock
-Unlock
-$1,600
-5h
-Miami, FL
-6 Feb. 27
-Lockport, IL
-1 389mi V 42 000
-RJW Logistics
-Unlock
-Unlock
-$1,600
-4h
-Pembroke Park, FL
-11 Feb. 28
-Louisville, KY
-1 080mi V 44 232
-Red Classic Transportation Services, LLC
-Unlock
-Unlock
-$1,600
-4h
-Pembroke Park, FL
-11 Feb. 28
-Akron, OH
-1 187mi V 44 232
-Red Classic Transportation Services, LLC
-Unlock
-Unlock
-$1,600
-4h
-Pembroke Park, FL
-11 Feb. 28
-Louisville, KY
-1 080mi V 44 232
-Red Classic Transportation Services, LLC
-Unlock
-Unlock
-$1,600
-19m
-Miami, FL
-8 Feb. 27
-Baton Rouge, LA
-921mi R 1
-Dispatch
-Unlock
-Unlock
---
-18m
-Miami, FL
-8 Feb. 28
-Baton Rouge, LA
-921mi R 1
-Dispatch
-Unlock
-Unlock
---
-7h
-Fort Lauderdal, FL
-20 Feb. 25
-Hampton, VA
-948mi F -
-Axel
-Unlock
-Unlock
-$1,500
-2h
-Pembroke Park, FL
-11 Feb. 28
-Henrico, VA
-927mi V 44 232
-Red Classic Transportation Services, LLC
-Unlock
-Unlock
-$1,500
-8h
-Homestead, FL
-29 Feb. 24
-Clarksville, AR
-1 248mi R 41
-Dispatch
-Unlock
-Unlock
---
-2h
-Oakland Park, FL
-24 Feb. 27
-Denver, PA
-1 163mi R 42 500
-Custom Pro Logistics
-Unlock
-Unlock
-$1,400
-10h
-Pembroke Park, FL
-11 Mar. 01
-Henrico, VA
-924mi V 44 232
-Red Classic Transportation Services, LLC
-Unlock
-Unlock
---
-10h
-Miami, FL
-7 Feb. 27
-Beachwood, OH
-1 225mi V -
-North American Logistics Services
-Unlock
-Unlock
---
-10h
-Pembroke Park, FL
-11 Feb. 28
-Akron, OH
-1 192mi V 44 232
-Red Classic Transportation Services, LLC
-Unlock
-Unlock
---
-10h
-Pembroke Park, FL
-11 Mar. 01
-Akron, OH
-1 192mi V 44 232
-Red Classic Transportation Services, LLC
-Unlock
-Unlock
---
-10h
-Pembroke Park, FL
-11 Mar. 01
-Akron, OH
-1 192mi V 44 232
-Red Classic Transportation Services, LLC
-Unlock
-Unlock
---
-10h
-Pembroke Park, FL
-11 Mar. 01
-Lockbourne, OH
-1 131mi V 44 232
-Red Classic Transportation Services, LLC
-Unlock
-Unlock
---
-10h
-Pembroke Park, FL
-11 Mar. 01
-Lockbourne, OH
-1 131mi V 44 232
-Red Classic Transportation Services, LLC
-Unlock
-Unlock
---
-15m
-Miami, FL
-6 Mar. 02
-Oceanside, CA
-2 834mi V,V,V 10 000
-Worldwide Express Globaltranz
-Unlock
-Unlock
-$1,068
-1h
-Pompano Beach, FL
-31 Mar. 08
-Grand Junction, CO
-2 281mi V,V,V 5 000
-Worldwide Express Globaltranz
-Unlock
-Unlock
-$1,039
-10h
-Pembroke Park, FL
-11 Feb. 24
-Charlotte, NC
-724mi V 44 232
-Red Classic Transportation Services, LLC
-Unlock
-Unlock
-$1,000
-10h
-Medley, FL
-3 Feb. 26
-Jacksonville, FL
-338mi V 42 071
-North American Logistics Services
-Unlock
-Unlock
---
-1h
-Medley, FL
-3 Feb. 26
-Jacksonville, FL
-338mi V 43 510
-North American Logistics Services
-Unlock
-Unlock
---
-18m
-Doral, FL
-4 Feb. 25
-Baton Rouge, LA
-925mi R 1
-Dispatch
-Unlock
-Unlock
-$950
-10h
-Miami, FL
-7 Feb. 26
-Tucker, GA
-658mi V 40 000
-North American Logistics Services
-Unlock
-Unlock
---
-6h
-Pompano Beach, FL
-31 Feb. 27
-Battle Creek, MI
-1 371mi V,V,V 7 500
-EPES Logistics
-Unlock
-Unlock
-$800
-6h
-Pompano Beach, FL
-31 Feb. 28
-Battle Creek, MI
-1 371mi V,V,V 7 500
-EPES Logistics
-Unlock
-Unlock
-$800
-14m
-Pompano Beach, FL
-31 Mar. 03
-Oak Harbor, WA
-3 372mi V,V,V 2 500
-Worldwide Express Globaltranz
-Unlock
-Unlock
-$794
-15m
-Miami, FL
-3 Feb. 25
-Tampa, FL
-265mi V 44 500
-North American Logistics Services
-Unlock
-Unlock
---
-14m
-Miami, FL
-4 Mar. 03
-Tampa, FL
-265mi V 30 000
-North American Logistics Services
-Unlock
-Unlock
---
-10h
-Miami, FL
-3 Feb. 25
-Mc Calla, AL
-824mi V 45 000
-North American Logistics Services
-Unlock
-Unlock
-$750
-43m
-Medley, FL
-3 Feb. 25
-Douglasville, GA
-682mi V 41 316
-Caravan Supply Chain Inc
-Unlock
-Unlock
-$700
-4h
-Hialeah, FL
-1 Feb. 26
-Boston, GA
-467mi R 44 000
-Elberta Logistics International LLC
-Unlock
-Unlock
-$665
-10h
-Medley, FL
-3 Feb. 26
-Kissimmee, FL
-228mi V 42 983
-North American Logistics Services
-Unlock
-Unlock
---
-8d
-Miami, FL
-9 Mar. 06
-Orlando, FL
-222mi V,BT 40 000
-Full Tilt Logistics
-Unlock
-Unlock
---
-8d
-Miami, FL
-9 Mar. 06
-Orlando, FL
-222mi V,BT 40 000
-Full Tilt Logistics
-Unlock
-Unlock
---
-8d
-Miami, FL
-9 Mar. 06
-Orlando, FL
-222mi V,BT 40 000
-Full Tilt Logistics
-Unlock
-Unlock
---
-15m
-West Park, FL
-10 Feb. 25
-Saginaw, MI
-1 454mi V,V,V 2 500
-Worldwide Express Globaltranz
+Ontario, CA
+43 Feb. 24
+North Las Vegas, NV
+238mi F 48 000
+Jakebrake Logistics LLC
 Unlock
 Unlock
 $600
 15m
-Miami, FL
-6 Mar. 01
-Williamsport, PA
-1 249mi V,V,V 2 500
-Worldwide Express Globaltranz
-Unlock
-Unlock
-$552
-15m
-Miramar, FL
-10 Feb. 25
-Ormond Beach, FL
-259mi F 10 000
-Kirsch Transportation
-Unlock
-Unlock
-$550
-10h
-Doral, FL
-5 Feb. 26
-Frostproof, FL
-182mi V 44 137
-Kenco Group
+Long Beach, CA
+19 Feb. 25
+Ontario, CA
+2 526mi R 35
+Dispatch
 Unlock
 Unlock
 --
-3h
-Doral, FL
-4 Feb. 25
-Lutz, FL
-286mi V 35 834
-USA Truck Logistics, LCC
+35m
+Santa Clarita, CA
+29 Feb. 26
+Bristol, PA
+2 726mi R 42 840
+Zengistics
 Unlock
 Unlock
-$500
-6h
-Hollywood, FL
-10 Feb. 27
-Richmond, VA
-935mi V,V,V 5 000
-EPES Logistics
+$6,600
+36m
+Santa Clarita, CA
+29 Feb. 26
+Logan Township, NJ
+2 721mi R 42 840
+Zengistics
 Unlock
 Unlock
-$500
-6h
-Hollywood, FL
-10 Feb. 28
-Henrico, VA
-935mi V,V,V 5 000
-EPES Logistics
+$6,600
+6m
+Santa Clarita, CA
+29 Feb. 27
+Bristol, PA
+2 726mi R 42 840
+Zengistics
 Unlock
 Unlock
-$500
-14m
-Medley, FL
-3 Mar. 05
-Santa Maria, CA
-2 893mi V,V,V 2 500
-Worldwide Express Globaltranz
-Unlock
-Unlock
-$500
-15m
-Miami, FL
-3 Feb. 25
-Bushnell, FL
-284mi V,R 35 000
-Worldwide Express Globaltranz
-Unlock
-Unlock
-$475
-2h
-Medley, FL
-3 Feb. 25
-Tampa, FL
-264mi V 42 116
-North American Logistics Services
-Unlock
-Unlock
-$450
-2h
-Medley, FL
-3 Feb. 25
-Tampa, FL
-264mi V 44 162
-North American Logistics Services
-Unlock
-Unlock
-$450
-15m
-Fort Lauderdale, FL
-18 Feb. 26
-Mount Dora, FL
-238mi V 40 501
-Worldwide Express Globaltranz
-Unlock
-Unlock
-$450
-15m
-Fort Lauderdale, FL
-18 Feb. 26
-Mount Dora, FL
-238mi V 40 500
-Worldwide Express Globaltranz
-Unlock
-Unlock
-$450
+$6,600
 1h
-Fort Lauderdale, FL
-24 Feb. 26
+Corona, CA
+47 Feb. 25
+Upper Marlboro, MD
+2 655mi R 35 218
+Genpro Inc
+Unlock
+Unlock
+$6,400
+1h
+Corona, CA
+47 Feb. 25
+Upper Marlboro, MD
+2 656mi R 31 374
+Genpro Inc
+Unlock
+Unlock
+$6,400
+2h
+Los Angeles, CA
+10 Feb. 25
+Secaucus, NJ
+2 790mi V 40 000
+Freightsaver
+Unlock
+Unlock
+$6,000
+6h
+South Gate, CA
+12 Feb. 27
+Teterboro, NJ
+2 792mi V 42 000
+Armstrong Transportation Management
+Unlock
+Unlock
+$5,800
+6m
+Ontario, CA
+42 Feb. 26
 Tampa, FL
-239mi V 35 000
-Associated Logistics Group
+2 494mi F 46 513
+Ryder Freight Brokerage
 Unlock
 Unlock
-$450
-10h
-Medley, FL
-3 Feb. 26
-Plant City, FL
-227mi V 26 091
-Caravan Supply Chain Inc
+$5,000
+36m
+Santa Clarita, CA
+29 Feb. 26
+Rock Hill, SC
+2 412mi V 42 840
+Zengistics
 Unlock
 Unlock
-$450
-3h
-Miami, FL
-4 Feb. 25
-Orlando, FL
-214mi V 30 000
-North American Logistics Services
+$4,800
+36m
+Santa Clarita, CA
+29 Feb. 26
+Rock Hill, SC
+2 412mi V 42 840
+Zengistics
 Unlock
 Unlock
-$425
-3h
-Medley, FL
-3 Feb. 25
-Tampa, FL
-264mi V 42 920
-North American Logistics Services
+$4,800
+35m
+Santa Clarita, CA
+29 Feb. 26
+Rock Hill, SC
+2 412mi V 42 840
+Zengistics
 Unlock
 Unlock
-$425
-3h
-Medley, FL
-3 Feb. 25
-Orlando, FL
-229mi V 45 000
-North American Logistics Services
+$4,800
+2h
+Irwindale, CA
+24 Feb. 27
+Birmingham, AL
+2 021mi R 42 500
+GIX Logistics
 Unlock
 Unlock
-$425
-1d
-Medley, FL
-3 Feb. 26
-Fort Myers, FL
-145mi V 38 216
-North American Logistics Services
+$4,800
+4h
+Oxnard, CA
+47 Feb. 25
+Cheshire, CT
+2 925mi R 31 200
+A&Z Trucking
 Unlock
 Unlock
 --
-45m
-Hialeah, FL
-2 Feb. 25
-Lakeland, FL
-220mi V,R -
-Axel
-Unlock
-Unlock
-$400
-5h
-Miami, FL
-4 Feb. 25
-Orlando, FL
-219mi V 30 000
-North American Logistics Services
-Unlock
-Unlock
-$400
 11h
-Medley, FL
-2 Feb. 26
-Lakeland, FL
-218mi V 42
+Diamond Bar, CA
+31 Mar. 02
+Cleveland, TN
+2 147mi V 43 000
+DRT Transportation
+Unlock
+Unlock
+$4,600
+4d
+Gardena, CA
+10 Feb. 27
+Middleburg, FL
+2 425mi V 19 200
+Integrated Connection LLC
+Unlock
+Unlock
+$4,500
+4d
+Gardena, CA
+10 Mar. 06
+Middleburg, FL
+2 425mi V 19 200
+Integrated Connection LLC
+Unlock
+Unlock
+$4,500
+4d
+Gardena, CA
+10 Mar. 12
+Middleburg, FL
+2 425mi V 19 200
+Integrated Connection LLC
+Unlock
+Unlock
+$4,500
+4d
+Gardena, CA
+10 Mar. 17
+Middleburg, FL
+2 425mi V 19 200
+Integrated Connection LLC
+Unlock
+Unlock
+$4,500
+4d
+Gardena, CA
+10 Mar. 19
+Middleburg, FL
+2 425mi V 19 200
+Integrated Connection LLC
+Unlock
+Unlock
+$4,500
+4d
+Gardena, CA
+10 Mar. 24
+Middleburg, FL
+2 425mi V 19 200
+Integrated Connection LLC
+Unlock
+Unlock
+$4,500
+3m
+Santa Fe Spgs, CA
+20 Feb. 26
+Chattanooga, TN
+2 127mi R,V 42
 Dispatch
 Unlock
 Unlock
-$400
+$4,300
 11h
-Medley, FL
-2 Feb. 26
-Jacksonville, FL
-347mi V 42
+Anaheim, CA
+32 Mar. 07
+Philadelphia, PA
+2 714mi V,V 5 500
+United Transportation Services, Inc.
+Unlock
+Unlock
+--
+5d
+Los Angeles, CA
+9 Feb. 27
+Van Buren, MI
+2 261mi R 42
 Dispatch
 Unlock
 Unlock
-$400
+--
+10h
+Compton, CA
+13 Feb. 27
+Des Plaines, IL
+2 018mi V 40 000
+FORWARD AIR LOGISTICS SERVICES
+Unlock
+Unlock
+$4,018
+10h
+Compton, CA
+13 Feb. 28
+Des Plaines, IL
+2 018mi V 40 000
+FORWARD AIR LOGISTICS SERVICES
+Unlock
+Unlock
+$4,018
+1d
+Commerce, CA
+14 Feb. 27
+Oklahoma City, OK
+1 333mi R -
+AB Global Logistics Inc
+Unlock
+Unlock
+$4,000
+4d
+Commerce, CA
+14 Mar. 04
+Oklahoma City, OK
+1 334mi R -
+AB Global Logistics Inc
+Unlock
+Unlock
+$4,000
+4h
+Whittier, CA
+21 Feb. 26
+Muskegon, MI
+2 179mi V 40 000
+Fort Freight
+Unlock
+Unlock
+--
+36m
+Wilmington, CA
+16 Feb. 27
+Denver, CO
+1 037mi R 41 541
+CFM Logistics
+Unlock
+Unlock
+$3,800
+10h
+Compton, CA
+13 Feb. 28
+Kansas Cy Intl Apt, MO
+1 633mi V 40 000
+FORWARD AIR LOGISTICS SERVICES
+Unlock
+Unlock
+$3,616
+10h
+Compton, CA
+13 Feb. 28
+Kansas Cy Intl Apt, MO
+1 633mi V 40 000
+FORWARD AIR LOGISTICS SERVICES
+Unlock
+Unlock
+$3,616
+36m
+Buena Park, CA
+24 Feb. 27
+Everett, WA
+1 185mi R 43 500
+GIX Logistics
+Unlock
+Unlock
+$3,200
+2h
+Buena Park, CA
+24 Mar. 02
+Albuquerque, NM
+818mi R 25 303
+SCHULZ LOGISTICS LLC
+Unlock
+Unlock
+$3,200
+8h
+Long Beach, CA
+19 Mar. 03
+Boise, ID
+963mi V 24 428
+SCHULZ LOGISTICS LLC
+Unlock
+Unlock
+$3,200
 11h
-Medley, FL
-2 Feb. 27
-Lakeland, FL
-218mi V 42
-Dispatch
+Anaheim, CA
+32 Mar. 08
+Burlington, NJ
+2 729mi V 15 000
+United Transportation Services, Inc.
 Unlock
 Unlock
-$400
-15m
-Miami, FL
-6 Mar. 01
-Rock Island, IL
-1 452mi V,V,V 2 500
-Worldwide Express Globaltranz
+--
+10h
+Carson, CA
+14 Feb. 27
+Centennial, CO
+1 041mi V 40 500
+GIX Logistics
 Unlock
 Unlock
-$400
+$3,150
+2h
+Los Angeles, CA
+9 Feb. 24
+Seattle, WA
+1 134mi V -
+Koola
+Unlock
+Unlock
+$3,000
+6m
+Santa Ana, CA
+35 Feb. 24
+Woodinville, WA
+1 186mi F 8 000
+Freightsaver
+Unlock
+Unlock
+$3,000
 11h
-Medley, FL
-2 Mar. 03
-Jacksonville, FL
-347mi V 41
-Dispatch
-Unlock
-Unlock
-$400
-14m
-Pompano Beach, FL
-31 Mar. 01
-Lancaster, PA
-1 142mi V,V,V 2 500
-Worldwide Express Globaltranz
-Unlock
-Unlock
-$397
-6h
-Miami, FL
-11 Feb. 27
-Enterprise, AL
-626mi V,V,V 2 500
-EPES Logistics
-Unlock
-Unlock
-$250
-6h
-Miami, FL
-11 Feb. 28
-Enterprise, AL
-626mi V,V,V 2 500
-EPES Logistics
-Unlock
-Unlock
-$250
-3h
-Delray Beach, FL
-44 Mar. 09
-Delray Beach, FL
-- V 23 000
+Ontario, CA
+45 Feb. 26
+Lake Alfred, FL
+2 500mi V 40 429
 Geodis
 Unlock
 Unlock
-$60
-7h
-Medley, FL
-3 Feb. 26
-Miami, FL
-8mi V 45 000
-North American Logistics Services
+$3,000
+1d
+Ontario, CA
+46 Mar. 02
+Fort Worth, TX
+1 373mi R 43 856
+Fortune Logistics
+Unlock
+Unlock
+$3,000
+36m
+Vernon, CA
+10 Feb. 24
+Portland, OR
+969mi V 43 021
+California Freight
+Unlock
+Unlock
+$2,900
+12m
+Santa Fe Spgs, CA
+20 Feb. 25
+Brookshire, TX
+1 506mi V 11
+Dispatch
+Unlock
+Unlock
+$2,900
+2m
+Santa Fe Spgs, CA
+20 Feb. 25
+Brookshire, TX
+1 506mi V 11
+Dispatch
+Unlock
+Unlock
+$2,900
+11h
+Paramount, CA
+14 Feb. 25
+Colorado Springs, CO
+1 056mi V 29 444
+Geodis
+Unlock
+Unlock
+$2,800
+2m
+Santa Fe Spgs, CA
+20 Feb. 25
+Dallas, TX
+1 434mi V 29
+Dispatch
+Unlock
+Unlock
+$2,800
+8h
+Vernon, CA
+10 Mar. 09
+Clackamas, OR
+968mi R 40 032
+SCHULZ LOGISTICS LLC
+Unlock
+Unlock
+$2,800
+3h
+Ontario, CA
+41 Mar. 02
+Salem, OR
+953mi V 25 312
+AMX Logistics
+Unlock
+Unlock
+$2,700
+3h
+Ontario, CA
+41 Mar. 03
+Salem, OR
+953mi V 25 312
+AMX Logistics
+Unlock
+Unlock
+$2,700
+8h
+La Mirada, CA
+22 Feb. 26
+Atlanta, GA
+2 174mi V 30 000
+United Transportation Services, Inc.
+Unlock
+Unlock
+--
+5h
+Torrance, CA
+12 Feb. 25
+Cheyenne, WY
+1 118mi V 5 540
+Transend Logistics
+Unlock
+Unlock
+$2,640
+10h
+Anaheim, CA
+30 Mar. 09
+Ferndale, WA
+1 261mi V 10 000
+United Transportation Services, Inc.
+Unlock
+Unlock
+--
+59m
+Fullerton, CA
+28 Feb. 25
+Fife, WA
+1 132mi F 37
+JIMMY GOLOMBECKI
+Unlock
+Unlock
+$2,600
+8h
+Los Angeles, CA
+10 Mar. 04
+Albuquerque, NM
+791mi R 33 249
+SCHULZ LOGISTICS LLC
+Unlock
+Unlock
+$2,500
+8h
+Montrose, CA
+18 Mar. 09
+Clackamas, OR
+958mi R 15 360
+SCHULZ LOGISTICS LLC
+Unlock
+Unlock
+$2,400
+2h
+Long Beach, CA
+15 Mar. 02
+Wilmington, DE
+2 765mi V,V,V 12 500
+Worldwide Express Globaltranz
+Unlock
+Unlock
+$2,305
+2h
+Santa Fe Springs, CA
+19 Feb. 26
+Denver, CO
+1 026mi V 40 000
+Beemac Logistics / Hybrid Global Logistics Services
+Unlock
+Unlock
+$2,244
+1d
+Ontario, CA
+46 Mar. 06
+Dallas, TX
+1 395mi V 3 363
+EPES Logistics
+Unlock
+Unlock
+$2,200
+8h
+Pomona, CA
+37 Feb. 27
+Wheat Ridge, CO
+985mi F 7
+Brian Bjorklund
+Unlock
+Unlock
+--
+4h
+Compton, CA
+13 Feb. 26
+Richfield, UT
+560mi V -
+Beemac Logistics / Hybrid Global Logistics Services
+Unlock
+Unlock
+$2,150
+19m
+Carson, CA
+13 Feb. 26
+Houston, TX
+1 559mi R,V 10
+Dispatch
+Unlock
+Unlock
+--
+3h
+Ontario, CA
+46 Feb. 27
+Boise, ID
+1 149mi V 44 360
+CoVar Transportation Inc
+Unlock
+Unlock
+$2,000
+11d
+Ontario, CA
+46 Mar. 13
+Fort Worth, TX
+1 369mi R 43 856
+Fortune Logistics
+Unlock
+Unlock
+--
+11h
+Anaheim, CA
+32 Mar. 08
+Eugene, OR
+897mi V 12 000
+United Transportation Services, Inc.
+Unlock
+Unlock
+--
+35m
+Placentia, CA
+31 Mar. 04
+Norfolk, VA
+2 703mi V,V,V 10 000
+Worldwide Express Globaltranz
+Unlock
+Unlock
+$1,821
+2h
+Los Angeles, CA
+10 Mar. 09
+Albuquerque, NM
+812mi R 16 666
+SCHULZ LOGISTICS LLC
+Unlock
+Unlock
+--
+6m
+Ontario, CA
+45 Feb. 28
+Crossville, TN
+2 081mi V 40 436
+Geodis
+Unlock
+Unlock
+--
+3h
+Commerce, CA
+13 Feb. 24
+Brooklyn, NY
+2 794mi SD,F 6
+Dispatch
+Unlock
+Unlock
+$1,700
+11h
+Rancho Cucamonga, CA
+46 Mar. 02
+West Jordan, UT
+639mi V 12 888
+Venture Connect
+Unlock
+Unlock
+$1,690
+5h
+La Mirada, CA
+22 Mar. 02
+Ballinger, TX
+1 232mi V 20 000
+TCI Global Logistics
+Unlock
+Unlock
+--
+5h
+La Mirada, CA
+22 Mar. 09
+Ballinger, TX
+1 232mi V 20 000
+TCI Global Logistics
+Unlock
+Unlock
+--
+5h
+La Mirada, CA
+22 Mar. 16
+Ballinger, TX
+1 232mi V 20 000
+TCI Global Logistics
+Unlock
+Unlock
+--
+5h
+La Mirada, CA
+22 Mar. 23
+Ballinger, TX
+1 232mi V 20 000
+TCI Global Logistics
 Unlock
 Unlock
 --
 1h
-Pompano Beach, FL
+Irwindale, CA
 27 Feb. 24
-Charlotte, NC
-701mi PO -
-One-Way Trailers
+Lakeville, MN
+1 889mi R,V 2
+Dispatch
 Unlock
 Unlock
-$150
-1h
+--
+5h
+Ontario, CA
+41 Feb. 26
+Salt Lake City, UT
+665mi V 12 300
+AMX Logistics
+Unlock
+Unlock
+$1,650
+35m
+Long Beach, CA
+15 Mar. 02
+La Vergne, TN
+2 033mi V,V,V 12 500
+Worldwide Express Globaltranz
+Unlock
+Unlock
+$1,612
+5h
+Ontario, CA
+46 Feb. 26
+Reno, NV
+488mi V 42 933
+Fresh Freight LLC.
+Unlock
+Unlock
+$1,500
+7h
+Eastvale, CA
+49 Mar. 02
+Vacaville, CA
+444mi V 40 046
+Cornerstone Systems Inc
+Unlock
+Unlock
+$1,500
+2h
+Canyon Country, CA
+31 Mar. 02
+Menands, NY
+2 812mi V,V,V 7 500
+Worldwide Express Globaltranz
+Unlock
+Unlock
+$1,436
+5h
+Compton, CA
+12 Feb. 24
+Mesquite, NV
+354mi F 48 000
+Transend Logistics
+Unlock
+Unlock
+$1,400
+5h
+Compton, CA
+12 Feb. 24
+Mesquite, NV
+354mi F 48 000
+Transend Logistics
+Unlock
+Unlock
+$1,400
+6m
+Eastvale, CA
+49 Mar. 03
+Brisbane, CA
+489mi R 42 500
+Fresh Freight LLC.
+Unlock
+Unlock
+--
+11h
+Ontario, CA
+45 Mar. 04
+Auburn, WA
+1 152mi V 40 555
+Geodis
+Unlock
+Unlock
+$1,380
+4h
+Ontario, CA
+45 Mar. 13
+Auburn, WA
+1 153mi V 40 256
+Geodis
+Unlock
+Unlock
+$1,380
+3h
+City Of Industry, CA
+31 Feb. 24
+Calexico, CA
+199mi CN 20 000
+Beemac Logistics / Hybrid Global Logistics Services
+Unlock
+Unlock
+$1,350
+6m
+Eastvale, CA
+49 Mar. 04
+Brisbane, CA
+467mi R 42 500
+Fresh Freight LLC.
+Unlock
+Unlock
+--
+2h
+Wilmington, CA
+16 Feb. 24
+Salt Lake City, UT
+708mi F,HT 10 000
+Beemac Logistics / Hybrid Global Logistics Services
+Unlock
+Unlock
+$1,300
+6m
+Torrance, CA
+12 Feb. 25
+Mcclellan Park, CA
+408mi R 27 000
+White Arrow Inc.
+Unlock
+Unlock
+$1,300
+2h
+Los Angeles, CA
+8 Feb. 24
+San Francisco, CA
+385mi V 33 000
+FORWARD AIR LOGISTICS SERVICES
+Unlock
+Unlock
+$1,285
+2h
+Canyon Country, CA
+31 Mar. 02
+West Palm Beach, FL
+2 859mi V,V,V 5 000
+Worldwide Express Globaltranz
+Unlock
+Unlock
+$1,240
+6m
+Oxnard, CA
+44 Feb. 24
+Las Vegas, NV
+316mi V 7 690
+Worldwide Express Globaltranz
+Unlock
+Unlock
+$1,200
+2h
+Los Angeles, CA
+3 Feb. 25
+Reno, NV
+473mi F,HT 10 000
+Beemac Logistics / Hybrid Global Logistics Services
+Unlock
+Unlock
+$1,200
+6h
+Oxnard, CA
+47 Feb. 25
+Richmond, CA
+372mi R 42 500
+Fresh Freight LLC.
+Unlock
+Unlock
+$1,200
+10h
+Anaheim, CA
+32 Mar. 08
+Fairfield, CA
+420mi V 25 000
+United Transportation Services, Inc.
+Unlock
+Unlock
+--
+4h
+Ontario, CA
+45 Mar. 13
+Portland, OR
+1 008mi V 39 529
+Geodis
+Unlock
+Unlock
+$1,200
+11h
+Ontario, CA
+46 Mar. 09
+Reno, NV
+555mi R 42 500
+Fresh Freight LLC.
+Unlock
+Unlock
+--
+2h
+Los Angeles, CA
+8 Mar. 02
 Pompano Beach, FL
-27 Feb. 24
-Atlanta, GA
-634mi PO -
-One-Way Trailers
+2 802mi V,V,V 5 000
+Worldwide Express Globaltranz
 Unlock
 Unlock
-$150
-1h
-Pompano Beach, FL
-27 Feb. 24
-Pico Rivera, CA
-2 700mi PO -
-One-Way Trailers
+$1,167
+5h
+El Segundo, CA
+5 Feb. 24
+Tracy, CA
+332mi R -
+Koola
 Unlock
 Unlock
-$150
-1h
-Pompano Beach, FL
-27 Feb. 24
-South Holland, IL
-1 333mi PO -
-One-Way Trailers
+$1,150
+36m
+Placentia, CA
+31 Feb. 26
+Rochester, NY
+2 590mi V,V,V 5 000
+Worldwide Express Globaltranz
 Unlock
 Unlock
-$150
+$1,150
 Load More
 Recommendation Loads Based On Your Search
-6m
-Oakdale, LA
-0 Feb. 25
-Waco, TX
-385mi F,SD 48 000
-Bieri Brokerage
-Unlock
-Unlock
-$1,380
-3m
-Oakdale, LA
-0 Feb. 26
-Waco, TX
-385mi F,SD 48 000
-Bieri Brokerage
-Unlock
-Unlock
-$1,380
-6m
-Carthage, TX
-0 Feb. 26
-San Antonio, TX
-353mi F,SD 48 000
-Bieri Brokerage
-Unlock
-Unlock
-$1,010
-4m
-Carthage, TX
-0 Feb. 27
-San Antonio, TX
-353mi F,SD 48 000
-Bieri Brokerage
-Unlock
-Unlock
-$1,010
-3m
-Lake Charles, LA
-0 Feb. 27
-Cameron, TX
-292mi F,SD 48 000
-Bieri Brokerage
-Unlock
-Unlock
-$1,010
-6m
-Lake Charles, LA
-0 Feb. 26
-Cameron, TX
-292mi F,SD 48 000
-Bieri Brokerage
-Unlock
-Unlock
-$1,010
 2h
-Lake Charles, LA
-0 Feb. 24
-Burnet, TX
-352mi F 48 000
+Carrot River, SK
+113 Feb. 24
+Jerseyville & Il - Bethalto, IL
+- F 48 000
 Jakebrake Logistics LLC
 Unlock
 Unlock
-$1,000
-23m
-Carthage, TX
-0 Feb. 26
-San Antonio, TX
-355mi F 48 000
-Jakebrake Logistics LLC
-Unlock
-Unlock
-$1,000
+$3,200
 2h
-Carthage, TX
-0 Feb. 24
-San Antonio, TX
-361mi F 48 000
+Carrot River, SK
+113 Feb. 24
+Hillsboro & Il - Litchfield, IL
+- F 48 000
 Jakebrake Logistics LLC
 Unlock
 Unlock
-$1,000
+$3,200
+2h
+Carrot River, SK
+113 Feb. 24
+Marshall & Mo - Plattsburg, MO
+- F 48 000
+Jakebrake Logistics LLC
+Unlock
+Unlock
+$3,200
+25m
+Carrot River, SK
+113 Feb. 24
+Osage Beach, MO
+1 730mi F 48 000
+Jakebrake Logistics LLC
+Unlock
+Unlock
+$3,200
+2h
+Carrot River, SK
+113 Feb. 24
+Paris & Il - Champaign, IL
+2 034mi F 48 000
+Jakebrake Logistics LLC
+Unlock
+Unlock
+$3,200
+2h
+Carrot River, SK
+113 Feb. 24
+Camdenton & Mo - Eldon, MO
+- F 48 000
+Jakebrake Logistics LLC
+Unlock
+Unlock
+$3,200
+22m
+Carrot River, SK
+113 Feb. 24
+Versailles, MO
+1 757mi F 48 000
+Jakebrake Logistics LLC
+Unlock
+Unlock
+$3,100
+18m
+Carrot River, SK
+113 Feb. 24
+Marshall, MO
+1 735mi F 48 000
+Jakebrake Logistics LLC
+Unlock
+Unlock
+$3,000
+13m
+Carrot River, SK
+113 Feb. 24
+Jerseyville, IL
+1 906mi F 48 000
+Jakebrake Logistics LLC
+Unlock
+Unlock
+$3,000
+13m
+Carrot River, SK
+113 Feb. 24
+Troy, IL
+1 877mi F 48 000
+Jakebrake Logistics LLC
+Unlock
+Unlock
+$3,000
+13m
+Carrot River, SK
+113 Feb. 24
+Camdenton, MO
+1 721mi F 48 000
+Jakebrake Logistics LLC
+Unlock
+Unlock
+$3,000
+13m
+Carrot River, SK
+113 Feb. 24
+Paris, IL
+2 022mi F 48 000
+Jakebrake Logistics LLC
+Unlock
+Unlock
+$3,000
+13m
+Carrot River, SK
+113 Feb. 24
+Hillsboro, IL
+1 920mi F 48 000
+Jakebrake Logistics LLC
+Unlock
+Unlock
+$3,000
+22m
+Carrot River, SK
+113 Feb. 24
+Wichita, KS
+1 410mi F 48 000
+Jakebrake Logistics LLC
+Unlock
+Unlock
+$3,000
+12m
+Carrot River, SK
+113 Feb. 24
+Belleville, IL
+1 874mi F 48 000
+Jakebrake Logistics LLC
+Unlock
+Unlock
+$2,900
+2h
+Carrot River, SK
+113 Feb. 24
+Conroe, TX
+1 663mi F 48 000
+Jakebrake Logistics LLC
+Unlock
+Unlock
+$2,800
+27m
+Little Rock, AR
+1486 Feb. 25
+Bell Gardens, CA
+1 664mi F,SD 48 000
+Bieri Brokerage
+Unlock
+Unlock
+$2,750
+25m
+Little Rock, AR
+1486 Feb. 26
+Bell Gardens, CA
+1 664mi F,SD 48 000
+Bieri Brokerage
+Unlock
+Unlock
+$2,750
 2m
-Port Arthur, TX
-0 Mar. 02
-San Antonio, TX
-286mi F,SD 48 000
-Bieri Brokerage
-Unlock
-Unlock
-$965
-6m
-Port Arthur, TX
-0 Feb. 27
-San Antonio, TX
-286mi F,SD 48 000
-Bieri Brokerage
-Unlock
-Unlock
-$965
-7m
-Jasper, TX
-0 Feb. 25
-San Antonio, TX
-330mi F,SD 48 000
-Bieri Brokerage
-Unlock
-Unlock
-$965
-26m
-Jasper, TX
-0 Feb. 24
-San Antonio, TX
-334mi F 48 000
+Little Rock, AR
+1485 Feb. 24
+Bell Gardens, CA
+1 667mi F 48 000
 Jakebrake Logistics LLC
 Unlock
 Unlock
-$950
-21m
-Port Arthur, TX
-0 Feb. 24
-San Antonio, TX
-285mi F 48 000
-Jakebrake Logistics LLC
-Unlock
-Unlock
-$950
-8m
-Nacogdoches, TX
-0 Feb. 25
-Burnet, TX
-265mi F 48 000
-Jakebrake Logistics LLC
-Unlock
-Unlock
-$900
-2m
-Nacogdoches, TX
-0 Feb. 26
-San Antonio, TX
-338mi F,SD 48 000
-Bieri Brokerage
-Unlock
-Unlock
-$875
-2m
-Nacogdoches, TX
-0 Feb. 26
-Burnet, TX
-257mi F,SD 48 000
-Bieri Brokerage
-Unlock
-Unlock
-$875
-5m
-Nacogdoches, TX
-0 Feb. 25
-San Antonio, TX
-338mi F,SD 48 000
-Bieri Brokerage
-Unlock
-Unlock
-$875
-6m
-Nacogdoches, TX
-0 Feb. 25
-Burnet, TX
-257mi F,SD 48 000
-Bieri Brokerage
-Unlock
-Unlock
-$875
-30m
-Lake Charles, LA
-0 Feb. 24
-Kilgore, TX
-234mi F 48 000
-Jakebrake Logistics LLC
-Unlock
-Unlock
-$850
-Toll Charge
-Toll Charge
-Toll Charge
-Toll Charge
-Toll Charge
-Toll Charge
-Toll Charge
-Toll Charge
-Toll Charge
-Toll Charge
-Toll Charge
+$2,750
 Terms of use© 1987–2026 HERE
 Toll Charge
 Capacity Indicator
@@ -1150,14 +1130,14 @@ OFFER
 Details
 Market Insights
 Pick Up
-Miami, FL
-Feb 24 00:00 / Deadhead 8mi
-Distance: 735mi
+Ontario, CA
+Feb 24 00:00 / Deadhead 43mi
+Distance: 238mi
 Drop Off
-Greer, SC
+North Las Vegas, NV
 Feb 27 23:00
-$1,300
-$1.77 / mi
+$600
+$2.52 / mi
 Get Paid Faster
 Market Average
 Unlock
@@ -1171,8 +1151,8 @@ Length
 Size
 full
 Note
-YES
-Up to $1,300 in your bank account within a day
+NO
+Up to $600 in your bank account within a day
 You've earned an additional reward! FREE Truckloads Membership sponsored by WEX.
 REDEEM NOW
 Broker
@@ -1191,33 +1171,33 @@ Unlock
 Credit Score
 Unlock
 BackHaul
-856 possible loads
+41 possible loads
 Feb 23
-Greer SC
+North Las Vegas NV
   → 
 Anywhere
-304
-Greer SC
+26
+North Las Vegas NV
   → 
-Miami FL
-30
-Greer SC
+Ontario CA
+2
+North Las Vegas NV
   → 
 Home
-10
+2
 Feb 24
-Greer SC
+North Las Vegas NV
   → 
 Anywhere
-451
-Greer SC
+9
+North Las Vegas NV
   → 
-Miami FL
-41
-Greer SC
+Ontario CA
+1
+North Las Vegas NV
   → 
 Home
-20
+1
 UNLOCK
 Unlock all information on loads and brokers (rates, credit reports, more)
 Find the best paying freight across the country via an advanced dashboard

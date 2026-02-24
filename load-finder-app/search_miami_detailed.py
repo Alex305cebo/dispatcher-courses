@@ -154,35 +154,104 @@ def login(driver, credentials):
         return False
 
 def search_loads(driver, city="Miami", state="FL"):
-    """Поиск грузов"""
+    """Поиск грузов - проверенный метод"""
     print(f"\n🔍 Поиск грузов из {city}, {state}...")
     
     try:
+        # Обновляем страницу после логина
+        print("   🔄 Обновляем страницу...")
         driver.refresh()
         time.sleep(3)
         
-        # Находим поле Pick Up
-        pickup_input = WebDriverWait(driver, 10).until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, "input[placeholder*='Pick']"))
-        )
+        # Ищем поле Pick Up разными способами
+        print("   📝 Ищем поле Pick Up...")
+        pickup_input = None
         
+        # Способ 1: По placeholder
+        try:
+            pickup_input = driver.find_element(By.CSS_SELECTOR, "input[placeholder*='Pick Up']")
+            print("   ✅ Найдено по placeholder")
+        except:
+            pass
+        
+        # Способ 2: По ID или name
+        if not pickup_input:
+            try:
+                pickup_input = driver.find_element(By.CSS_SELECTOR, "input[id*='pick'], input[name*='pick']")
+                print("   ✅ Найдено по ID/name")
+            except:
+                pass
+        
+        # Способ 3: Перебираем все input
+        if not pickup_input:
+            inputs = driver.find_elements(By.TAG_NAME, "input")
+            for inp in inputs:
+                placeholder = inp.get_attribute('placeholder') or ''
+                if 'pick' in placeholder.lower():
+                    pickup_input = inp
+                    print(f"   ✅ Найдено: placeholder='{placeholder}'")
+                    break
+        
+        if not pickup_input:
+            print("   ❌ Поле Pick Up не найдено!")
+            driver.save_screenshot("pickup_not_found.png")
+            return False
+        
+        # Заполняем поле
         pickup_input.click()
         time.sleep(0.5)
-        pickup_input.clear()
-        pickup_input.send_keys(f"{city}, {state}")
         
-        time.sleep(2)
+        search_text = f"{city}, {state}"
+        pickup_input.clear()
+        pickup_input.send_keys(search_text)
+        print(f"   ✅ Pick Up: {search_text}")
+        time.sleep(1.5)
         
         # Нажимаем Enter
         from selenium.webdriver.common.keys import Keys
         pickup_input.send_keys(Keys.RETURN)
+        time.sleep(1)
         
-        time.sleep(5)
+        # Ищем и нажимаем кнопку SEARCH
+        print("   🔘 Ищем кнопку SEARCH...")
+        try:
+            search_btn = None
+            
+            # Способ 1: По тексту
+            try:
+                search_btn = driver.find_element(By.XPATH, "//button[contains(text(), 'SEARCH') or contains(text(), 'Search')]")
+            except:
+                pass
+            
+            # Способ 2: Перебираем кнопки
+            if not search_btn:
+                buttons = driver.find_elements(By.TAG_NAME, "button")
+                for btn in buttons:
+                    if 'search' in btn.text.lower():
+                        search_btn = btn
+                        break
+            
+            if search_btn:
+                search_btn.click()
+                print("   ✅ Кнопка SEARCH нажата!")
+                time.sleep(3)
+            else:
+                print("   ⚠️ Кнопка SEARCH не найдена, используем Enter")
+        except Exception as e:
+            print(f"   ⚠️ Ошибка нажатия SEARCH: {e}")
+        
         print("✅ Поиск выполнен!")
+        driver.save_screenshot("search_completed.png")
         return True
         
     except Exception as e:
         print(f"❌ Ошибка поиска: {e}")
+        import traceback
+        traceback.print_exc()
+        try:
+            driver.save_screenshot("search_error.png")
+        except:
+            pass
         return False
 
 def extract_load_details(driver, load_element):
