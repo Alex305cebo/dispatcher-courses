@@ -12,6 +12,10 @@ users.db
 .env.local
 .env.production
 
+# Credentials (ВАЖНО: не коммитить!)
+credentials.json
+load-finder-app/credentials.json
+
 # Logs
 logs/
 *.log
