@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>����: ������ 8 - ���� ������ � ������������ | ����� - ����������</title>
-    <script src="auth-check.js"></script>
-        <style>
+    <title>Тест: Модуль 8 - Типы грузов и оборудования | Курсы - Диспетчера</title>
+    <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 30px 20px; display: flex; flex-direction: column; align-items: center; }
         .container { max-width: 900px; width: 100%; margin: 0 auto; }
@@ -90,46 +89,46 @@
     <div class="container">
         <div class="header">
             <div class="header-top">
-                <div class="test-badge">?? ����: ������ 8</div>
-                <a href="modules.html" class="back-btn">< �����</a>
+                <div class="test-badge">📝 Тест: Модуль 8</div>
+                <a href="modules.html" class="back-btn">← Назад</a>
             </div>
-            <h1>���� ������ � ������������</h1>
-            <p class="subtitle">17 �������� ��� �������� ������</p>
+            <h1>Типы грузов и оборудования</h1>
+            <p class="subtitle">17 вопросов для проверки знаний</p>
             <div class="progress-bar"><div class="progress-fill" id="progressBar"></div></div>
         </div>
 
         <div id="questionsContainer"></div>
 
         <div class="results" id="results">
-            <h2 style="color: #2d3748; font-size: 32px; margin-bottom: 20px;">���������� �����</h2>
+            <h2 style="color: #2d3748; font-size: 32px; margin-bottom: 20px;">Результаты теста</h2>
             <div class="score" id="scoreDisplay"></div>
             <p class="result-message" id="resultMessage"></p>
             <div class="nav-buttons">
-                <button class="btn btn-primary" onclick="location.href='module-9.html'">��������� ������ ></button>
-                <button class="btn btn-secondary" onclick="location.reload()">������ ������</button>
+                <button class="btn btn-primary" onclick="location.href='module-9.html'">Следующий модуль →</button>
+                <button class="btn btn-secondary" onclick="location.reload()">Пройти заново</button>
             </div>
         </div>
     </div>
 
     <script>
         const questions = [
-            {q: "����� ���������������� ��� ��������:", a: ["Reefer", "53ft Dry Van", "Flatbed", "Tanker"], correct: 1},
-            {q: "��� ����� Dry Van?", a: ["������ ������", "�������� ������ ��� ����� ������", "�������� ���������", "��������"], correct: 1},
-            {q: "������������ ��� ��� Dry Van:", a: ["30,000 lbs", "40,000 lbs", "45,000 lbs", "50,000 lbs"], correct: 2},
-            {q: "��� ����� Reefer?", a: ["����� ������", "��������������� �������", "���������", "��������"], correct: 1},
-            {q: "������������� �������� Reefer:", a: ["0�F �� 100�F", "-20�F �� 70�F", "32�F �� 50�F", "������ 0�F"], correct: 1},
-            {q: "������ Reefer ������:", a: ["���� Dry Van", "����� Dry Van", "���� Dry Van �� 10-30%", "� 2 ���� ����"], correct: 2},
-            {q: "��� ����� Flatbed?", a: ["�������� ������", "�������� ���������", "��������", "������������"], correct: 1},
-            {q: "Flatbed ������������ ���:", a: ["���������", "������������ ����������, ������������", "���������", "������ ������ ������"], correct: 1},
-            {q: "��� ����� Step Deck?", a: ["������� ���������", "��������� � ���������� �����", "�������� ������", "��������"], correct: 1},
-            {q: "��� �������� HAZMAT?", a: ["������� ����", "������� ���������", "������� ����", "������� ����"], correct: 1},
-            {q: "��� HAZMAT �����:", a: ["������� CDL", "CDL � HAZMAT Endorsement", "����� �����", "��� ����������"], correct: 1},
-            {q: "��� ����� Oversized Load?", a: ["������� ����", "���� ����������� ����������� �������", "������ ����", "��������� ����"], correct: 1},
-            {q: "��� Oversized Load �����:", a: ["������", "����������� ���������� (permits)", "������ ���������", "������ ����"], correct: 1},
-            {q: "��� ����� Power Only?", a: ["���� ��� ��������", "���� ����� ����� �������", "������ �������", "��� �����"], correct: 1},
-            {q: "��� ����� Box Truck?", a: ["53ft �������", "��������� �������� � ��������", "���������", "��������"], correct: 1},
-            {q: "Sprinter Van ������������ ���:", a: ["������� ������", "������ ������� ������", "���������", "�������������"], correct: 1},
-            {q: "����� ������� ������ ������ �:", a: ["Dry Van", "Reefer", "Flatbed", "Oversized/HAZMAT"], correct: 3}
+            {q: "Самый распространенный тип трейлера:", a: ["Reefer", "53ft Dry Van", "Flatbed", "Tanker"], correct: 1},
+            {q: "Что такое Dry Van?", a: ["Мокрый фургон", "Закрытый фургон для сухих грузов", "Открытая платформа", "Цистерна"], correct: 1},
+            {q: "Максимальный вес для Dry Van:", a: ["30,000 lbs", "40,000 lbs", "45,000 lbs", "50,000 lbs"], correct: 2},
+            {q: "Что такое Reefer?", a: ["Сухой фургон", "Рефрижераторный трейлер", "Платформа", "Цистерна"], correct: 1},
+            {q: "Температурный диапазон Reefer:", a: ["0°F до 100°F", "-20°F до 70°F", "32°F до 50°F", "Только 0°F"], correct: 1},
+            {q: "Ставка Reefer обычно:", a: ["Ниже Dry Van", "Равна Dry Van", "Выше Dry Van на 10-30%", "В 2 раза выше"], correct: 2},
+            {q: "Что такое Flatbed?", a: ["Закрытый фургон", "Открытая платформа", "Цистерна", "Рефрижератор"], correct: 1},
+            {q: "Flatbed используется для:", a: ["Продуктов", "Строительных материалов, оборудования", "Жидкостей", "Только легких грузов"], correct: 1},
+            {q: "Что такое Step Deck?", a: ["Обычная платформа", "Платформа с пониженной декой", "Закрытый фургон", "Цистерна"], correct: 1},
+            {q: "Что означает HAZMAT?", a: ["Тяжелый груз", "Опасные материалы", "Хрупкий груз", "Дорогой груз"], correct: 1},
+            {q: "Для HAZMAT нужен:", a: ["Обычный CDL", "CDL с HAZMAT Endorsement", "Любые права", "Нет требований"], correct: 1},
+            {q: "Что такое Oversized Load?", a: ["Обычный груз", "Груз превышающий стандартные размеры", "Легкий груз", "Маленький груз"], correct: 1},
+            {q: "Для Oversized Load нужны:", a: ["Ничего", "Специальные разрешения (permits)", "Только страховка", "Только опыт"], correct: 1},
+            {q: "Что такое Power Only?", a: ["Трак без трейлера", "Трак тянет чужой трейлер", "Только трейлер", "Тип груза"], correct: 1},
+            {q: "Что такое Box Truck?", a: ["53ft трейлер", "Маленький грузовик с фургоном", "Платформа", "Цистерна"], correct: 1},
+            {q: "Sprinter Van используется для:", a: ["Тяжелых грузов", "Легких срочных грузов", "Жидкостей", "Строительства"], correct: 1},
+            {q: "Самая высокая ставка обычно у:", a: ["Dry Van", "Reefer", "Flatbed", "Oversized/HAZMAT"], correct: 3}
         ];
 
         let currentQuestion = 0;
@@ -142,7 +141,7 @@
                 const card = document.createElement('div');
                 card.className = 'question-card' + (index === 0 ? ' active' : '');
                 card.innerHTML = `
-                    <div class="question-number">������ ${index + 1} �� ${questions.length}</div>
+                    <div class="question-number">Вопрос ${index + 1} из ${questions.length}</div>
                     <div class="question-text">${q.q}</div>
                     <div class="answers">
                         ${q.a.map((answer, i) => `<div class="answer" onclick="selectAnswer(${index}, ${i})">${answer}</div>`).join('')}
@@ -197,7 +196,7 @@
             const percentage = Math.round((score / questions.length) * 100);
             const passed = percentage >= 70;
             
-            // ��������� ��������� � localStorage
+            // Сохраняем результат в localStorage
             localStorage.setItem('module_8_test_result', percentage);
             localStorage.setItem('module_8_test_score', score);
             localStorage.setItem('module_8_test_total', questions.length);
@@ -211,49 +210,12 @@
             scoreDisplay.className = 'score ' + (passed ? 'pass' : 'fail');
             
             document.getElementById('resultMessage').textContent = passed ? 
-                `�����������! �� ������� ������ ���� (${score}/${questions.length})` :
-                `���� �� �������. ���������� ������� ������� 70% (${score}/${questions.length})`;
+                `Поздравляем! Вы успешно прошли тест (${score}/${questions.length})` :
+                `Тест не пройден. Необходимо набрать минимум 70% (${score}/${questions.length})`;
         }
 
         initTest();
     </script>
 <script src="../theme-switcher.js"></script>
-
-<!-- Footer -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h4>Курсы Диспетчера</h4>
-        <p>Профессиональное обучение диспетчеров грузоперевозок</p>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Обучение</h4>
-        <a href="courses.html">Курсы</a>
-        <a href="certification.html">Сертификация</a>
-        <a href="webinars.html">Вебинары</a>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Поддержка</h4>
-        <a href="faq.html">FAQ</a>
-        <a href="contacts.html">Контакты</a>
-        <a href="help.html">Помощь</a>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Компания</h4>
-        <a href="about.html">О нас</a>
-        <a href="blog.html">Блог</a>
-        <a href="career.html">Карьера</a>
-      </div>
-    </div>
-    
-    <div class="footer-bottom">
-      <p>&copy; 2024 Курсы Диспетчера. Все права защищены.</p>
-    </div>
-  </div>
-</footer>
 </body>
 </html>

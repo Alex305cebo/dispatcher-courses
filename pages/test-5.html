@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>����: ������ 5 - ������������ � ��������� | ����� - ����������</title>
-    <script src="auth-check.js"></script>
-        <style>
+    <title>Тест: Модуль 5 - Коммуникация с брокерами | Курсы - Диспетчера</title>
+    <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 30px 20px; display: flex; flex-direction: column; align-items: center; }
         .container { max-width: 900px; width: 100%; margin: 0 auto; }
@@ -90,45 +89,45 @@
     <div class="container">
         <div class="header">
             <div class="header-top">
-                <div class="test-badge">?? ����: ������ 5</div>
-                <a href="modules.html" class="back-btn">< �����</a>
+                <div class="test-badge">📝 Тест: Модуль 5</div>
+                <a href="modules.html" class="back-btn">← Назад</a>
             </div>
-            <h1>������������ � ���������</h1>
-            <p class="subtitle">16 �������� ��� �������� ������</p>
+            <h1>Коммуникация с брокерами</h1>
+            <p class="subtitle">16 вопросов для проверки знаний</p>
             <div class="progress-bar"><div class="progress-fill" id="progressBar"></div></div>
         </div>
 
         <div id="questionsContainer"></div>
 
         <div class="results" id="results">
-            <h2 style="color: #2d3748; font-size: 32px; margin-bottom: 20px;">���������� �����</h2>
+            <h2 style="color: #2d3748; font-size: 32px; margin-bottom: 20px;">Результаты теста</h2>
             <div class="score" id="scoreDisplay"></div>
             <p class="result-message" id="resultMessage"></p>
             <div class="nav-buttons">
-                <button class="btn btn-primary" onclick="location.href='module-6.html'">��������� ������ ></button>
-                <button class="btn btn-secondary" onclick="location.reload()">������ ������</button>
+                <button class="btn btn-primary" onclick="location.href='module-6.html'">Следующий модуль →</button>
+                <button class="btn btn-secondary" onclick="location.reload()">Пройти заново</button>
             </div>
         </div>
     </div>
 
     <script>
         const questions = [
-            {q: "���������� ������ ��������� �������:", a: ["Hi", "Good morning/afternoon", "Hey", "Hello there"], correct: 1},
-            {q: "��� ������ ���� � ������ ���������?", a: ["������ ����", "MC#, DOT#, ��� �����, �������", "������ ���", "������ �������"], correct: 1},
-            {q: "��� ��������� ��������� Rate Confirmation?", a: ["Send RC", "Could you please send the Rate Confirmation?", "RC now", "Give me RC"], correct: 1},
-            {q: "��� ����� TONU?", a: ["Truck Ordered Not Used - ������ �����", "��� �����", "���������", "��������"], correct: 0},
-            {q: "����� ���������� Check Call?", a: ["�������", "��� ��������, � ����, ��� ���������", "������ � �����", "������ ���"], correct: 1},
-            {q: "���������� ������ Check Call:", a: ["Loaded, ETA 3pm", "Driver loaded at [location], ETA [time] at [destination]", "Ok", "Done"], correct: 1},
-            {q: "��� �������� 'Please advise'?", a: ["����������, ��������", "��������", "�����������", "����������"], correct: 0},
-            {q: "��� ��������� ��������� ������?", a: ["More money", "Could you do $X for this load?", "I want more", "Pay more"], correct: 1},
-            {q: "��� ����� Detention Pay?", a: ["������ �� ��������", "�������� ������", "�����", "�����"], correct: 0},
-            {q: "����������� ������ Detention:", a: ["$25/���", "$50/���", "$100/���", "$200/���"], correct: 1},
-            {q: "����� ���������� Detention?", a: ["����� �� ��������", "����� 2 ���� ����� ��������", "����� 4 ����", "�������"], correct: 1},
-            {q: "��� ����� TONU Pay?", a: ["����������� �� ������ �����", "�������� ������", "�����", "�����"], correct: 0},
-            {q: "��� �������� � ��������?", a: ["Delay", "We are experiencing a delay due to [reason], new ETA is [time]", "Late", "Problem"], correct: 1},
-            {q: "��� ����� POD?", a: ["Proof of Delivery - ������������� ��������", "��� �����", "���������", "������"], correct: 0},
-            {q: "����� ���������� POD?", a: ["����� ������", "����� ����� ���������", "����� �����", "�������"], correct: 1},
-            {q: "���������� ���������� ���������:", a: ["Bye", "Thank you, have a great day!", "Ok", "Done"], correct: 1}
+            {q: "Правильное начало сообщения брокеру:", a: ["Hi", "Good morning/afternoon", "Hey", "Hello there"], correct: 1},
+            {q: "Что должно быть в первом сообщении?", a: ["Только цена", "MC#, DOT#, тип трака, локация", "Только имя", "Только телефон"], correct: 1},
+            {q: "Как правильно запросить Rate Confirmation?", a: ["Send RC", "Could you please send the Rate Confirmation?", "RC now", "Give me RC"], correct: 1},
+            {q: "Что такое TONU?", a: ["Truck Ordered Not Used - отмена груза", "Тип груза", "Страховка", "Документ"], correct: 0},
+            {q: "Когда отправлять Check Call?", a: ["Никогда", "При погрузке, в пути, при разгрузке", "Только в конце", "Каждый час"], correct: 1},
+            {q: "Правильный формат Check Call:", a: ["Loaded, ETA 3pm", "Driver loaded at [location], ETA [time] at [destination]", "Ok", "Done"], correct: 1},
+            {q: "Что означает 'Please advise'?", a: ["Пожалуйста, сообщите", "Отмените", "Подтвердите", "Откажитесь"], correct: 0},
+            {q: "Как запросить повышение ставки?", a: ["More money", "Could you do $X for this load?", "I want more", "Pay more"], correct: 1},
+            {q: "Что такое Detention Pay?", a: ["Оплата за задержку", "Основная ставка", "Штраф", "Бонус"], correct: 0},
+            {q: "Стандартная ставка Detention:", a: ["$25/час", "$50/час", "$100/час", "$200/час"], correct: 1},
+            {q: "Когда начинается Detention?", a: ["Сразу по прибытии", "Через 2 часа после прибытия", "Через 4 часа", "Никогда"], correct: 1},
+            {q: "Что такое TONU Pay?", a: ["Компенсация за отмену груза", "Основная ставка", "Бонус", "Штраф"], correct: 0},
+            {q: "Как сообщить о задержке?", a: ["Delay", "We are experiencing a delay due to [reason], new ETA is [time]", "Late", "Problem"], correct: 1},
+            {q: "Что такое POD?", a: ["Proof of Delivery - подтверждение доставки", "Тип груза", "Страховка", "Ставка"], correct: 0},
+            {q: "Когда отправлять POD?", a: ["Через неделю", "Сразу после разгрузки", "Через месяц", "Никогда"], correct: 1},
+            {q: "Правильное завершение сообщения:", a: ["Bye", "Thank you, have a great day!", "Ok", "Done"], correct: 1}
         ];
 
         let currentQuestion = 0;
@@ -141,7 +140,7 @@
                 const card = document.createElement('div');
                 card.className = 'question-card' + (index === 0 ? ' active' : '');
                 card.innerHTML = `
-                    <div class="question-number">������ ${index + 1} �� ${questions.length}</div>
+                    <div class="question-number">Вопрос ${index + 1} из ${questions.length}</div>
                     <div class="question-text">${q.q}</div>
                     <div class="answers">
                         ${q.a.map((answer, i) => `<div class="answer" onclick="selectAnswer(${index}, ${i})">${answer}</div>`).join('')}
@@ -196,7 +195,7 @@
             const percentage = Math.round((score / questions.length) * 100);
             const passed = percentage >= 70;
             
-            // ��������� ��������� � localStorage
+            // Сохраняем результат в localStorage
             localStorage.setItem('module_5_test_result', percentage);
             localStorage.setItem('module_5_test_score', score);
             localStorage.setItem('module_5_test_total', questions.length);
@@ -210,49 +209,12 @@
             scoreDisplay.className = 'score ' + (passed ? 'pass' : 'fail');
             
             document.getElementById('resultMessage').textContent = passed ? 
-                `�����������! �� ������� ������ ���� (${score}/${questions.length})` :
-                `���� �� �������. ���������� ������� ������� 70% (${score}/${questions.length})`;
+                `Поздравляем! Вы успешно прошли тест (${score}/${questions.length})` :
+                `Тест не пройден. Необходимо набрать минимум 70% (${score}/${questions.length})`;
         }
 
         initTest();
     </script>
 <script src="../theme-switcher.js"></script>
-
-<!-- Footer -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h4>Курсы Диспетчера</h4>
-        <p>Профессиональное обучение диспетчеров грузоперевозок</p>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Обучение</h4>
-        <a href="courses.html">Курсы</a>
-        <a href="certification.html">Сертификация</a>
-        <a href="webinars.html">Вебинары</a>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Поддержка</h4>
-        <a href="faq.html">FAQ</a>
-        <a href="contacts.html">Контакты</a>
-        <a href="help.html">Помощь</a>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Компания</h4>
-        <a href="about.html">О нас</a>
-        <a href="blog.html">Блог</a>
-        <a href="career.html">Карьера</a>
-      </div>
-    </div>
-    
-    <div class="footer-bottom">
-      <p>&copy; 2024 Курсы Диспетчера. Все права защищены.</p>
-    </div>
-  </div>
-</footer>
 </body>
 </html>

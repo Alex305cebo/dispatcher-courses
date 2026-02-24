@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>������ 9: ������� � ������� | ����� - ����������</title>
-    <script src="auth-check.js"></script>
-        <style>
+    <title>Модуль 9: Финансы и расчеты | Курсы - Диспетчера</title>
+    <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 30px 20px; display: flex; flex-direction: column; align-items: center; }
         body::before { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3), transparent 50%), radial-gradient(circle at 80% 80%, rgba(138, 43, 226, 0.3), transparent 50%), radial-gradient(circle at 40% 20%, rgba(75, 0, 130, 0.2), transparent 50%); animation: backgroundMove 20s ease infinite; z-index: -1; }
@@ -48,138 +47,138 @@
     <div class="container">
         <div class="header">
             <div class="header-top">
-                <div class="module-badge"><div class="module-number">9</div><span>������ 9 �� 10</span></div>
-                <a href="modules.html" class="back-btn">< ����� � �������</a>
+                <div class="module-badge"><div class="module-number">9</div><span>Модуль 9 из 10</span></div>
+                <a href="modules.html" class="back-btn">← Назад к модулям</a>
             </div>
-            <h1>������� � �������</h1>
-            <p class="subtitle">������ ������������ ������</p>
+            <h1>Финансы и расчеты</h1>
+            <p class="subtitle">Расчет прибыльности рейсов</p>
         </div>
         <div class="content-card">
-            <h2 class="section-title">?? ����� ������</h2>
+            <h2 class="section-title">📖 Обзор модуля</h2>
             <div class="section-content">
-                <p>���������� ����������� - ���� � ������ ����������. ������ ��������� ������������ ������������ ������, ��������� ��� ������� � �������������� ����� �������� ��������������� �����.</p>
-                <p>� ���� ������ �� ��������� ������������ ������������ �����, ������������� rate per mile, ��������� ������� �� ������� � deadhead, �������������� ����� � �������� � �����������.</p>
+                <p>Финансовая грамотность - ключ к успеху диспетчера. Умение правильно рассчитывать прибыльность грузов, учитывать все расходы и оптимизировать маржу помогает максимизировать доход.</p>
+                <p>В этом модуле вы научитесь рассчитывать прибыльность груза, анализировать rate per mile, учитывать расходы на топливо и deadhead, оптимизировать маржу и работать с факторингом.</p>
             </div>
         </div>
         <div class="lesson-card">
-            <div class="lesson-title"><span>??</span> ���� 1: ������ ������������ �����</div>
+            <div class="lesson-title"><span>💰</span> Урок 1: Расчет прибыльности груза</div>
             <div class="lesson-content">
-                <p><strong>������� ������� ������������:</strong></p>
+                <p><strong>Формула расчета прибыльности:</strong></p>
                 <ul style="text-align: center; list-style-position: inside;">
-                    <li><strong>������� �������:</strong> ������ �� ���� �� �������</li>
-                    <li><strong>����� �������:</strong> �������, tolls, lumper fees, factoring</li>
-                    <li><strong>������ �������:</strong> ������� ������� - ��� �������</li>
-                    <li><strong>�����:</strong> (������ ������� / ������� �������) ? 100%</li>
+                    <li><strong>Валовая выручка:</strong> Ставка за груз от брокера</li>
+                    <li><strong>Минус расходы:</strong> Топливо, tolls, lumper fees, factoring</li>
+                    <li><strong>Чистая прибыль:</strong> Валовая выручка - Все расходы</li>
+                    <li><strong>Маржа:</strong> (Чистая прибыль / Валовая выручка) × 100%</li>
                 </ul>
-                <p style="margin-top: 15px;"><strong>������ �������:</strong></p>
+                <p style="margin-top: 15px;"><strong>Пример расчета:</strong></p>
                 <ul style="text-align: center; list-style-position: inside;">
-                    <li>����: Chicago, IL > Dallas, TX</li>
-                    <li>����������: 1,000 ���� (900 loaded + 100 deadhead)</li>
-                    <li>������: $2,500</li>
-                    <li>�������: (1,000 ���� / 6.5 MPG) ? $3.50 = $538</li>
+                    <li>Груз: Chicago, IL → Dallas, TX</li>
+                    <li>Расстояние: 1,000 миль (900 loaded + 100 deadhead)</li>
+                    <li>Ставка: $2,500</li>
+                    <li>Топливо: (1,000 миль / 6.5 MPG) × $3.50 = $538</li>
                     <li>Tolls: $50</li>
                     <li>Lumper fee: $75</li>
                     <li>Factoring (3%): $75</li>
-                    <li>������ �������: $2,500 - $538 - $50 - $75 - $75 = $1,762</li>
-                    <li>�����: ($1,762 / $2,500) ? 100% = 70.5%</li>
-                    <li>RPM ����� ��������: $1,762 / 1,000 ���� = $1.76/mile</li>
+                    <li>Чистая прибыль: $2,500 - $538 - $50 - $75 - $75 = $1,762</li>
+                    <li>Маржа: ($1,762 / $2,500) × 100% = 70.5%</li>
+                    <li>RPM после расходов: $1,762 / 1,000 миль = $1.76/mile</li>
                 </ul>
             </div>
         </div>
         <div class="lesson-card">
-            <div class="lesson-title"><span>??</span> ���� 2: Rate per mile ������</div>
+            <div class="lesson-title"><span>📊</span> Урок 2: Rate per mile анализ</div>
             <div class="lesson-content">
-                <p><strong>��� ����� RPM (Rate Per Mile):</strong></p>
+                <p><strong>Что такое RPM (Rate Per Mile):</strong></p>
                 <ul style="text-align: center; list-style-position: inside;">
-                    <li><strong>�����������:</strong> ������ �� ���� - �������� ���������� ������������</li>
-                    <li><strong>������:</strong> ������ �� ���� / ����� ������ (������� deadhead)</li>
-                    <li><strong>������:</strong> $2,500 / 1,000 ���� = $2.50/mile</li>
+                    <li><strong>Определение:</strong> Ставка за милю - ключевой показатель прибыльности</li>
+                    <li><strong>Расчет:</strong> Ставка за груз / Общий пробег (включая deadhead)</li>
+                    <li><strong>Пример:</strong> $2,500 / 1,000 миль = $2.50/mile</li>
                 </ul>
-                <p style="margin-top: 15px;"><strong>������� ������ �� ����� ���������:</strong></p>
+                <p style="margin-top: 15px;"><strong>Хорошие ставки по типам трейлеров:</strong></p>
                 <ul style="text-align: center; list-style-position: inside;">
-                    <li><strong>Dry Van:</strong> $1.80-2.50/mile (������� $1.50/mile)</li>
-                    <li><strong>Reefer:</strong> $2.20-3.50/mile (������� $2.00/mile)</li>
-                    <li><strong>Flatbed:</strong> $2.50-4.00/mile (������� $2.20/mile)</li>
+                    <li><strong>Dry Van:</strong> $1.80-2.50/mile (минимум $1.50/mile)</li>
+                    <li><strong>Reefer:</strong> $2.20-3.50/mile (минимум $2.00/mile)</li>
+                    <li><strong>Flatbed:</strong> $2.50-4.00/mile (минимум $2.20/mile)</li>
                     <li><strong>Step Deck:</strong> $3.00-5.00/mile</li>
                     <li><strong>HAZMAT:</strong> $3.00-5.00/mile</li>
                 </ul>
-                <p style="margin-top: 15px;"><strong>�������, �������� �� RPM:</strong></p>
+                <p style="margin-top: 15px;"><strong>Факторы, влияющие на RPM:</strong></p>
                 <ul style="text-align: center; list-style-position: inside;">
-                    <li><strong>�������:</strong> Hot lanes (������� �����) = ���� ������</li>
-                    <li><strong>����������:</strong> ���������, produce season = ���� ������</li>
-                    <li><strong>Deadhead:</strong> ������ deadhead = ���� ����������� RPM</li>
-                    <li><strong>Backhaul:</strong> ������� ��������� ����� �������� ����� RPM</li>
+                    <li><strong>Маршрут:</strong> Hot lanes (высокий спрос) = выше ставки</li>
+                    <li><strong>Сезонность:</strong> Праздники, produce season = выше ставки</li>
+                    <li><strong>Deadhead:</strong> Больше deadhead = ниже эффективный RPM</li>
+                    <li><strong>Backhaul:</strong> Наличие обратного груза улучшает общий RPM</li>
                 </ul>
             </div>
         </div>
 
         <div class="lesson-card">
-            <div class="lesson-title"><span>?</span> ���� 3: ���� �������� �� ������� � deadhead costs</div>
+            <div class="lesson-title"><span>⛽</span> Урок 3: Учет расходов на топливо и deadhead costs</div>
             <div class="lesson-content">
-                <p><strong>������ �������� �� �������:</strong></p>
+                <p><strong>Расчет расходов на топливо:</strong></p>
                 <ul style="text-align: center; list-style-position: inside;">
-                    <li><strong>������� ������:</strong> 6-7 MPG ��� Dry Van, 5.5-6.5 MPG ��� Reefer</li>
-                    <li><strong>�������:</strong> (���� / MPG) ? ���� ������� = ������ �� �������</li>
-                    <li><strong>������:</strong> (1,000 ���� / 6.5 MPG) ? $3.50 = $538</li>
-                    <li><strong>���� �������:</strong> ����������� $3.00-4.50/������ � ����������� �� �����</li>
-                    <li><strong>Fuel Cards:</strong> ����������� ��� ������ (Pilot Flying J, Love's, TA/Petro)</li>
-                    <li><strong>Fuel Surcharge:</strong> ��������� ������� ������ fuel surcharge ��������</li>
+                    <li><strong>Средний расход:</strong> 6-7 MPG для Dry Van, 5.5-6.5 MPG для Reefer</li>
+                    <li><strong>Формула:</strong> (Мили / MPG) × Цена галлона = Расход на топливо</li>
+                    <li><strong>Пример:</strong> (1,000 миль / 6.5 MPG) × $3.50 = $538</li>
+                    <li><strong>Цена топлива:</strong> Варьируется $3.00-4.50/галлон в зависимости от штата</li>
+                    <li><strong>Fuel Cards:</strong> Используйте для скидок (Pilot Flying J, Love's, TA/Petro)</li>
+                    <li><strong>Fuel Surcharge:</strong> Некоторые брокеры платят fuel surcharge отдельно</li>
                 </ul>
                 <p style="margin-top: 15px;"><strong>Deadhead costs:</strong></p>
                 <ul style="text-align: center; list-style-position: inside;">
-                    <li><strong>�����������:</strong> ������� �� ������ ������ ��� ������</li>
-                    <li><strong>������:</strong> (Deadhead ���� / MPG) ? ���� �������</li>
-                    <li><strong>������:</strong> 100 ���� deadhead = (100 / 6.5) ? $3.50 = $54</li>
-                    <li><strong>������� �� RPM:</strong> Deadhead ������� ����������� RPM</li>
-                    <li><strong>�����������:</strong> ����� ����� � ����������� deadhead (<50 ���� ��������)</li>
+                    <li><strong>Определение:</strong> Расходы на пустой пробег без дохода</li>
+                    <li><strong>Расчет:</strong> (Deadhead мили / MPG) × Цена галлона</li>
+                    <li><strong>Пример:</strong> 100 миль deadhead = (100 / 6.5) × $3.50 = $54</li>
+                    <li><strong>Влияние на RPM:</strong> Deadhead снижает эффективный RPM</li>
+                    <li><strong>Минимизация:</strong> Ищите грузы с минимальным deadhead (<50 миль идеально)</li>
                 </ul>
             </div>
         </div>
 
         <div class="lesson-card">
-            <div class="lesson-title"><span>??</span> ���� 4: ����������� ����� � ���������</div>
+            <div class="lesson-title"><span>📈</span> Урок 4: Оптимизация маржи и факторинг</div>
             <div class="lesson-content">
-                <p><strong>��� ��������� �����:</strong></p>
+                <p><strong>Как увеличить маржу:</strong></p>
                 <ul style="text-align: center; list-style-position: inside;">
-                    <li><strong>Negotiate Higher Rates:</strong> �� ������� ����������� � ���������</li>
-                    <li><strong>Minimize Deadhead:</strong> ���������� backhaul ����� �������������� �����</li>
-                    <li><strong>Fuel Efficiency:</strong> ������������� ���� � ������� ��������� ��� ������� MPG</li>
-                    <li><strong>Avoid Tolls:</strong> ����������� �������������� �������� ����� ��������</li>
-                    <li><strong>Detention Pay:</strong> ������ �������� ������ �� �������� >2 �����</li>
-                    <li><strong>Layover Pay:</strong> �������� ������ �� ����������� ���������</li>
-                    <li><strong>Hot Lanes:</strong> ��������� �� ���������� ���������</li>
+                    <li><strong>Negotiate Higher Rates:</strong> Не бойтесь торговаться с брокерами</li>
+                    <li><strong>Minimize Deadhead:</strong> Планируйте backhaul перед подтверждением груза</li>
+                    <li><strong>Fuel Efficiency:</strong> Поддерживайте трак в хорошем состоянии для лучшего MPG</li>
+                    <li><strong>Avoid Tolls:</strong> Используйте альтернативные маршруты когда возможно</li>
+                    <li><strong>Detention Pay:</strong> Всегда требуйте оплату за ожидание >2 часов</li>
+                    <li><strong>Layover Pay:</strong> Требуйте оплату за вынужденные остановки</li>
+                    <li><strong>Hot Lanes:</strong> Работайте на прибыльных маршрутах</li>
                 </ul>
-                <p style="margin-top: 15px;"><strong>��������� � ������:</strong></p>
+                <p style="margin-top: 15px;"><strong>Факторинг и оплата:</strong></p>
                 <ul style="text-align: center; list-style-position: inside;">
-                    <li><strong>����������� ������:</strong> 30-45 ���� �� �������</li>
-                    <li><strong>Quick Pay:</strong> ��������� ������� ���������� ������ � 5-7 ���� �� 2-3% ��������</li>
-                    <li><strong>Factoring:</strong> ������� �������� ��� ������ � 24-48 ����� �� 2-5% ��������</li>
-                    <li><strong>����� ������������:</strong> ��� ��������� cash flow, �������� ��� ����� ������������</li>
-                    <li><strong>������ ���������:</strong> $2,500 ���� ? 3% = $75 ��������</li>
-                    <li><strong>������:</strong> ������� ������ ��� ������ ������� � ������ ��������</li>
+                    <li><strong>Стандартная оплата:</strong> 30-45 дней от брокера</li>
+                    <li><strong>Quick Pay:</strong> Некоторые брокеры предлагают оплату в 5-7 дней за 2-3% комиссии</li>
+                    <li><strong>Factoring:</strong> Продажа инвойсов для оплаты в 24-48 часов за 2-5% комиссии</li>
+                    <li><strong>Когда использовать:</strong> Для улучшения cash flow, особенно для новых перевозчиков</li>
+                    <li><strong>Расчет стоимости:</strong> $2,500 груз × 3% = $75 комиссия</li>
+                    <li><strong>Выгода:</strong> Быстрые деньги для оплаты топлива и других расходов</li>
                 </ul>
             </div>
         </div>
 
         <div class="info-box">
-            <div class="info-title"><span>??</span> ������ ����������</div>
+            <div class="info-title"><span>💡</span> Важная информация</div>
             <p style="color: #78350f; font-size: 17px; line-height: 1.8;">
-                <strong>������ �������� = ������ ����� � �������!</strong> ������ ������������� ������������ ����� ����� ��������������. ���������� ��� ������� (�������, tolls, deadhead, factoring). ������� ����� - ������� 60-70%. �� ������ ��������� ����� - ����� ��������� ����������. ����������� ��������� ��� ��������� cash flow, �� ������� � ��������.
+                <strong>Знание финансов = больше денег в кармане!</strong> Всегда рассчитывайте прибыльность груза ПЕРЕД подтверждением. Учитывайте все расходы (топливо, tolls, deadhead, factoring). Хорошая маржа - минимум 60-70%. Не берите убыточные грузы - лучше подождать прибыльный. Используйте факторинг для улучшения cash flow, но помните о комиссии.
             </p>
         </div>
 
         <div class="content-card">
-            <h2 class="section-title">?? ��������� ����</h2>
+            <h2 class="section-title">🎯 Следующие шаги</h2>
             <p style="color: #4a5568; font-size: 18px; line-height: 1.9; margin-bottom: 20px;">
-                ������ �� ������, ��� ������������ ������������ � �������������� ������. ��������� ������ �������� ����������� ��������� � ������������ - ��� ����������� ��� �������, �������� � ������ ���������.
+                Теперь вы знаете, как рассчитывать прибыльность и оптимизировать доходы. Последний модуль посвящен критическим ситуациям и безопасности - как действовать при авариях, поломках и других проблемах.
             </p>
             <div class="action-buttons">
-                <a href="module-10.html" class="btn btn-primary">��������� ������: ����������� �������� ></a>
-                <a href="module-8.html" class="btn btn-secondary">< ���������� ������</a>
+                <a href="module-10.html" class="btn btn-primary">Следующий модуль: Критические ситуации →</a>
+                <a href="module-8.html" class="btn btn-secondary">← Предыдущий модуль</a>
             </div>
         </div>
     </div>
-    <button id="scrollToTop" style="display: none; position: fixed; bottom: 30px; right: 30px; z-index: 1000; padding: 15px 20px; background: #4299e1; color: white; border: none; border-radius: 50%; cursor: pointer; font-size: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: all 0.3s ease;">^</button>
+    <button id="scrollToTop" style="display: none; position: fixed; bottom: 30px; right: 30px; z-index: 1000; padding: 15px 20px; background: #4299e1; color: white; border: none; border-radius: 50%; cursor: pointer; font-size: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: all 0.3s ease;">↑</button>
     <script>
         localStorage.setItem('module_9_viewed', 'true');
         const scrollToTopBtn = document.getElementById('scrollToTop');
@@ -187,42 +186,5 @@
         scrollToTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
     </script>
 <script src="../theme-switcher.js"></script>
-
-<!-- Footer -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h4>Курсы Диспетчера</h4>
-        <p>Профессиональное обучение диспетчеров грузоперевозок</p>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Обучение</h4>
-        <a href="courses.html">Курсы</a>
-        <a href="certification.html">Сертификация</a>
-        <a href="webinars.html">Вебинары</a>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Поддержка</h4>
-        <a href="faq.html">FAQ</a>
-        <a href="contacts.html">Контакты</a>
-        <a href="help.html">Помощь</a>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Компания</h4>
-        <a href="about.html">О нас</a>
-        <a href="blog.html">Блог</a>
-        <a href="career.html">Карьера</a>
-      </div>
-    </div>
-    
-    <div class="footer-bottom">
-      <p>&copy; 2024 Курсы Диспетчера. Все права защищены.</p>
-    </div>
-  </div>
-</footer>
 </body>
 </html>

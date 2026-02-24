@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>����: ������ 2 - FMCSA � DOT ���������� | ����� - ����������</title>
-    <script src="auth-check.js"></script>
-        <style>
+    <title>Тест: Модуль 2 - FMCSA и DOT регламенты | Курсы - Диспетчера</title>
+    <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 30px 20px; display: flex; flex-direction: column; align-items: center; }
         .container { max-width: 900px; width: 100%; margin: 0 auto; }
@@ -90,49 +89,49 @@
     <div class="container">
         <div class="header">
             <div class="header-top">
-                <div class="test-badge">?? ����: ������ 2</div>
-                <a href="modules.html" class="back-btn">< �����</a>
+                <div class="test-badge">📝 Тест: Модуль 2</div>
+                <a href="modules.html" class="back-btn">← Назад</a>
             </div>
-            <h1>FMCSA � DOT ����������</h1>
-            <p class="subtitle">20 �������� ��� �������� ������</p>
+            <h1>FMCSA и DOT регламенты</h1>
+            <p class="subtitle">20 вопросов для проверки знаний</p>
             <div class="progress-bar"><div class="progress-fill" id="progressBar"></div></div>
         </div>
 
         <div id="questionsContainer"></div>
 
         <div class="results" id="results">
-            <h2 style="color: #2d3748; font-size: 32px; margin-bottom: 20px;">���������� �����</h2>
+            <h2 style="color: #2d3748; font-size: 32px; margin-bottom: 20px;">Результаты теста</h2>
             <div class="score" id="scoreDisplay"></div>
             <p class="result-message" id="resultMessage"></p>
             <div class="nav-buttons">
-                <button class="btn btn-primary" onclick="location.href='module-3.html'">��������� ������ ></button>
-                <button class="btn btn-secondary" onclick="location.reload()">������ ������</button>
+                <button class="btn btn-primary" onclick="location.href='module-3.html'">Следующий модуль →</button>
+                <button class="btn btn-secondary" onclick="location.reload()">Пройти заново</button>
             </div>
         </div>
     </div>
 
     <script>
         const questions = [
-            {q: "��� �������� FMCSA?", a: ["Federal Motor Carrier Safety Administration", "Federal Motor Company Service Agency", "Federal Management Carrier System", "Federal Motor Control Safety Act"], correct: 0},
-            {q: "��� ���� ����� DOT �����?", a: ["��� ���������", "���������� ������������� �����������", "��� ������ �������", "��� ����������� �����"], correct: 1},
-            {q: "����������� ��������� Liability ��� ����� ������:", a: ["$100,000", "$500,000", "$750,000", "$1,000,000"], correct: 2},
-            {q: "��� ����� MC Authority?", a: ["������������ �����", "���������� �� ������������ ���������", "��������� �����", "����� �����"], correct: 1},
-            {q: "������� ����� ����������� DOT ������?", a: ["���������", "$100", "$300", "$500"], correct: 2},
-            {q: "��� ����� ����� ��������� DOT ����������?", a: ["������ ���", "������ 2 ����", "������ 5 ���", "�������"], correct: 1},
-            {q: "��� ����� BOC-3?", a: ["��� ���������", "���������� ������ � ������ �����", "������������ �����", "����� �����"], correct: 1},
-            {q: "����������� ��������� ��� HAZMAT ������:", a: ["$750,000", "$1,000,000", "$5,000,000", "$10,000,000"], correct: 2},
-            {q: "��� ����� CSA Program?", a: ["������� ����������� ������������", "��������� ���������", "��������� ��������", "��� ��������"], correct: 0},
-            {q: "����� �� ���������� ��������� ����� ���������:", a: ["$1,000", "$5,000", "$10,000", "$25,000"], correct: 3},
-            {q: "��� �������� Safety Rating 'Satisfactory'?", a: ["������ ������", "������������������ ������ ������������", "�������� ������", "������� ������"], correct: 1},
-            {q: "������� ������� �������� ��������� MC Authority?", a: ["1-5 ����", "10-15 ����", "20-30 ����", "60-90 ����"], correct: 2},
-            {q: "��� ����� CDL Class A?", a: ["����� ��� �������� ����", "����� ��� ������ � ��������", "����� ��� ����������", "����� ��� ���������"], correct: 1},
-            {q: "����������� ���������� ��� ��������� ������������:", a: ["1 ���", "2 ����", "5 ���", "10 ���"], correct: 1},
-            {q: "����� �� ��������� HOS ����� ���������:", a: ["$500", "$1,000", "$11,000", "$25,000"], correct: 2},
-            {q: "��� ����� HAZMAT Endorsement?", a: ["���������", "���������� �� ��������� ������� ������", "��� �����", "����� ��������"], correct: 1},
-            {q: "��� ���������� ������������ ������������ ���������?", a: ["FBI", "FMCSA", "CIA", "DMV"], correct: 1},
-            {q: "��� ��������� Drug Testing?", a: ["��������", "������� ����������", "������", "���"], correct: 1},
-            {q: "Cargo Insurance ������ ���������:", a: ["$50,000", "$100,000", "$500,000", "$1,000,000"], correct: 1},
-            {q: "����� �� ���������� ���� ����� ���������:", a: ["$100", "$1,000", "$10,000", "$50,000"], correct: 2}
+            {q: "Что означает FMCSA?", a: ["Federal Motor Carrier Safety Administration", "Federal Motor Company Service Agency", "Federal Management Carrier System", "Federal Motor Control Safety Act"], correct: 0},
+            {q: "Для чего нужен DOT номер?", a: ["Для страховки", "Уникальная идентификация перевозчика", "Для оплаты налогов", "Для регистрации трака"], correct: 1},
+            {q: "Минимальная страховка Liability для общих грузов:", a: ["$100,000", "$500,000", "$750,000", "$1,000,000"], correct: 2},
+            {q: "Что такое MC Authority?", a: ["Водительские права", "Разрешение на коммерческие перевозки", "Страховой полис", "Номер трака"], correct: 1},
+            {q: "Сколько стоит регистрация DOT номера?", a: ["Бесплатно", "$100", "$300", "$500"], correct: 2},
+            {q: "Как часто нужно обновлять DOT информацию?", a: ["Каждый год", "Каждые 2 года", "Каждые 5 лет", "Никогда"], correct: 1},
+            {q: "Что такое BOC-3?", a: ["Тип страховки", "Назначение агента в каждом штате", "Водительские права", "Номер трака"], correct: 1},
+            {q: "Минимальная страховка для HAZMAT грузов:", a: ["$750,000", "$1,000,000", "$5,000,000", "$10,000,000"], correct: 2},
+            {q: "Что такое CSA Program?", a: ["Система мониторинга безопасности", "Страховая программа", "Программа обучения", "Тип лицензии"], correct: 0},
+            {q: "Штраф за отсутствие страховки может достигать:", a: ["$1,000", "$5,000", "$10,000", "$25,000"], correct: 3},
+            {q: "Что означает Safety Rating 'Satisfactory'?", a: ["Плохая оценка", "Удовлетворительная оценка безопасности", "Отличная оценка", "Средняя оценка"], correct: 1},
+            {q: "Сколько времени занимает получение MC Authority?", a: ["1-5 дней", "10-15 дней", "20-30 дней", "60-90 дней"], correct: 2},
+            {q: "Что такое CDL Class A?", a: ["Права для легковых авто", "Права для траков с прицепом", "Права для мотоциклов", "Права для автобусов"], correct: 1},
+            {q: "Медицинский сертификат для водителей действителен:", a: ["1 год", "2 года", "5 лет", "10 лет"], correct: 1},
+            {q: "Штраф за нарушение HOS может достигать:", a: ["$500", "$1,000", "$11,000", "$25,000"], correct: 2},
+            {q: "Что такое HAZMAT Endorsement?", a: ["Страховка", "Разрешение на перевозку опасных грузов", "Тип трака", "Номер компании"], correct: 1},
+            {q: "Кто регулирует безопасность коммерческих перевозок?", a: ["FBI", "FMCSA", "CIA", "DMV"], correct: 1},
+            {q: "Что проверяет Drug Testing?", a: ["Здоровье", "Наличие наркотиков", "Зрение", "Вес"], correct: 1},
+            {q: "Cargo Insurance обычно покрывает:", a: ["$50,000", "$100,000", "$500,000", "$1,000,000"], correct: 1},
+            {q: "Штраф за превышение веса может достигать:", a: ["$100", "$1,000", "$10,000", "$50,000"], correct: 2}
         ];
 
         let currentQuestion = 0;
@@ -145,7 +144,7 @@
                 const card = document.createElement('div');
                 card.className = 'question-card' + (index === 0 ? ' active' : '');
                 card.innerHTML = `
-                    <div class="question-number">������ ${index + 1} �� ${questions.length}</div>
+                    <div class="question-number">Вопрос ${index + 1} из ${questions.length}</div>
                     <div class="question-text">${q.q}</div>
                     <div class="answers">
                         ${q.a.map((answer, i) => `<div class="answer" onclick="selectAnswer(${index}, ${i})">${answer}</div>`).join('')}
@@ -200,7 +199,7 @@
             const percentage = Math.round((score / questions.length) * 100);
             const passed = percentage >= 70;
             
-            // ��������� ��������� � localStorage
+            // Сохраняем результат в localStorage
             localStorage.setItem('module_2_test_result', percentage);
             localStorage.setItem('module_2_test_score', score);
             localStorage.setItem('module_2_test_total', questions.length);
@@ -214,49 +213,12 @@
             scoreDisplay.className = 'score ' + (passed ? 'pass' : 'fail');
             
             document.getElementById('resultMessage').textContent = passed ? 
-                `�����������! �� ������� ������ ���� (${score}/${questions.length})` :
-                `���� �� �������. ���������� ������� ������� 70% (${score}/${questions.length})`;
+                `Поздравляем! Вы успешно прошли тест (${score}/${questions.length})` :
+                `Тест не пройден. Необходимо набрать минимум 70% (${score}/${questions.length})`;
         }
 
         initTest();
     </script>
 <script src="../theme-switcher.js"></script>
-
-<!-- Footer -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h4>Курсы Диспетчера</h4>
-        <p>Профессиональное обучение диспетчеров грузоперевозок</p>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Обучение</h4>
-        <a href="courses.html">Курсы</a>
-        <a href="certification.html">Сертификация</a>
-        <a href="webinars.html">Вебинары</a>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Поддержка</h4>
-        <a href="faq.html">FAQ</a>
-        <a href="contacts.html">Контакты</a>
-        <a href="help.html">Помощь</a>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Компания</h4>
-        <a href="about.html">О нас</a>
-        <a href="blog.html">Блог</a>
-        <a href="career.html">Карьера</a>
-      </div>
-    </div>
-    
-    <div class="footer-bottom">
-      <p>&copy; 2024 Курсы Диспетчера. Все права защищены.</p>
-    </div>
-  </div>
-</footer>
 </body>
 </html>

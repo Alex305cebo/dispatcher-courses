@@ -1,11 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>����: ������ 11 - ���������� � �� | ����� - ����������</title>
-    <script src="auth-check.js"></script>
-        <style>
+    <title>Тест: Модуль 11 - Технологии и ПО | Курсы - Диспетчера</title>
+    <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); min-height: 100vh; padding: 30px 20px; display: flex; flex-direction: column; align-items: center; }
         .container { max-width: 900px; width: 100%; margin: 0 auto; }
@@ -90,49 +89,49 @@
     <div class="container">
         <div class="header">
             <div class="header-top">
-                <div class="test-badge">?? ����: ������ 11</div>
-                <a href="modules.html" class="back-btn">< �����</a>
+                <div class="test-badge">📝 Тест: Модуль 11</div>
+                <a href="modules.html" class="back-btn">← Назад</a>
             </div>
-            <h1>���������� � ����������� �����������</h1>
-            <p class="subtitle">20 �������� ��� �������� ������</p>
+            <h1>Технологии и программное обеспечение</h1>
+            <p class="subtitle">20 вопросов для проверки знаний</p>
             <div class="progress-bar"><div class="progress-fill" id="progressBar"></div></div>
         </div>
 
         <div id="questionsContainer"></div>
 
         <div class="results" id="results">
-            <h2 style="color: #2d3748; font-size: 32px; margin-bottom: 20px;">���������� �����</h2>
+            <h2 style="color: #2d3748; font-size: 32px; margin-bottom: 20px;">Результаты теста</h2>
             <div class="score" id="scoreDisplay"></div>
             <p class="result-message" id="resultMessage"></p>
             <div class="nav-buttons">
-                <button class="btn btn-primary" onclick="location.href='module-12.html'">��������� ������ ></button>
-                <button class="btn btn-secondary" onclick="location.reload()">������ ������</button>
+                <button class="btn btn-primary" onclick="location.href='module-12.html'">Следующий модуль →</button>
+                <button class="btn btn-secondary" onclick="location.reload()">Пройти заново</button>
             </div>
         </div>
     </div>
 
     <script>
         const questions = [
-            {q: "��� ����� TMS?", a: ["Truck Management System", "Transportation Management System", "Traffic Monitoring Service", "Technical Maintenance System"], correct: 1},
-            {q: "����� ���������� TMS ������� ������������ � ���?", a: ["Microsoft Excel", "McLeod", "Google Sheets", "WhatsApp"], correct: 1},
-            {q: "��� ���� ����� GPS �������?", a: ["������ ��� ���������", "���������� �������������� � �������� ��������", "������ ��� �����", "��� ������ �������"], correct: 1},
-            {q: "��� ����� ELD?", a: ["Electronic Logging Device", "Engine Load Detector", "Emergency Light Display", "Extra Load Document"], correct: 0},
-            {q: "����� ���������� FMCSA � ELD?", a: ["�������������", "����������� ��� ���� ������������ ���������", "������ ��� ����� ������", "������ ��� ������� ������"], correct: 1},
-            {q: "����� ���������� Load Board ���������?", a: ["Facebook", "DAT", "Instagram", "Twitter"], correct: 1},
-            {q: "��� ����� KeepTruckin?", a: ["����", "ELD ���������� � ����������", "��������� ��������", "����������� ����"], correct: 1},
-            {q: "��� ���� ����� CRM �������?", a: ["������ ��� email", "���������� ��������� � ���������", "������ ��� �������", "��� ������� ������"], correct: 1},
-            {q: "��� ����� DocuSign?", a: ["�������� ����", "������ ����������� ��������", "GPS ���������", "Load Board"], correct: 1},
-            {q: "����� ������������ DAT Load Board?", a: ["YouTube", "Truckstop.com", "Netflix", "Amazon"], correct: 1},
-            {q: "��� ������������ ELD �������������?", a: ["��������", "Hours of Service (HOS)", "������ �������", "��� �����"], correct: 1},
-            {q: "��� ����� DVIR?", a: ["Driver Vehicle Inspection Report", "Daily Vehicle Insurance Record", "Dispatch Vehicle Information", "Delivery Verification Invoice"], correct: 0},
-            {q: "���������� GPS ������� ��� ������:", a: ["Google Maps ������", "Samsara", "Instagram", "TikTok"], correct: 1},
-            {q: "��� ��������� TMS ����������������?", a: ["������ ������", "��������������� � ���������� �������", "������ email", "������ GPS"], correct: 1},
-            {q: "��� ���� Load Board ���������?", a: ["����", "����� ������ � �������� ��������", "���������� ����", "������"], correct: 1},
-            {q: "��� ����� Rate Confirmation � TMS?", a: ["������������� ��������", "����������� ������������� ������", "������� ��������", "������ �������"], correct: 1},
-            {q: "����� ������������ ������������ BOL?", a: ["��� �����������", "������� ��������� � ��������", "������ �������� ���", "������ ���������"], correct: 1},
-            {q: "��� ��������� GPS � �������� �������?", a: ["������ ��������", "��������������, �������, ��������", "������ �������", "������ ���"], correct: 1},
-            {q: "����� ���������� CRM?", a: ["��� ���", "������� �������������� � ���������", "������ ��� �������", "�� �����"], correct: 1},
-            {q: "��� ����� 123Loadboard?", a: ["����� ��������", "��������� ��� ������ ������", "����� �����", "������ �����"], correct: 1}
+            {q: "Что такое TMS?", a: ["Truck Management System", "Transportation Management System", "Traffic Monitoring Service", "Technical Maintenance System"], correct: 1},
+            {q: "Какая популярная TMS система используется в США?", a: ["Microsoft Excel", "McLeod", "Google Sheets", "WhatsApp"], correct: 1},
+            {q: "Для чего нужен GPS трекинг?", a: ["Только для навигации", "Мониторинг местоположения и контроль маршрута", "Только для связи", "Для оплаты топлива"], correct: 1},
+            {q: "Что такое ELD?", a: ["Electronic Logging Device", "Engine Load Detector", "Emergency Light Display", "Extra Load Document"], correct: 0},
+            {q: "Какое требование FMCSA к ELD?", a: ["Необязательно", "Обязательно для всех коммерческих водителей", "Только для новых траков", "Только для дальних рейсов"], correct: 1},
+            {q: "Какая крупнейшая Load Board платформа?", a: ["Facebook", "DAT", "Instagram", "Twitter"], correct: 1},
+            {q: "Что такое KeepTruckin?", a: ["Игра", "ELD устройство и приложение", "Страховая компания", "Заправочная сеть"], correct: 1},
+            {q: "Для чего нужна CRM система?", a: ["Только для email", "Управление клиентами и брокерами", "Только для звонков", "Для ремонта траков"], correct: 1},
+            {q: "Что такое DocuSign?", a: ["Дорожный знак", "Сервис электронных подписей", "GPS навигатор", "Load Board"], correct: 1},
+            {q: "Какая альтернатива DAT Load Board?", a: ["YouTube", "Truckstop.com", "Netflix", "Amazon"], correct: 1},
+            {q: "Что контролирует ELD автоматически?", a: ["Скорость", "Hours of Service (HOS)", "Расход топлива", "Вес груза"], correct: 1},
+            {q: "Что такое DVIR?", a: ["Driver Vehicle Inspection Report", "Daily Vehicle Insurance Record", "Dispatch Vehicle Information", "Delivery Verification Invoice"], correct: 0},
+            {q: "Популярная GPS система для траков:", a: ["Google Maps только", "Samsara", "Instagram", "TikTok"], correct: 1},
+            {q: "Что позволяет TMS автоматизировать?", a: ["Только звонки", "Документооборот и управление грузами", "Только email", "Только GPS"], correct: 1},
+            {q: "Для чего Load Board платформы?", a: ["Игры", "Поиск грузов и проверка брокеров", "Социальные сети", "Музыка"], correct: 1},
+            {q: "Что такое Rate Confirmation в TMS?", a: ["Подтверждение скорости", "Электронное подтверждение ставки", "Рейтинг водителя", "Расход топлива"], correct: 1},
+            {q: "Какое преимущество электронного BOL?", a: ["Нет преимуществ", "Быстрая обработка и хранение", "Только красивый вид", "Дороже бумажного"], correct: 1},
+            {q: "Что мониторит GPS в реальном времени?", a: ["Только скорость", "Местоположение, маршрут, скорость", "Только топливо", "Только вес"], correct: 1},
+            {q: "Зачем диспетчеру CRM?", a: ["Для игр", "История взаимодействий с клиентами", "Только для красоты", "Не нужна"], correct: 1},
+            {q: "Что такое 123Loadboard?", a: ["Номер телефона", "Платформа для поиска грузов", "Адрес офиса", "Модель трака"], correct: 1}
         ];
 
         let currentQuestion = 0;
@@ -142,25 +141,25 @@
         function initTest() {
             const container = document.getElementById('questionsContainer');
             
-            // ������������ ������ ��� ������� �������
+            // Перемешиваем ответы для каждого вопроса
             questions.forEach((q, index) => {
-                // ������� ������ � �������� � �� ������������� ���������
+                // Создаем массив с ответами и их оригинальными индексами
                 const shuffledAnswers = q.a.map((answer, i) => ({ answer, originalIndex: i }));
                 
-                // ������������ ������
+                // Перемешиваем массив
                 for (let i = shuffledAnswers.length - 1; i > 0; i--) {
                     const j = Math.floor(Math.random() * (i + 1));
                     [shuffledAnswers[i], shuffledAnswers[j]] = [shuffledAnswers[j], shuffledAnswers[i]];
                 }
                 
-                // ��������� ������������ ������ � ����� ������ ����������� ������
+                // Сохраняем перемешанные ответы и новый индекс правильного ответа
                 q.shuffledAnswers = shuffledAnswers;
                 q.newCorrectIndex = shuffledAnswers.findIndex(item => item.originalIndex === q.correct);
                 
                 const card = document.createElement('div');
                 card.className = 'question-card' + (index === 0 ? ' active' : '');
                 card.innerHTML = `
-                    <div class="question-number">������ ${index + 1} �� ${questions.length}</div>
+                    <div class="question-number">Вопрос ${index + 1} из ${questions.length}</div>
                     <div class="question-text">${q.q}</div>
                     <div class="answers">
                         ${shuffledAnswers.map((item, i) => `<div class="answer" onclick="selectAnswer(${index}, ${i})">${item.answer}</div>`).join('')}
@@ -171,18 +170,18 @@
         }
 
         function selectAnswer(questionIndex, answerIndex) {
-            if (answers[questionIndex] !== undefined) return; // ��� ��������
+            if (answers[questionIndex] !== undefined) return; // Уже ответили
             
             const card = document.querySelectorAll('.question-card')[questionIndex];
             const answerDivs = card.querySelectorAll('.answer');
             const correctAnswer = questions[questionIndex].newCorrectIndex;
             
-            // ��������� ��� ������
+            // Отключаем все ответы
             answerDivs.forEach(div => {
                 div.style.pointerEvents = 'none';
             });
             
-            // ���������� ���������� � ������������ ������
+            // Показываем правильные и неправильные ответы
             answerDivs.forEach((div, i) => {
                 if (i === correctAnswer) {
                     div.classList.add('correct');
@@ -193,7 +192,7 @@
             
             answers[questionIndex] = answerIndex;
             
-            // �������������� ������� ����� 2 �������
+            // Автоматический переход через 2 секунды
             setTimeout(() => {
                 if (questionIndex < questions.length - 1) {
                     nextQuestion();
@@ -231,7 +230,7 @@
             const percentage = Math.round((score / questions.length) * 100);
             const passed = percentage >= 70;
             
-            // ��������� ��������� � localStorage
+            // Сохраняем результат в localStorage
             localStorage.setItem('module_11_test_result', percentage);
             localStorage.setItem('module_11_test_score', score);
             localStorage.setItem('module_11_test_total', questions.length);
@@ -245,49 +244,12 @@
             scoreDisplay.className = 'score ' + (passed ? 'pass' : 'fail');
             
             document.getElementById('resultMessage').textContent = passed ? 
-                `�����������! �� ������� ������ ���� (${score}/${questions.length})` :
-                `���� �� �������. ���������� ������� ������� 70% (${score}/${questions.length})`;
+                `Поздравляем! Вы успешно прошли тест (${score}/${questions.length})` :
+                `Тест не пройден. Необходимо набрать минимум 70% (${score}/${questions.length})`;
         }
 
         initTest();
     </script>
 <script src="../theme-switcher.js"></script>
-
-<!-- Footer -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h4>Курсы Диспетчера</h4>
-        <p>Профессиональное обучение диспетчеров грузоперевозок</p>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Обучение</h4>
-        <a href="courses.html">Курсы</a>
-        <a href="certification.html">Сертификация</a>
-        <a href="webinars.html">Вебинары</a>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Поддержка</h4>
-        <a href="faq.html">FAQ</a>
-        <a href="contacts.html">Контакты</a>
-        <a href="help.html">Помощь</a>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Компания</h4>
-        <a href="about.html">О нас</a>
-        <a href="blog.html">Блог</a>
-        <a href="career.html">Карьера</a>
-      </div>
-    </div>
-    
-    <div class="footer-bottom">
-      <p>&copy; 2024 Курсы Диспетчера. Все права защищены.</p>
-    </div>
-  </div>
-</footer>
 </body>
 </html>

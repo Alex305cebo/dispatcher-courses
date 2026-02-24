@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>����: ������ 1 - ������ ������������� ������ | ����� - ����������</title>
-    <script src="auth-check.js"></script>
-        <style>
+    <title>Тест: Модуль 1 - Основы диспетчерской работы | Курсы - Диспетчера</title>
+    <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 30px 20px; display: flex; flex-direction: column; align-items: center; }
         .container { max-width: 900px; width: 100%; margin: 0 auto; }
@@ -90,44 +89,44 @@
     <div class="container">
         <div class="header">
             <div class="header-top">
-                <div class="test-badge">?? ����: ������ 1</div>
-                <a href="modules.html" class="back-btn">< �����</a>
+                <div class="test-badge">📝 Тест: Модуль 1</div>
+                <a href="modules.html" class="back-btn">← Назад</a>
             </div>
-            <h1>������ ������������� ������ � ���</h1>
-            <p class="subtitle">15 �������� ��� �������� ������</p>
+            <h1>Основы диспетчерской работы в США</h1>
+            <p class="subtitle">15 вопросов для проверки знаний</p>
             <div class="progress-bar"><div class="progress-fill" id="progressBar"></div></div>
         </div>
 
         <div id="questionsContainer"></div>
 
         <div class="results" id="results">
-            <h2 style="color: #2d3748; font-size: 32px; margin-bottom: 20px;">���������� �����</h2>
+            <h2 style="color: #2d3748; font-size: 32px; margin-bottom: 20px;">Результаты теста</h2>
             <div class="score" id="scoreDisplay"></div>
             <p class="result-message" id="resultMessage"></p>
             <div class="nav-buttons">
-                <button class="btn btn-primary" onclick="location.href='module-2.html'">��������� ������ ></button>
-                <button class="btn btn-secondary" onclick="location.reload()">������ ������</button>
+                <button class="btn btn-primary" onclick="location.href='module-2.html'">Следующий модуль →</button>
+                <button class="btn btn-secondary" onclick="location.reload()">Пройти заново</button>
             </div>
         </div>
     </div>
 
     <script>
         const questions = [
-            {q: "����� �������� ����������� ���������� ��������������?", a: ["���������� ������", "����������� ��������� � ������� � ���������� � ���������", "������ ������������", "�������� ������"], correct: 1},
-            {q: "��� ����� Load Board?", a: ["��������� ��� ������ ������", "�������� � �����", "��� �����", "��������� �����"], correct: 0},
-            {q: "��� ����� Broker � ������������ �������?", a: ["�������� �����", "��������� ����� ������������������ � �������������", "�������� �����", "�������"], correct: 1},
-            {q: "��� �������� Owner-Operator?", a: ["�������� ��������", "����������� ��������, ��������� ����� ������", "�������� �� ���������", "������ ������"], correct: 1},
-            {q: "����� ����������� ������� ����������� ����� ����������?", a: ["Beginner", "Intermediate", "Advanced", "Native"], correct: 1},
-            {q: "��� ����� Rate Confirmation (RC)?", a: ["������������� ������ �� ���������", "������������ �����", "��������� �����", "����� �����"], correct: 0},
-            {q: "����� ������ ������ �������� �������������� ��� �����������?", a: ["��������� ������", "������� �� ����� (5-10%)", "������������� ��������", "������ �� ��������"], correct: 1},
-            {q: "��� ����� BOL?", a: ["Bill of Lading - ������������ ���������", "Broker Online List", "Basic Operating License", "Board of Logistics"], correct: 0},
-            {q: "������� ����� �������� ���������� � �����:", a: ["$1,000-$2,000", "$2,000-$3,000", "$4,000-$7,000", "$10,000-$15,000"], correct: 2},
-            {q: "��� ������ � ����������� ����������?", a: ["������ ����� ������", "������ ������� � ����������", "����� ������, ������������, ������������, ���������������", "������ ���������� ����������"], correct: 2},
-            {q: "��� ����� Carrier?", a: ["����������������", "����������, �������� ��������� �������", "������", "���������"], correct: 1},
-            {q: "����� ������ ���������� ����� ��� ����������?", a: ["������ ���������� ����", "������ ������ ���������", "����������, ���������, ����������, ������������, �������������������", "������ ������ ������ ����"], correct: 2},
-            {q: "��� ����� POD?", a: ["Port of Delivery", "Proof of Delivery - ������������� ��������", "Payment on Demand", "Package Order Document"], correct: 1},
-            {q: "������� ������� ������ �������� ���� �� Junior Dispatcher �� Senior Dispatcher?", a: ["1-3 ������", "6 ������� - 2 ����", "5-10 ���", "����������"], correct: 1},
-            {q: "��� ����� ��� ������ �����������?", a: ["������ �������", "������ ���������", "���������, ��������, �������, ������ � Load Boards", "������ ���� ��������"], correct: 2}
+            {q: "Какая основная обязанность диспетчера грузоперевозок?", a: ["Управление траком", "Координация перевозок и общение с водителями и брокерами", "Ремонт оборудования", "Погрузка грузов"], correct: 1},
+            {q: "Что такое Load Board?", a: ["Платформа для поиска грузов", "Документ о грузе", "Тип трака", "Страховой полис"], correct: 0},
+            {q: "Кто такой Broker в транспортной отрасли?", a: ["Водитель трака", "Посредник между грузоотправителями и перевозчиками", "Владелец трака", "Механик"], correct: 1},
+            {q: "Что означает Owner-Operator?", a: ["Владелец компании", "Независимый водитель, владеющий своим траком", "Менеджер по логистике", "Брокер грузов"], correct: 1},
+            {q: "Какой минимальный уровень английского нужен диспетчеру?", a: ["Beginner", "Intermediate", "Advanced", "Native"], correct: 1},
+            {q: "Что такое Rate Confirmation (RC)?", a: ["Подтверждение ставки за перевозку", "Водительские права", "Страховой полис", "Номер трака"], correct: 0},
+            {q: "Какая модель оплаты наиболее распространена для диспетчеров?", a: ["Почасовая оплата", "Процент от груза (5-10%)", "Фиксированная зарплата", "Оплата за километр"], correct: 1},
+            {q: "Что такое BOL?", a: ["Bill of Lading - транспортная накладная", "Broker Online List", "Basic Operating License", "Board of Logistics"], correct: 0},
+            {q: "Средний доход опытного диспетчера в месяц:", a: ["$1,000-$2,000", "$2,000-$3,000", "$4,000-$7,000", "$10,000-$15,000"], correct: 2},
+            {q: "Что входит в обязанности диспетчера?", a: ["Только поиск грузов", "Только общение с водителями", "Поиск грузов, коммуникация, планирование, документооборот", "Только оформление документов"], correct: 2},
+            {q: "Что такое Carrier?", a: ["Грузоотправитель", "Перевозчик, компания владеющая траками", "Брокер", "Диспетчер"], correct: 1},
+            {q: "Какие навыки критически важны для диспетчера?", a: ["Только английский язык", "Только знание географии", "Английский, география, математика, коммуникация, стрессоустойчивость", "Только умение водить трак"], correct: 2},
+            {q: "Что такое POD?", a: ["Port of Delivery", "Proof of Delivery - подтверждение доставки", "Payment on Demand", "Package Order Document"], correct: 1},
+            {q: "Сколько времени обычно занимает путь от Junior Dispatcher до Senior Dispatcher?", a: ["1-3 месяца", "6 месяцев - 2 года", "5-10 лет", "Невозможно"], correct: 1},
+            {q: "Что нужно для работы диспетчером?", a: ["Только телефон", "Только компьютер", "Компьютер, интернет, телефон, доступ к Load Boards", "Только опыт вождения"], correct: 2}
         ];
 
         let currentQuestion = 0;
@@ -140,7 +139,7 @@
                 const card = document.createElement('div');
                 card.className = 'question-card' + (index === 0 ? ' active' : '');
                 card.innerHTML = `
-                    <div class="question-number">������ ${index + 1} �� ${questions.length}</div>
+                    <div class="question-number">Вопрос ${index + 1} из ${questions.length}</div>
                     <div class="question-text">${q.q}</div>
                     <div class="answers">
                         ${q.a.map((answer, i) => `<div class="answer" onclick="selectAnswer(${index}, ${i})">${answer}</div>`).join('')}
@@ -151,18 +150,18 @@
         }
 
         function selectAnswer(questionIndex, answerIndex) {
-            if (answers[questionIndex] !== undefined) return; // ��� ��������
+            if (answers[questionIndex] !== undefined) return; // Уже ответили
             
             const card = document.querySelectorAll('.question-card')[questionIndex];
             const answerDivs = card.querySelectorAll('.answer');
             const correctAnswer = questions[questionIndex].correct;
             
-            // ��������� ��� ������
+            // Отключаем все ответы
             answerDivs.forEach(div => {
                 div.style.pointerEvents = 'none';
             });
             
-            // ���������� ���������� � ������������ ������
+            // Показываем правильные и неправильные ответы
             answerDivs.forEach((div, i) => {
                 if (i === correctAnswer) {
                     div.classList.add('correct');
@@ -173,7 +172,7 @@
             
             answers[questionIndex] = answerIndex;
             
-            // �������������� ������� ����� 2 �������
+            // Автоматический переход через 2 секунды
             setTimeout(() => {
                 if (questionIndex < questions.length - 1) {
                     nextQuestion();
@@ -211,7 +210,7 @@
             const percentage = Math.round((score / questions.length) * 100);
             const passed = percentage >= 70;
             
-            // ��������� ��������� � localStorage
+            // Сохраняем результат в localStorage
             localStorage.setItem('module_1_test_result', percentage);
             localStorage.setItem('module_1_test_score', score);
             localStorage.setItem('module_1_test_total', questions.length);
@@ -225,49 +224,12 @@
             scoreDisplay.className = 'score ' + (passed ? 'pass' : 'fail');
             
             document.getElementById('resultMessage').textContent = passed ? 
-                `�����������! �� ������� ������ ���� (${score}/${questions.length})` :
-                `���� �� �������. ���������� ������� ������� 70% (${score}/${questions.length})`;
+                `Поздравляем! Вы успешно прошли тест (${score}/${questions.length})` :
+                `Тест не пройден. Необходимо набрать минимум 70% (${score}/${questions.length})`;
         }
 
         initTest();
     </script>
 <script src="../theme-switcher.js"></script>
-
-<!-- Footer -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h4>Курсы Диспетчера</h4>
-        <p>Профессиональное обучение диспетчеров грузоперевозок</p>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Обучение</h4>
-        <a href="courses.html">Курсы</a>
-        <a href="certification.html">Сертификация</a>
-        <a href="webinars.html">Вебинары</a>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Поддержка</h4>
-        <a href="faq.html">FAQ</a>
-        <a href="contacts.html">Контакты</a>
-        <a href="help.html">Помощь</a>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Компания</h4>
-        <a href="about.html">О нас</a>
-        <a href="blog.html">Блог</a>
-        <a href="career.html">Карьера</a>
-      </div>
-    </div>
-    
-    <div class="footer-bottom">
-      <p>&copy; 2024 Курсы Диспетчера. Все права защищены.</p>
-    </div>
-  </div>
-</footer>
 </body>
 </html>

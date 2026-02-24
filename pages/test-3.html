@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>����: ������ 3 - Hours of Service (HOS) | ����� - ����������</title>
-    <script src="auth-check.js"></script>
-        <style>
+    <title>Тест: Модуль 3 - Hours of Service (HOS) | Курсы - Диспетчера</title>
+    <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 30px 20px; display: flex; flex-direction: column; align-items: center; }
         .container { max-width: 900px; width: 100%; margin: 0 auto; }
@@ -90,47 +89,47 @@
     <div class="container">
         <div class="header">
             <div class="header-top">
-                <div class="test-badge">?? ����: ������ 3</div>
-                <a href="modules.html" class="back-btn">< �����</a>
+                <div class="test-badge">📝 Тест: Модуль 3</div>
+                <a href="modules.html" class="back-btn">← Назад</a>
             </div>
             <h1>Hours of Service (HOS)</h1>
-            <p class="subtitle">18 �������� ��� �������� ������</p>
+            <p class="subtitle">18 вопросов для проверки знаний</p>
             <div class="progress-bar"><div class="progress-fill" id="progressBar"></div></div>
         </div>
 
         <div id="questionsContainer"></div>
 
         <div class="results" id="results">
-            <h2 style="color: #2d3748; font-size: 32px; margin-bottom: 20px;">���������� �����</h2>
+            <h2 style="color: #2d3748; font-size: 32px; margin-bottom: 20px;">Результаты теста</h2>
             <div class="score" id="scoreDisplay"></div>
             <p class="result-message" id="resultMessage"></p>
             <div class="nav-buttons">
-                <button class="btn btn-primary" onclick="location.href='module-4.html'">��������� ������ ></button>
-                <button class="btn btn-secondary" onclick="location.reload()">������ ������</button>
+                <button class="btn btn-primary" onclick="location.href='module-4.html'">Следующий модуль →</button>
+                <button class="btn btn-secondary" onclick="location.reload()">Пройти заново</button>
             </div>
         </div>
     </div>
 
     <script>
         const questions = [
-            {q: "������������ ����� �������� � ����:", a: ["8 �����", "10 �����", "11 �����", "14 �����"], correct: 2},
-            {q: "14-Hour On-Duty Window ��������:", a: ["14 ����� ��������", "14 ����� � ������� ������ �������� ���", "14 ����� ������", "14 ����� ��������"], correct: 1},
-            {q: "������������ ������� ����� 8 ����� ��������:", a: ["15 �����", "30 �����", "1 ���", "2 ����"], correct: 1},
-            {q: "60/70-Hour Duty Limits ��������:", a: ["60 ����� �� 7 ���� ��� 70 �� 8 ����", "60 ����� � �����", "70 ����� � ������", "60 ���� ������"], correct: 0},
-            {q: "34-Hour Restart ��������:", a: ["������� 11 �����", "������� 60/70 �����", "��� ��������", "������"], correct: 1},
-            {q: "��� ����� ELD?", a: ["����������� ���������� �����������", "��� ���������", "������������ �����", "����� �����"], correct: 0},
-            {q: "����������� ����� ����� 11-������� ���������:", a: ["8 �����", "10 �����", "12 �����", "14 �����"], correct: 1},
-            {q: "����� �� ������ ����� 14 ����� On-Duty?", a: ["��", "���", "������ � ����������", "������ 1 ���"], correct: 1},
-            {q: "30-�������� ������� ������ ����:", a: ["�� �����", "Off-Duty ��� Sleeper Berth", "On-Duty", "�����"], correct: 1},
-            {q: "Sleeper Berth Provision ���������:", a: ["�� �����", "��������� 10-������� �����", "������ ������", "������������ HOS"], correct: 1},
-            {q: "����� �� ��������� HOS ��� ��������:", a: ["$100-$500", "$500-$1,000", "$1,000-$11,000", "$25,000"], correct: 2},
-            {q: "��� ������ ��������� HOS �������?", a: ["������ ��������", "������ ��������", "�������� � ��������", "������ �������"], correct: 2},
-            {q: "Adverse Driving Conditions ���������:", a: ["1 ���", "2 ����", "3 ����", "4 ����"], correct: 1},
-            {q: "Short-Haul Exception ���������:", a: ["�� ����� ����", "������ 24 ����", "������������ HOS", "�� ��������"], correct: 0},
-            {q: "Personal Conveyance ���:", a: ["������������ �������������", "������ ������������� �����", "��� �����", "���������"], correct: 1},
-            {q: "Yard Move ���:", a: ["�������� �� ���������� ������", "������� �������", "��� �����", "�����"], correct: 0},
-            {q: "Waiting Time ��������� ���:", a: ["Off-Duty", "On-Duty", "Driving", "Sleeper"], correct: 1},
-            {q: "�������� ����� On-Duty �� 7 ����:", a: ["50", "60", "70", "80"], correct: 1}
+            {q: "Максимальное время вождения в день:", a: ["8 часов", "10 часов", "11 часов", "14 часов"], correct: 2},
+            {q: "14-Hour On-Duty Window означает:", a: ["14 часов вождения", "14 часов с момента начала рабочего дня", "14 часов отдыха", "14 часов перерыва"], correct: 1},
+            {q: "Обязательный перерыв после 8 часов вождения:", a: ["15 минут", "30 минут", "1 час", "2 часа"], correct: 1},
+            {q: "60/70-Hour Duty Limits означают:", a: ["60 часов за 7 дней или 70 за 8 дней", "60 часов в месяц", "70 часов в неделю", "60 дней работы"], correct: 0},
+            {q: "34-Hour Restart обнуляет:", a: ["Счетчик 11 часов", "Счетчик 60/70 часов", "Все счетчики", "Ничего"], correct: 1},
+            {q: "Что такое ELD?", a: ["Электронное устройство логирования", "Тип страховки", "Водительские права", "Номер трака"], correct: 0},
+            {q: "Минимальный отдых перед 11-часовым вождением:", a: ["8 часов", "10 часов", "12 часов", "14 часов"], correct: 1},
+            {q: "Можно ли водить после 14 часов On-Duty?", a: ["Да", "Нет", "Только с разрешения", "Только 1 час"], correct: 1},
+            {q: "30-минутный перерыв должен быть:", a: ["За рулем", "Off-Duty или Sleeper Berth", "On-Duty", "Любой"], correct: 1},
+            {q: "Sleeper Berth Provision позволяет:", a: ["Не спать", "Разделить 10-часовой отдых", "Водить дольше", "Игнорировать HOS"], correct: 1},
+            {q: "Штраф за нарушение HOS для водителя:", a: ["$100-$500", "$500-$1,000", "$1,000-$11,000", "$25,000"], correct: 2},
+            {q: "Кто обязан соблюдать HOS правила?", a: ["Только водители", "Только компании", "Водители и компании", "Только брокеры"], correct: 2},
+            {q: "Adverse Driving Conditions добавляют:", a: ["1 час", "2 часа", "3 часа", "4 часа"], correct: 1},
+            {q: "Short-Haul Exception позволяет:", a: ["Не вести логи", "Водить 24 часа", "Игнорировать HOS", "Не отдыхать"], correct: 0},
+            {q: "Personal Conveyance это:", a: ["Коммерческое использование", "Личное использование трака", "Тип груза", "Страховка"], correct: 1},
+            {q: "Yard Move это:", a: ["Движение по территории склада", "Дальняя поездка", "Тип груза", "Отдых"], correct: 0},
+            {q: "Waiting Time считается как:", a: ["Off-Duty", "On-Duty", "Driving", "Sleeper"], correct: 1},
+            {q: "Максимум часов On-Duty за 7 дней:", a: ["50", "60", "70", "80"], correct: 1}
         ];
 
         let currentQuestion = 0;
@@ -143,7 +142,7 @@
                 const card = document.createElement('div');
                 card.className = 'question-card' + (index === 0 ? ' active' : '');
                 card.innerHTML = `
-                    <div class="question-number">������ ${index + 1} �� ${questions.length}</div>
+                    <div class="question-number">Вопрос ${index + 1} из ${questions.length}</div>
                     <div class="question-text">${q.q}</div>
                     <div class="answers">
                         ${q.a.map((answer, i) => `<div class="answer" onclick="selectAnswer(${index}, ${i})">${answer}</div>`).join('')}
@@ -198,7 +197,7 @@
             const percentage = Math.round((score / questions.length) * 100);
             const passed = percentage >= 70;
             
-            // ��������� ��������� � localStorage
+            // Сохраняем результат в localStorage
             localStorage.setItem('module_3_test_result', percentage);
             localStorage.setItem('module_3_test_score', score);
             localStorage.setItem('module_3_test_total', questions.length);
@@ -212,49 +211,12 @@
             scoreDisplay.className = 'score ' + (passed ? 'pass' : 'fail');
             
             document.getElementById('resultMessage').textContent = passed ? 
-                `�����������! �� ������� ������ ���� (${score}/${questions.length})` :
-                `���� �� �������. ���������� ������� ������� 70% (${score}/${questions.length})`;
+                `Поздравляем! Вы успешно прошли тест (${score}/${questions.length})` :
+                `Тест не пройден. Необходимо набрать минимум 70% (${score}/${questions.length})`;
         }
 
         initTest();
     </script>
 <script src="../theme-switcher.js"></script>
-
-<!-- Footer -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h4>Курсы Диспетчера</h4>
-        <p>Профессиональное обучение диспетчеров грузоперевозок</p>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Обучение</h4>
-        <a href="courses.html">Курсы</a>
-        <a href="certification.html">Сертификация</a>
-        <a href="webinars.html">Вебинары</a>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Поддержка</h4>
-        <a href="faq.html">FAQ</a>
-        <a href="contacts.html">Контакты</a>
-        <a href="help.html">Помощь</a>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Компания</h4>
-        <a href="about.html">О нас</a>
-        <a href="blog.html">Блог</a>
-        <a href="career.html">Карьера</a>
-      </div>
-    </div>
-    
-    <div class="footer-bottom">
-      <p>&copy; 2024 Курсы Диспетчера. Все права защищены.</p>
-    </div>
-  </div>
-</footer>
 </body>
 </html>

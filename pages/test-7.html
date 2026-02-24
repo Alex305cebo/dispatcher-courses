@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>����: ������ 7 - ������������� � ������������ | ����� - ����������</title>
-    <script src="auth-check.js"></script>
-        <style>
+    <title>Тест: Модуль 7 - Маршрутизация и планирование | Курсы - Диспетчера</title>
+    <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 30px 20px; display: flex; flex-direction: column; align-items: center; }
         .container { max-width: 900px; width: 100%; margin: 0 auto; }
@@ -90,48 +89,48 @@
     <div class="container">
         <div class="header">
             <div class="header-top">
-                <div class="test-badge">?? ����: ������ 7</div>
-                <a href="modules.html" class="back-btn">< �����</a>
+                <div class="test-badge">📝 Тест: Модуль 7</div>
+                <a href="modules.html" class="back-btn">← Назад</a>
             </div>
-            <h1>������������� � ������������</h1>
-            <p class="subtitle">19 �������� ��� �������� ������</p>
+            <h1>Маршрутизация и планирование</h1>
+            <p class="subtitle">19 вопросов для проверки знаний</p>
             <div class="progress-bar"><div class="progress-fill" id="progressBar"></div></div>
         </div>
 
         <div id="questionsContainer"></div>
 
         <div class="results" id="results">
-            <h2 style="color: #2d3748; font-size: 32px; margin-bottom: 20px;">���������� �����</h2>
+            <h2 style="color: #2d3748; font-size: 32px; margin-bottom: 20px;">Результаты теста</h2>
             <div class="score" id="scoreDisplay"></div>
             <p class="result-message" id="resultMessage"></p>
             <div class="nav-buttons">
-                <button class="btn btn-primary" onclick="location.href='module-8.html'">��������� ������ ></button>
-                <button class="btn btn-secondary" onclick="location.reload()">������ ������</button>
+                <button class="btn btn-primary" onclick="location.href='module-8.html'">Следующий модуль →</button>
+                <button class="btn btn-secondary" onclick="location.reload()">Пройти заново</button>
             </div>
         </div>
     </div>
 
     <script>
         const questions = [
-            {q: "������� �������� ����� ��� ������� �������:", a: ["40 mph", "50 mph", "60 mph", "70 mph"], correct: 1},
-            {q: "������� ������� ������ � ��������������� ���?", a: ["2", "3", "4", "5"], correct: 2},
-            {q: "EST ���:", a: ["Eastern Standard Time", "European Standard Time", "Extra Standard Time", "Early Standard Time"], correct: 0},
-            {q: "������� ����� EST � PST:", a: ["1 ���", "2 ����", "3 ����", "4 ����"], correct: 2},
-            {q: "��� ����� �������� � ������� � ����?", a: ["������", "��������, ��������, ������ (10-20%)", "������ ��������", "������ ������"], correct: 1},
-            {q: "������ ���������� ��� ������������ ��������:", a: ["�����", "Google Maps, PC Miler, Trucker Path", "������", "��������"], correct: 1},
-            {q: "��� ����� Truck Restrictions?", a: ["����������� ��� ������", "��� �����", "���������", "������"], correct: 0},
-            {q: "��� ��������� ������ ��� ��������?", a: ["�����", "Weather.com, Trucker Path", "������ �����", "������ ��"], correct: 1},
-            {q: "��� ������ ��� ������ ������?", a: ["������������", "������������ �������� � �������, ��������������� ETA", "�������� ����", "������"], correct: 1},
-            {q: "����������� ����� ��� ������ �������� �����:", a: ["����� �������", "���� ������������", "����", "��������"], correct: 1},
-            {q: "��� ����� Weigh Station?", a: ["��������", "������� ����������� ������", "�����", "��������"], correct: 1},
-            {q: "������������ ��� ��� Interstate:", a: ["60,000 lbs", "70,000 lbs", "80,000 lbs", "90,000 lbs"], correct: 2},
-            {q: "��� ����� Truck Stop?", a: ["��������� ��� ������ � ��������", "������� ��������", "��������", "�����"], correct: 0},
-            {q: "���������� Truck Stop ����:", a: ["McDonald's", "Pilot, Flying J, Love's, TA", "Starbucks", "Walmart"], correct: 1},
-            {q: "��� ����� �������� ����� �����?", a: ["������ ���", "������ 8-11 ����� (HOS)", "��� � ����", "�������"], correct: 1},
-            {q: "��� ��������� ��� ������������ ��������?", a: ["������ ����������", "����������, HOS, ������, �����������, �����", "������ �����", "������ ������"], correct: 1},
-            {q: "Deadhead ����������� ��������:", a: ["��������� ������ ������", "�������������� ������ ������", "������������ ������ ������", "������ ������ ������"], correct: 1},
-            {q: "��� ����� Backhaul Planning?", a: ["������������ ��������� �����", "������������ ������� �����", "������ �����", "��� ���������"], correct: 0},
-            {q: "������ ���������� ��� ������������ �����:", a: ["�������", "GPS ������� (Samsara, KeepTruckin)", "�����", "��������"], correct: 1}
+            {q: "Средняя скорость трака для расчета времени:", a: ["40 mph", "50 mph", "60 mph", "70 mph"], correct: 1},
+            {q: "Сколько часовых поясов в континентальной США?", a: ["2", "3", "4", "5"], correct: 2},
+            {q: "EST это:", a: ["Eastern Standard Time", "European Standard Time", "Extra Standard Time", "Early Standard Time"], correct: 0},
+            {q: "Разница между EST и PST:", a: ["1 час", "2 часа", "3 часа", "4 часа"], correct: 2},
+            {q: "Что нужно добавить к времени в пути?", a: ["Ничего", "Перерывы, заправки, пробки (10-20%)", "Только заправки", "Только пробки"], correct: 1},
+            {q: "Лучший инструмент для планирования маршрута:", a: ["Карта", "Google Maps, PC Miler, Trucker Path", "Компас", "Интуиция"], correct: 1},
+            {q: "Что такое Truck Restrictions?", a: ["Ограничения для траков", "Тип груза", "Страховка", "Ставка"], correct: 0},
+            {q: "Где проверить погоду для маршрута?", a: ["Нигде", "Weather.com, Trucker Path", "Только радио", "Только ТВ"], correct: 1},
+            {q: "Что делать при плохой погоде?", a: ["Игнорировать", "Предупредить водителя и брокера, скорректировать ETA", "Отменить груз", "Ничего"], correct: 1},
+            {q: "Оптимальное время для старта дальнего рейса:", a: ["Вечер пятницы", "Утро понедельника", "Ночь", "Выходные"], correct: 1},
+            {q: "Что такое Weigh Station?", a: ["Заправка", "Станция взвешивания траков", "Отель", "Ресторан"], correct: 1},
+            {q: "Максимальный вес для Interstate:", a: ["60,000 lbs", "70,000 lbs", "80,000 lbs", "90,000 lbs"], correct: 2},
+            {q: "Что такое Truck Stop?", a: ["Остановка для траков с услугами", "Обычная заправка", "Парковка", "Отель"], correct: 0},
+            {q: "Популярные Truck Stop сети:", a: ["McDonald's", "Pilot, Flying J, Love's, TA", "Starbucks", "Walmart"], correct: 1},
+            {q: "Как часто водителю нужен отдых?", a: ["Каждый час", "Каждые 8-11 часов (HOS)", "Раз в день", "Никогда"], correct: 1},
+            {q: "Что учитывать при планировании маршрута?", a: ["Только расстояние", "Расстояние, HOS, погода, ограничения, время", "Только время", "Только погоду"], correct: 1},
+            {q: "Deadhead оптимизация означает:", a: ["Увеличить пустой пробег", "Минимизировать пустой пробег", "Игнорировать пустой пробег", "Только пустой пробег"], correct: 1},
+            {q: "Что такое Backhaul Planning?", a: ["Планирование обратного груза", "Планирование первого груза", "Отмена груза", "Тип страховки"], correct: 0},
+            {q: "Лучший инструмент для отслеживания трака:", a: ["Телефон", "GPS трекинг (Samsara, KeepTruckin)", "Карта", "Интуиция"], correct: 1}
         ];
 
         let currentQuestion = 0;
@@ -144,7 +143,7 @@
                 const card = document.createElement('div');
                 card.className = 'question-card' + (index === 0 ? ' active' : '');
                 card.innerHTML = `
-                    <div class="question-number">������ ${index + 1} �� ${questions.length}</div>
+                    <div class="question-number">Вопрос ${index + 1} из ${questions.length}</div>
                     <div class="question-text">${q.q}</div>
                     <div class="answers">
                         ${q.a.map((answer, i) => `<div class="answer" onclick="selectAnswer(${index}, ${i})">${answer}</div>`).join('')}
@@ -199,7 +198,7 @@
             const percentage = Math.round((score / questions.length) * 100);
             const passed = percentage >= 70;
             
-            // ��������� ��������� � localStorage
+            // Сохраняем результат в localStorage
             localStorage.setItem('module_7_test_result', percentage);
             localStorage.setItem('module_7_test_score', score);
             localStorage.setItem('module_7_test_total', questions.length);
@@ -213,49 +212,12 @@
             scoreDisplay.className = 'score ' + (passed ? 'pass' : 'fail');
             
             document.getElementById('resultMessage').textContent = passed ? 
-                `�����������! �� ������� ������ ���� (${score}/${questions.length})` :
-                `���� �� �������. ���������� ������� ������� 70% (${score}/${questions.length})`;
+                `Поздравляем! Вы успешно прошли тест (${score}/${questions.length})` :
+                `Тест не пройден. Необходимо набрать минимум 70% (${score}/${questions.length})`;
         }
 
         initTest();
     </script>
 <script src="../theme-switcher.js"></script>
-
-<!-- Footer -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h4>Курсы Диспетчера</h4>
-        <p>Профессиональное обучение диспетчеров грузоперевозок</p>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Обучение</h4>
-        <a href="courses.html">Курсы</a>
-        <a href="certification.html">Сертификация</a>
-        <a href="webinars.html">Вебинары</a>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Поддержка</h4>
-        <a href="faq.html">FAQ</a>
-        <a href="contacts.html">Контакты</a>
-        <a href="help.html">Помощь</a>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Компания</h4>
-        <a href="about.html">О нас</a>
-        <a href="blog.html">Блог</a>
-        <a href="career.html">Карьера</a>
-      </div>
-    </div>
-    
-    <div class="footer-bottom">
-      <p>&copy; 2024 Курсы Диспетчера. Все права защищены.</p>
-    </div>
-  </div>
-</footer>
 </body>
 </html>

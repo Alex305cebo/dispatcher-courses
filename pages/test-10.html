@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>����: ������ 10 - ����������� �������� � ������������ | ����� - ����������</title>
-    <script src="auth-check.js"></script>
-        <style>
+    <title>Тест: Модуль 10 - Критические ситуации и безопасность | Курсы - Диспетчера</title>
+    <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 30px 20px; display: flex; flex-direction: column; align-items: center; }
         .container { max-width: 900px; width: 100%; margin: 0 auto; }
@@ -90,47 +89,47 @@
     <div class="container">
         <div class="header">
             <div class="header-top">
-                <div class="test-badge">?? ����: ������ 10</div>
-                <a href="modules.html" class="back-btn">< �����</a>
+                <div class="test-badge">📝 Тест: Модуль 10</div>
+                <a href="modules.html" class="back-btn">← Назад</a>
             </div>
-            <h1>����������� �������� � ������������</h1>
-            <p class="subtitle">18 �������� ��� �������� ������</p>
+            <h1>Критические ситуации и безопасность</h1>
+            <p class="subtitle">18 вопросов для проверки знаний</p>
             <div class="progress-bar"><div class="progress-fill" id="progressBar"></div></div>
         </div>
 
         <div id="questionsContainer"></div>
 
         <div class="results" id="results">
-            <h2 style="color: #2d3748; font-size: 32px; margin-bottom: 20px;">���������� �����</h2>
+            <h2 style="color: #2d3748; font-size: 32px; margin-bottom: 20px;">Результаты теста</h2>
             <div class="score" id="scoreDisplay"></div>
             <p class="result-message" id="resultMessage"></p>
             <div class="nav-buttons">
-                <button class="btn btn-primary" onclick="location.href='modules.html'">��������� � �������</button>
-                <button class="btn btn-secondary" onclick="location.reload()">������ ������</button>
+                <button class="btn btn-primary" onclick="location.href='modules.html'">Вернуться к модулям</button>
+                <button class="btn btn-secondary" onclick="location.reload()">Пройти заново</button>
             </div>
         </div>
     </div>
 
     <script>
         const questions = [
-            {q: "������ �������� ��� ������:", a: ["������� �������", "��������� � ������������ ��������", "������ ����� ����", "������"], correct: 1},
-            {q: "���� ������� ����� ������?", a: ["������ �������", "911, ���������, ������, ��������", "������ 911", "������"], correct: 1},
-            {q: "��� ������ ��� ������� �����?", a: ["������������", "������� Road Service, �������� �������", "���������� �����", "������� ����"], correct: 1},
-            {q: "��� ����� Road Service?", a: ["�������� �������", "������ ������ �� ������", "���������", "������"], correct: 1},
-            {q: "���������� Road Service:", a: ["McDonald's", "TA Roadside, Comdata, Coach-Net", "Starbucks", "Walmart"], correct: 1},
-            {q: "��� ������ ��� �������� ����� 2 �����?", a: ["������", "���������� �������� ������� � ��������", "�����", "�������� ����"], correct: 1},
-            {q: "��� ������ ��� ������������� ������?", a: ["������������", "���������� ����, �������� �������", "���������� �����", "�������� ����"], correct: 1},
-            {q: "��� ����� Force Majeure?", a: ["������� ��������", "�������������� ��������������", "��� �����", "���������"], correct: 1},
-            {q: "������� Force Majeure:", a: ["���������", "������, �������������, ����������", "���������", "����"], correct: 1},
-            {q: "��� ������ ��� ����� �����?", a: ["������", "���������� ������� 911 � ���������", "������ ������", "�����"], correct: 1},
-            {q: "��� ������������� ����� �����?", a: ["�����", "���������� ��������, �����, GPS", "��������� ��������", "�� �������"], correct: 1},
-            {q: "��� ������ ���� �������� �� ��������?", a: ["����� ������", "������� ��������� ���, ��������� � ����������� ��������", "������������", "�������"], correct: 1},
-            {q: "��� ����� Cargo Insurance Claim?", a: ["������� ������", "��������� ���������� �� ����", "��� �����", "��������"], correct: 1},
-            {q: "����� �������� Insurance Claim?", a: ["������", "��� �����������/������ �����", "�������", "��� � �����"], correct: 1},
-            {q: "��� ����� ��� Insurance Claim?", a: ["������", "����, ���������, ����������� �����", "������ ����", "������ ���������"], correct: 1},
-            {q: "��� ������ ��� ������ ������� �����?", a: ["������� ����", "��������� � ��������, ���������������", "������", "������"], correct: 1},
-            {q: "Emergency Contact �������� ����� ���:", a: ["������", "����� � ����������� ���������", "�������", "�����������"], correct: 1},
-            {q: "������� ������� � ����������� ���������:", a: ["������", "����������� � ������� ������������", "�������������", "��������"], correct: 1}
+            {q: "Первое действие при аварии:", a: ["Звонить брокеру", "Убедиться в безопасности водителя", "Искать новый груз", "Ничего"], correct: 1},
+            {q: "Кому звонить после аварии?", a: ["Только брокеру", "911, страховая, брокер, компания", "Только 911", "Никому"], correct: 1},
+            {q: "Что делать при поломке трака?", a: ["Игнорировать", "Вызвать Road Service, сообщить брокеру", "Продолжать ехать", "Бросить трак"], correct: 1},
+            {q: "Что такое Road Service?", a: ["Дорожная полиция", "Служба помощи на дороге", "Страховка", "Брокер"], correct: 1},
+            {q: "Популярные Road Service:", a: ["McDonald's", "TA Roadside, Comdata, Coach-Net", "Starbucks", "Walmart"], correct: 1},
+            {q: "Что делать при задержке более 2 часов?", a: ["Ничего", "Немедленно сообщить брокеру с причиной", "Ждать", "Отменить груз"], correct: 1},
+            {q: "Что делать при экстремальной погоде?", a: ["Игнорировать", "Остановить трак, сообщить брокеру", "Продолжать ехать", "Отменить груз"], correct: 1},
+            {q: "Что такое Force Majeure?", a: ["Обычная ситуация", "Непредвиденные обстоятельства", "Тип груза", "Страховка"], correct: 1},
+            {q: "Примеры Force Majeure:", a: ["Опоздание", "Ураган, землетрясение, наводнение", "Усталость", "Лень"], correct: 1},
+            {q: "Что делать при краже груза?", a: ["Ничего", "Немедленно звонить 911 и страховой", "Искать самому", "Ждать"], correct: 1},
+            {q: "Как предотвратить кражу груза?", a: ["Никак", "Безопасные парковки, замки, GPS", "Оставлять открытым", "Не следить"], correct: 1},
+            {q: "Что делать если водитель не отвечает?", a: ["Ждать неделю", "Звонить несколько раз, связаться с экстренными службами", "Игнорировать", "Уволить"], correct: 1},
+            {q: "Что такое Cargo Insurance Claim?", a: ["Обычная оплата", "Страховое требование за груз", "Тип груза", "Лицензия"], correct: 1},
+            {q: "Когда подавать Insurance Claim?", a: ["Всегда", "При повреждении/потере груза", "Никогда", "Раз в месяц"], correct: 1},
+            {q: "Что нужно для Insurance Claim?", a: ["Ничего", "Фото, документы, полицейский отчет", "Только фото", "Только документы"], correct: 1},
+            {q: "Что делать при отказе приемки груза?", a: ["Бросить груз", "Связаться с брокером, документировать", "Уехать", "Ничего"], correct: 1},
+            {q: "Emergency Contact водителя нужен для:", a: ["Ничего", "Связи в критических ситуациях", "Рекламы", "Развлечения"], correct: 1},
+            {q: "Главное правило в критических ситуациях:", a: ["Паника", "Спокойствие и быстрая коммуникация", "Игнорирование", "Агрессия"], correct: 1}
         ];
 
         let currentQuestion = 0;
@@ -143,7 +142,7 @@
                 const card = document.createElement('div');
                 card.className = 'question-card' + (index === 0 ? ' active' : '');
                 card.innerHTML = `
-                    <div class="question-number">������ ${index + 1} �� ${questions.length}</div>
+                    <div class="question-number">Вопрос ${index + 1} из ${questions.length}</div>
                     <div class="question-text">${q.q}</div>
                     <div class="answers">
                         ${q.a.map((answer, i) => `<div class="answer" onclick="selectAnswer(${index}, ${i})">${answer}</div>`).join('')}
@@ -198,7 +197,7 @@
             const percentage = Math.round((score / questions.length) * 100);
             const passed = percentage >= 70;
             
-            // ��������� ��������� � localStorage
+            // Сохраняем результат в localStorage
             localStorage.setItem('module_10_test_result', percentage);
             localStorage.setItem('module_10_test_score', score);
             localStorage.setItem('module_10_test_total', questions.length);
@@ -212,49 +211,12 @@
             scoreDisplay.className = 'score ' + (passed ? 'pass' : 'fail');
             
             document.getElementById('resultMessage').textContent = passed ? 
-                `�����������! �� ������� ������ ���� (${score}/${questions.length})` :
-                `���� �� �������. ���������� ������� ������� 70% (${score}/${questions.length})`;
+                `Поздравляем! Вы успешно прошли тест (${score}/${questions.length})` :
+                `Тест не пройден. Необходимо набрать минимум 70% (${score}/${questions.length})`;
         }
 
         initTest();
     </script>
 <script src="../theme-switcher.js"></script>
-
-<!-- Footer -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h4>Курсы Диспетчера</h4>
-        <p>Профессиональное обучение диспетчеров грузоперевозок</p>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Обучение</h4>
-        <a href="courses.html">Курсы</a>
-        <a href="certification.html">Сертификация</a>
-        <a href="webinars.html">Вебинары</a>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Поддержка</h4>
-        <a href="faq.html">FAQ</a>
-        <a href="contacts.html">Контакты</a>
-        <a href="help.html">Помощь</a>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Компания</h4>
-        <a href="about.html">О нас</a>
-        <a href="blog.html">Блог</a>
-        <a href="career.html">Карьера</a>
-      </div>
-    </div>
-    
-    <div class="footer-bottom">
-      <p>&copy; 2024 Курсы Диспетчера. Все права защищены.</p>
-    </div>
-  </div>
-</footer>
 </body>
 </html>

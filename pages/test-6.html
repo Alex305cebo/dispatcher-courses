@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>����: ������ 6 - ������ � ���������� | ����� - ����������</title>
-    <script src="auth-check.js"></script>
-        <style>
+    <title>Тест: Модуль 6 - Работа с водителями | Курсы - Диспетчера</title>
+    <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 30px 20px; display: flex; flex-direction: column; align-items: center; }
         .container { max-width: 900px; width: 100%; margin: 0 auto; }
@@ -90,43 +89,43 @@
     <div class="container">
         <div class="header">
             <div class="header-top">
-                <div class="test-badge">?? ����: ������ 6</div>
-                <a href="modules.html" class="back-btn">< �����</a>
+                <div class="test-badge">📝 Тест: Модуль 6</div>
+                <a href="modules.html" class="back-btn">← Назад</a>
             </div>
-            <h1>������ � ����������</h1>
-            <p class="subtitle">14 �������� ��� �������� ������</p>
+            <h1>Работа с водителями</h1>
+            <p class="subtitle">14 вопросов для проверки знаний</p>
             <div class="progress-bar"><div class="progress-fill" id="progressBar"></div></div>
         </div>
 
         <div id="questionsContainer"></div>
 
         <div class="results" id="results">
-            <h2 style="color: #2d3748; font-size: 32px; margin-bottom: 20px;">���������� �����</h2>
+            <h2 style="color: #2d3748; font-size: 32px; margin-bottom: 20px;">Результаты теста</h2>
             <div class="score" id="scoreDisplay"></div>
             <p class="result-message" id="resultMessage"></p>
             <div class="nav-buttons">
-                <button class="btn btn-primary" onclick="location.href='module-7.html'">��������� ������ ></button>
-                <button class="btn btn-secondary" onclick="location.reload()">������ ������</button>
+                <button class="btn btn-primary" onclick="location.href='module-7.html'">Следующий модуль →</button>
+                <button class="btn btn-secondary" onclick="location.reload()">Пройти заново</button>
             </div>
         </div>
     </div>
 
     <script>
         const questions = [
-            {q: "������ ��� ����� ������ � ������ ��������:", a: ["������� ����", "��� �����, �������, ��������� ���� HOS", "�����", "�������"], correct: 1},
-            {q: "��� ����� ��������� ������ �������� � �����?", a: ["������ ���", "��� ��������, � ����, ��� ���������", "��� � ����", "�������"], correct: 1},
-            {q: "��� ������ ���� �������� ����������?", a: ["������������", "���������� �������� ������� � ������ �������", "�������", "�����"], correct: 1},
-            {q: "��� ������������ ��������?", a: ["�������", "������� �����, ������������� ������, ��������", "����������", "������������"], correct: 1},
-            {q: "��� ����� Home Time?", a: ["������� �����", "����� ���� � ������", "����� ��������", "����� ���������"], correct: 1},
-            {q: "��� ����� �������� ����� Home Time?", a: ["������ ����", "������ ������", "������ 2-3 ������", "�������"], correct: 2},
-            {q: "��� ������ ��� ��������� � ���������?", a: ["�������", "�������� ��������� � ����� �������", "�������", "������������"], correct: 1},
-            {q: "����� ���������� Load Details ��������?", a: ["����� ������", "����� ����� ������� �����", "�������", "����� �����"], correct: 1},
-            {q: "��� ������ ���� � Load Details?", a: ["������ �����", "������, �����, ��������, ����������", "������ ����", "������ ����"], correct: 1},
-            {q: "��� ����������� �� ����� �������� �� �����?", a: ["���������", "������ ������� � ���������� ������������", "�������", "������������"], correct: 1},
-            {q: "��� ����� Preferred Lanes ��������?", a: ["������� ��������", "��������� ��������", "��� �����", "���������"], correct: 0},
-            {q: "��� ����� ������� ��������?", a: ["��� � ���", "�����������", "��� � �����", "�������"], correct: 1},
-            {q: "��� ������ ���� �������� �� ��������?", a: ["����� ������", "������� ��������� ���, ��������� SMS", "�������", "������������"], correct: 1},
-            {q: "������� �������� � ������ � ����������:", a: ["���������", "�������� � ������������", "�����������", "��������"], correct: 1}
+            {q: "Первое что нужно узнать у нового водителя:", a: ["Любимый цвет", "Тип трака, локация, доступные часы HOS", "Хобби", "Возраст"], correct: 1},
+            {q: "Как часто проверять статус водителя в рейсе?", a: ["Каждый час", "При погрузке, в пути, при разгрузке", "Раз в день", "Никогда"], correct: 1},
+            {q: "Что делать если водитель опаздывает?", a: ["Игнорировать", "Немедленно сообщить брокеру и узнать причину", "Уволить", "Ждать"], correct: 1},
+            {q: "Как мотивировать водителя?", a: ["Кричать", "Хорошие грузы, своевременная оплата, уважение", "Штрафовать", "Игнорировать"], correct: 1},
+            {q: "Что такое Home Time?", a: ["Рабочее время", "Время дома с семьей", "Время погрузки", "Время разгрузки"], correct: 1},
+            {q: "Как часто водителю нужен Home Time?", a: ["Каждый день", "Каждую неделю", "Каждые 2-3 недели", "Никогда"], correct: 2},
+            {q: "Что делать при конфликте с водителем?", a: ["Кричать", "Спокойно выслушать и найти решение", "Уволить", "Игнорировать"], correct: 1},
+            {q: "Когда отправлять Load Details водителю?", a: ["Через неделю", "Сразу после букинга груза", "Никогда", "Через месяц"], correct: 1},
+            {q: "Что должно быть в Load Details?", a: ["Только адрес", "Адреса, время, контакты, инструкции", "Только цена", "Только дата"], correct: 1},
+            {q: "Как реагировать на отказ водителя от груза?", a: ["Заставить", "Узнать причину и предложить альтернативу", "Уволить", "Игнорировать"], correct: 1},
+            {q: "Что такое Preferred Lanes водителя?", a: ["Любимые маршруты", "Нелюбимые маршруты", "Тип груза", "Страховка"], correct: 0},
+            {q: "Как часто платить водителю?", a: ["Раз в год", "Еженедельно", "Раз в месяц", "Никогда"], correct: 1},
+            {q: "Что делать если водитель не отвечает?", a: ["Ждать неделю", "Звонить несколько раз, отправить SMS", "Уволить", "Игнорировать"], correct: 1},
+            {q: "Главное качество в работе с водителями:", a: ["Строгость", "Уважение и коммуникация", "Безразличие", "Агрессия"], correct: 1}
         ];
 
         let currentQuestion = 0;
@@ -139,7 +138,7 @@
                 const card = document.createElement('div');
                 card.className = 'question-card' + (index === 0 ? ' active' : '');
                 card.innerHTML = `
-                    <div class="question-number">������ ${index + 1} �� ${questions.length}</div>
+                    <div class="question-number">Вопрос ${index + 1} из ${questions.length}</div>
                     <div class="question-text">${q.q}</div>
                     <div class="answers">
                         ${q.a.map((answer, i) => `<div class="answer" onclick="selectAnswer(${index}, ${i})">${answer}</div>`).join('')}
@@ -194,7 +193,7 @@
             const percentage = Math.round((score / questions.length) * 100);
             const passed = percentage >= 70;
             
-            // ��������� ��������� � localStorage
+            // Сохраняем результат в localStorage
             localStorage.setItem('module_6_test_result', percentage);
             localStorage.setItem('module_6_test_score', score);
             localStorage.setItem('module_6_test_total', questions.length);
@@ -208,49 +207,12 @@
             scoreDisplay.className = 'score ' + (passed ? 'pass' : 'fail');
             
             document.getElementById('resultMessage').textContent = passed ? 
-                `�����������! �� ������� ������ ���� (${score}/${questions.length})` :
-                `���� �� �������. ���������� ������� ������� 70% (${score}/${questions.length})`;
+                `Поздравляем! Вы успешно прошли тест (${score}/${questions.length})` :
+                `Тест не пройден. Необходимо набрать минимум 70% (${score}/${questions.length})`;
         }
 
         initTest();
     </script>
 <script src="../theme-switcher.js"></script>
-
-<!-- Footer -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h4>Курсы Диспетчера</h4>
-        <p>Профессиональное обучение диспетчеров грузоперевозок</p>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Обучение</h4>
-        <a href="courses.html">Курсы</a>
-        <a href="certification.html">Сертификация</a>
-        <a href="webinars.html">Вебинары</a>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Поддержка</h4>
-        <a href="faq.html">FAQ</a>
-        <a href="contacts.html">Контакты</a>
-        <a href="help.html">Помощь</a>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Компания</h4>
-        <a href="about.html">О нас</a>
-        <a href="blog.html">Блог</a>
-        <a href="career.html">Карьера</a>
-      </div>
-    </div>
-    
-    <div class="footer-bottom">
-      <p>&copy; 2024 Курсы Диспетчера. Все права защищены.</p>
-    </div>
-  </div>
-</footer>
 </body>
 </html>
