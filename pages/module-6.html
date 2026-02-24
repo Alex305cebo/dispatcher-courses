@@ -3,204 +3,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Модуль 6: Работа с водителями | Курсы - Диспетчера</title>
-    <script src="auth-check.js"></script>
-        <style>
+    <title>Модуль 6: Работа с водителями | Курсы Диспетчера</title>
+    <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 30px 20px; display: flex; flex-direction: column; align-items: center; }
-        body::before { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3), transparent 50%), radial-gradient(circle at 80% 80%, rgba(138, 43, 226, 0.3), transparent 50%), radial-gradient(circle at 40% 20%, rgba(75, 0, 130, 0.2), transparent 50%); animation: backgroundMove 20s ease infinite; z-index: -1; }
-        @keyframes backgroundMove { 0%, 100% { transform: translate(0, 0) scale(1); } 25% { transform: translate(5%, 5%) scale(1.05); } 50% { transform: translate(-5%, 5%) scale(1.1); } 75% { transform: translate(5%, -5%) scale(1.05); } }
-        .container { max-width: 1050px; width: 100%; margin: 0 auto; }
-        .header { background: white; backdrop-filter: blur(10px); padding: 30px 40px; border-radius: 20px; margin-bottom: 30px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); }
-        .header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-        .module-badge { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 10px 20px; border-radius: 25px; font-weight: 600; font-size: 18px; }
-        .module-number { background: white; backdrop-filter: blur(10px); color: #16a34a; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; }
-        .back-btn { padding: 10px 20px; background: #f3f4f6; color: #374151; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; }
-        .back-btn:hover { background: #e5e7eb; transform: translateY(-2px); }
-        h1 { color: #2d3748; font-size: 32px; margin-bottom: 10px; }
-        .subtitle { color: #718096; font-size: 18px; }
-        .content-card { background: white; backdrop-filter: blur(10px); border-radius: 20px; padding: 40px; margin-bottom: 25px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); text-align: left; }
-        .section-title { color: #2d3748; font-size: 26px; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 3px solid #16a34a; }
-        .section-content p { color: #4a5568; font-size: 18px; line-height: 1.9; margin-bottom: 18px; text-align: left; }
-        .section-content ul, .section-content ol { margin-left: 20px; margin-bottom: 22px; text-align: left; }
-        .section-content li { color: #4a5568; font-size: 17px; line-height: 1.9; margin-bottom: 12px; text-align: left; }
-        .lesson-card { background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border-left: 4px solid #16a34a; padding: 25px; margin: 20px 0; border-radius: 10px; text-align: left; }
-        .lesson-title { color: #166534; font-size: 22px; font-weight: 600; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
-        .lesson-content { color: #15803d; font-size: 17px; line-height: 1.8; text-align: left; }
-        .info-box { background: #fffbeb; border: 2px solid #fbbf24; border-radius: 50px; padding: 25px; margin: 20px 0; }
-        .info-title { color: #92400e; font-size: 20px; font-weight: 600; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
-        .action-buttons { display: flex; gap: 15px; margin-top: 30px; flex-wrap: wrap; }
-        .btn { padding: 15px 30px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 16px; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 10px; }
-        .btn-primary { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; box-shadow: 0 4px 15px rgba(22, 163, 74, 0.4); }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(22, 163, 74, 0.6); }
-        .btn-secondary { background: white; backdrop-filter: blur(10px); color: #16a34a; border: 2px solid #16a34a; }
-        .btn-secondary:hover { background: #16a34a; color: white; }
-        @media (max-width: 768px) { .header-top { flex-direction: column; gap: 15px; } h1 { font-size: 26px; } .content-card { padding: 25px; } }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #0a0e1a;
+            color: #ffffff;
+            padding: 40px 20px;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        .container { max-width: 900px; margin: 0 auto; }
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(255,255,255,.05);
+            border: 1px solid rgba(255,255,255,.1);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+        .back-btn:hover { background: rgba(255,255,255,.08); }
+        .module-header {
+            background: rgba(236,72,153,.1);
+            border: 1px solid rgba(236,72,153,.3);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 32px;
+        }
+        .module-badge {
+            display: inline-block;
+            background: rgba(236,72,153,.2);
+            color: #ec4899;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 13px;
+            margin-bottom: 16px;
+        }
+        h1 {
+            font-size: 32px;
+            font-weight: 900;
+            margin-bottom: 12px;
+            color: #ec4899;
+        }
+        .description { color: #94a3b8; font-size: 14px; text-align: left; }
+        .content-section {
+            background: rgba(255,255,255,.03);
+            border: 1px solid rgba(255,255,255,.08);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+            text-align: left;
+        }
+        h2 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #ec4899;
+            text-align: left;
+        }
+        h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 24px 0 12px;
+            color: #a5b4fc;
+            text-align: left;
+        }
+        ul { margin-left: 20px; margin-bottom: 16px; text-align: left; }
+        li { margin-bottom: 8px; color: #cbd5e1; text-align: left; font-size: 14px; }
+        p { text-align: left; color: #cbd5e1; margin-bottom: 16px; font-size: 14px; }
+        .test-btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, #ec4899, #db2777);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 16px;
+            margin-top: 24px;
+        }
+        .test-btn:hover { opacity: 0.9; transform: translateY(-2px); }
     </style>
-
-    <script>!function(){var t=localStorage.getItem('dispatcher-theme')||'dark';'dark'===t&&document.documentElement.setAttribute('data-theme','dark')}();</script>
-
-
-    <link rel="stylesheet" href="../dark-theme.css">
-    <script src="../dark-mode.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="header-top">
-                <div class="module-badge"><div class="module-number">6</div><span>Модуль 6 из 10</span></div>
-                <a href="modules.html" class="back-btn">← Назад к модулям</a>
-            </div>
-            <h1>Работа с водителями</h1>
-            <p class="subtitle">Координация перевозчиков и водителей</p>
-        </div>
-        <div class="content-card">
-            <h2 class="section-title">📚 О чём модуль</h2>
-            <div class="section-content">
-                <p>Работа с водителями - критически важная часть работы диспетчера. Вы отвечаете координацию рейсов, управление людьми, коммуникацию маршрутов и решение проблем.</p>
-                <p>В этом модуле вы изучите проверку документов у водителей, управление конфликтами рейсов, отслеживание грузов, мотивирование водителей, работу с жалобами и безопасность перевозок.</p>
-            </div>
-        </div>
-        <div class="lesson-card">
-            <div class="lesson-title"><span>📋</span> Урок 1: База информации о водителе и проверка технического состояния</div>
-            <div class="lesson-content">
-                <p><strong>Информация, которую нужно собрать о водителе:</strong></p>
-                <ul style="text-align: center; list-style-position: inside;">
-                    <li><strong>CDL License:</strong> Класс лицензии (A, B, C), endorsements (H, N, T), срок действия</li>
-                    <li><strong>Medical Card:</strong> Медицинская сертификация DOT (обновляется каждые 2 года)</li>
-                    <li><strong>Driving Experience:</strong> Опыт вождения (новичок, 1-3 года, 3+ лет)</li>
-                    <li><strong>HOS Status:</strong> Остаточные часы вождения (11-hour limit, 14-hour window)</li>
-                    <li><strong>Current Location:</strong> Текущее местоположение и время доступности</li>
-                    <li><strong>Truck Type:</strong> Тип трейлера и оснащение (53ft Dry Van, Reefer, Flatbed)</li>
-                    <li><strong>Contact Info:</strong> Телефон, email, предпочтительный способ связи</li>
-                </ul>
-                <p style="margin-top: 15px;"><strong>Проверка технического состояния:</strong></p>
-                <ul style="text-align: center; list-style-position: inside;">
-                    <li><strong>Pre-Trip Inspection:</strong> Водитель должен проводить осмотр перед каждым рейсом</li>
-                    <li><strong>Fuel Level:</strong> Достаточно топлива для рейса</li>
-                    <li><strong>Tire Condition:</strong> Состояние шин (давление, износ)</li>
-                    <li><strong>Brakes:</strong> Исправность тормозной системы</li>
-                    <li><strong>Lights:</strong> Работа всех фар и сигналов</li>
-                    <li><strong>ELD:</strong> Электронное устройство логирования работает</li>
-                </ul>
-            </div>
-        </div>
-        <div class="lesson-card">
-            <div class="lesson-title"><span>🚛</span> Урок 2: Назначение рейсов</div>
-            <div class="lesson-content">
-                <p><strong>Как назначить правильный рейс водителю:</strong></p>
-                <ul style="text-align: center; list-style-position: inside;">
-                    <li><strong>Check HOS:</strong> Убедитесь, что у водителя достаточно часов для рейса</li>
-                    <li><strong>Load Details:</strong> Предоставьте полную информацию (pickup/delivery адреса, время, контакты)</li>
-                    <li><strong>Rate Confirmation:</strong> Отправьте RC водителю для ознакомления</li>
-                    <li><strong>Special Instructions:</strong> Особые условия погрузки (appointment time, live load, drop & hook)</li>
-                    <li><strong>Route Planning:</strong> Обсуждайте оптимальный маршрут с учётом HOS и погоды</li>
-                    <li><strong>Fuel Stops:</strong> Рекомендуйте остановки для заправки (используйте fuel cards)</li>
-                    <li><strong>Emergency Contacts:</strong> Предоставьте контакты для экстренных ситуаций</li>
-                    <li><strong>Confirm Understanding:</strong> Убедитесь, что водитель понял все детали</li>
-                </ul>
-            </div>
-        </div>
-        <div class="lesson-card">
-            <div class="lesson-title"><span>📍</span> Урок 3: Контроль выполнения рейса</div>
-            <div class="lesson-content">
-                <p><strong>Как отслеживать груз:</strong></p>
-                <ul style="text-align: center; list-style-position: inside;">
-                    <li><strong>Check-In Points:</strong> Регулярные точки связи (после погрузки, перед доставкой, в пути, после разгрузки)</li>
-                    <li><strong>GPS Tracking:</strong> Используйте ELD для мониторинга местоположения и скорости движения</li>
-                    <li><strong>HOS Monitoring:</strong> Следите за оставшимися часами вождения</li>
-                    <li><strong>ETA Updates:</strong> Получайте обновления ETA (estimated time of arrival)</li>
-                    <li><strong>Problem Reporting:</strong> Быстрое решение сообщайте брокеру о проблемах</li>
-                    <li><strong>Document Collection:</strong> Напоминайте о сборе документов (BOL, POD, scale tickets)</li>
-                    <li><strong>Delivery Confirmation:</strong> Получите подтверждение доставки с подписью и печатью</li>
-                    <li><strong>Post-Trip Report:</strong> Соберите отчёт о рейсе (проблемы, задержки, detention)</li>
-                </ul>
-            </div>
-        </div>
-        <div class="lesson-card">
-            <div class="lesson-title"><span>🤝</span> Урок 4: Решение конфликтов и мотивация водителей</div>
-            <div class="lesson-content">
-                <p><strong>Как решать конфликты:</strong></p>
-                <ul style="text-align: center; list-style-position: inside;">
-                    <li><strong>Listen First:</strong> Выслушайте водителя, не перебивая</li>
-                    <li><strong>Stay Calm:</strong> Сохраняйте спокойствие, даже если водитель эмоционален</li>
-                    <li><strong>Empathy:</strong> Покажите понимание позиции водителя</li>
-                    <li><strong>Find Solution:</strong> Ищите решение, которое устроит обе стороны</li>
-                    <li><strong>Clear Communication:</strong> Объясняйте причины решений и действий</li>
-                    <li><strong>Follow Up:</strong> Убедитесь, что проблема решена</li>
-                </ul>
-                <p style="margin-top: 15px;"><strong>Как мотивировать водителей:</strong></p>
-                <ul style="text-align: center; list-style-position: inside;">
-                    <li><strong>Good Loads:</strong> Предлагайте прибыльные грузы с хорошими ставками</li>
-                    <li><strong>Home Time:</strong> Учитывайте желание водителя быть дома</li>
-                    <li><strong>Respect:</strong> Относитесь с уважением, слушайте их мнение</li>
-                    <li><strong>Bonuses:</strong> Вознаграждайте бонусы за хорошую работу</li>
-                    <li><strong>Communication:</strong> Поддерживайте регулярную связь</li>
-                    <li><strong>Support:</strong> Помогайте в решении проблем</li>
-                </ul>
-            </div>
-        </div>
-        <div class="info-box">
-            <div class="info-title"><span>💡</span> Важный совет</div>
-            <p style="color: #78350f; font-size: 17px; line-height: 1.8;">
-                <strong>Хорошие отношения с водителями = успешный бизнес!</strong> Водители - это ваши партнёры, а не подчинённые. Относитесь к ним с уважением, слушайте и решайте проблемы, предлагайте хорошие грузы. Счастливые водители остаются надолго и работают с полной отдачей.
-            </p>
-        </div>
-        <div class="content-card">
-            <h2 class="section-title">🎯 Следующие шаги</h2>
-            <p style="color: #4a5568; font-size: 18px; line-height: 1.9; margin-bottom: 20px;">
-                Теперь вы знаете, как управлять водителями и координацией. Следующий модуль посвящён маршрутизации и планированию - оптимизация маршрутов и контроль времени.
-            </p>
-            <div class="action-buttons">
-                <a href="module-7.html" class="btn btn-primary">Следующий модуль: Маршрутизация →</a>
-                <a href="module-5.html" class="btn btn-secondary">← Предыдущий модуль</a>
-            </div>
-        </div>
-    </div>
-    <button id="scrollToTop" style="display: none; position: fixed; bottom: 30px; right: 30px; z-index: 1000; padding: 15px 20px; background: #4299e1; color: white; border: none; border-radius: 50%; cursor: pointer; font-size: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: all 0.3s ease;">^</button>
-    <script>
-        localStorage.setItem('module_6_viewed', 'true');
-        const scrollToTopBtn = document.getElementById('scrollToTop');
-        window.addEventListener('scroll', () => { if (window.pageYOffset > 300) { scrollToTopBtn.style.display = 'block'; } else { scrollToTopBtn.style.display = 'none'; } });
-        scrollToTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
-    </script>
-<script src="../theme-switcher.js"></script>
-
-<!-- Footer -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h4>Курсы Диспетчера</h4>
-        <p>Профессиональное обучение диспетчеров грузоперевозок</p>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Обучение</h4>
-        <a href="courses.html">Курсы</a>
-        <a href="certification.html">Сертификация</a>
-        <a href="webinars.html">Вебинары</a>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Поддержка</h4>
-        <a href="faq.html">FAQ</a>
-        <a href="contacts.html">Контакты</a>
-        <a href="help.html">Помощь</a>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Компания</h4>
-        <a href="about.html">О нас</a>
-        <a href="blog.html">Блог</a>
-        <a href="career.html">Карьера</a>
-      </div>
-    </div>
+<div class="container">
+    <a href="modules.html" class="back-btn">← Назад к модулям</a>
     
-    <div class="footer-bottom">
-      <p>&copy; 2024 Курсы Диспетчера. Все права защищены.</p>
+    <div class="module-header">
+        <div class="module-badge">🚛 Модуль 6</div>
+        <h1>Работа с водителями</h1>
+        <p class="description">Координация перевозчиков и водителей</p>
     </div>
-  </div>
-</footer>
+
+    <div class="content-section">
+        <h2>📚 Содержание модуля</h2>
+        
+        <h3>1. База информации о водителе</h3>
+        <p><strong>Информация, которую нужно собрать:</strong></p>
+        <ul>
+            <li><strong>CDL License:</strong> Класс лицензии (A, B, C), endorsements (H, N, T), срок действия</li>
+            <li><strong>Medical Card:</strong> Медицинская сертификация DOT (обновляется каждые 2 года)</li>
+            <li><strong>Driving Experience:</strong> Опыт вождения (новичок, 1-3 года, 3+ лет)</li>
+            <li><strong>HOS Status:</strong> Остаточные часы вождения (11-hour limit, 14-hour window)</li>
+            <li><strong>Current Location:</strong> Текущее местоположение и время доступности</li>
+            <li><strong>Truck Type:</strong> Тип трейлера и оснащение (53ft Dry Van, Reefer, Flatbed)</li>
+            <li><strong>Contact Info:</strong> Телефон, email, предпочтительный способ связи</li>
+        </ul>
+        <p><strong>Проверка технического состояния:</strong></p>
+        <ul>
+            <li><strong>Pre-Trip Inspection:</strong> Водитель должен проводить осмотр перед каждым рейсом</li>
+            <li><strong>Fuel Level:</strong> Достаточно топлива для рейса</li>
+            <li><strong>Tire Condition:</strong> Состояние шин (давление, износ)</li>
+            <li><strong>Brakes:</strong> Исправность тормозной системы</li>
+            <li><strong>Lights:</strong> Работа всех фар и сигналов</li>
+            <li><strong>ELD:</strong> Электронное устройство логирования работает</li>
+        </ul>
+
+        <h3>2. Назначение рейсов</h3>
+        <ul>
+            <li><strong>Check HOS:</strong> Убедитесь, что у водителя достаточно часов для рейса</li>
+            <li><strong>Load Details:</strong> Предоставьте полную информацию (pickup/delivery адреса, время, контакты)</li>
+            <li><strong>Rate Confirmation:</strong> Отправьте RC водителю для ознакомления</li>
+            <li><strong>Special Instructions:</strong> Особые условия погрузки (appointment time, live load, drop & hook)</li>
+            <li><strong>Route Planning:</strong> Обсуждайте оптимальный маршрут с учётом HOS и погоды</li>
+            <li><strong>Fuel Stops:</strong> Рекомендуйте остановки для заправки (используйте fuel cards)</li>
+            <li><strong>Emergency Contacts:</strong> Предоставьте контакты для экстренных ситуаций</li>
+            <li><strong>Confirm Understanding:</strong> Убедитесь, что водитель понял все детали</li>
+        </ul>
+
+        <h3>3. Контроль выполнения рейса</h3>
+        <ul>
+            <li><strong>Check-In Points:</strong> Регулярные точки связи (после погрузки, перед доставкой, в пути)</li>
+            <li><strong>GPS Tracking:</strong> Используйте ELD для мониторинга местоположения и скорости</li>
+            <li><strong>HOS Monitoring:</strong> Следите за оставшимися часами вождения</li>
+            <li><strong>ETA Updates:</strong> Получайте обновления ETA (estimated time of arrival)</li>
+            <li><strong>Problem Reporting:</strong> Быстро сообщайте брокеру о проблемах</li>
+            <li><strong>Document Collection:</strong> Напоминайте о сборе документов (BOL, POD, scale tickets)</li>
+            <li><strong>Delivery Confirmation:</strong> Получите подтверждение доставки с подписью и печатью</li>
+            <li><strong>Post-Trip Report:</strong> Соберите отчёт о рейсе (проблемы, задержки, detention)</li>
+        </ul>
+
+        <h3>4. Решение конфликтов</h3>
+        <ul>
+            <li><strong>Listen First:</strong> Выслушайте водителя, не перебивая</li>
+            <li><strong>Stay Calm:</strong> Сохраняйте спокойствие, даже если водитель эмоционален</li>
+            <li><strong>Empathy:</strong> Покажите понимание позиции водителя</li>
+            <li><strong>Find Solution:</strong> Ищите решение, которое устроит обе стороны</li>
+            <li><strong>Clear Communication:</strong> Объясняйте причины решений и действий</li>
+            <li><strong>Follow Up:</strong> Убедитесь, что проблема решена</li>
+        </ul>
+
+        <h3>5. Мотивация водителей</h3>
+        <ul>
+            <li><strong>Good Loads:</strong> Предлагайте прибыльные грузы с хорошими ставками</li>
+            <li><strong>Home Time:</strong> Учитывайте желание водителя быть дома</li>
+            <li><strong>Respect:</strong> Относитесь с уважением, слушайте их мнение</li>
+            <li><strong>Bonuses:</strong> Вознаграждайте бонусами за хорошую работу</li>
+            <li><strong>Communication:</strong> Поддерживайте регулярную связь</li>
+            <li><strong>Support:</strong> Помогайте в решении проблем</li>
+        </ul>
+    </div>
+
+    <div class="content-section">
+        <h2>🎯 Ключевые навыки</h2>
+        <ul>
+            <li>Сбор и проверка информации о водителях</li>
+            <li>Эффективное назначение рейсов</li>
+            <li>Мониторинг выполнения рейсов</li>
+            <li>Решение конфликтных ситуаций</li>
+            <li>Мотивация и поддержка водителей</li>
+        </ul>
+        
+        <a href="module-7.html" class="test-btn">Следующий модуль: Маршрутизация →</a>
+    </div>
+</div>
+
+<script>
+localStorage.setItem('module_6_viewed', 'true');
+</script>
 </body>
 </html>

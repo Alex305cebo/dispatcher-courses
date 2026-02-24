@@ -3,262 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Модуль 7: Документооборот и отчётность | Курсы - Диспетчера</title>
-    <script src="auth-check.js"></script>
-        <style>
+    <title>Модуль 7: Маршрутизация и планирование | Курсы Диспетчера</title>
+    <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 30px 20px; display: flex; flex-direction: column; align-items: center; }
-        body::before { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3), transparent 50%), radial-gradient(circle at 80% 80%, rgba(138, 43, 226, 0.3), transparent 50%), radial-gradient(circle at 40% 20%, rgba(75, 0, 130, 0.2), transparent 50%); animation: backgroundMove 20s ease infinite; z-index: -1; }
-        @keyframes backgroundMove { 0%, 100% { transform: translate(0, 0) scale(1); } 25% { transform: translate(5%, 5%) scale(1.05); } 50% { transform: translate(-5%, 5%) scale(1.1); } 75% { transform: translate(5%, -5%) scale(1.05); } }
-        .container { max-width: 1050px; width: 100%; margin: 0 auto; }
-        .header { background: white; backdrop-filter: blur(10px); padding: 30px 40px; border-radius: 20px; margin-bottom: 30px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); }
-        .header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-        .module-badge { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 10px 20px; border-radius: 25px; font-weight: 600; font-size: 18px; }
-        .module-number { background: white; backdrop-filter: blur(10px); color: #16a34a; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; }
-        .back-btn { padding: 10px 20px; background: #f3f4f6; color: #374151; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; }
-        .back-btn:hover { background: #e5e7eb; transform: translateY(-2px); }
-        h1 { color: #2d3748; font-size: 32px; margin-bottom: 10px; }
-        .subtitle { color: #718096; font-size: 18px; }
-        .content-card { background: white; backdrop-filter: blur(10px); border-radius: 20px; padding: 40px; margin-bottom: 25px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); text-align: left; }
-        .section-title { color: #2d3748; font-size: 26px; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 3px solid #16a34a; }
-        .section-content p { color: #4a5568; font-size: 18px; line-height: 1.9; margin-bottom: 18px; text-align: left; }
-        .section-content ul, .section-content ol { margin-left: 20px; margin-bottom: 22px; text-align: left; }
-        .section-content li { color: #4a5568; font-size: 17px; line-height: 1.9; margin-bottom: 12px; text-align: left; }
-        .lesson-card { background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border-left: 4px solid #16a34a; padding: 25px; margin: 20px 0; border-radius: 10px; text-align: left; }
-        .lesson-title { color: #166534; font-size: 22px; font-weight: 600; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
-        .lesson-content { color: #15803d; font-size: 17px; line-height: 1.8; text-align: left; }
-        .info-box { background: #fffbeb; border: 2px solid #fbbf24; border-radius: 50px; padding: 25px; margin: 20px 0; }
-        .info-title { color: #92400e; font-size: 20px; font-weight: 600; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
-        .action-buttons { display: flex; gap: 15px; margin-top: 30px; flex-wrap: wrap; }
-        .btn { padding: 15px 30px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 16px; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 10px; }
-        .btn-primary { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; box-shadow: 0 4px 15px rgba(22, 163, 74, 0.4); }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(22, 163, 74, 0.6); }
-        .btn-secondary { background: white; backdrop-filter: blur(10px); color: #16a34a; border: 2px solid #16a34a; }
-        .btn-secondary:hover { background: #16a34a; color: white; }
-        @media (max-width: 768px) { .header-top { flex-direction: column; gap: 15px; } h1 { font-size: 26px; } .content-card { padding: 25px; } }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #0a0e1a;
+            color: #ffffff;
+            padding: 40px 20px;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        .container { max-width: 900px; margin: 0 auto; }
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(255,255,255,.05);
+            border: 1px solid rgba(255,255,255,.1);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+        .back-btn:hover { background: rgba(255,255,255,.08); }
+        .module-header {
+            background: rgba(14,165,233,.1);
+            border: 1px solid rgba(14,165,233,.3);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 32px;
+        }
+        .module-badge {
+            display: inline-block;
+            background: rgba(14,165,233,.2);
+            color: #0ea5e9;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 13px;
+            margin-bottom: 16px;
+        }
+        h1 {
+            font-size: 32px;
+            font-weight: 900;
+            margin-bottom: 12px;
+            color: #0ea5e9;
+        }
+        .description { color: #94a3b8; font-size: 14px; text-align: left; }
+        .content-section {
+            background: rgba(255,255,255,.03);
+            border: 1px solid rgba(255,255,255,.08);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+            text-align: left;
+        }
+        h2 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #0ea5e9;
+            text-align: left;
+        }
+        h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 24px 0 12px;
+            color: #a5b4fc;
+            text-align: left;
+        }
+        ul { margin-left: 20px; margin-bottom: 16px; text-align: left; }
+        li { margin-bottom: 8px; color: #cbd5e1; text-align: left; font-size: 14px; }
+        p { text-align: left; color: #cbd5e1; margin-bottom: 16px; font-size: 14px; }
+        .test-btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, #0ea5e9, #0284c7);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 16px;
+            margin-top: 24px;
+        }
+        .test-btn:hover { opacity: 0.9; transform: translateY(-2px); }
     </style>
-
-    <script>!function(){var t=localStorage.getItem('dispatcher-theme')||'dark';'dark'===t&&document.documentElement.setAttribute('data-theme','dark')}();</script>
-
-
-    <link rel="stylesheet" href="../dark-theme.css">
-    <script src="../dark-mode.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="header-top">
-                <div class="module-badge"><div class="module-number">7</div><span>Модуль 7 из 10</span></div>
-                <a href="modules.html" class="back-btn">← Назад к модулям</a>
-            </div>
-            <h1>Документооборот и отчётность</h1>
-            <p class="subtitle">Управление документами и учётом рейсов</p>
-        </div>
-        <div class="content-card">
-            <h2 class="section-title">📚 О чём модуль</h2>
-            <div class="section-content">
-                <p>Эффективная маршрутизация перевозок - ключ к прибыльному бизнесу. Правильное планирование маршрута, учёт HOS правил, погодных условий и дорожных ограничений помогает экономить деньги и время.</p>
-                <p>В этом модуле вы изучите инструменты планирования маршрутов, расчёт времени в пути, управление часовыми поясами, погоду, дорожные ограничения и минимизацию deadhead.</p>
-            </div>
-        </div>
-        <div class="lesson-card">
-            <div class="lesson-title"><span>🗺️</span> Урок 1: Инструменты маршрутизации</div>
-            <div class="lesson-content">
-                <p><strong>Популярные для планирования:</strong></p>
-                <ul style="text-align: center; list-style-position: inside;">
-                    <li><strong>Google Maps:</strong> Бесплатный инструмент для базовой маршрутизации</li>
-                    <li><strong>PC Miler:</strong> Профессиональный инструмент для грузов ($50-100/месяц)</li>
-                    <li><strong>Trucker Path:</strong> Мобильное приложение с truck stops, parking, weigh stations</li>
-                    <li><strong>Waze:</strong> Навигация с учётом пробок и дорожных условий</li>
-                    <li><strong>CoPilot Truck GPS:</strong> Платная навигация для грузов</li>
-                </ul>
-                <p style="margin-top: 15px;"><strong>Что учитывать при планировании:</strong></p>
-                <ul style="text-align: center; list-style-position: inside;">
-                    <li><strong>Truck Routes:</strong> Используйте маршруты для грузов, а не для легковых авто</li>
-                    <li><strong>Bridge Heights:</strong> Проверяйте высоту мостов (стандартный трак 13'6")</li>
-                    <li><strong>Weight Restrictions:</strong> Ограничения по весу на мостах и дорогах</li>
-                    <li><strong>Toll Roads:</strong> Платные дороги - учитывайте в расходах</li>
-                    <li><strong>Truck Stops:</strong> Планируйте остановки для отдыха, топлива, еды</li>
-                    <li><strong>Weigh Stations:</strong> Обязательные остановки на весовых</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="lesson-card">
-            <div class="lesson-title"><span>⏱️</span> Урок 2: Расчёт времени в пути</div>
-            <div class="lesson-content">
-                <p><strong>Формула расчёта времени:</strong></p>
-                <ul style="text-align: center; list-style-position: inside;">
-                    <li><strong>Средняя скорость:</strong> 50-55 mph с учётом остановок (не 65-70 mph!)</li>
-                    <li><strong>Формула расчёта:</strong> Мили / 50 mph = Часы в пути</li>
-                    <li><strong>Пример:</strong> 500 миль / 50 mph = 10 часов</li>
-                    <li><strong>Добавьте время на:</strong> Завтрак (30 мин), обед (30 мин), топливо (15-30 мин)</li>
-                    <li><strong>30-минутный перерыв:</strong> Обязательный после 8 часов вождения</li>
-                    <li><strong>Погрузка/разгрузка:</strong> 1-3 часа в зависимости от типа (live load vs drop & hook)</li>
-                </ul>
-                <p style="margin-top: 15px;"><strong>Пример расчёта маршрута:</strong></p>
-                <ul style="text-align: center; list-style-position: inside;">
-                    <li>Расстояние: 600 миль</li>
-                    <li>Время вождения: 600 / 50 = 12 часов (Стоп! Превышает 11 часов по HOS)</li>
-                    <li>Решение: Разделить на 2 дня или взять 10-часовой перерыв</li>
-                    <li>День 1: 550 миль (11 часов вождения)</li>
-                    <li>Перерыв: 10 часов</li>
-                    <li>День 2: 50 миль (1 час вождения)</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="lesson-card">
-            <div class="lesson-title"><span>🌍</span> Урок 3: Учёт часовых поясов</div>
-            <div class="lesson-content">
-                <p><strong>Основные пояса США:</strong></p>
-                <ul style="text-align: center; list-style-position: inside;">
-                    <li><strong>Eastern Time (ET):</strong> NY, FL, GA, NC, SC, VA, PA, OH, MI</li>
-                    <li><strong>Central Time (CT):</strong> TX, IL, MO, TN, AL, LA, MN, WI</li>
-                    <li><strong>Mountain Time (MT):</strong> CO, AZ, NM, UT, WY, MT, ID</li>
-                    <li><strong>Pacific Time (PT):</strong> CA, WA, OR, NV</li>
-                    <li><strong>Разница:</strong> ET > CT (-1 час), CT > MT (-1 час), MT > PT (-1 час)</li>
-                </ul>
-                <p style="margin-top: 15px;"><strong>Важные моменты:</strong></p>
-                <ul style="text-align: center; list-style-position: inside;">
-                    <li><strong>Appointment Time:</strong> Всегда уточняйте часовой пояс (8:00 AM EST или PST?)</li>
-                    <li><strong>ELD Time:</strong> ELD работает по времени домашнего терминала</li>
-                    <li><strong>Пример:</strong> Доставка в CA в 8:00 AM PST = 11:00 AM EST</li>
-                    <li><strong>Планирование:</strong> Учитывайте разницу времён при расчёте ETA</li>
-                    <li><strong>Daylight Saving Time:</strong> Переход на летнее/зимнее время (март/ноябрь)</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="lesson-card">
-            <div class="lesson-title"><span>🌦️</span> Урок 4: Погодные условия</div>
-            <div class="lesson-content">
-                <p><strong>Как погода влияет на рейс:</strong></p>
-                <ul style="text-align: center; list-style-position: inside;">
-                    <li><strong>Снег и лёд:</strong> Снижает скорость на 30-50%, опасность аварий выше</li>
-                    <li><strong>Дождь:</strong> Снижает скорость на 10-20%, ухудшает видимость</li>
-                    <li><strong>Туман:</strong> Серьёзно ухудшает видимость, опасные условия</li>
-                    <li><strong>Ветер:</strong> Опасен для high-profile грузов (высокие трейлеры, Dry Van)</li>
-                    <li><strong>Жара:</strong> Риск перегрева двигателя, blow-outs шин</li>
-                </ul>
-                <p style="margin-top: 15px;"><strong>Инструменты для проверки погоды:</strong></p>
-                <ul style="text-align: center; list-style-position: inside;">
-                    <li><strong>Weather.com:</strong> Подробный прогноз погоды</li>
-                    <li><strong>NOAA Weather:</strong> Официальный прогноз от National Weather Service</li>
-                    <li><strong>Trucker Path:</strong> Погода на маршруте</li>
-                    <li><strong>511 Systems:</strong> Дорожные условия по штатам (dial 511)</li>
-                    <li><strong>Совет:</strong> Проверяйте погоду перед выездом утром и в пути</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="lesson-card">
-            <div class="lesson-title"><span>🚧</span> Урок 5: Дорожные ограничения</div>
-            <div class="lesson-content">
-                <p><strong>Типы ограничений:</strong></p>
-                <ul style="text-align: center; list-style-position: inside;">
-                    <li><strong>Height Restrictions:</strong> Мосты, тоннели (стандарт 13'6", проверяйте высоту груза)</li>
-                    <li><strong>Weight Limits:</strong> Максимальный вес 80,000 lbs (исключения редки)</li>
-                    <li><strong>Length Restrictions:</strong> Некоторые штаты ограничивают длину комбинации</li>
-                    <li><strong>Hazmat Restrictions:</strong> Запрет на проезд опасных грузов через тоннели, мосты</li>
-                    <li><strong>No Truck Zones:</strong> Зоны, где грузы запрещены</li>
-                    <li><strong>Parkways:</strong> Дороги, где коммерческий транспорт запрещён (NY, NJ)</li>
-                </ul>
-                <p style="margin-top: 15px;"><strong>Как избежать проблем:</strong></p>
-                <ul style="text-align: center; list-style-position: inside;">
-                    <li><strong>Используйте Truck GPS:</strong> Учитывает ограничения автоматически для грузов</li>
-                    <li><strong>Проверяйте маршрут:</strong> Перед выездом всегда проверяйте маршрут</li>
-                    <li><strong>Знайте свой груз:</strong> Высота, вес, длина вашего груза</li>
-                    <li><strong>Low Clearance Signs:</strong> Обращайте внимание на знаки</li>
-                    <li><strong>Штрафы:</strong> Нарушение ограничений = крупные штрафы и задержки</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="lesson-card">
-            <div class="lesson-title"><span>📍</span> Урок 6: Минимизация deadhead</div>
-            <div class="lesson-content">
-                <p><strong>Что такое deadhead:</strong></p>
-                <ul style="text-align: center; list-style-position: inside;">
-                    <li><strong>Определение:</strong> Пустой пробег без груза (не приносит доход после разгрузки)</li>
-                    <li><strong>Проблема:</strong> Deadhead = расходы без дохода (топливо, время, износ)</li>
-                    <li><strong>Цель:</strong> Минимизировать deadhead, максимизировать loaded miles</li>
-                </ul>
-                <p style="margin-top: 15px;"><strong>Как минимизировать deadhead:</strong></p>
-                <ul style="text-align: center; list-style-position: inside;">
-                    <li><strong>Backhaul Planning:</strong> Ищите обратный груз перед завершением текущего</li>
-                    <li><strong>Hot Lanes:</strong> Работайте на популярных маршрутах с высоким спросом</li>
-                    <li><strong>Relay Loads:</strong> Цепочка грузов без пустого пробега</li>
-                    <li><strong>Acceptable Deadhead:</strong> 50-100 миль приемлемо, >150 миль - плохо</li>
-                    <li><strong>Deadhead Pay:</strong> Требуйте оплаты брокера за deadhead (редко)</li>
-                    <li><strong>Расчёт:</strong> Включайте deadhead в расчёт RPM (Rate Per Mile)</li>
-                    <li><strong>Пример:</strong> Груз $2,000 за 500 миль + 100 миль deadhead = $2,000 / 600 миль = $3.33/mile</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="info-box">
-            <div class="info-title"><span>💡</span> Важный совет</div>
-            <p style="color: #78350f; font-size: 17px; line-height: 1.8;">
-                <strong>Хорошая маршрутизация = больше денег и меньше проблем!</strong> Всегда планируйте маршрут с учётом HOS правил, погоды, дорожных ограничений и часовых поясов. Используйте профессиональные инструменты (PC Miler, Trucker Path) и минимизируйте deadhead. Правильное планирование времени помогает избежать задержек и штрафов.
-            </p>
-        </div>
-
-        <div class="content-card">
-            <h2 class="section-title">🎯 Следующие шаги</h2>
-            <p style="color: #4a5568; font-size: 18px; line-height: 1.9; margin-bottom: 20px;">
-                Теперь вы знаете, как планировать эффективные маршруты. Следующий модуль посвящён типам грузов и оборудования - специализация перевозок и специальные требования.
-            </p>
-            <div class="action-buttons">
-                <a href="module-8.html" class="btn btn-primary">Следующий модуль: Типы грузов →</a>
-                <a href="module-6.html" class="btn btn-secondary">← Предыдущий модуль</a>
-            </div>
-        </div>
-    </div>
-    <button id="scrollToTop" style="display: none; position: fixed; bottom: 30px; right: 30px; z-index: 1000; padding: 15px 20px; background: #4299e1; color: white; border: none; border-radius: 50%; cursor: pointer; font-size: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: all 0.3s ease;">^</button>
-    <script>
-        localStorage.setItem('module_7_viewed', 'true');
-        const scrollToTopBtn = document.getElementById('scrollToTop');
-        window.addEventListener('scroll', () => { if (window.pageYOffset > 300) { scrollToTopBtn.style.display = 'block'; } else { scrollToTopBtn.style.display = 'none'; } });
-        scrollToTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
-    </script>
-<script src="../theme-switcher.js"></script>
-
-<!-- Footer -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h4>Курсы Диспетчера</h4>
-        <p>Профессиональное обучение диспетчеров грузоперевозок</p>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Обучение</h4>
-        <a href="courses.html">Курсы</a>
-        <a href="certification.html">Сертификация</a>
-        <a href="webinars.html">Вебинары</a>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Поддержка</h4>
-        <a href="faq.html">FAQ</a>
-        <a href="contacts.html">Контакты</a>
-        <a href="help.html">Помощь</a>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Компания</h4>
-        <a href="about.html">О нас</a>
-        <a href="blog.html">Блог</a>
-        <a href="career.html">Карьера</a>
-      </div>
-    </div>
+<div class="container">
+    <a href="modules.html" class="back-btn">← Назад к модулям</a>
     
-    <div class="footer-bottom">
-      <p>&copy; 2024 Курсы Диспетчера. Все права защищены.</p>
+    <div class="module-header">
+        <div class="module-badge">🗺️ Модуль 7</div>
+        <h1>Маршрутизация и планирование</h1>
+        <p class="description">Оптимизация маршрутов и контроль времени</p>
     </div>
-  </div>
-</footer>
+
+    <div class="content-section">
+        <h2>📚 Содержание модуля</h2>
+        
+        <h3>1. Инструменты маршрутизации</h3>
+        <p><strong>Популярные инструменты:</strong></p>
+        <ul>
+            <li><strong>Google Maps:</strong> Бесплатный инструмент для базовой маршрутизации</li>
+            <li><strong>PC Miler:</strong> Профессиональный инструмент для грузовиков ($50-100/месяц)</li>
+            <li><strong>Trucker Path:</strong> Мобильное приложение с truck stops, parking, weigh stations</li>
+            <li><strong>Waze:</strong> Навигация с учётом пробок и дорожных условий</li>
+            <li><strong>CoPilot Truck GPS:</strong> Платная навигация для грузовиков</li>
+        </ul>
+        <p><strong>Что учитывать:</strong></p>
+        <ul>
+            <li><strong>Truck Routes:</strong> Используйте маршруты для грузовиков, а не для легковых авто</li>
+            <li><strong>Bridge Heights:</strong> Проверяйте высоту мостов (стандартный трак 13'6")</li>
+            <li><strong>Weight Restrictions:</strong> Ограничения по весу на мостах и дорогах</li>
+            <li><strong>Toll Roads:</strong> Платные дороги - учитывайте в расходах</li>
+            <li><strong>Truck Stops:</strong> Планируйте остановки для отдыха, топлива, еды</li>
+            <li><strong>Weigh Stations:</strong> Обязательные остановки на весовых</li>
+        </ul>
+
+        <h3>2. Расчёт времени в пути</h3>
+        <ul>
+            <li><strong>Средняя скорость:</strong> 50-55 mph с учётом остановок (не 65-70 mph!)</li>
+            <li><strong>Формула:</strong> Мили / 50 mph = Часы в пути</li>
+            <li><strong>Пример:</strong> 500 миль / 50 mph = 10 часов</li>
+            <li><strong>Добавьте время на:</strong> Завтрак (30 мин), обед (30 мин), топливо (15-30 мин)</li>
+            <li><strong>30-минутный перерыв:</strong> Обязательный после 8 часов вождения</li>
+            <li><strong>Погрузка/разгрузка:</strong> 1-3 часа в зависимости от типа</li>
+        </ul>
+
+        <h3>3. Учёт часовых поясов</h3>
+        <p><strong>Основные часовые пояса США:</strong></p>
+        <ul>
+            <li><strong>Eastern Time (ET):</strong> NY, FL, GA, NC, SC, VA, PA, OH, MI</li>
+            <li><strong>Central Time (CT):</strong> TX, IL, MO, TN, AL, LA, MN, WI</li>
+            <li><strong>Mountain Time (MT):</strong> CO, AZ, NM, UT, WY, MT, ID</li>
+            <li><strong>Pacific Time (PT):</strong> CA, WA, OR, NV</li>
+            <li><strong>Разница:</strong> ET > CT (-1 час), CT > MT (-1 час), MT > PT (-1 час)</li>
+        </ul>
+
+        <h3>4. Погодные условия</h3>
+        <ul>
+            <li><strong>Снег и лёд:</strong> Снижает скорость на 30-50%, опасность аварий</li>
+            <li><strong>Дождь:</strong> Снижает скорость на 10-20%, ухудшает видимость</li>
+            <li><strong>Туман:</strong> Серьёзно ухудшает видимость</li>
+            <li><strong>Ветер:</strong> Опасен для high-profile грузов</li>
+            <li><strong>Жара:</strong> Риск перегрева двигателя, blow-outs шин</li>
+        </ul>
+        <p><strong>Инструменты проверки погоды:</strong></p>
+        <ul>
+            <li>Weather.com, NOAA Weather, Trucker Path, 511 Systems</li>
+        </ul>
+
+        <h3>5. Дорожные ограничения</h3>
+        <ul>
+            <li><strong>Height Restrictions:</strong> Мосты, тоннели (стандарт 13'6")</li>
+            <li><strong>Weight Limits:</strong> Максимальный вес 80,000 lbs</li>
+            <li><strong>Length Restrictions:</strong> Некоторые штаты ограничивают длину</li>
+            <li><strong>Hazmat Restrictions:</strong> Запрет на проезд через тоннели, мосты</li>
+            <li><strong>No Truck Zones:</strong> Зоны, где грузовики запрещены</li>
+            <li><strong>Parkways:</strong> Дороги, где коммерческий транспорт запрещён</li>
+        </ul>
+
+        <h3>6. Минимизация deadhead</h3>
+        <ul>
+            <li><strong>Определение:</strong> Пустой пробег без груза (не приносит доход)</li>
+            <li><strong>Backhaul Planning:</strong> Ищите обратный груз перед завершением текущего</li>
+            <li><strong>Hot Lanes:</strong> Работайте на популярных маршрутах</li>
+            <li><strong>Acceptable Deadhead:</strong> 50-100 миль приемлемо, >150 миль - плохо</li>
+            <li><strong>Расчёт:</strong> Включайте deadhead в расчёт RPM</li>
+            <li><strong>Пример:</strong> Груз $2,000 за 500 миль + 100 миль deadhead = $2,000 / 600 миль = $3.33/mile</li>
+        </ul>
+    </div>
+
+    <div class="content-section">
+        <h2>🎯 Ключевые навыки</h2>
+        <ul>
+            <li>Использование инструментов маршрутизации</li>
+            <li>Точный расчёт времени в пути</li>
+            <li>Учёт часовых поясов</li>
+            <li>Мониторинг погодных условий</li>
+            <li>Понимание дорожных ограничений</li>
+            <li>Минимизация deadhead пробега</li>
+        </ul>
+        
+        <a href="module-8.html" class="test-btn">Следующий модуль: Типы грузов →</a>
+    </div>
+</div>
+
+<script>
+localStorage.setItem('module_7_viewed', 'true');
+</script>
 </body>
 </html>

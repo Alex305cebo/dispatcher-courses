@@ -3,506 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>������ 1: ������ ������������� ������ � ��� | ����� ����������</title>
-    <script src="auth-check.js"></script>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../shared-styles.css">
-    <script>!function(){var t=localStorage.getItem('dispatcher-theme')||'dark';'dark'===t&&document.documentElement.setAttribute('data-theme','dark')}();</script>
-    <link rel="stylesheet" href="../dark-theme.css">
-    <script src="../dark-mode.js"></script>
+    <title>Модуль 1: Основы диспетчерской работы в США | Курсы Диспетчера</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #0a0e1a;
+            color: #ffffff;
+            padding: 40px 20px;
+            line-height: 1.6;
+            font-size: 14px;
         }
-
-        .container {
-            max-width: 1050px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 32px 24px 60px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .header {
-            padding: 32px 0 24px;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 32px;
-        }
-
-        .header-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
-
-        .module-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(52,211,153,.1);
-            border: 1px solid rgba(52,211,153,.25);
-            color: #34d399;
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 13px;
-        }
-
-        .module-number {
-            background: rgba(52,211,153,.2);
-            color: #34d399;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 12px;
-        }
-
+        .container { max-width: 900px; margin: 0 auto; }
         .back-btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
             padding: 10px 20px;
             background: rgba(255,255,255,.05);
-            border: 1px solid var(--border);
-            color: var(--text);
+            border: 1px solid rgba(255,255,255,.1);
+            color: #fff;
             text-decoration: none;
             border-radius: 12px;
             font-weight: 600;
-            font-size: 16px;
-            transition: all 0.3s ease;
+            margin-bottom: 30px;
         }
-
-        .back-btn:hover {
-            background: rgba(255,255,255,.08);
-            border-color: rgba(var(--primary-rgb), .3);
-            transform: translateX(-3px);
-        }
-
-        h1 {
-            color: var(--text);
-            font-size: clamp(28px, 5vw, 42px);
-            font-weight: 900;
-            line-height: 1.1;
-            letter-spacing: -1.5px;
-            margin-bottom: 12px;
-        }
-
-        h1 span {
-            background: linear-gradient(135deg, #34d399, #10b981);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .subtitle {
-            color: var(--text-2);
-            font-size: 16px;
-        }
-
-        .content-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 25px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            transition: all .3s ease;
-            text-align: left;
-        }
-
-        .content-card:hover {
-            background: rgba(255,255,255,.055);
-            border-color: rgba(52,211,153, .2);
-        }
-
-        .section-title {
-            color: var(--text);
-            font-size: 26px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid rgba(52,211,153,.3);
-            text-align: left;
-        }
-
-        .section-content p {
-            color: var(--text-2);
-            font-size: 16px;
-            line-height: 1.8;
-            margin-bottom: 18px;
-            text-align: left;
-        }
-
-        .section-content ul, .section-content ol {
-            margin-left: 20px;
-            margin-bottom: 22px;
-            text-align: left;
-        }
-
-        .section-content li {
-            color: var(--text-2);
-            font-size: 15px;
-            line-height: 1.8;
-            margin-bottom: 12px;
-            text-align: left;
-        }
-
-        .lesson-card {
-            background: rgba(52,211,153,.08);
-            border: 1px solid rgba(52,211,153,.2);
-            border-left: 4px solid #34d399;
-            padding: 25px;
-            margin: 20px 0;
+        .back-btn:hover { background: rgba(255,255,255,.08); }
+        .module-header {
+            background: rgba(52,211,153,.1);
+            border: 1px solid rgba(52,211,153,.3);
             border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 32px;
+        }
+        .module-badge {
+            display: inline-block;
+            background: rgba(52,211,153,.2);
+            color: #34d399;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 13px;
+            margin-bottom: 16px;
+        }
+        h1 {
+            font-size: 32px;
+            font-weight: 900;
+            margin-bottom: 12px;
+            color: #34d399;
+        }
+        .description { color: #94a3b8; font-size: 14px; text-align: left; }
+        .content-section {
+            background: rgba(255,255,255,.03);
+            border: 1px solid rgba(255,255,255,.08);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
             text-align: left;
         }
-
-        .lesson-title {
-            color: #34d399;
+        h2 {
             font-size: 20px;
             font-weight: 700;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .lesson-content {
-            color: var(--text-2);
-            font-size: 15px;
-            line-height: 1.8;
+            margin-bottom: 16px;
+            color: #34d399;
             text-align: left;
         }
-
-        .info-box {
-            background: rgba(251,191,36,.08);
-            border: 1px solid rgba(251,191,36,.2);
-            border-left: 4px solid #fbbf24;
-            border-radius: 16px;
-            padding: 25px;
-            margin: 20px 0;
-        }
-
-        .info-title {
-            color: #fbbf24;
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .action-buttons {
-            display: flex;
-            gap: 15px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 14px 28px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
+        h3 {
             font-size: 16px;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            border: none;
-            cursor: pointer;
+            font-weight: 600;
+            margin: 24px 0 12px;
+            color: #a5b4fc;
+            text-align: left;
         }
-
-        .btn-primary {
+        ul { margin-left: 20px; margin-bottom: 16px; text-align: left; }
+        li { margin-bottom: 8px; color: #cbd5e1; text-align: left; font-size: 14px; }
+        p { text-align: left; color: #cbd5e1; margin-bottom: 16px; font-size: 14px; }
+        .test-btn {
+            display: inline-block;
+            padding: 14px 32px;
             background: linear-gradient(135deg, #34d399, #10b981);
             color: white;
-            box-shadow: 0 4px 15px rgba(52, 211, 153, 0.4);
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 16px;
+            margin-top: 24px;
         }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(52, 211, 153, 0.6);
-        }
-
-        .btn-secondary {
-            background: rgba(255,255,255,.05);
-            border: 1px solid var(--border);
-            color: var(--text);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255,255,255,.08);
-            border-color: rgba(52,211,153, .3);
-        }
-
-        @media (max-width: 768px) {
-            .header-top {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            h1 {
-                font-size: 26px;
-            }            .content-card {
-                padding: 25px;
-            }
-        }
-    body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3), transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(138, 43, 226, 0.3), transparent 50%),
-        radial-gradient(circle at 40% 20%, rgba(75, 0, 130, 0.2), transparent 50%);
-    animation: backgroundMove 20s ease infinite;
-    z-index: -1;
-}
-
-@keyframes backgroundMove {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    25% { transform: translate(5%, 5%) scale(1.05); }
-    50% { transform: translate(-5%, 5%) scale(1.1); }
-    75% { transform: translate(5%, -5%) scale(1.05); }
-}</style>
-
-    <script>!function(){var t=localStorage.getItem('dispatcher-theme')||'dark';'dark'===t&&document.documentElement.setAttribute('data-theme','dark')}();</script>
-
-
-    <link rel="stylesheet" href="../dark-theme.css">
-    <script src="../dark-mode.js"></script>
+        .test-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+    </style>
 </head>
 <body>
-
-<div class="bg-grid"></div>
-<div class="orb orb-1"></div>
-<div class="orb orb-2"></div>
-<div class="orb orb-3"></div>
-
-    <div class="container">
-        <div class="header fade-in-down">
-            <div class="header-top">
-                <div>
-                    <div class="module-badge">
-                        <div class="module-number">1</div>
-                        <span>������ 1 �� 10</span>
-                    </div>
-                    <h1><span>������ ������������� ������ � ���</span></h1>
-                    <p class="subtitle">�������� � ��������� ���������� ��������������</p>
-                </div>
-                <a href="modules.html" class="back-btn">< ����� � �������</a>
-            </div>
-        </div>
-
-        <div class="content-card">
-            <h2 class="section-title">?? ����� ������</h2>
-            <div class="section-content">
-                <p>
-                    ���� ������ ���������� ��� � �������� ��������� ���������� �������������� � ���. 
-                    �� ������� � ���� ����������, ��� ������������, ����������� � ��������� � ��������� ������������.
-                </p>
-                <p>
-                    ��������� �������������� � ��� �������� ������ � ������������� �������, ������� ������������ 
-                    �������� ������, �������� � ���������� � ���������, ��������� �������� � ������ ����������� ��������.
-                </p>
-            </div>
-        </div>
-
-        <div class="lesson-card">
-            <div class="lesson-title">
-                <span>??</span> ���� 1: ���� � ����������� ����������
-            </div>
-            <div class="lesson-content">
-                <p><strong>�������� ����������� ����������:</strong></p>
-                <ul style="text-align: center; list-style-position: inside;">
-                    <li><strong>����� ������:</strong> ������ � Load Boards (DAT, Truckstop, 123Loadboard) ��� ������ ���������� ������</li>
-                    <li><strong>������������ � ���������:</strong> ���������� � �������, ������������� ������, ��������� ����������</li>
-                    <li><strong>������ � ����������:</strong> ���������� ������, �������� ����������, ������� ������� � ����</li>
-                    <li><strong>������������ ���������:</strong> ����������� ��������� � ������ HOS, ������, �������� �������</li>
-                    <li><strong>���������������:</strong> ������ � Rate Confirmation, BOL, POD, ���������</li>
-                    <li><strong>������� �������:</strong> ���������� ������������ ����������, ����������, ���������</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="lesson-card">
-            <div class="lesson-title">
-                <span>??</span> ���� 2: ��������� ������������ ������� ���
-            </div>
-            <div class="lesson-content">
-                <p><strong>�������� ��������� �����:</strong></p>
-                <ul style="text-align: center; list-style-position: inside;">
-                    <li><strong>Shippers (����������������):</strong> ��������, ������� ����� ��������� ����</li>
-                    <li><strong>Brokers (�������):</strong> ���������� ����� ������������������ � �������������</li>
-                    <li><strong>Carriers (�����������):</strong> ��������, ��������� ������� � ����������� ���������</li>
-                    <li><strong>Dispatchers (����������):</strong> �����������, �������������� ������ ������������</li>
-                    <li><strong>Drivers (��������):</strong> ���������������� ����������� ���������</li>
-                </ul>
-                <p style="margin-top: 15px;"><strong>���� ������������:</strong></p>
-                <ul style="text-align: center; list-style-position: inside;">
-                    <li><strong>Owner-Operator:</strong> ����������� ��������, ��������� ����� ������</li>
-                    <li><strong>Fleet Owner:</strong> �������� ���������� ������ � �������� ����������</li>
-                    <li><strong>Company Driver:</strong> ��������, ���������� �� ��������</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="lesson-card">
-            <div class="lesson-title">
-                <span>?</span> ���� 3: ���������� � �����������
-            </div>
-            <div class="lesson-content">
-                <p><strong>����������� ������:</strong></p>
-                <ul style="text-align: center; list-style-position: inside;">
-                    <li><strong>���������� ����:</strong> ������� �� ���� Intermediate ��� ������� � ��������� � ����������</li>
-                    <li><strong>������ ��������� ���:</strong> �����, ������� ������, �������� ��������</li>
-                    <li><strong>�������������� ������:</strong> ������ ������������, deadhead, rate per mile</li>
-                    <li><strong>��������������� ������:</strong> ������ ����� ����������, ������ ���������</li>
-                    <li><strong>�������������������:</strong> ������ � ������ ���������������, ������� �������� �������</li>
-                    <li><strong>������ �����������:</strong> FMCSA, DOT, HOS �������</li>
-                </ul>
-                <p style="margin-top: 15px;"><strong>����������� ����������:</strong></p>
-                <ul style="text-align: center; list-style-position: inside;">
-                    <li>��������� � �������� � ��������</li>
-                    <li>������� ��� ����� � ���������� � ���������</li>
-                    <li>������ � Load Boards (������� ��������)</li>
-                    <li>��������� ��� ����������������</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="lesson-card">
-            <div class="lesson-title">
-                <span>??</span> ���� 4: �������� � ��������� ����
-            </div>
-            <div class="lesson-content">
-                <p><strong>������ ������ �����:</strong></p>
-                <ul style="text-align: center; list-style-position: inside;">
-                    <li><strong>������� �� �����:</strong> 5-10% �� ��������� ������� ����� (�������� ��������������)</li>
-                    <li><strong>������������� ������:</strong> $3,000-$6,000 � ����� � ����������� �� �����</li>
-                    <li><strong>��������������� ������:</strong> ������� ������ + ������� �� ������</li>
-                </ul>
-                <p style="margin-top: 15px;"><strong>������� �����:</strong></p>
-                <ul style="text-align: center; list-style-position: inside;">
-                    <li><strong>���������� ���������:</strong> $2,000-$3,500/�����</li>
-                    <li><strong>������� ���������:</strong> $4,000-$7,000/�����</li>
-                    <li><strong>������� ���������:</strong> $7,000-$12,000/�����</li>
-                    <li><strong>Dispatch Manager:</strong> $10,000-$20,000/�����</li>
-                </ul>
-                <p style="margin-top: 15px;"><strong>��������� ����:</strong></p>
-                <ol>
-                    <li>Junior Dispatcher (������) - 0-6 �������</li>
-                    <li>Dispatcher (���������) - 6 ������� - 2 ����</li>
-                    <li>Senior Dispatcher (������� ���������) - 2-5 ���</li>
-                    <li>Dispatch Manager (��������) - 5+ ���</li>
-                    <li>Operations Manager (�������� �� ���������)</li>
-                </ol>
-            </div>
-        </div>
-
-        <div class="info-box">
-            <div class="info-title">
-                <span>??</span> ������ ����������
-            </div>
-            <p style="color: #fde68a; font-size: 17px; line-height: 1.8;">
-                <strong>������ ���������� �������:</strong> ����������� ��������, ������ ���������� �����������, 
-                ������ �������� � ���������� ��������� � �������� ��������������� �������. �������� ���������� 
-                ������������ �� $5,000 �� $15,000 � �����, ������� �������� �� ����� ����� ����.
-            </p>
-        </div>
-
-        <div class="content-card">
-            <h2 class="section-title">?? ��������� ����</h2>
-            <p style="color: #cbd5e1; font-size: 18px; line-height: 1.9; margin-bottom: 20px;">
-                ����� �������� ����� ������ �� ��������� ������ ��������� ����������. 
-                ��������� ������ ���������� ��� � ������������ ������������ FMCSA � DOT, 
-                ������� �������� ������� ������ � ������������ ������� ���.
-            </p>
-
-            <div class="action-buttons">
-                <a href="module-2.html" class="btn btn-primary">
-                    ��������� ������: FMCSA � DOT >
-                </a>
-                <a href="modules.html" class="btn btn-secondary">
-                    < ��������� � ������ �������
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!-- ������ "������" -->
-    <button id="scrollToTop" style="display: none; position: fixed; bottom: 30px; right: 30px; z-index: 1000; padding: 15px 20px; background: #4299e1; color: white; border: none; border-radius: 50%; cursor: pointer; font-size: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: all 0.3s ease;">
-        ^
-    </button>
-    <script>
-        // �������� ������ ��� �������������
-        localStorage.setItem('module_1_viewed', 'true');
-        
-        const scrollToTopBtn = document.getElementById('scrollToTop');
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                scrollToTopBtn.style.display = 'block';
-            } else {
-                scrollToTopBtn.style.display = 'none';
-            }
-        });
-        scrollToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    </script>
-<script src="../theme-switcher.js"></script>
-
-<!-- Footer -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h4>Курсы Диспетчера</h4>
-        <p>Профессиональное обучение диспетчеров грузоперевозок</p>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Обучение</h4>
-        <a href="courses.html">Курсы</a>
-        <a href="certification.html">Сертификация</a>
-        <a href="webinars.html">Вебинары</a>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Поддержка</h4>
-        <a href="faq.html">FAQ</a>
-        <a href="contacts.html">Контакты</a>
-        <a href="help.html">Помощь</a>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Компания</h4>
-        <a href="about.html">О нас</a>
-        <a href="blog.html">Блог</a>
-        <a href="career.html">Карьера</a>
-      </div>
-    </div>
+<div class="container">
+    <a href="modules.html" class="back-btn">← Назад к модулям</a>
     
-    <div class="footer-bottom">
-      <p>&copy; 2024 Курсы Диспетчера. Все права защищены.</p>
+    <div class="module-header">
+        <div class="module-badge">📚 Модуль 1</div>
+        <h1>Основы диспетчерской работы в США</h1>
+        <p class="description">Введение в профессию грузового диспетчера</p>
     </div>
-  </div>
-</footer>
+
+    <div class="content-section">
+        <h2>📚 Содержание модуля</h2>
+        
+        <h3>1. Роль и обязанности диспетчера</h3>
+        <ul>
+            <li><strong>Поиск грузов:</strong> Работа с Load Boards (DAT, Truckstop, 123Loadboard) для поиска подходящих грузов</li>
+            <li><strong>Взаимодействие с брокерами:</strong> Переговоры с брокерами, согласование ставок, получение подтверждений</li>
+            <li><strong>Работа с водителями:</strong> Координация маршрутов, передача информации, контроль движения и груза</li>
+            <li><strong>Планирование маршрутов:</strong> Оптимизация маршрутов с учётом HOS, погоды, дорожных условий</li>
+            <li><strong>Документооборот:</strong> Работа с Rate Confirmation, BOL, POD, инвойсами</li>
+            <li><strong>Решение проблем:</strong> Управление непредвиденными ситуациями, поломками, задержками</li>
+        </ul>
+
+        <h3>2. Структура транспортной отрасли США</h3>
+        <p><strong>Основные участники рынка:</strong></p>
+        <ul>
+            <li><strong>Shippers (грузоотправители):</strong> Компании, которые имеют груз для перевозки</li>
+            <li><strong>Brokers (брокеры):</strong> Посредники между грузоотправителями и перевозчиками</li>
+            <li><strong>Carriers (перевозчики):</strong> Компании, владеющие грузовым транспортом и выполняющие перевозки</li>
+            <li><strong>Dispatchers (диспетчеры):</strong> Координаторы, организовывающие работу перевозчиков</li>
+            <li><strong>Drivers (водители):</strong> Непосредственные исполнители перевозок</li>
+        </ul>
+        <p><strong>Типы перевозчиков:</strong></p>
+        <ul>
+            <li><strong>Owner-Operator:</strong> Независимый водитель, владеющий своим грузовиком</li>
+            <li><strong>Fleet Owner:</strong> Владелец нескольких грузовиков, который нанимает водителей</li>
+            <li><strong>Company Driver:</strong> Водитель, работающий на компанию</li>
+        </ul>
+
+        <h3>3. Требования и квалификация</h3>
+        <p><strong>Необходимые навыки:</strong></p>
+        <ul>
+            <li><strong>Английский язык:</strong> Уровень не ниже Intermediate для общения с брокерами и водителями</li>
+            <li><strong>Знание географии США:</strong> Штаты, крупные города, основные маршруты</li>
+            <li><strong>Профессиональная лексика:</strong> Знание транспортной терминологии (deadhead, rate per mile)</li>
+            <li><strong>Коммуникативные навыки:</strong> Умение вести переговоры, решать конфликты</li>
+            <li><strong>Стрессоустойчивость:</strong> Работа в режиме многозадачности, быстрое принятие решений</li>
+            <li><strong>Знание регуляций:</strong> FMCSA, DOT, HOS правила</li>
+        </ul>
+        <p><strong>Техническая подготовка:</strong></p>
+        <ul>
+            <li>Компьютер с надёжным интернетом</li>
+            <li>Гарнитура для связи с брокерами и водителями</li>
+            <li>Доступ к Load Boards (платные подписки)</li>
+            <li>Программы для документооборота</li>
+        </ul>
+
+        <h3>4. Зарплата и карьерный рост</h3>
+        <p><strong>Модели оплаты труда:</strong></p>
+        <ul>
+            <li><strong>Процент от груза:</strong> 5-10% от стоимости каждого груза (наиболее распространено)</li>
+            <li><strong>Фиксированная ставка:</strong> $3,000-$6,000 в месяц в зависимости от опыта</li>
+            <li><strong>Комбинированная модель:</strong> Базовая зарплата + процент от грузов</li>
+        </ul>
+        <p><strong>Уровни дохода:</strong></p>
+        <ul>
+            <li><strong>Начинающий диспетчер:</strong> $2,000-$3,500/месяц</li>
+            <li><strong>Средний диспетчер:</strong> $4,000-$7,000/месяц</li>
+            <li><strong>Опытный диспетчер:</strong> $7,000-$12,000/месяц</li>
+            <li><strong>Dispatch Manager:</strong> $10,000-$20,000/месяц</li>
+        </ul>
+        <p><strong>Карьерный путь:</strong></p>
+        <ul>
+            <li>Junior Dispatcher (стажёр) - 0-6 месяцев</li>
+            <li>Dispatcher (диспетчер) - 6 месяцев - 2 года</li>
+            <li>Senior Dispatcher (старший диспетчер) - 2-5 лет</li>
+            <li>Dispatch Manager (менеджер) - 5+ лет</li>
+            <li>Operations Manager (директор по операциям)</li>
+        </ul>
+    </div>
+
+    <div class="content-section">
+        <h2>🎯 Ключевые навыки</h2>
+        <ul>
+            <li>Понимание роли диспетчера в транспортной отрасли</li>
+            <li>Знание структуры рынка грузоперевозок США</li>
+            <li>Базовые требования к квалификации</li>
+            <li>Понимание моделей оплаты и карьерных перспектив</li>
+            <li>Готовность к работе в многозадачном режиме</li>
+        </ul>
+        
+        <a href="module-2.html" class="test-btn">Следующий модуль: FMCSA и DOT →</a>
+    </div>
+</div>
+
+<script>
+localStorage.setItem('module_1_viewed', 'true');
+</script>
 </body>
 </html>
