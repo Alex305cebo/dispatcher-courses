@@ -286,12 +286,16 @@ body {
   background: rgba(16, 185, 129, 0.15);
   border: 1px solid rgba(16, 185, 129, 0.3);
   color: #d1fae5;
+  position: relative;
+  padding-right: 90px;
 }
 
 .message.other .message-bubble {
   background: rgba(99, 102, 241, 0.15);
   border: 1px solid rgba(99, 102, 241, 0.3);
   color: #e0e7ff;
+  position: relative;
+  padding-right: 90px;
 }
 
 .tips {
@@ -530,22 +534,95 @@ body {
     text-align: center;
   }
 }
+
+/* Footer */
+.footer {
+  padding: 80px 0 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 80px;
+}
+
+.footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 60px;
+  margin-bottom: 48px;
+}
+
+@media (max-width: 968px) {
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+}
+
+@media (max-width: 568px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  
+  .footer .container {
+    padding: 0 20px;
+  }
+}
+
+.footer-section h4 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #f1f5f9;
+}
+
+.footer-section p {
+  color: #94a3b8;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.footer-section a {
+  display: block;
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 14px;
+  margin-bottom: 12px;
+  transition: all 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: #6366f1;
+  transform: translateX(4px);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #64748b;
+  font-size: 14px;
+}
+
 </style>
 </head>
 <body>
 
 <div class="container">
-  <a href="../index.html" class="back-btn">
-    ← Назад к курсам
-  </a>
-
-  <a href="simulator.html" class="back-btn" id="backToSimulator" style="display: none; margin-left: 12px;">
-    ← Назад к симулятору
-  </a>
-
-  <div class="header">
-    <h1>📞 Тренировка звонков</h1>
-    <p>Профессиональная коммуникация с брокерами и водителями</p>
+  <div class="header" style="display: flex; justify-content: space-between; align-items: flex-start;">
+    <div>
+      <h1>📞 Тренировка звонков</h1>
+      <p>Профессиональная коммуникация с брокерами и водителями</p>
+    </div>
+    <div style="display: flex; gap: 12px; margin-top: 10px;">
+      <a href="../course.html" class="back-btn">← Назад</a>
+      <a href="../index.html" class="back-btn">🏠 Главная</a>
+      <a href="simulator.html" class="back-btn" id="backToSimulator" style="display: none;">← К симулятору</a>
+    </div>
   </div>
 
   <div class="tabs">
@@ -643,6 +720,7 @@ body {
                   Hey, I've got a problem.<br>
                   The truck broke down near Memphis.<br>
                   Looks like it's the transmission.
+                  <span class="audio-icon" onclick="playTextAudio('Hey, I\\'ve got a problem. The truck broke down near Memphis. Looks like it\\'s the transmission.', this)">🔊</span>
                   <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 16px; color: #a5b4fc; font-style: italic;">
                     У нас возникла проблема. Грузовик вышел из строя рядом с Мемфисом. По-видимому, неисправна коробка передач.
                   </div>
@@ -657,6 +735,7 @@ body {
                 <div class="message-bubble">
                   Okay, stay calm. Are you in a safe location?<br>
                   What's your exact location and what does the mechanic say?
+                  <span class="audio-icon" onclick="playTextAudio('Okay, stay calm. Are you in a safe location? What\\'s your exact location and what does the mechanic say?', this)">🔊</span>
                   <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 16px; color: #d1fae5; font-style: italic;">
                     Хорошо, сохраняй спокойствие. Ты находишься в безопасном месте? Назови точное местоположение и что говорит механик?
                   </div>
@@ -671,6 +750,7 @@ body {
                 <div class="message-bubble">
                   I'm at a truck stop off I-40, exit 25.<br>
                   Mechanic says it'll take 6-8 hours to fix.
+                  <span class="audio-icon" onclick="playTextAudio('I\\'m at a truck stop off I-40, exit 25. Mechanic says it\\'ll take 6-8 hours to fix.', this)">🔊</span>
                   <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 16px; color: #a5b4fc; font-style: italic;">
                     Я на автостоянке у выезда 25 на I-40. Механик говорит, что ремонт займёт 6-8 часов.
                   </div>
@@ -688,6 +768,7 @@ body {
                   I'll call the broker and receiver to inform them about the delay.<br>
                   Send me photos of the truck and the repair invoice.<br>
                   We'll handle this together.
+                  <span class="audio-icon" onclick="playTextAudio('Alright, here\\'s the plan: Get the repair started immediately. I\\'ll call the broker and receiver to inform them about the delay. Send me photos of the truck and the repair invoice. We\\'ll handle this together.', this)">🔊</span>
                   <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 16px; color: #d1fae5; font-style: italic;">
                     Понял. Вот план действий: немедленно начни ремонт. Я свяжусь с брокером и получателем, чтобы уведомить их о задержке. Отправь мне фотографии грузовика и счёт-фактуру от механика. Мы решим эту проблему вместе.
                   </div>
@@ -702,6 +783,7 @@ body {
                 <div class="message-bubble">
                   Thanks, I appreciate it.<br>
                   I'll keep you updated every hour.
+                  <span class="audio-icon" onclick="playTextAudio('Thanks, I appreciate it. I\\'ll keep you updated every hour.', this)">🔊</span>
                   <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 16px; color: #a5b4fc; font-style: italic;">
                     Спасибо за поддержку. Буду информировать тебя о ходе работ каждый час.
                   </div>
@@ -1503,7 +1585,7 @@ function initDialogue(dialogueId) {
     
     if (step.type === 'broker') {
       // Показать сообщение брокера с аудио иконкой внутри bubble
-      const audioFile = `audio/broker_response_${dialogueId}_${stepIndex}.mp3`;
+      const audioFile = `../audio/broker_response_${dialogueId}_${stepIndex}.mp3`;
       const messageDiv = document.createElement('div');
       messageDiv.className = 'message other fade-in';
       messageDiv.innerHTML = `
@@ -1536,6 +1618,7 @@ function initDialogue(dialogueId) {
           <div class="message-label">Водитель</div>
           <div class="message-bubble">
             ${step.text}
+            <span class="audio-icon" onclick="playTextAudio(\`${step.text.replace(/`/g, '\\`').replace(/<[^>]*>/g, '')}\`, this)">🔊</span>
           </div>
         </div>
       `;
@@ -1557,7 +1640,7 @@ function initDialogue(dialogueId) {
         <div class="message-avatar">👤</div>
         <div class="message-content">
           <div class="message-label">Диспетчер</div>
-          ${step.prompt ? `<div class="message-bubble" style="background: rgba(251, 191, 36, 0.15); border-color: rgba(251, 191, 36, 0.3); color: #fde68a; margin-bottom: 12px;">${step.prompt}</div>` : ''}
+          ${step.prompt ? `<div class="message-bubble" style="background: rgba(251, 191, 36, 0.15); border-color: rgba(251, 191, 36, 0.3); color: #fde68a; margin-bottom: 12px; padding-right: 16px;">${step.prompt}</div>` : ''}
           <div class="choice-buttons" id="choices-${dialogueId}-${stepIndex}">
             ${step.options.map((option, index) => `
               <button class="choice-btn" onclick="selectChoice(${dialogueId}, ${stepIndex}, ${index})">
@@ -1650,11 +1733,19 @@ function selectChoice(dialogueId, stepIndex, optionIndex) {
     // Показать выбранный ответ
     const selectedDiv = document.createElement('div');
     selectedDiv.className = 'message dispatcher fade-in';
+    
+    // Извлечь только английский текст (до первого <div)
+    const englishText = option.text.split('<div')[0].trim();
+    const cleanText = englishText.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+    
     selectedDiv.innerHTML = `
       <div class="message-avatar">👤</div>
       <div class="message-content">
         <div class="message-label">Диспетчер</div>
-        <div class="message-bubble">${option.text}</div>
+        <div class="message-bubble">
+          ${option.text}
+          <span class="audio-icon" onclick="playTextAudio('${cleanText.replace(/'/g, "\\'")}', this)">🔊</span>
+        </div>
       </div>
     `;
     state.container.appendChild(selectedDiv);
@@ -1667,7 +1758,7 @@ function selectChoice(dialogueId, stepIndex, optionIndex) {
         const nextStep = state.dialogue.steps[state.currentStep];
         if (nextStep.type === 'broker') {
           // Показать ответ брокера с аудио иконкой внутри bubble
-          const audioFile = `audio/broker_response_${dialogueId}_${state.currentStep}.mp3`;
+          const audioFile = `../audio/broker_response_${dialogueId}_${state.currentStep}.mp3`;
           const brokerDiv = document.createElement('div');
           brokerDiv.className = 'message other fade-in';
           brokerDiv.innerHTML = `
@@ -1704,6 +1795,7 @@ function selectChoice(dialogueId, stepIndex, optionIndex) {
               <div class="message-label">Водитель</div>
               <div class="message-bubble">
                 ${nextStep.text}
+                <span class="audio-icon" onclick="playTextAudio(\`${nextStep.text.replace(/`/g, '\\`').replace(/<[^>]*>/g, '')}\`, this)">🔊</span>
               </div>
             </div>
           `;
@@ -1827,6 +1919,122 @@ function playBrokerAudio(audioFile, iconElement) {
   currentAudio.onended = function() {
     iconElement.classList.remove('playing');
   };
+}
+
+// Универсальная функция для воспроизведения любого текста
+function playTextAudio(text, iconElement) {
+  // Убрать HTML теги и лишние пробелы
+  const cleanText = text.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+  
+  // Попытаться найти соответствующий аудио файл
+  const audioFile = findAudioFile(cleanText);
+  
+  if (audioFile) {
+    // Если файл найден - воспроизвести MP3
+    playBrokerAudio(audioFile, iconElement);
+  } else {
+    // Если файла нет - использовать Web Speech API
+    playWebSpeech(cleanText, iconElement);
+  }
+}
+
+// Функция для поиска аудио файла по тексту
+function findAudioFile(text) {
+  // Словарь: ключевые слова -> имя файла
+  const audioMap = {
+    // Диспетчер - Приветствия
+    'calling about the load from.*posted on DAT': 'disp_load_from_X_to_Y_posted_on_DAT.mp3',
+    'saw your posting for a load from': 'disp_posting_for_load_from_X_to_Y.mp3',
+    'interested in the load from.*Can you tell me if': 'disp_load_from_X_to_Y_still_available.mp3',
+    
+    // Брокер - Ответы на приветствие
+    "Yes, it's still available.*MC number": 'broker_yes_its_still_available_load_number.mp3',
+    "Yes, it's still open.*MC number": 'broker_yes_still_open_whats_your_MC_number.mp3',
+    "Yes, it's available.*Can I get your MC": 'broker_yes_available_can_I_get_MC.mp3',
+    
+    // Диспетчер - Оборудование
+    '53-foot reefer with temperature control': 'disp_53_foot_reefer_with_temperature_control.mp3',
+    '53-foot dry van with air-ride suspension': 'disp_53_foot_dry_van_air_ride_suspension.mp3',
+    
+    // Брокер - Детали груза
+    'Pickup tomorrow at 8 AM.*Rate:.*What equipment': 'broker_pickup_8AM_delivery_5PM_rate_X_equipment.mp3',
+    'Pick up tomorrow morning.*deliver by end of day.*What type of truck': 'broker_pickup_morning_end_of_day_rate_X_truck.mp3',
+    
+    // Диспетчер - Вопросы о ставке
+    'posting shows.*final rate.*or.*negotiation': 'disp_posting_shows_X_final_rate_or_negotiation.mp3',
+    'rate listed.*flexibility on that number': 'disp_rate_listed_X_flexibility_on_that_number.mp3',
+    
+    // Брокер - Ответы о ставке
+    'rate.*as posted.*standard rate for this route': 'broker_rate_X_as_posted_standard_this_route.mp3',
+    'budgeted.*per mile.*fair for this lane': 'broker_X_budgeted_per_mile_fair_this_lane.mp3',
+    
+    // Диспетчер - Переговоры
+    'considering the.*distance.*market rates.*need at least': 'disp_distance_market_rates_need_at_least_X.mp3',
+    'operating costs.*miles.*looking at': 'disp_operating_costs_miles_looking_at_X.mp3',
+    
+    // Брокер - Контр-предложения
+    "too high.*Best I can do": 'broker_too_high_best_I_can_do_is_X.mp3',
+    "can't go that high.*How about": 'broker_cant_go_high_how_about_X.mp3',
+    'above our budget.*offer.*best price': 'broker_above_budget_offer_X_best_price.mp3',
+    
+    // Диспетчер - Компромисс
+    'meet in the middle.*driver already in': 'disp_meet_middle_X_driver_already_in_city.mp3',
+    'settle at.*truck nearby.*on-time': 'disp_settle_at_X_truck_nearby_on_time.mp3',
+    
+    // Брокер - Финальное согласие
+    'Alright.*deal.*send the rate confirmation': 'broker_alright_X_deal_send_rate_confirmation.mp3',
+    'Okay.*can do.*book it.*Sending confirmation': 'broker_okay_do_X_book_it_sending_confirmation.mp3',
+    'Fine.*acceptable.*paperwork.*right away': 'broker_fine_X_acceptable_paperwork_right_away.mp3'
+  };
+  
+  // Поиск подходящего файла по паттерну
+  for (const [pattern, filename] of Object.entries(audioMap)) {
+    const regex = new RegExp(pattern, 'i');
+    if (regex.test(text)) {
+      return `../audio/${filename}`;
+    }
+  }
+  
+  return null; // Файл не найден
+}
+
+// Функция для Web Speech API (fallback)
+function playWebSpeech(text, iconElement) {
+  // Остановить предыдущее аудио
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+  }
+  
+  // Остановить Web Speech если играет
+  window.speechSynthesis.cancel();
+  
+  // Убрать класс playing со всех иконок
+  document.querySelectorAll('.audio-icon').forEach(icon => {
+    icon.classList.remove('playing');
+  });
+  
+  // Создать озвучку через Web Speech API
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = 'en-US';
+  utterance.rate = 0.95;
+  utterance.pitch = 1;
+  utterance.volume = 1;
+  
+  // Добавить класс playing
+  iconElement.classList.add('playing');
+  
+  // Убрать класс когда закончится
+  utterance.onend = () => {
+    iconElement.classList.remove('playing');
+  };
+  
+  utterance.onerror = () => {
+    iconElement.classList.remove('playing');
+  };
+  
+  // Запустить озвучку
+  window.speechSynthesis.speak(utterance);
 }
 
 // Показать кнопку "Назад к симулятору" если пришли из simulator.html
