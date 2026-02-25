@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚛 Load Finder - Полный сбор</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 15px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        button {
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .status {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .status.searching {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status.completed {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .examples {
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 15px;
+        }
+
+        .examples span {
+            display: inline-block;
+            margin: 5px 10px;
+            padding: 5px 15px;
+            background: #f0f0f0;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .examples span:hover {
+            background: #667eea;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .stats {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            flex: 1;
+            min-width: 120px;
+            margin: 10px;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .stat-label {
+            color: #666;
+            margin-top: 5px;
+            font-size: 0.9em;
+        }
+
+        .loads-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .loads-table thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .loads-table th {
+            padding: 15px 10px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+
+        .loads-table td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 0.9em;
+        }
+
+        .loads-table tbody tr:hover {
+            background: #f8f9fa;
+        }
+
+        .loads-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .price-cell {
+            font-weight: 700;
+            color: #28a745;
+            font-size: 1.1em;
+        }
+
+        .contact-cell {
+            color: #2196F3;
+            font-weight: 500;
+        }
+
+        .no-data {
+            color: #999;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .info-box {
+            background: #e7f3ff;
+            border: 2px solid #2196F3;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #0d47a1;
+        }
+
+        .info-box strong {
+            display: block;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .limit-warning {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #856404;
+            font-weight: 600;
+        }
+
+        .progress-text {
+            font-size: 1.1em;
+            margin: 10px 0;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚛 Load Finder</h1>
+        <p class="subtitle">Полный сбор: таблица + телефоны + email</p>
+
+        <div class="info-box">
+            <strong>ℹ️ Как работает</strong>
+            1. Собирает данные из таблицы (цена, маршрут, расстояние)<br>
+            2. Кликает на каждый груз для получения телефона и email<br>
+            3. Останавливается ТОЛЬКО когда появится "Daily Limit Reached!"<br>
+            4. Показывает ВСЮ собранную информацию
+        </div>
+
+        <div class="search-box">
+            <input 
+                type="text" 
+                id="cityInput" 
+                placeholder="Введите город и штат (например: Miami, FL)"
+                onkeypress="if(event.key === 'Enter') searchLoads()"
+            >
+            <button id="searchBtn" onclick="searchLoads()">🔍 Начать сбор</button>
+        </div>
+
+        <div class="examples">
+            <strong>Примеры:</strong>
+            <span onclick="setCity('Miami, FL')">Miami, FL</span>
+            <span onclick="setCity('Chicago, IL')">Chicago, IL</span>
+            <span onclick="setCity('Atlanta, GA')">Atlanta, GA</span>
+            <span onclick="setCity('Los Angeles, CA')">Los Angeles, CA</span>
+            <span onclick="setCity('Dallas, TX')">Dallas, TX</span>
+        </div>
+
+        <div id="statusBox" class="hidden"></div>
+        <div id="limitWarning" class="hidden"></div>
+        <div id="statsBox" class="hidden"></div>
+        <div id="loadsContainer" class="hidden"></div>
+    </div>
+
+    <script>
+        let checkInterval = null;
+
+        function setCity(city) {
+            document.getElementById('cityInput').value = city;
+        }
+
+        async function searchLoads() {
+            const city = document.getElementById('cityInput').value.trim();
+            
+            if (!city) {
+                alert('Пожалуйста, введите город и штат');
+                return;
+            }
+
+            const searchBtn = document.getElementById('searchBtn');
+            const statusBox = document.getElementById('statusBox');
+            const statsBox = document.getElementById('statsBox');
+            const loadsContainer = document.getElementById('loadsContainer');
+            const limitWarning = document.getElementById('limitWarning');
+
+            searchBtn.disabled = true;
+            searchBtn.textContent = '⏳ Собираем данные...';
+
+            statusBox.className = 'status searching';
+            statusBox.innerHTML = `
+                <div class="spinner"></div>
+                <p style="font-size: 1.2em; margin: 15px 0;">Собираем грузы из ${city}...</p>
+                <p class="progress-text" id="progressText">Инициализация...</p>
+            `;
+            statusBox.classList.remove('hidden');
+            loadsContainer.classList.add('hidden');
+            statsBox.classList.add('hidden');
+            limitWarning.classList.add('hidden');
+
+            try {
+                const response = await fetch('/search', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ city: city })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Ошибка запроса');
+                }
+
+                checkInterval = setInterval(checkStatus, 2000);
+
+            } catch (error) {
+                statusBox.className = 'status';
+                statusBox.style.background = '#f8d7da';
+                statusBox.style.color = '#721c24';
+                statusBox.textContent = '❌ Ошибка: ' + error.message;
+                searchBtn.disabled = false;
+                searchBtn.textContent = '🔍 Начать сбор';
+            }
+        }
+
+        async function checkStatus() {
+            try {
+                const response = await fetch('/status');
+                const data = await response.json();
+
+                const statusBox = document.getElementById('statusBox');
+                const statsBox = document.getElementById('statsBox');
+                const loadsContainer = document.getElementById('loadsContainer');
+                const limitWarning = document.getElementById('limitWarning');
+                const searchBtn = document.getElementById('searchBtn');
+                const progressText = document.getElementById('progressText');
+
+                if (data.status === 'searching' && progressText) {
+                    let statusText = data.step_name || 'Обработка';
+                    if (data.step === 4) {
+                        statusText = `Груз ${data.current_load} из ${data.total_loads}`;
+                    }
+                    progressText.textContent = statusText;
+                }
+
+                if (data.status === 'completed') {
+                    clearInterval(checkInterval);
+                    
+                    statusBox.className = 'status completed';
+                    statusBox.textContent = '✅ Сбор завершен!';
+
+                    if (data.limit_reached) {
+                        limitWarning.innerHTML = `
+                            ⚠️ <strong>Достигнут дневной лимит просмотров!</strong><br>
+                            Собрано максимум информации до появления ограничения.
+                        `;
+                        limitWarning.classList.remove('hidden');
+                    }
+
+                    const loads = data.loads || [];
+                    const loadsWithPhone = loads.filter(l => l.phone).length;
+                    const loadsWithEmail = loads.filter(l => l.email).length;
+                    const loadsWithBoth = loads.filter(l => l.phone && l.email).length;
+                    const loadsWithPrice = loads.filter(l => l.price).length;
+
+                    statsBox.innerHTML = `
+                        <div class="stats">
+                            <div class="stat-item">
+                                <div class="stat-number">${loads.length}</div>
+                                <div class="stat-label">Всего грузов</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">${loadsWithPrice}</div>
+                                <div class="stat-label">С ценой</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">${loadsWithPhone}</div>
+                                <div class="stat-label">С телефоном</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">${loadsWithEmail}</div>
+                                <div class="stat-label">С email</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">${loadsWithBoth}</div>
+                                <div class="stat-label">С обоими</div>
+                            </div>
+                        </div>
+                    `;
+                    statsBox.classList.remove('hidden');
+
+                    if (loads.length > 0) {
+                        let tableHTML = `
+                            <table class="loads-table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>📍 Откуда</th>
+                                        <th>📍 Куда</th>
+                                        <th>📅 Дата</th>
+                                        <th>📏 Расст.</th>
+                                        <th>💰 Цена</th>
+                                        <th>📞 Телефон</th>
+                                        <th>📧 Email</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                        `;
+                        
+                        loads.forEach(load => {
+                            tableHTML += `
+                                <tr>
+                                    <td>${load.number}</td>
+                                    <td>${load.pickup || '-'}</td>
+                                    <td>${load.dropoff || '-'}</td>
+                                    <td>${load.date || '-'}</td>
+                                    <td>${load.distance || '-'}</td>
+                                    <td class="price-cell">${load.price || '-'}</td>
+                                    <td class="${load.phone ? 'contact-cell' : 'no-data'}">${load.phone || '-'}</td>
+                                    <td class="${load.email ? 'contact-cell' : 'no-data'}">${load.email || '-'}</td>
+                                </tr>
+                            `;
+                        });
+                        
+                        tableHTML += `
+                                </tbody>
+                            </table>
+                        `;
+                        
+                        loadsContainer.innerHTML = tableHTML;
+                        loadsContainer.classList.remove('hidden');
+                    }
+
+                    searchBtn.disabled = false;
+                    searchBtn.textContent = '🔍 Начать сбор';
+                }
+
+            } catch (error) {
+                clearInterval(checkInterval);
+                console.error('Ошибка проверки статуса:', error);
+            }
+        }
+    </script>
+</body>
+</html>
