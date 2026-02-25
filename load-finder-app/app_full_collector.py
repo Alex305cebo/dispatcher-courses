@@ -145,16 +145,48 @@ def collect_full_data(city):
         # Загружаем credentials
         credentials = load_credentials()
         
-        # Браузер в headless режиме (для Render.com)
+        # Браузер в headless режиме с максимальной оптимизацией памяти
         chrome_options = Options()
-        chrome_options.add_argument('--headless')  # Запуск без окна
+        chrome_options.add_argument('--headless=new')  # Новый headless режим
         chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('--disable-dev-shm-usage')
         chrome_options.add_argument('--disable-gpu')
         chrome_options.add_argument('--disable-software-rasterizer')
         chrome_options.add_argument('--disable-extensions')
-        chrome_options.add_argument('--window-size=1920,1080')
-        chrome_options.add_argument('--force-device-scale-factor=0.6')
+        chrome_options.add_argument('--disable-logging')
+        chrome_options.add_argument('--disable-permissions-api')
+        chrome_options.add_argument('--disable-notifications')
+        chrome_options.add_argument('--disable-background-networking')
+        chrome_options.add_argument('--disable-background-timer-throttling')
+        chrome_options.add_argument('--disable-backgrounding-occluded-windows')
+        chrome_options.add_argument('--disable-breakpad')
+        chrome_options.add_argument('--disable-component-extensions-with-background-pages')
+        chrome_options.add_argument('--disable-features=TranslateUI,BlinkGenPropertyTrees')
+        chrome_options.add_argument('--disable-ipc-flooding-protection')
+        chrome_options.add_argument('--disable-renderer-backgrounding')
+        chrome_options.add_argument('--enable-features=NetworkService,NetworkServiceInProcess')
+        chrome_options.add_argument('--force-color-profile=srgb')
+        chrome_options.add_argument('--hide-scrollbars')
+        chrome_options.add_argument('--metrics-recording-only')
+        chrome_options.add_argument('--mute-audio')
+        chrome_options.add_argument('--no-first-run')
+        chrome_options.add_argument('--safebrowsing-disable-auto-update')
+        chrome_options.add_argument('--window-size=1280,720')
+        chrome_options.add_argument('--single-process')  # Один процесс вместо нескольких
+        chrome_options.add_argument('--disable-blink-features=AutomationControlled')
+        
+        # Отключаем загрузку изображений для экономии памяти
+        prefs = {
+            'profile.default_content_setting_values': {
+                'images': 2,  # Не загружать изображения
+                'plugins': 2,
+                'popups': 2,
+                'geolocation': 2,
+                'notifications': 2,
+                'media_stream': 2,
+            }
+        }
+        chrome_options.add_experimental_option('prefs', prefs)
         
         service = Service(ChromeDriverManager().install())
         driver = webdriver.Chrome(service=service, options=chrome_options)
