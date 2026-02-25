@@ -77,6 +77,15 @@ body { font-family: 'Inter', sans-serif; background: var(--bg-darker); color: va
   .footer-section a:hover { transform: translateX(0); }
   .footer-bottom { font-size: 11px; padding-top: 20px; }
 }
+
+@media (max-width: 400px) {
+  .footer .container { padding: 0 12px; }
+  .footer-content { grid-template-columns: 1fr !important; gap: 24px !important; }
+  .footer-section:first-child { margin-bottom: 20px; }
+  .footer-section h4 { font-size: 16px; }
+  .footer-section a { font-size: 13px; }
+}
+
 .footer-section a { display: block; color: var(--text-secondary); text-decoration: none;
   font-size: 14px; margin-bottom: 12px; transition: all 0.3s; }
 .footer-section a:hover { color: var(--primary); transform: translateX(4px); }

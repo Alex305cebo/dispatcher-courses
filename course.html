@@ -755,7 +755,7 @@ body {
   }
   
   .section {
-    padding: 80px 0;
+    padding: 60px 0 40px;
   }
   
   .section-title {
@@ -797,6 +797,23 @@ body {
   
   .learning-path-info {
     grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  
+  .info-card {
+    padding: 16px;
+  }
+  
+  .info-icon {
+    font-size: 24px;
+  }
+  
+  .info-title {
+    font-size: 11px;
+  }
+  
+  .info-value {
+    font-size: 14px;
   }
   
   .card {
@@ -805,18 +822,64 @@ body {
   
   .card-content {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .card-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+  }
+  
+  .card-text h3 {
+    font-size: 18px;
+  }
+  
+  .card-text p {
+    font-size: 14px;
   }
   
   .card-features {
     grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  
+  .card-features li {
+    font-size: 13px;
+  }
+  
+  .card-button {
+    padding: 12px 20px;
+    font-size: 14px;
   }
   
   .card-watermark {
     font-size: 80px;
   }
   
+  .extras {
+    margin-top: 40px;
+  }
+  
   .extras-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .extra-card {
+    padding: 20px;
+  }
+  
+  .extra-icon {
+    font-size: 32px;
+  }
+  
+  .extra-text h4 {
+    font-size: 16px;
+  }
+  
+  .extra-text p {
+    font-size: 13px;
   }
   
   .testimonials-grid {
@@ -824,13 +887,31 @@ body {
     padding: 0 16px;
   }
   
+  .testimonial-card {
+    padding: 24px;
+  }
+  
+  .testimonial-text {
+    font-size: 14px;
+  }
+  
   .success-section {
-    padding: 48px 0;
+    padding: 40px 0;
+    margin-top: 48px;
   }
   
   .success-header h3,
   .career-header h3 {
     font-size: 28px;
+  }
+  
+  .success-header p,
+  .career-header p {
+    font-size: 15px;
+  }
+  
+  .career-section {
+    margin-top: 48px;
   }
   
   .career-timeline::before {
@@ -845,6 +926,23 @@ body {
   
   .timeline-item {
     gap: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .timeline-content {
+    padding: 20px;
+  }
+  
+  .timeline-content h4 {
+    font-size: 18px;
+  }
+  
+  .timeline-salary {
+    font-size: 15px;
+  }
+  
+  .timeline-desc {
+    font-size: 13px;
   }
   
   #fab {
@@ -857,17 +955,133 @@ body {
 
 @media (max-width: 480px) {
   .container {
-    padding: 0 20px;
+    padding: 0 16px;
   }
   
   .hero {
     padding: 60px 0 40px;
   }
   
+  .hero h1 {
+    font-size: 32px;
+  }
+  
+  .hero-subtitle {
+    font-size: 16px;
+  }
+  
+  .hero-stats {
+    gap: 24px;
+    flex-direction: column;
+  }
+  
+  .stat-number {
+    font-size: 28px;
+  }
+  
+  .stat-label {
+    font-size: 12px;
+  }
+  
+  .section {
+    padding: 40px 0 20px;
+  }
+  
+  .section-title {
+    font-size: 28px;
+  }
+  
+  .section-subtitle {
+    font-size: 15px;
+  }
+  
+  .learning-path-info {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .card {
+    padding: 20px;
+  }
+  
   .card-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
+  }
+  
+  .card-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+  
+  .card-text h3 {
+    font-size: 16px;
+  }
+  
+  .card-text p {
+    font-size: 13px;
+  }
+  
+  .card-features li {
+    font-size: 12px;
+  }
+  
+  .card-button {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+  
+  .card-watermark {
+    font-size: 60px;
+  }
+  
+  .extra-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 16px;
+  }
+  
+  .extra-icon {
+    font-size: 28px;
+  }
+  
+  .testimonial-card {
+    padding: 20px;
+  }
+  
+  .testimonial-text {
+    font-size: 13px;
+  }
+  
+  .author-name {
+    font-size: 14px;
+  }
+  
+  .author-role {
+    font-size: 12px;
+  }
+  
+  .success-header h3,
+  .career-header h3 {
+    font-size: 24px;
+  }
+  
+  .timeline-content {
+    padding: 16px;
+  }
+  
+  .timeline-content h4 {
+    font-size: 16px;
+  }
+  
+  .timeline-salary {
+    font-size: 14px;
+  }
+  
+  .timeline-desc {
+    font-size: 12px;
   }
 }
 
@@ -959,6 +1173,29 @@ body {
   .footer-bottom {
     font-size: 11px;
     padding-top: 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  .footer .container {
+    padding: 0 12px;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  
+  .footer-section:first-child {
+    margin-bottom: 20px;
+  }
+  
+  .footer-section h4 {
+    font-size: 16px;
+  }
+  
+  .footer-section a {
+    font-size: 13px;
   }
 }
 

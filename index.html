@@ -427,11 +427,29 @@ h1 {
   
   .features-grid {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 16px;
+    margin-top: 40px;
   }
   
   .feature-card {
-    padding: 24px;
+    padding: 20px;
+  }
+  
+  .feature-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+  
+  .feature-card h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  
+  .feature-card p {
+    font-size: 14px;
+    line-height: 1.5;
   }
   
   .stats-grid {
@@ -942,16 +960,217 @@ h1 {
 
 @media (max-width: 768px) {
   .container {
-    padding: 0 24px;
+    padding: 0 16px;
   }
   
-  /* Section spacing optimization */
+  .nav-content {
+    gap: 12px;
+  }
+  
+  .navbar {
+    padding: 12px 0;
+  }
+  
+  .nav-actions {
+    gap: 8px;
+  }
+  
+  .btn-login {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  
+  .btn-signup {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+  
+  .mobile-menu-toggle {
+    margin-right: 0;
+    padding: 8px;
+  }
+  
+  /* Hero Section */
   .hero {
     padding: 100px 0 60px;
   }
   
+  .hero h1 {
+    font-size: 36px;
+    line-height: 1.2;
+  }
+  
+  .hero-subtitle {
+    font-size: 18px;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .hero-buttons .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  /* Features */
+  .features {
+    padding: 60px 0;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 40px;
+  }
+  
+  .feature-card {
+    padding: 32px;
+  }
+  
+  .feature-card h3 {
+    font-size: 20px;
+  }
+  
+  .feature-card p {
+    font-size: 15px;
+  }
+  
+  /* Stats */
+  .stats {
+    padding: 60px 0;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin-top: 40px;
+  }
+  
+  .stat-number {
+    font-size: 40px;
+  }
+  
+  .stat-label {
+    font-size: 14px;
+  }
+  
+  /* Section Headers */
+  .section-header {
+    margin-bottom: 40px;
+  }
+  
+  .section-title {
+    font-size: 32px;
+  }
+  
+  .section-subtitle {
+    font-size: 16px;
+  }
+  
+  /* Pricing */
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  /* Section spacing optimization */
   section {
     padding: 40px 0 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 12px;
+  }
+  
+  .nav-content {
+    gap: 8px;
+  }
+  
+  .logo {
+    font-size: 16px;
+  }
+  
+  .logo-icon {
+    font-size: 20px;
+  }
+  
+  .nav-actions .btn-login,
+  .nav-actions .btn-signup {
+    display: none;
+  }
+  
+  .mobile-menu-toggle {
+    padding: 6px;
+  }
+  
+  .mobile-menu-toggle span {
+    width: 20px;
+  }
+  
+  /* Hero */
+  .hero {
+    padding: 80px 0 50px;
+  }
+  
+  .hero h1 {
+    font-size: 28px;
+  }
+  
+  .hero-subtitle {
+    font-size: 16px;
+  }
+  
+  /* Features */
+  .feature-card {
+    padding: 24px;
+  }
+  
+  .feature-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+  
+  .feature-card h3 {
+    font-size: 18px;
+  }
+  
+  .feature-card p {
+    font-size: 14px;
+  }
+  
+  /* Stats */
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .stat-number {
+    font-size: 32px;
+  }
+  
+  .stat-label {
+    font-size: 12px;
+  }
+  
+  /* Section Headers */
+  .section-title {
+    font-size: 28px;
+  }
+  
+  .section-subtitle {
+    font-size: 15px;
+  }
+  
+  /* Buttons */
+  .btn {
+    padding: 14px 24px;
+    font-size: 14px;
   }
 }
 
@@ -1021,6 +1240,29 @@ h1 {
   }
 }
 
+@media (max-width: 400px) {
+  .footer .container {
+    padding: 0 12px;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  
+  .footer-section:first-child {
+    margin-bottom: 20px;
+  }
+  
+  .footer-section h4 {
+    font-size: 16px;
+  }
+  
+  .footer-section a {
+    font-size: 13px;
+  }
+}
+
 @media (max-width: 480px) {
   .container {
     padding: 0 20px;
@@ -1051,7 +1293,7 @@ h1 {
         <a href="#pricing" class="nav-link">Тарифы</a>
         <a href="courses.html" class="nav-link">Курсы</a>
         <a href="pages/load-finder.html" class="nav-link">🚛 Поиск Грузов</a>
-        <a href="pages/load-connect.html" class="nav-link">🔗 Load Connect</a>
+        <a href="pages/dispatcher-cards.html" class="nav-link">🎲 Dispatcher Cards</a>
         <a href="about.html" class="nav-link">О нас</a>
         <a href="dashboard.html" class="nav-link" id="dashboardLink" style="display: none;">Личный кабинет</a>
       </div>
@@ -1080,7 +1322,7 @@ h1 {
     <a href="#pricing" class="nav-link">Тарифы</a>
     <a href="courses.html" class="nav-link">Курсы</a>
     <a href="pages/load-finder.html" class="nav-link">🚛 Поиск Грузов</a>
-    <a href="pages/load-connect.html" class="nav-link">🔗 Load Connect</a>
+    <a href="pages/dispatcher-cards.html" class="nav-link">🎲 Dispatcher Cards</a>
     <a href="about.html" class="nav-link">О нас</a>
     <a href="dashboard.html" class="nav-link" id="dashboardLinkMobile" style="display: none;">Личный кабинет</a>
   </div>
@@ -1161,10 +1403,10 @@ h1 {
         <p>Автоматический поиск грузов с TruckerPath. База 30+ брокеров, полная информация о ценах и контактах</p>
       </div>
       
-      <div class="feature-card" onclick="window.location.href='pages/load-connect.html'" style="cursor: pointer;">
-        <div class="feature-icon">🔗</div>
-        <h3>Load Connect</h3>
-        <p>Профессиональная платформа с 10,000+ грузов ежедневно. Прямой доступ к проверенным брокерам США</p>
+      <div class="feature-card" onclick="window.location.href='pages/dispatcher-cards.html'" style="cursor: pointer;">
+        <div class="feature-icon">🎲</div>
+        <h3>Dispatcher Cards</h3>
+        <p>Интерактивное приложение для тренировки знаний диспетчера. Карточки с вопросами трех уровней сложности</p>
       </div>
       
       <div class="feature-card">

@@ -356,44 +356,193 @@ body {
    RESPONSIVE
    ═══════════════════════════════════════════════════════════ */
 @media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+  
   .hero {
     padding: 60px 0 40px;
   }
   
   .hero h1 {
-    font-size: 40px;
+    font-size: 36px;
+  }
+  
+  .hero-subtitle {
+    font-size: 17px;
   }
   
   .section {
-    padding: 60px 0;
+    padding: 50px 0 30px;
   }
   
   .section-title {
-    font-size: 36px;
+    font-size: 32px;
+  }
+  
+  .section-subtitle {
+    font-size: 16px;
   }
   
   .features-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .feature-card {
+    padding: 28px;
+  }
+  
+  .feature-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+  }
+  
+  .feature-card h3 {
+    font-size: 19px;
+  }
+  
+  .feature-card p {
+    font-size: 14px;
   }
   
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
+    gap: 24px;
+  }
+  
+  .stat-number {
+    font-size: 36px;
+  }
+  
+  .stat-label {
+    font-size: 13px;
   }
   
   .step-card {
     grid-template-columns: 1fr;
     gap: 20px;
+    padding: 28px;
   }
   
   .step-number {
-    width: 64px;
-    height: 64px;
-    font-size: 24px;
+    width: 56px;
+    height: 56px;
+    font-size: 22px;
+  }
+  
+  .step-content h3 {
+    font-size: 19px;
+  }
+  
+  .step-content p {
+    font-size: 14px;
   }
   
   .brokers-list {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .broker-card {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+  
+  .hero {
+    padding: 50px 0 30px;
+  }
+  
+  .hero h1 {
+    font-size: 28px;
+  }
+  
+  .hero-subtitle {
+    font-size: 15px;
+  }
+  
+  .hero-badge {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+  
+  .section {
+    padding: 40px 0 20px;
+  }
+  
+  .section-title {
+    font-size: 26px;
+  }
+  
+  .section-subtitle {
+    font-size: 14px;
+  }
+  
+  .feature-card {
+    padding: 20px;
+  }
+  
+  .feature-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+  
+  .feature-card h3 {
+    font-size: 17px;
+  }
+  
+  .feature-card p {
+    font-size: 13px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .stat-number {
+    font-size: 32px;
+  }
+  
+  .stat-label {
+    font-size: 12px;
+  }
+  
+  .step-card {
+    padding: 20px;
+  }
+  
+  .step-number {
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+  }
+  
+  .step-content h3 {
+    font-size: 17px;
+  }
+  
+  .step-content p {
+    font-size: 13px;
+  }
+  
+  .broker-card {
+    padding: 20px;
+  }
+  
+  .broker-name {
+    font-size: 17px;
+  }
+  
+  .broker-info {
+    font-size: 13px;
   }
 }
 
