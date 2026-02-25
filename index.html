@@ -61,26 +61,21 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: 
-    radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 40% 20%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
-  animation: gradientShift 15s ease infinite;
+  background: transparent;
   pointer-events: none;
   z-index: 0;
   transition: opacity 0.3s ease;
 }
 
-[data-theme="light"] body::before {
-  background: 
-    radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 40% 20%, rgba(236, 72, 153, 0.05) 0%, transparent 50%);
-}
-
-@keyframes gradientShift {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.8; transform: scale(1.1); }
+/* Neural Background Canvas */
+#neuralCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
 }
 
 /* Grid pattern overlay */
@@ -893,6 +888,9 @@ h1 {
 </head>
 <body>
 
+<!-- Neural Background Canvas -->
+<canvas id="neuralCanvas"></canvas>
+
 <!-- Navigation -->
 <nav class="navbar">
   <div class="container">
@@ -1257,6 +1255,145 @@ window.addEventListener('scroll', () => {
     indicator.style.opacity = '1';
   }
 });
+
+// Neural Background Animation
+(function() {
+  const canvas = document.getElementById('neuralCanvas');
+  if (!canvas) return;
+  
+  const ctx = canvas.getContext('2d');
+  let width = window.innerWidth;
+  let height = window.innerHeight;
+  let particles = [];
+  let animationFrameId;
+  let mouse = { x: -1000, y: -1000 };
+  
+  // Configuration
+  const config = {
+    color: '#a78bfa',
+    trailOpacity: 0.08,
+    particleCount: 1200,
+    speed: 1.2
+  };
+  
+  // Particle class
+  class Particle {
+    constructor() {
+      this.x = Math.random() * width;
+      this.y = Math.random() * height;
+      this.vx = 0;
+      this.vy = 0;
+      this.age = 0;
+      this.life = Math.random() * 200 + 100;
+    }
+    
+    update() {
+      // Flow field
+      const angle = (Math.cos(this.x * 0.005) + Math.sin(this.y * 0.005)) * Math.PI;
+      this.vx += Math.cos(angle) * 0.2 * config.speed;
+      this.vy += Math.sin(angle) * 0.2 * config.speed;
+      
+      // Mouse interaction
+      const dx = mouse.x - this.x;
+      const dy = mouse.y - this.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      const interactionRadius = 150;
+      
+      if (distance < interactionRadius) {
+        const force = (interactionRadius - distance) / interactionRadius;
+        this.vx -= dx * force * 0.05;
+        this.vy -= dy * force * 0.05;
+      }
+      
+      // Apply velocity & friction
+      this.x += this.vx;
+      this.y += this.vy;
+      this.vx *= 0.95;
+      this.vy *= 0.95;
+      
+      // Aging
+      this.age++;
+      if (this.age > this.life) {
+        this.reset();
+      }
+      
+      // Wrap around
+      if (this.x < 0) this.x = width;
+      if (this.x > width) this.x = 0;
+      if (this.y < 0) this.y = height;
+      if (this.y > height) this.y = 0;
+    }
+    
+    reset() {
+      this.x = Math.random() * width;
+      this.y = Math.random() * height;
+      this.vx = 0;
+      this.vy = 0;
+      this.age = 0;
+      this.life = Math.random() * 200 + 100;
+    }
+    
+    draw() {
+      ctx.fillStyle = config.color;
+      const alpha = 1 - Math.abs(this.age / this.life - 0.5) * 2;
+      ctx.globalAlpha = alpha * 0.8;
+      ctx.fillRect(this.x, this.y, 2, 2);
+    }
+  }
+  
+  // Initialize
+  function init() {
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    ctx.scale(dpr, dpr);
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
+    
+    particles = [];
+    for (let i = 0; i < config.particleCount; i++) {
+      particles.push(new Particle());
+    }
+  }
+  
+  // Animation loop
+  function animate() {
+    ctx.fillStyle = `rgba(0, 0, 0, ${config.trailOpacity})`;
+    ctx.fillRect(0, 0, width, height);
+    
+    particles.forEach(p => {
+      p.update();
+      p.draw();
+    });
+    
+    animationFrameId = requestAnimationFrame(animate);
+  }
+  
+  // Event listeners
+  function handleResize() {
+    width = window.innerWidth;
+    height = window.innerHeight;
+    init();
+  }
+  
+  function handleMouseMove(e) {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+  }
+  
+  function handleMouseLeave() {
+    mouse.x = -1000;
+    mouse.y = -1000;
+  }
+  
+  // Start
+  init();
+  animate();
+  
+  window.addEventListener('resize', handleResize);
+  document.addEventListener('mousemove', handleMouseMove);
+  document.addEventListener('mouseleave', handleMouseLeave);
+})();
 </script>
 
 <script src="auth.js"></script>

@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/navigation'
+import NeuralBackground from '@/components/NeuralBackground'
 
 export default function HomePage() {
   const router = useRouter()
@@ -46,36 +47,14 @@ export default function HomePage() {
   
   return (
     <>
-      {/* Background */}
+      {/* Neural Background */}
       <div className="fixed inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900"></div>
-        
-        <div className="absolute inset-0 overflow-hidden opacity-30">
-          <motion.div
-            animate={{
-              scale: [1, 1.2, 1],
-              rotate: [0, 180, 360],
-            }}
-            transition={{
-              duration: 20,
-              repeat: Infinity,
-              ease: "linear"
-            }}
-            className="absolute top-0 left-0 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl"
-          />
-          <motion.div
-            animate={{
-              scale: [1.2, 1, 1.2],
-              rotate: [360, 180, 0],
-            }}
-            transition={{
-              duration: 20,
-              repeat: Infinity,
-              ease: "linear"
-            }}
-            className="absolute bottom-0 right-0 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl"
-          />
-        </div>
+        <NeuralBackground 
+          color="#a78bfa"
+          trailOpacity={0.08}
+          particleCount={1200}
+          speed={1.2}
+        />
       </div>
 
       {/* Main Content */}
