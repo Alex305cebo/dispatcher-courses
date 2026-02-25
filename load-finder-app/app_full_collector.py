@@ -55,6 +55,29 @@ def expand_trailer_type(code):
     }
     return trailer_types.get(code.strip(), code)
 
+def clean_email(email):
+    """Убирает +truckerpath из email адресов"""
+    if not email:
+        return email
+    # Убираем +truckerpath из email
+    return email.replace('+truckerpath', '')
+
+def normalize_broker_name(broker_name):
+    """Нормализует название брокера (заменяет сокращения на полные названия)"""
+    if not broker_name:
+        return broker_name
+    
+    # Словарь замен сокращений на полные названия
+    broker_replacements = {
+        'DTP/CS': 'D & T PERRY TRUCKING LLC'
+    }
+    
+    # Проверяем точное совпадение
+    if broker_name in broker_replacements:
+        return broker_replacements[broker_name]
+    
+    return broker_name
+
 def find_broker_in_database(broker_name):
     """Ищет брокера в базе данных и возвращает его контакты"""
     if not broker_name or not BROKERS_DB:
@@ -66,7 +89,11 @@ def find_broker_in_database(broker_name):
     # Ищем точное совпадение
     for db_broker, info in BROKERS_DB.items():
         if db_broker.lower() in broker_normalized or broker_normalized in db_broker.lower():
-            return info
+            # Очищаем email от +truckerpath перед возвратом
+            cleaned_info = info.copy()
+            if 'email' in cleaned_info:
+                cleaned_info['email'] = clean_email(cleaned_info['email'])
+            return cleaned_info
     
     return None
 
@@ -519,27 +546,69 @@ def collect_full_data(city):
                     if distance_match:
                         load_data['distance'] = distance_match.group(0)
                     
-                    # Ищем вес
+                    # Ищем вес (несколько способов)
                     weight_match = re.search(r'(\d+,?\d+)\s*lbs', context)
                     if weight_match:
                         load_data['weight'] = weight_match.group(0)
                     else:
-                        # Альтернативный поиск - просто число без lbs
+                        # Способ 2: Weight + число
                         weight_alt = re.search(r'Weight\s+(\d+,?\d+)', context)
                         if weight_alt:
                             load_data['weight'] = weight_alt.group(1) + ' lbs'
+                        else:
+                            # Способ 3: просто "lb" без "s"
+                            weight_alt2 = re.search(r'(\d+,?\d+)\s*lb\b', context)
+                            if weight_alt2:
+                                load_data['weight'] = weight_alt2.group(0) + 's'
+                            else:
+                                # Способ 4: ищем число между трейлером и ценой
+                                # Паттерн: Trailer_Type ЧИСЛО $Price
+                                weight_alt3 = re.search(r'(?:Flatbed|Van|Reefer|F|V|R)\s+[^\d]*?(\d+,?\d+)\s+\$', context)
+                                if weight_alt3:
+                                    load_data['weight'] = weight_alt3.group(1) + ' lbs'
                     
-                    # Ищем тип трейлера (F, R, V, F SD и т.д.)
-                    trailer_match = re.search(r'Trailer[:\s]+([FRV\s,SD]+)', context)
-                    if trailer_match:
-                        trailer_code = trailer_match.group(1).strip()
+                    # Ищем тип трейлера, вес и брокера (они идут вместе)
+                    # Формат: "F 48 000 Jakebrake Logistics LLC" или "R 38 308 Triple T Transport"
+                    trailer_weight_broker = re.search(r'([FRV]|BT|F\s+SD)\s+(\d+\s+\d+)\s+([A-Z][^\n]+?)(?:\s+Unlock|$)', context)
+                    if trailer_weight_broker:
+                        trailer_code = trailer_weight_broker.group(1).strip()
+                        weight_raw = trailer_weight_broker.group(2).replace(' ', ',')
+                        broker_name = trailer_weight_broker.group(3).strip()
+                        
+                        # Нормализуем название брокера (заменяем сокращения)
+                        broker_name = normalize_broker_name(broker_name)
+                        
                         load_data['trailer'] = expand_trailer_type(trailer_code)
+                        load_data['weight'] = weight_raw + ' lbs'
+                        load_data['broker'] = broker_name
+                        
+                        # Проверяем базу данных брокеров
+                        broker_info = find_broker_in_database(broker_name)
+                        if broker_info:
+                            print(f"      🎯 Брокер найден в базе данных: {broker_name}")
+                            if 'dispatch' in broker_info:
+                                load_data['dispatch'] = broker_info['dispatch']
+                            if 'phone' in broker_info:
+                                load_data['phone'] = broker_info['phone']
+                            if 'email' in broker_info:
+                                load_data['email'] = broker_info['email']
+                            if 'dot_number' in broker_info:
+                                load_data['dot_number'] = broker_info['dot_number']
+                            if 'mc_number' in broker_info:
+                                load_data['mc_number'] = broker_info['mc_number']
                     else:
-                        # Альтернативный поиск - одиночные буквы F, R, V
-                        trailer_alt = re.search(r'\b([FRV]|F\s+SD|R,V)\b', context)
-                        if trailer_alt:
-                            trailer_code = trailer_alt.group(1)
+                        # Старая логика если новый формат не найден
+                        # Ищем тип трейлера (F, R, V, F SD и т.д.)
+                        trailer_match = re.search(r'Trailer[:\s]+([FRV\s,SD]+)', context)
+                        if trailer_match:
+                            trailer_code = trailer_match.group(1).strip()
                             load_data['trailer'] = expand_trailer_type(trailer_code)
+                        else:
+                            # Альтернативный поиск - одиночные буквы F, R, V
+                            trailer_alt = re.search(r'\b([FRV]|F\s+SD|R,V)\b', context)
+                            if trailer_alt:
+                                trailer_code = trailer_alt.group(1)
+                                load_data['trailer'] = expand_trailer_type(trailer_code)
                     
                     # Ищем дату
                     date_match = re.search(r'(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\.?\s+\d+', context)
@@ -552,16 +621,16 @@ def collect_full_data(city):
                     if broker_match:
                         broker = broker_match.group(1).strip()
                         if 'Unlock' not in broker:
-                            broker_name = broker
-                            load_data['broker'] = broker
+                            broker_name = normalize_broker_name(broker)
+                            load_data['broker'] = broker_name
                     else:
                         # Альтернативный способ - ищем название компании перед Unlock
                         broker_alt = re.search(r'([A-Z][a-zA-Z\s&]+(?:LLC|Inc|Logistics|Freight)?)\s+(?:Unlock|Phone)', context)
                         if broker_alt:
                             broker = broker_alt.group(1).strip()
                             if 'Unlock' not in broker:
-                                broker_name = broker
-                                load_data['broker'] = broker
+                                broker_name = normalize_broker_name(broker)
+                                load_data['broker'] = broker_name
                     
                     # Если нашли брокера, проверяем базу данных
                     if broker_name:
@@ -599,7 +668,7 @@ def collect_full_data(city):
                                 email_pos = context.find(email)
                                 email_context = context[max(0, email_pos-20):min(len(context), email_pos+30)]
                                 if 'Unlock' not in email_context:
-                                    load_data['email'] = email
+                                    load_data['email'] = clean_email(email)
                             
                             # Ищем Dispatch (имя диспетчера)
                             dispatch_match = re.search(r'Dispatch\s*([A-Z][a-z]+)', context)
@@ -635,7 +704,7 @@ def collect_full_data(city):
                             email_pos = context.find(email)
                             email_context = context[max(0, email_pos-20):min(len(context), email_pos+30)]
                             if 'Unlock' not in email_context:
-                                load_data['email'] = email
+                                load_data['email'] = clean_email(email)
                         
                         # Ищем Dispatch (имя диспетчера)
                         dispatch_match = re.search(r'Dispatch\s*([A-Z][a-z]+)', context)
