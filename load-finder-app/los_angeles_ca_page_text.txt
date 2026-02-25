@@ -64,25 +64,25 @@ Jakebrake Logistics LLC
 Unlock
 Unlock
 $600
-1m
+11m
 Long Beach, CA
 19 Feb. 25
 Ontario, CA
-2 529mi R 35
+2 527mi R 35
 Dispatch
 Unlock
 Unlock
 --
-5h
+31m
 Santa Clarita, CA
 29 Feb. 26
 Bristol, PA
-2 726mi R 42 840
+2 729mi R 42 840
 Zengistics
 Unlock
 Unlock
 $6,600
-5h
+7h
 Santa Clarita, CA
 29 Feb. 26
 Logan Township, NJ
@@ -91,43 +91,43 @@ Zengistics
 Unlock
 Unlock
 $6,600
-4h
+30m
 Santa Clarita, CA
 29 Feb. 27
 Bristol, PA
-2 726mi R 42 840
+2 729mi R 42 840
 Zengistics
 Unlock
 Unlock
 $6,600
-5h
+1h
 Corona, CA
 47 Feb. 25
 Upper Marlboro, MD
-2 655mi R 35 218
+2 653mi R 35 218
 Genpro Inc
 Unlock
 Unlock
 $6,400
-5h
+1h
 Corona, CA
 47 Feb. 25
 Upper Marlboro, MD
-2 656mi R 31 374
+2 653mi R 31 374
 Genpro Inc
 Unlock
 Unlock
 $6,400
-10h
+30m
 South Gate, CA
 12 Feb. 27
 Teterboro, NJ
-2 792mi V 42 000
+2 790mi V 42 000
 Armstrong Transportation Management
 Unlock
 Unlock
 $5,800
-4m
+3h
 Compton, CA
 13 Mar. 02
 Miami, FL
@@ -136,7 +136,7 @@ California Freight
 Unlock
 Unlock
 $5,000
-5h
+30m
 Santa Clarita, CA
 29 Feb. 26
 Rock Hill, SC
@@ -145,7 +145,7 @@ Zengistics
 Unlock
 Unlock
 $4,800
-5h
+30m
 Santa Clarita, CA
 29 Feb. 26
 Rock Hill, SC
@@ -154,7 +154,7 @@ Zengistics
 Unlock
 Unlock
 $4,800
-5h
+30m
 Santa Clarita, CA
 29 Feb. 26
 Rock Hill, SC
@@ -163,7 +163,7 @@ Zengistics
 Unlock
 Unlock
 $4,800
-6h
+30m
 Irwindale, CA
 24 Feb. 27
 Birmingham, AL
@@ -172,16 +172,7 @@ GIX Logistics
 Unlock
 Unlock
 $4,800
-8h
-Oxnard, CA
-47 Feb. 25
-Cheshire, CT
-2 925mi R 31 200
-A&Z Trucking
-Unlock
-Unlock
---
-2h
+5h
 Diamond Bar, CA
 31 Feb. 26
 Cleveland, TN
@@ -190,16 +181,25 @@ DRT Transportation
 Unlock
 Unlock
 $4,700
-15h
+1h
+Oxnard, CA
+47 Feb. 25
+Cheshire, CT
+2 927mi R 31 200
+A&Z Trucking
+Unlock
+Unlock
+--
+1h
 Diamond Bar, CA
 31 Mar. 02
 Cleveland, TN
-2 147mi V 43 000
+2 148mi V 43 000
 DRT Transportation
 Unlock
 Unlock
 $4,600
-4d
+5d
 Gardena, CA
 10 Feb. 27
 Middleburg, FL
@@ -208,7 +208,7 @@ Integrated Connection LLC
 Unlock
 Unlock
 $4,500
-4d
+5d
 Gardena, CA
 10 Mar. 06
 Middleburg, FL
@@ -217,7 +217,7 @@ Integrated Connection LLC
 Unlock
 Unlock
 $4,500
-4d
+5d
 Gardena, CA
 10 Mar. 12
 Middleburg, FL
@@ -226,7 +226,7 @@ Integrated Connection LLC
 Unlock
 Unlock
 $4,500
-4d
+5d
 Gardena, CA
 10 Mar. 17
 Middleburg, FL
@@ -235,7 +235,7 @@ Integrated Connection LLC
 Unlock
 Unlock
 $4,500
-4d
+5d
 Gardena, CA
 10 Mar. 19
 Middleburg, FL
@@ -244,7 +244,7 @@ Integrated Connection LLC
 Unlock
 Unlock
 $4,500
-4d
+5d
 Gardena, CA
 10 Mar. 24
 Middleburg, FL
@@ -253,11 +253,11 @@ Integrated Connection LLC
 Unlock
 Unlock
 $4,500
-15h
+30m
 Anaheim, CA
 32 Mar. 07
 Philadelphia, PA
-2 714mi V,V 5 500
+2 715mi V,V 5 500
 United Transportation Services, Inc.
 Unlock
 Unlock
@@ -271,7 +271,7 @@ Dispatch
 Unlock
 Unlock
 --
-14h
+30m
 Compton, CA
 13 Feb. 27
 Des Plaines, IL
@@ -280,7 +280,7 @@ FORWARD AIR LOGISTICS SERVICES
 Unlock
 Unlock
 $4,018
-14h
+31m
 Compton, CA
 13 Feb. 28
 Des Plaines, IL
@@ -289,11 +289,11 @@ FORWARD AIR LOGISTICS SERVICES
 Unlock
 Unlock
 $4,018
-2h
+1h
 La Mirada, CA
 22 Feb. 26
 Atlanta, GA
-2 182mi V 30 000
+2 176mi V 30 000
 United Transportation Services, Inc.
 Unlock
 Unlock
@@ -307,7 +307,7 @@ AB Global Logistics Inc
 Unlock
 Unlock
 $4,000
-4d
+5d
 Commerce, CA
 14 Mar. 04
 Oklahoma City, OK
@@ -316,7 +316,7 @@ AB Global Logistics Inc
 Unlock
 Unlock
 $4,000
-8h
+10h
 Whittier, CA
 21 Feb. 26
 Muskegon, MI
@@ -325,70 +325,61 @@ Fort Freight
 Unlock
 Unlock
 --
-5h
+30m
 Wilmington, CA
 16 Feb. 27
 Denver, CO
-1 037mi R 41 541
+1 038mi R 41 541
 CFM Logistics
 Unlock
 Unlock
 $3,800
-14h
+30m
 Compton, CA
 13 Feb. 28
 Kansas Cy Intl Apt, MO
-1 633mi V 40 000
+1 630mi V 40 000
 FORWARD AIR LOGISTICS SERVICES
 Unlock
 Unlock
 $3,616
-14h
+30m
 Compton, CA
 13 Feb. 28
 Kansas Cy Intl Apt, MO
-1 633mi V 40 000
+1 630mi V 40 000
 FORWARD AIR LOGISTICS SERVICES
 Unlock
 Unlock
 $3,616
 2h
-Buena Park, CA
-24 Mar. 02
-Albuquerque, NM
-816mi R 24 637
-SCHULZ LOGISTICS LLC
+Chino, CA
+43 Feb. 25
+Tomball, TX
+1 529mi CN 20 000
+Cornerstone Systems Inc
 Unlock
 Unlock
 $3,200
-12h
-Long Beach, CA
-19 Mar. 03
-Boise, ID
-963mi V 24 428
-SCHULZ LOGISTICS LLC
-Unlock
-Unlock
-$3,200
-15h
-Anaheim, CA
-32 Mar. 08
-Burlington, NJ
-2 729mi V 15 000
-United Transportation Services, Inc.
-Unlock
-Unlock
---
-14h
+30m
 Carson, CA
 14 Feb. 27
 Centennial, CO
-1 041mi V 40 500
+1 040mi V 40 500
 GIX Logistics
 Unlock
 Unlock
 $3,150
-6h
+1h
+Anaheim, CA
+32 Mar. 08
+Burlington, NJ
+2 731mi V 15 000
+United Transportation Services, Inc.
+Unlock
+Unlock
+--
+9h
 Los Angeles, CA
 9 Feb. 24
 Seattle, WA
@@ -397,11 +388,11 @@ Koola
 Unlock
 Unlock
 $3,000
-15h
+31m
 Ontario, CA
 45 Feb. 26
 Lake Alfred, FL
-2 500mi V 40 429
+2 496mi V 40 429
 Geodis
 Unlock
 Unlock
@@ -415,7 +406,7 @@ Fortune Logistics
 Unlock
 Unlock
 $3,000
-15h
+31m
 Paramount, CA
 14 Feb. 25
 Colorado Springs, CO
@@ -424,43 +415,34 @@ Geodis
 Unlock
 Unlock
 $2,800
-12h
-Vernon, CA
-10 Mar. 09
-Clackamas, OR
-968mi R 40 032
-SCHULZ LOGISTICS LLC
-Unlock
-Unlock
-$2,800
-7h
+30m
 Ontario, CA
 41 Mar. 02
 Salem, OR
-953mi V 25 312
+951mi V 25 312
 AMX Logistics
 Unlock
 Unlock
 $2,700
-7h
+30m
 Ontario, CA
 41 Mar. 03
 Salem, OR
-953mi V 25 312
+951mi V 25 312
 AMX Logistics
 Unlock
 Unlock
 $2,700
-9h
+1h
 Torrance, CA
 12 Feb. 25
 Cheyenne, WY
-1 118mi V 5 540
+1 121mi V 5 540
 Transend Logistics
 Unlock
 Unlock
 $2,640
-14h
+1h
 Anaheim, CA
 30 Mar. 09
 Ferndale, WA
@@ -469,7 +451,7 @@ United Transportation Services, Inc.
 Unlock
 Unlock
 --
-2h
+4h
 Fullerton, CA
 28 Feb. 25
 Fife, WA
@@ -478,38 +460,20 @@ JIMMY GOLOMBECKI
 Unlock
 Unlock
 $2,600
-12h
-Los Angeles, CA
-10 Mar. 04
-Albuquerque, NM
-791mi R 33 249
-SCHULZ LOGISTICS LLC
-Unlock
-Unlock
-$2,500
-3h
+1h
 Oxnard, CA
 47 Feb. 26
 Hyattsville, MD
-2 712mi R 28 080
+2 718mi R 28 080
 A&Z Trucking
 Unlock
 Unlock
 --
-12h
-Montrose, CA
-18 Mar. 09
-Clackamas, OR
-958mi R 15 360
-SCHULZ LOGISTICS LLC
-Unlock
-Unlock
-$2,400
-38m
+8m
 Long Beach, CA
 15 Mar. 02
 Wilmington, DE
-2 775mi V,V,V 12 500
+2 777mi V,V,V 12 500
 Worldwide Express Globaltranz
 Unlock
 Unlock
@@ -523,7 +487,7 @@ EPES Logistics
 Unlock
 Unlock
 $2,200
-12h
+15h
 Pomona, CA
 37 Feb. 27
 Wheat Ridge, CO
@@ -532,25 +496,25 @@ Brian Bjorklund
 Unlock
 Unlock
 --
-3h
+30m
 Los Angeles, CA
 8 Mar. 02
 Ogden, UT
-750mi R 42 500
+744mi R 42 500
 GIX Logistics
 Unlock
 Unlock
 $2,050
-7h
+1h
 Ontario, CA
 46 Feb. 27
 Boise, ID
-1 149mi V 44 360
+1 148mi V 44 360
 CoVar Transportation Inc
 Unlock
 Unlock
 $2,000
-3h
+6h
 Buena Park, CA
 24 Mar. 10
 Woodburn, OR
@@ -568,16 +532,7 @@ Fortune Logistics
 Unlock
 Unlock
 --
-2h
-Vernon, CA
-10 Mar. 09
-Albuquerque, NM
-832mi R 15 071
-SCHULZ LOGISTICS LLC
-Unlock
-Unlock
---
-15h
+1h
 Anaheim, CA
 32 Mar. 08
 Eugene, OR
@@ -586,25 +541,16 @@ United Transportation Services, Inc.
 Unlock
 Unlock
 --
-38m
+30m
 Placentia, CA
 31 Mar. 04
 Norfolk, VA
-2 710mi V,V,V 10 000
+2 701mi V,V,V 10 000
 Worldwide Express Globaltranz
 Unlock
 Unlock
 $1,821
-6h
-Los Angeles, CA
-10 Mar. 09
-Albuquerque, NM
-812mi R 16 666
-SCHULZ LOGISTICS LLC
-Unlock
-Unlock
---
-2h
+4h
 Diamond Bar, CA
 31 Feb. 27
 Cleveland, TN
@@ -613,25 +559,25 @@ DRT Transportation
 Unlock
 Unlock
 --
-6m
+11m
 Carson, CA
 13 Feb. 26
 Houston, TX
-1 577mi R,V 10
+1 558mi R,V 10
 Dispatch
 Unlock
 Unlock
 $1,800
-4h
+30m
 Ontario, CA
 45 Feb. 28
 Crossville, TN
-2 081mi V 40 436
+2 081mi V 39 770
 Geodis
 Unlock
 Unlock
 --
-7h
+9h
 Commerce, CA
 13 Feb. 24
 Brooklyn, NY
@@ -640,7 +586,7 @@ Dispatch
 Unlock
 Unlock
 $1,700
-15h
+1h
 Rancho Cucamonga, CA
 46 Mar. 02
 West Jordan, UT
@@ -649,43 +595,7 @@ Venture Connect
 Unlock
 Unlock
 $1,690
-9h
-La Mirada, CA
-22 Mar. 02
-Ballinger, TX
-1 232mi V 20 000
-TCI Global Logistics
-Unlock
-Unlock
---
-9h
-La Mirada, CA
-22 Mar. 09
-Ballinger, TX
-1 232mi V 20 000
-TCI Global Logistics
-Unlock
-Unlock
---
-9h
-La Mirada, CA
-22 Mar. 16
-Ballinger, TX
-1 232mi V 20 000
-TCI Global Logistics
-Unlock
-Unlock
---
-9h
-La Mirada, CA
-22 Mar. 23
-Ballinger, TX
-1 232mi V 20 000
-TCI Global Logistics
-Unlock
-Unlock
---
-5h
+8h
 Irwindale, CA
 27 Feb. 24
 Lakeville, MN
@@ -694,7 +604,70 @@ Dispatch
 Unlock
 Unlock
 --
-9h
+26m
+La Mirada, CA
+22 Mar. 16
+Ballinger, TX
+1 233mi V 20 000
+TCI Global Logistics
+Unlock
+Unlock
+--
+26m
+La Mirada, CA
+22 Mar. 23
+Ballinger, TX
+1 233mi V 20 000
+TCI Global Logistics
+Unlock
+Unlock
+--
+30m
+La Mirada, CA
+22 Mar. 02
+Ballinger, TX
+1 232mi V 20 000
+TCI Global Logistics
+Unlock
+Unlock
+--
+30m
+La Mirada, CA
+22 Mar. 09
+Ballinger, TX
+1 232mi V 20 000
+TCI Global Logistics
+Unlock
+Unlock
+--
+30m
+La Mirada, CA
+22 Mar. 16
+Ballinger, TX
+1 232mi V 20 000
+TCI Global Logistics
+Unlock
+Unlock
+--
+30m
+La Mirada, CA
+22 Mar. 23
+Ballinger, TX
+1 232mi V 20 000
+TCI Global Logistics
+Unlock
+Unlock
+--
+30m
+La Mirada, CA
+22 Mar. 02
+Ballinger, TX
+1 232mi V 20 000
+TCI Global Logistics
+Unlock
+Unlock
+--
+30m
 Ontario, CA
 41 Feb. 26
 Salt Lake City, UT
@@ -703,43 +676,43 @@ AMX Logistics
 Unlock
 Unlock
 $1,650
-52m
+8m
 Long Beach, CA
 15 Mar. 02
 La Vergne, TN
-2 038mi V,V,V 12 500
+2 037mi V,V,V 12 500
 Worldwide Express Globaltranz
 Unlock
 Unlock
 $1,612
-2h
+30m
 Ontario, CA
 45 Feb. 28
 Spokane, WA
-1 371mi V 20 291
+1 374mi V 20 291
 Geodis
 Unlock
 Unlock
 $1,560
-9h
+31m
 Ontario, CA
 46 Feb. 26
 Reno, NV
-488mi V 42 933
+501mi V 42 933
 Fresh Freight LLC.
 Unlock
 Unlock
 $1,500
-11h
+1h
 Eastvale, CA
 49 Mar. 02
 Vacaville, CA
-444mi V 40 046
+446mi V 40 046
 Cornerstone Systems Inc
 Unlock
 Unlock
 $1,500
-2h
+30m
 Ontario, CA
 45 Mar. 13
 Centralia, WA
@@ -748,7 +721,7 @@ Geodis
 Unlock
 Unlock
 $1,440
-38m
+1h
 Canyon Country, CA
 31 Mar. 02
 Menands, NY
@@ -757,7 +730,7 @@ Worldwide Express Globaltranz
 Unlock
 Unlock
 $1,436
-4h
+30m
 Eastvale, CA
 49 Mar. 03
 Brisbane, CA
@@ -766,43 +739,52 @@ Fresh Freight LLC.
 Unlock
 Unlock
 --
-15h
+30m
 Ontario, CA
 45 Mar. 04
 Auburn, WA
-1 152mi V 40 555
+1 155mi V 40 555
 Geodis
 Unlock
 Unlock
 $1,380
-8h
+30m
 Ontario, CA
 45 Mar. 13
 Auburn, WA
-1 153mi V 40 256
+1 155mi V 40 256
 Geodis
 Unlock
 Unlock
 $1,380
-4h
+1h
 Eastvale, CA
 49 Mar. 04
 Brisbane, CA
-467mi R 42 500
+464mi R 42 500
 Fresh Freight LLC.
 Unlock
 Unlock
 --
-52m
+8m
 Canyon Country, CA
 31 Mar. 02
 West Palm Beach, FL
-2 852mi V,V,V 5 000
+2 849mi V,V,V 5 000
 Worldwide Express Globaltranz
 Unlock
 Unlock
 $1,240
-1h
+30m
+Ontario, CA
+46 Mar. 09
+Reno, NV
+568mi R 42 500
+Fresh Freight LLC.
+Unlock
+Unlock
+--
+4h
 Corona, CA
 49 Mar. 12
 Livermore, CA
@@ -811,16 +793,7 @@ Fresh Freight LLC.
 Unlock
 Unlock
 --
-10h
-Oxnard, CA
-47 Feb. 25
-Richmond, CA
-372mi R 42 500
-Fresh Freight LLC.
-Unlock
-Unlock
-$1,200
-14h
+1h
 Anaheim, CA
 32 Mar. 08
 Fairfield, CA
@@ -829,34 +802,34 @@ United Transportation Services, Inc.
 Unlock
 Unlock
 --
-8h
+31m
+Oxnard, CA
+47 Feb. 25
+Richmond, CA
+373mi R 42 500
+Fresh Freight LLC.
+Unlock
+Unlock
+$1,200
+30m
 Ontario, CA
 45 Mar. 13
 Portland, OR
-1 008mi V 39 529
+1 011mi V 39 529
 Geodis
 Unlock
 Unlock
 $1,200
-15h
-Ontario, CA
-46 Mar. 09
-Reno, NV
-555mi R 42 500
-Fresh Freight LLC.
-Unlock
-Unlock
---
-52m
+8m
 Los Angeles, CA
 8 Mar. 02
 Pompano Beach, FL
-2 791mi V,V,V 5 000
+2 797mi V,V,V 5 000
 Worldwide Express Globaltranz
 Unlock
 Unlock
 $1,167
-9h
+12h
 El Segundo, CA
 5 Feb. 24
 Tracy, CA
@@ -865,16 +838,16 @@ Koola
 Unlock
 Unlock
 $1,150
-38m
+8m
 Placentia, CA
 31 Feb. 26
 Rochester, NY
-2 597mi V,V,V 5 000
+2 588mi V,V,V 5 000
 Worldwide Express Globaltranz
 Unlock
 Unlock
 $1,150
-8h
+30m
 Carson, CA
 13 Feb. 26
 Richmond, CA
@@ -883,16 +856,16 @@ A&Z Trucking
 Unlock
 Unlock
 --
-15h
+1h
 Hacienda Heights, CA
 23 Mar. 09
 Reno, NV
-516mi V 42 500
+517mi V 42 500
 Fresh Freight LLC.
 Unlock
 Unlock
 --
-10h
+30m
 Oxnard, CA
 44 Feb. 25
 Richmond, CA
@@ -901,56 +874,83 @@ Fresh Freight LLC.
 Unlock
 Unlock
 $1,100
-14h
+31m
 Compton, CA
 13 Feb. 26
 Las Vegas, NV
-280mi SD 35 000
+277mi SD 35 000
 Freightsaver
 Unlock
 Unlock
 $1,100
-6h
+30m
+Ontario, CA
+46 Mar. 16
+Reno, NV
+501mi V 43 371
+Fresh Freight LLC.
+Unlock
+Unlock
+--
+31m
 Chino, CA
 41 Feb. 25
 Stockton, CA
-380mi V 42 462
+377mi V 42 462
 Crowley
 Unlock
 Unlock
 --
-38m
+8m
 Placentia, CA
 31 Mar. 03
 Upper Marlboro, MD
-2 679mi V,V,V 5 000
+2 673mi V,V,V 5 000
 Worldwide Express Globaltranz
 Unlock
 Unlock
 $1,073
-8h
-Chino, CA
-41 Feb. 25
-Stockton, CA
-378mi V 44 000
-Crowley
-Unlock
-Unlock
-$1,050
-8h
-Chino, CA
-41 Feb. 25
-Stockton, CA
-378mi V 44 000
-Crowley
-Unlock
-Unlock
-$1,050
-3h
+31m
 Chino, CA
 41 Feb. 25
 Stockton, CA
 377mi V 44 000
+Crowley
+Unlock
+Unlock
+$1,050
+31m
+Chino, CA
+41 Feb. 25
+Stockton, CA
+377mi V 44 000
+Crowley
+Unlock
+Unlock
+$1,050
+30m
+Chino, CA
+41 Feb. 25
+Stockton, CA
+377mi V 44 000
+Crowley
+Unlock
+Unlock
+$1,050
+30m
+Chino, CA
+41 Feb. 25
+Stockton, CA
+377mi V 44 000
+Crowley
+Unlock
+Unlock
+$1,050
+31m
+Chino, CA
+41 Feb. 25
+Stockton, CA
+377mi V 42 462
 Crowley
 Unlock
 Unlock
@@ -975,7 +975,16 @@ Jakebrake Logistics LLC
 Unlock
 Unlock
 $1,850
-4h
+14h
+City Of Indust, CA
+70 Mar. 01
+Tipp City, OH
+2 187mi R -
+Koola
+Unlock
+Unlock
+$4,800
+7h
 Bakersfield, CA
 102 Feb. 25
 Owatonna, MN
@@ -984,7 +993,7 @@ Koola
 Unlock
 Unlock
 $4,200
-16m
+6m
 National City, CA
 117 Feb. 25
 Vancouver, BC
@@ -993,7 +1002,7 @@ Dispatch
 Unlock
 Unlock
 $3,800
-9h
+12h
 Chester, CA
 2931 Feb. 26
 Riverside, CA
@@ -1002,7 +1011,7 @@ LINDA RONAN
 Unlock
 Unlock
 --
-3h
+5h
 Santa Fe Sprin, CA
 1645 Feb. 25
 Chatsworth, CA
@@ -1011,7 +1020,7 @@ Torin Roth
 Unlock
 Unlock
 --
-1h
+4h
 Osceola, AR
 1610 Feb. 25
 Fontana, CA
@@ -1020,7 +1029,7 @@ KARI CHAVEZ
 Unlock
 Unlock
 $4,400
-1h
+4h
 Osceola, AR
 1610 Feb. 25
 Fontana, CA
@@ -1029,7 +1038,7 @@ KARI CHAVEZ
 Unlock
 Unlock
 $4,400
-3h
+6h
 Carol Stream, IL
 1727 Mar. 02
 Commerce, CA
@@ -1038,7 +1047,7 @@ Axel
 Unlock
 Unlock
 $4,300
-5h
+7h
 Mississauga, ON
 2167 Feb. 25
 Lost Hills, CA
@@ -1047,7 +1056,7 @@ KAILEIGH SUFKA
 Unlock
 Unlock
 --
-8h
+11h
 Coldwater, MI
 1887 Feb. 27
 San Diego, CA
@@ -1056,7 +1065,7 @@ Koola
 Unlock
 Unlock
 $4,100
-8h
+11h
 Coldwater, MI
 1887 Feb. 26
 San Diego, CA
@@ -1065,7 +1074,7 @@ Koola
 Unlock
 Unlock
 $4,100
-1m
+11m
 Mississauga, ON
 2167 Feb. 26
 Chino, CA
@@ -1074,7 +1083,7 @@ Dispatch
 Unlock
 Unlock
 --
-8h
+10h
 Waterloo, IA
 1523 Feb. 26
 Pomona, CA
@@ -1083,7 +1092,7 @@ Koola
 Unlock
 Unlock
 $4,000
-5h
+7h
 Motley, MN
 1507 Feb. 26
 Irwindale, CA
@@ -1092,7 +1101,7 @@ Koola
 Unlock
 Unlock
 $3,800
-1m
+16m
 Davenport, IA
 1598 Feb. 25
 Fontana, CA
@@ -1101,7 +1110,7 @@ Dispatch
 Unlock
 Unlock
 --
-4h
+7h
 Columbus, IN
 1827 Feb. 28
 City Of Indust, CA
@@ -1165,7 +1174,7 @@ Unlock
 Credit Score
 Unlock
 BackHaul
-47 possible loads
+51 possible loads
 Feb 23
 North Las Vegas NV
   → 
@@ -1183,7 +1192,7 @@ Feb 24
 North Las Vegas NV
   → 
 Anywhere
-19
+21
 North Las Vegas NV
   → 
 Ontario CA
@@ -1191,7 +1200,7 @@ Ontario CA
 North Las Vegas NV
   → 
 Home
-2
+4
 UNLOCK
 Unlock all information on loads and brokers (rates, credit reports, more)
 Find the best paying freight across the country via an advanced dashboard

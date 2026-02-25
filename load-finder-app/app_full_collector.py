@@ -17,6 +17,7 @@ import time
 import json
 import re
 import threading
+import os
 
 app = Flask(__name__)
 
@@ -42,6 +43,30 @@ search_result = {
 
 # Глобальная переменная для хранения активного браузера
 active_driver = None
+
+def load_credentials():
+    """Загружает credentials из переменных окружения или файла"""
+    # Пробуем загрузить из переменных окружения (для Render.com)
+    username = os.environ.get('TRUCKERPATH_USERNAME')
+    password = os.environ.get('TRUCKERPATH_PASSWORD')
+    
+    if username and password:
+        print("✅ Credentials загружены из переменных окружения")
+        return {
+            'username': username,
+            'password': password
+        }
+    
+    # Если нет переменных окружения, читаем из файла (для локального использования)
+    try:
+        with open("credentials.json", "r") as f:
+            creds = json.load(f)
+            credentials = creds.get("truckerpath", {})
+            print("✅ Credentials загружены из файла")
+            return credentials
+    except FileNotFoundError:
+        print("⚠️ Файл credentials.json не найден и переменные окружения не установлены")
+        return {}
 
 def expand_trailer_type(code):
     """Расшифровывает коды типов трейлеров"""
@@ -118,9 +143,7 @@ def collect_full_data(city):
         search_result['step_name'] = '🔌 Подключение к системе...'
         
         # Загружаем credentials
-        with open("credentials.json", "r") as f:
-            creds = json.load(f)
-            credentials = creds.get("truckerpath", {})
+        credentials = load_credentials()
         
         # Браузер с масштабом 60%
         chrome_options = Options()
