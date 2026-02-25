@@ -48,6 +48,10 @@ export default function NeuralBackground({
     let particles: Particle[] = [];
     let animationFrameId: number;
     let mouse = { x: -1000, y: -1000 }; // Start off-screen
+    
+    // Adjust particle count for mobile devices
+    const isMobile = width < 768;
+    const adjustedParticleCount = isMobile ? Math.floor(particleCount * 0.5) : particleCount;
 
     // --- PARTICLE CLASS ---
     class Particle {
@@ -123,8 +127,8 @@ export default function NeuralBackground({
         context.fillStyle = color;
         // Fade in and out based on age
         const alpha = 1 - Math.abs(this.age / this.life - 0.5) * 2;
-        context.globalAlpha = alpha * 0.8;
-        context.fillRect(this.x, this.y, 2, 2); // Slightly larger dots for visibility
+        context.globalAlpha = alpha * 0.6;
+        context.fillRect(this.x, this.y, 1, 1); // Smaller dots for subtle effect
       }
     }
 
@@ -139,7 +143,8 @@ export default function NeuralBackground({
       canvas.style.height = `${height}px`;
 
       particles = [];
-      for (let i = 0; i < particleCount; i++) {
+      const count = width < 768 ? Math.floor(adjustedParticleCount) : adjustedParticleCount;
+      for (let i = 0; i < count; i++) {
         particles.push(new Particle());
       }
     };

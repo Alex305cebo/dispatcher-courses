@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Для Node.js деплоя на Hostinger (НЕ статический экспорт)
-  // output: 'export', // Отключено для Node.js деплоя
+  // Статический экспорт для Hostinger
+  output: 'export',
   
   images: {
     unoptimized: true

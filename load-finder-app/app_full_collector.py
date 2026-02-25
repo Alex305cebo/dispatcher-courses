@@ -157,7 +157,10 @@ def collect_full_data(city):
             chrome_options.add_argument('--no-sandbox')
             chrome_options.add_argument('--disable-setuid-sandbox')
             chrome_options.add_argument('--single-process')  # Один процесс для экономии памяти
-            print("🌐 Режим: Render (headless)")
+            chrome_options.add_argument('--disable-dev-shm-usage')
+            # Chromium binary path
+            chrome_options.binary_location = '/usr/bin/chromium'
+            print("🌐 Режим: Render (headless, Chromium)")
         else:
             # Локально - БЕЗ headless, чтобы видеть браузер
             print("💻 Режим: Локальный (с окном браузера)")
