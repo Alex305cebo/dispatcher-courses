@@ -46,7 +46,7 @@ body {
    ═══════════════════════════════════════════════════════════ */
 .hero {
   min-height: 100vh;
-  display: flex;
+  display: none !important;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -125,12 +125,12 @@ body {
    SECTION
    ═══════════════════════════════════════════════════════════ */
 .section {
-  padding: 20px 0;
+  padding: 20px 0 20px;
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 32px;
 }
 
 .section-badge {
@@ -438,7 +438,7 @@ body {
    EXTRAS SECTION
    ═══════════════════════════════════════════════════════════ */
 .extras {
-  margin-top: 64px;
+  margin-top: 48px;
 }
 
 .extras-header {
@@ -510,8 +510,8 @@ body {
    SUCCESS STORIES
    ═══════════════════════════════════════════════════════════ */
 .success-section {
-  margin-top: 80px;
-  padding: 64px 0;
+  margin-top: 60px;
+  padding: 48px 0;
   background: rgba(255, 255, 255, 0.02);
   border-radius: 24px;
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -519,7 +519,7 @@ body {
 
 .success-header {
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 36px;
 }
 
 .success-header h3 {
@@ -604,12 +604,14 @@ body {
    CAREER PATH
    ═══════════════════════════════════════════════════════════ */
 .career-section {
-  margin-top: 80px;
+  margin-top: 60px;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .career-header {
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 24px;
 }
 
 .career-header h3 {
@@ -644,7 +646,11 @@ body {
   position: relative;
   display: flex;
   gap: 32px;
-  margin-bottom: 48px;
+  margin-bottom: 16px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
 }
 
 .timeline-marker {
@@ -756,6 +762,39 @@ body {
     font-size: 36px;
   }
   
+  /* Мобильная адаптация header с кнопками */
+  .section-header {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  
+  .section-header > div:first-child {
+    text-align: center !important;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .section-badge {
+    text-align: center;
+  }
+  
+  .section-title {
+    text-align: center !important;
+  }
+  
+  .section-subtitle {
+    text-align: center !important;
+  }
+  
+  .section-header > div:last-child {
+    margin-top: 20px !important;
+    justify-content: center;
+    width: 100%;
+  }
+  
   .learning-path-info {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -834,9 +873,9 @@ body {
 
 /* Footer */
 .footer {
-  padding: 80px 0 40px;
+  padding: 24px 0 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  margin-top: 80px;
+  margin-top: 24px;
 }
 
 .footer .container {
@@ -860,13 +899,66 @@ body {
 }
 
 @media (max-width: 568px) {
+  .footer {
+    padding: 40px 0 30px;
+  }
+  
   .footer-content {
-    grid-template-columns: 1fr;
-    gap: 32px;
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 20px !important;
   }
   
   .footer .container {
-    padding: 0 20px;
+    padding: 0 16px;
+  }
+  
+  .footer-section {
+    text-align: center;
+  }
+  
+  .footer-section:first-child {
+    grid-column: 1 / -1;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  
+  .footer-section:first-child h4 {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  
+  .footer-section:first-child p {
+    font-size: 13px;
+    line-height: 1.5;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .footer-section h4 {
+    font-size: 14px;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+  
+  .footer-section a {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 12px;
+  }
+  
+  .footer-section p {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  
+  .footer-section a:hover {
+    transform: translateX(0);
+  }
+  
+  .footer-bottom {
+    font-size: 11px;
+    padding-top: 20px;
   }
 }
 
@@ -1357,14 +1449,14 @@ body {
     <div class="career-section">
       <div class="career-header">
         <h3>Карьерный путь диспетчера</h3>
-        <p>Ваш рост от новичка до профессионала</p>
+        <p>Ваш рост от новичка до профессионала (зарплаты в США)</p>
       </div>
       <div class="career-timeline">
         <div class="timeline-item">
           <div class="timeline-marker">1</div>
           <div class="timeline-content">
             <h4>Стажёр-диспетчер</h4>
-            <p class="timeline-salary">$2,000 - $2,500/мес</p>
+            <p class="timeline-salary">Зарплата: $2,000 - $2,500/мес</p>
             <p class="timeline-desc">Первые 1-2 месяца: обучение, работа под контролем</p>
           </div>
         </div>
@@ -1372,7 +1464,7 @@ body {
           <div class="timeline-marker">2</div>
           <div class="timeline-content">
             <h4>Младший диспетчер</h4>
-            <p class="timeline-salary">$2,500 - $3,500/мес</p>
+            <p class="timeline-salary">Зарплата: $2,500 - $3,500/мес</p>
             <p class="timeline-desc">3-6 месяцев: управление 3-5 траками самостоятельно</p>
           </div>
         </div>
@@ -1380,7 +1472,7 @@ body {
           <div class="timeline-marker">3</div>
           <div class="timeline-content">
             <h4>Диспетчер</h4>
-            <p class="timeline-salary">$3,500 - $5,000/мес</p>
+            <p class="timeline-salary">Зарплата: $3,500 - $5,000/мес</p>
             <p class="timeline-desc">6-12 месяцев: управление 5-8 траками, полная автономия</p>
           </div>
         </div>
@@ -1388,7 +1480,7 @@ body {
           <div class="timeline-marker">4</div>
           <div class="timeline-content">
             <h4>Старший диспетчер</h4>
-            <p class="timeline-salary">$5,000 - $7,000/мес</p>
+            <p class="timeline-salary">Зарплата: $5,000 - $7,000/мес</p>
             <p class="timeline-desc">1-2 года: управление 10+ траками, наставничество</p>
           </div>
         </div>
@@ -1396,7 +1488,7 @@ body {
           <div class="timeline-marker">5</div>
           <div class="timeline-content">
             <h4>Руководитель отдела</h4>
-            <p class="timeline-salary">$7,000+/мес</p>
+            <p class="timeline-salary">Зарплата: $7,000+/мес</p>
             <p class="timeline-desc">2+ года: управление командой диспетчеров</p>
           </div>
         </div>

@@ -422,18 +422,33 @@ body {
   transform: translateX(-4px);
 }
 
+@media (max-width: 768px) {
+  .back-button {
+    position: static;
+    display: inline-flex;
+    margin: 20px 8px 0;
+  }
+  
+  .back-button:hover {
+    transform: translateY(-2px);
+  }
+}
+
+
 </style>
 </head>
 <body>
 
-<a href="../course.html" class="back-button">
-  <span style="font-size: 18px;">←</span>
-  <span>Назад</span>
-</a>
-<a href="../index.html" class="back-button" style="left: 140px;">
-  <span style="font-size: 18px;">🏠</span>
-  <span>Главная</span>
-</a>
+<div class="nav-buttons-container" style="text-align: center;">
+  <a href="../course.html" class="back-button">
+    <span style="font-size: 18px;">←</span>
+    <span>Назад</span>
+  </a>
+  <a href="../index.html" class="back-button" style="left: auto;">
+    <span style="font-size: 18px;">🏠</span>
+    <span>Главная</span>
+  </a>
+</div>
 
 <!-- HERO -->
 <section class="hero">

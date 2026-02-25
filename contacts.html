@@ -63,6 +63,29 @@ body { font-family: 'Inter', sans-serif; background: var(--bg-darker); color: va
 .footer { padding: 80px 0 40px; border-top: 1px solid rgba(255, 255, 255, 0.1); margin-top: 80px; }
 .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 48px; margin-bottom: 48px; }
 .footer-section h4 { font-size: 18px; font-weight: 700; margin-bottom: 20px; }
+.footer-section p { color: var(--text-secondary); font-size: 14px; line-height: 1.7; }
+.footer-section a { display: block; color: var(--text-secondary); text-decoration: none; font-size: 14px; margin-bottom: 12px; transition: all 0.3s ease; }
+.footer-section a:hover { color: var(--primary); transform: translateX(4px); }
+.footer-bottom { text-align: center; padding-top: 32px; border-top: 1px solid rgba(255, 255, 255, 0.1); color: var(--text-muted); font-size: 14px; }
+
+@media (max-width: 968px) {
+  .footer-content { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+}
+
+@media (max-width: 568px) {
+  .footer { padding: 40px 0 30px; margin-top: 48px; }
+  .footer-content { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 20px !important; }
+  .footer .container { padding: 0 16px; }
+  .footer-section { text-align: center; }
+  .footer-section:first-child { grid-column: 1 / -1; margin-bottom: 16px; text-align: center; }
+  .footer-section:first-child h4 { font-size: 18px; margin-bottom: 8px; }
+  .footer-section:first-child p { font-size: 13px; line-height: 1.5; max-width: 400px; margin: 0 auto; }
+  .footer-section h4 { font-size: 14px; margin-bottom: 12px; }
+  .footer-section a { margin-bottom: 8px; font-size: 12px; }
+  .footer-section p { font-size: 12px; line-height: 1.4; }
+  .footer-section a:hover { transform: translateX(0); }
+  .footer-bottom { font-size: 11px; padding-top: 20px; }
+}
 .footer-section a { display: block; color: var(--text-secondary); text-decoration: none;
   font-size: 14px; margin-bottom: 12px; transition: all 0.3s; }
 .footer-section a:hover { color: var(--primary); transform: translateX(4px); }

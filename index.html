@@ -95,12 +95,12 @@ body::after {
 
 /* Hero Section */
 .hero {
-  min-height: 100vh;
+  min-height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  padding: 100px 0;
+  padding: 120px 0 80px;
 }
 
 .hero-content {
@@ -597,17 +597,23 @@ h1 {
   display: none;
   flex-direction: column;
   gap: 4px;
-  background: none;
-  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
   cursor: pointer;
-  padding: 8px;
+  padding: 10px;
   z-index: 1001;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle:hover {
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .mobile-menu-toggle span {
   width: 24px;
   height: 2px;
-  background: var(--text-primary);
+  background: #ffffff;
   transition: all 0.3s ease;
 }
 
@@ -937,6 +943,91 @@ h1 {
 @media (max-width: 768px) {
   .container {
     padding: 0 24px;
+  }
+  
+  /* Section spacing optimization */
+  .hero {
+    padding: 100px 0 60px;
+  }
+  
+  section {
+    padding: 40px 0 20px;
+  }
+}
+
+@media (max-width: 568px) {
+  /* Footer mobile optimization */
+  .footer {
+    padding: 40px 0 30px;
+    margin-top: 48px;
+  }
+  
+  .footer-content {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 20px !important;
+  }
+  
+  .footer .container {
+    padding: 0 16px;
+  }
+  
+  .footer-section {
+    text-align: center;
+  }
+  
+  .footer-section:first-child {
+    grid-column: 1 / -1;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  
+  .footer-section:first-child h4 {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  
+  .footer-section:first-child p {
+    font-size: 13px;
+    line-height: 1.5;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .footer-section h4 {
+    font-size: 14px;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+  
+  .footer-section a {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 12px;
+  }
+  
+  .footer-section p {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  
+  .footer-section a:hover {
+    transform: translateX(0);
+  }
+  
+  .footer-bottom {
+    font-size: 11px;
+    padding-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 20px;
+  }
+  
+  .hero {
+    padding: 80px 0 50px;
   }
 }
 </style>
