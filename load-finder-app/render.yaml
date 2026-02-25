@@ -11,5 +11,7 @@ services:
         value: 3.11.0
       - key: CHROME_BIN
         value: /usr/bin/google-chrome
+      - key: RENDER
+        value: true
       - key: WEB_CONCURRENCY
         value: 1

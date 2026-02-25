@@ -145,11 +145,24 @@ def collect_full_data(city):
         # Загружаем credentials
         credentials = load_credentials()
         
-        # Браузер в headless режиме с МАКСИМАЛЬНОЙ оптимизацией для 512MB RAM
+        # Определяем окружение (Render или локально)
+        is_render = os.environ.get('RENDER') == 'true' or os.environ.get('CHROME_BIN')
+        
+        # Браузер с оптимизацией
         chrome_options = Options()
-        chrome_options.add_argument('--headless=new')  # Новый headless режим
-        chrome_options.add_argument('--no-sandbox')
-        chrome_options.add_argument('--disable-setuid-sandbox')  # Для Render.com
+        
+        # Headless режим ТОЛЬКО на Render
+        if is_render:
+            chrome_options.add_argument('--headless=new')
+            chrome_options.add_argument('--no-sandbox')
+            chrome_options.add_argument('--disable-setuid-sandbox')
+            chrome_options.add_argument('--single-process')  # Один процесс для экономии памяти
+            print("🌐 Режим: Render (headless)")
+        else:
+            # Локально - БЕЗ headless, чтобы видеть браузер
+            print("💻 Режим: Локальный (с окном браузера)")
+        
+        # Общие оптимизации для всех окружений
         chrome_options.add_argument('--disable-dev-shm-usage')
         chrome_options.add_argument('--disable-gpu')
         chrome_options.add_argument('--disable-software-rasterizer')
@@ -162,7 +175,7 @@ def collect_full_data(city):
         chrome_options.add_argument('--disable-backgrounding-occluded-windows')
         chrome_options.add_argument('--disable-breakpad')
         chrome_options.add_argument('--disable-component-extensions-with-background-pages')
-        chrome_options.add_argument('--disable-features=TranslateUI,BlinkGenPropertyTrees,AudioServiceOutOfProcess,IsolateOrigins,site-per-process')
+        chrome_options.add_argument('--disable-features=TranslateUI,BlinkGenPropertyTrees')
         chrome_options.add_argument('--disable-ipc-flooding-protection')
         chrome_options.add_argument('--disable-renderer-backgrounding')
         chrome_options.add_argument('--enable-features=NetworkService,NetworkServiceInProcess')
@@ -171,15 +184,9 @@ def collect_full_data(city):
         chrome_options.add_argument('--metrics-recording-only')
         chrome_options.add_argument('--mute-audio')
         chrome_options.add_argument('--no-first-run')
-        chrome_options.add_argument('--no-default-browser-check')
-        chrome_options.add_argument('--no-pings')
-        chrome_options.add_argument('--password-store=basic')
-        chrome_options.add_argument('--use-mock-keychain')
         chrome_options.add_argument('--safebrowsing-disable-auto-update')
-        chrome_options.add_argument('--window-size=1024,768')  # Еще меньше
-        chrome_options.add_argument('--single-process')  # Один процесс вместо нескольких
+        chrome_options.add_argument('--window-size=1024,768')
         chrome_options.add_argument('--disable-blink-features=AutomationControlled')
-        chrome_options.add_argument('--js-flags=--max-old-space-size=256')  # Ограничение памяти JS
         
         # Отключаем загрузку изображений для экономии памяти
         prefs = {
@@ -190,11 +197,9 @@ def collect_full_data(city):
                 'geolocation': 2,
                 'notifications': 2,
                 'media_stream': 2,
-            },
-            'disk-cache-size': 4096  # Минимальный кеш
+            }
         }
         chrome_options.add_experimental_option('prefs', prefs)
-        chrome_options.add_experimental_option('excludeSwitches', ['enable-logging', 'enable-automation'])
         
         service = Service(ChromeDriverManager().install())
         driver = webdriver.Chrome(service=service, options=chrome_options)
