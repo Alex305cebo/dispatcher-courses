@@ -8,6 +8,8 @@ const urlsToCache = [
   '/pages/modules.html',
   '/pages/loads.html',
   '/pages/loadboard.html',
+  '/pages/load-finder.html',
+  '/pages/load-connect.html',
   '/manifest.json'
 ];
 
