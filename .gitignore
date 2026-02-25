@@ -16,6 +16,12 @@ users.db
 credentials.json
 load-finder-app/credentials.json
 
+# FTP/SFTP credentials
+.vscode/sftp.json
+sftp.json
+deploy-to-hostinger.ps1
+upload-simple.ps1
+
 # Logs
 logs/
 *.log
@@ -30,6 +36,8 @@ desktop.ini
 
 # IDE
 .vscode/
+!.vscode/settings.json
+.vscode/sftp.json
 .idea/
 *.swp
 *.swo
