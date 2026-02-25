@@ -1,0 +1,591 @@
+[
+  {
+    "number": 1,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$3,300",
+    "pickup": "Pick Up Date\nQuartzsite, AZ",
+    "dropoff": "Big River, SK",
+    "distance": "741mi",
+    "date": "Feb 24",
+    "broker": "DTP/CS"
+  },
+  {
+    "number": 2,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$2,800",
+    "pickup": "AZ, US",
+    "dropoff": "Big River, SK",
+    "distance": "741mi",
+    "date": "Feb. 24",
+    "broker": "DTP/CS"
+  },
+  {
+    "number": 3,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$2,800",
+    "pickup": "Big River, SK",
+    "dropoff": "Roswell, NM",
+    "distance": "741mi",
+    "date": "Feb. 24",
+    "broker": "DTP/CS"
+  },
+  {
+    "number": 4,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$2,650",
+    "pickup": "Big River, SK",
+    "dropoff": "Roswell, NM",
+    "distance": "741mi",
+    "date": "Feb. 24"
+  },
+  {
+    "number": 5,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$2,650",
+    "pickup": "Yuma, AZ",
+    "dropoff": "Rocky Hill, CT",
+    "distance": "755mi",
+    "date": "Feb. 25"
+  },
+  {
+    "number": 6,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$2,550",
+    "pickup": "Big River, SK",
+    "dropoff": "Schoolcraft, MI",
+    "distance": "205mi",
+    "date": "Feb. 24"
+  },
+  {
+    "number": 7,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$2,550",
+    "pickup": "Yuma, AZ",
+    "dropoff": "Memphis, TN",
+    "distance": "662mi",
+    "date": "Mar. 02"
+  },
+  {
+    "number": 8,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$2,550",
+    "pickup": "Big River, SK",
+    "dropoff": "Liberty, MO",
+    "distance": "378mi",
+    "date": "Feb. 24"
+  },
+  {
+    "number": 9,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$2,450",
+    "pickup": "Big River, SK",
+    "dropoff": "Tbd Il Or Wi, IL",
+    "distance": "662mi",
+    "date": "Feb. 24"
+  },
+  {
+    "number": 10,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$2,450",
+    "pickup": "Memphis, TN",
+    "dropoff": "Big River, SK",
+    "distance": "662mi",
+    "date": "Mar. 05"
+  },
+  {
+    "number": 11,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$2,450",
+    "pickup": "Brookings, SD",
+    "dropoff": "Big River, SK",
+    "distance": "626mi",
+    "date": "Feb. 24"
+  },
+  {
+    "number": 12,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$2,350",
+    "pickup": "Milwaukee, WI",
+    "dropoff": "Big River, SK",
+    "distance": "961mi",
+    "date": "Feb. 24"
+  },
+  {
+    "number": 13,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$2,050",
+    "pickup": "Cross Plains, WI",
+    "dropoff": "Big River, SK",
+    "distance": "871mi",
+    "date": "Feb. 24"
+  },
+  {
+    "number": 14,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$500",
+    "pickup": "Belvidere, IL",
+    "dropoff": "Big River, SK",
+    "distance": "880mi",
+    "date": "Feb. 24"
+  },
+  {
+    "number": 15,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$1,199",
+    "pickup": "Big River, SK",
+    "dropoff": "Muscoda, WI",
+    "distance": "850mi",
+    "date": "Feb. 24"
+  },
+  {
+    "number": 16,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$1,199",
+    "pickup": "Big River, SK",
+    "dropoff": "Rock Island, IL",
+    "distance": "760mi",
+    "date": "Feb. 24"
+  },
+  {
+    "number": 17,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$1,199",
+    "pickup": "Big River, SK",
+    "dropoff": "Pillager, MN",
+    "distance": "821mi",
+    "date": "Feb. 24"
+  },
+  {
+    "number": 18,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$7,000",
+    "pickup": "Big River, SK",
+    "dropoff": "Chanhassen, MN",
+    "distance": "787mi",
+    "date": "Feb. 24"
+  },
+  {
+    "number": 19,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$5,500",
+    "pickup": "Parker, AZ",
+    "dropoff": "Muleshoe, TX",
+    "distance": "817mi",
+    "date": "Feb. 25"
+  },
+  {
+    "number": 20,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$5,500",
+    "pickup": "Parker, AZ",
+    "dropoff": "Early, TX",
+    "distance": "092mi",
+    "date": "Feb. 25"
+  },
+  {
+    "number": 21,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$5,400",
+    "pickup": "Parker, AZ",
+    "dropoff": "Early, TX",
+    "distance": "092mi",
+    "date": "Feb. 25"
+  },
+  {
+    "number": 22,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$5,200",
+    "pickup": "Yuma, AZ",
+    "dropoff": "Upper Marlboro, MD",
+    "distance": "540mi",
+    "date": "Feb. 27"
+  },
+  {
+    "number": 23,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$5,200",
+    "pickup": "Yuma, AZ",
+    "dropoff": "Streetsboro, OH",
+    "distance": "238mi",
+    "date": "Feb. 27"
+  },
+  {
+    "number": 24,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$5,000",
+    "pickup": "Brawley, CA",
+    "dropoff": "Streetsboro, OH",
+    "distance": "292mi",
+    "date": "Feb. 27"
+  },
+  {
+    "number": 25,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$5,000",
+    "pickup": "Yuma, AZ",
+    "dropoff": "Alcoa, TN",
+    "distance": "035mi",
+    "date": "Feb. 27"
+  },
+  {
+    "number": 26,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$5,000",
+    "pickup": "Yuma, AZ",
+    "dropoff": "Nashville, TN",
+    "distance": "858mi",
+    "date": "Feb. 26"
+  },
+  {
+    "number": 27,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$5,000",
+    "pickup": "Yuma, AZ",
+    "dropoff": "Alcoa, TN",
+    "distance": "035mi",
+    "date": "Mar. 03"
+  },
+  {
+    "number": 28,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$5,000",
+    "pickup": "Yuma, AZ",
+    "dropoff": "Louisville, KY",
+    "distance": "949mi",
+    "date": "Feb. 25"
+  },
+  {
+    "number": 29,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$5,000",
+    "pickup": "Yuma, AZ",
+    "dropoff": "Memphis, TN",
+    "distance": "662mi",
+    "date": "Feb. 26"
+  },
+  {
+    "number": 30,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$5,000",
+    "pickup": "Yuma, AZ",
+    "dropoff": "Memphis, TN",
+    "distance": "662mi",
+    "date": "Feb. 28"
+  },
+  {
+    "number": 31,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$4,800",
+    "pickup": "Yuma, AZ",
+    "dropoff": "Alcoa, TN",
+    "distance": "035mi",
+    "date": "Mar. 05"
+  },
+  {
+    "number": 32,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$4,800",
+    "pickup": "Yuma, AZ",
+    "dropoff": "Alcoa, TN",
+    "distance": "035mi",
+    "date": "Mar. 06"
+  },
+  {
+    "number": 33,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$4,800",
+    "pickup": "Yuma, AZ",
+    "dropoff": "Danville, VA",
+    "distance": "355mi",
+    "date": "Mar. 06"
+  },
+  {
+    "number": 34,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$4,800",
+    "pickup": "Yuma, AZ",
+    "dropoff": "Alcoa, TN",
+    "distance": "035mi",
+    "date": "Mar. 10"
+  },
+  {
+    "number": 35,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$4,800",
+    "pickup": "Brawley, CA",
+    "dropoff": "Chicago, IL",
+    "distance": "029mi",
+    "date": "Feb. 26"
+  },
+  {
+    "number": 36,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$4,500",
+    "pickup": "Yuma, AZ",
+    "dropoff": "Alcoa, TN",
+    "distance": "9mi",
+    "date": "Mar. 17"
+  },
+  {
+    "number": 37,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$4,400",
+    "pickup": "Yuma, AZ",
+    "dropoff": "Alcoa, TN",
+    "distance": "035mi",
+    "date": "Mar. 19"
+  },
+  {
+    "number": 38,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$4,400",
+    "pickup": "Yuma, AZ",
+    "dropoff": "Alcoa, TN",
+    "distance": "035mi",
+    "date": "Mar. 20"
+  },
+  {
+    "number": 39,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$4,400",
+    "pickup": "Yuma, AZ",
+    "dropoff": "Alcoa, TN",
+    "distance": "035mi",
+    "date": "Mar. 24"
+  },
+  {
+    "number": 40,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$4,000",
+    "pickup": "Yuma, AZ",
+    "dropoff": "Memphis, TN",
+    "distance": "662mi",
+    "date": "Mar. 16"
+  },
+  {
+    "number": 41,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$4,000",
+    "pickup": "Yuma, AZ",
+    "dropoff": "Memphis, TN",
+    "distance": "662mi",
+    "date": "Mar. 19"
+  },
+  {
+    "number": 42,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$3,650",
+    "pickup": "Yuma, AZ",
+    "dropoff": "O Fallon, MO",
+    "distance": "701mi",
+    "date": "Feb. 25"
+  },
+  {
+    "number": 43,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$3,600",
+    "pickup": "Yuma, AZ",
+    "dropoff": "O Fallon, MO",
+    "distance": "699mi",
+    "date": "Feb. 26"
+  },
+  {
+    "number": 44,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$3,300",
+    "pickup": "Woodburn, OR",
+    "dropoff": "Yuma, AZ",
+    "distance": "284mi",
+    "date": "Mar. 18"
+  },
+  {
+    "number": 45,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$2,500",
+    "pickup": "Yuma, AZ",
+    "dropoff": "Reno, NV",
+    "distance": "753mi",
+    "date": "Mar. 09"
+  },
+  {
+    "number": 46,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$2,350",
+    "pickup": "Reno, NV",
+    "dropoff": "Yuma, AZ",
+    "distance": "753mi",
+    "date": "Mar. 11"
+  },
+  {
+    "number": 47,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$2,200",
+    "pickup": "Reno, NV",
+    "dropoff": "Yuma, AZ",
+    "distance": "753mi",
+    "date": "Mar. 16"
+  },
+  {
+    "number": 48,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$2,200",
+    "pickup": "Reno, NV",
+    "dropoff": "Yuma, AZ",
+    "distance": "753mi",
+    "date": "Mar. 18"
+  },
+  {
+    "number": 49,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$2,000",
+    "pickup": "Yuma, AZ",
+    "dropoff": "Ogden, UT",
+    "distance": "750mi",
+    "date": "Mar. 06"
+  },
+  {
+    "number": 50,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$2,650",
+    "pickup": "Albuquerque, NM",
+    "dropoff": "Yuma, AZ",
+    "distance": "643mi",
+    "date": "Mar. 24"
+  },
+  {
+    "number": 51,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$4,800",
+    "pickup": "Yuma, AZ",
+    "dropoff": "Albuquerque, NM",
+    "distance": "640mi",
+    "date": "Mar. 24"
+  },
+  {
+    "number": 52,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$3,800",
+    "pickup": "Hood River, OR",
+    "dropoff": "Needles, CA",
+    "distance": "117mi",
+    "date": "Feb. 25"
+  },
+  {
+    "number": 53,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$4,800",
+    "pickup": "Phoenix, AZ",
+    "dropoff": "City Of Indust, CA",
+    "distance": "342mi",
+    "date": "Mar. 01"
+  },
+  {
+    "number": 54,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$4,400",
+    "pickup": "City, CA",
+    "dropoff": "Vancouver, BC",
+    "distance": "400mi",
+    "date": "Feb. 25"
+  },
+  {
+    "number": 55,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$4,400",
+    "pickup": "Riverside, CA",
+    "dropoff": "Chester, CA",
+    "distance": "632mi",
+    "date": "Feb. 26"
+  },
+  {
+    "number": 56,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$4,300",
+    "pickup": "Prescott, AZ",
+    "dropoff": "Mechanic Falls, ME",
+    "distance": "362mi",
+    "date": "Feb. 25"
+  },
+  {
+    "number": 57,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$4,300",
+    "pickup": "Tolleson, AZ",
+    "dropoff": "Brentwood, NH",
+    "distance": "823mi",
+    "date": "Feb. 26"
+  },
+  {
+    "number": 58,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$4,100",
+    "pickup": "Phoenix, AZ",
+    "dropoff": "Osceola, AR",
+    "distance": "675mi",
+    "date": "Feb. 26"
+  },
+  {
+    "number": 59,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$4,100",
+    "pickup": "Fontana, CA",
+    "dropoff": "Osceola, AR",
+    "distance": "786mi",
+    "date": "Feb. 25"
+  },
+  {
+    "number": 60,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$3,900",
+    "pickup": "Fontana, CA",
+    "dropoff": "Saint Louis, MO",
+    "distance": "786mi",
+    "date": "Feb. 25"
+  },
+  {
+    "number": 61,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$3,600",
+    "pickup": "Coldwater, MI",
+    "dropoff": "San Diego, CA",
+    "distance": "232mi",
+    "weight": "48,000 lbs",
+    "date": "Feb. 27"
+  },
+  {
+    "number": 62,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$3,500",
+    "pickup": "Coldwater, MI",
+    "dropoff": "San Diego, CA",
+    "distance": "232mi",
+    "weight": "48,000 lbs",
+    "date": "Feb. 26"
+  },
+  {
+    "number": 63,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$3,300",
+    "pickup": "Fontana, CA",
+    "dropoff": "Green Bay, WI",
+    "distance": "805mi",
+    "weight": "48,000 lbs",
+    "date": "Feb. 25",
+    "phone": "4024477663",
+    "email": "book@jakebrakelogistics.com",
+    "broker": "Jakebrake Logistics LLC"
+  },
+  {
+    "number": 64,
+    "search_city": "QUARTZSITE AZ",
+    "price": "$3,300",
+    "pickup": "Lexington, OH",
+    "dropoff": "Prescott Valle, AZ",
+    "distance": "924mi",
+    "weight": "48,000 lbs",
+    "date": "Feb. 26",
+    "phone": "4024477663",
+    "email": "book@jakebrakelogistics.com",
+    "broker": "Jakebrake Logistics LLC"
+  }
+]

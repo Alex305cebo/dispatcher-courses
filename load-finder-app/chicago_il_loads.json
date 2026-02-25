@@ -6,6 +6,7 @@
     "pickup": "Pick Up Date\nChicago, IL",
     "dropoff": "Chicago, IL",
     "distance": "460mi",
+    "trailer": "Flatbed (F)",
     "date": "Feb 24",
     "broker": "DTP/CS"
   },
@@ -13,9 +14,10 @@
     "number": 2,
     "search_city": "Chicago, IL",
     "price": "$1,800",
-    "pickup": "Chicago, IL",
+    "pickup": "Date\nChicago, IL",
     "dropoff": "Chicago, IL",
     "distance": "460mi",
+    "trailer": "Flatbed (F)",
     "date": "Feb. 24",
     "broker": "DTP/CS"
   },
@@ -26,8 +28,10 @@
     "pickup": "Chicago, IL",
     "dropoff": "Pocatello, ID",
     "distance": "460mi",
+    "trailer": "Flatbed (F)",
     "date": "Feb. 24",
-    "broker": "DTP/CS"
+    "broker": "DTP/CS",
+    "dispatch": "Unlock"
   },
   {
     "number": 4,
@@ -36,7 +40,9 @@
     "pickup": "Chicago, IL",
     "dropoff": "Pocatello, ID",
     "distance": "460mi",
-    "date": "Feb. 24"
+    "trailer": "Flatbed (F)",
+    "date": "Feb. 24",
+    "dispatch": "Unlock"
   },
   {
     "number": 5,
@@ -45,7 +51,9 @@
     "pickup": "Channahon, IL",
     "dropoff": "Pompano Beach, FL",
     "distance": "367mi",
-    "date": "Feb. 27"
+    "trailer": "Flatbed (F)",
+    "date": "Feb. 27",
+    "dispatch": "Unlock"
   },
   {
     "number": 6,
@@ -54,7 +62,9 @@
     "pickup": "Chicago, IL",
     "dropoff": "Spencer, IA",
     "distance": "460mi",
-    "date": "Feb. 24"
+    "trailer": "Flatbed (F)",
+    "date": "Feb. 24",
+    "dispatch": "Unlock"
   },
   {
     "number": 7,
@@ -63,7 +73,9 @@
     "pickup": "West Chicago, IL",
     "dropoff": "Punta Gorda, FL",
     "distance": "309mi",
-    "date": "Mar. 03"
+    "trailer": "Reefer (R)",
+    "date": "Mar. 03",
+    "dispatch": "Unlock"
   },
   {
     "number": 8,
@@ -72,7 +84,9 @@
     "pickup": "Aurora, IL",
     "dropoff": "St Cloud, MN",
     "distance": "464mi",
-    "date": "Feb. 24"
+    "trailer": "Flatbed (F)",
+    "date": "Feb. 24",
+    "dispatch": "Unlock"
   },
   {
     "number": 9,
@@ -81,7 +95,9 @@
     "pickup": "Aurora, IL",
     "dropoff": "St Cloud, MN",
     "distance": "466mi",
-    "date": "Feb. 24"
+    "trailer": "Flatbed (F)",
+    "date": "Feb. 24",
+    "dispatch": "Unlock"
   },
   {
     "number": 10,
@@ -90,7 +106,9 @@
     "pickup": "Bolingbrook, IL",
     "dropoff": "Tampa, FL",
     "distance": "192mi",
-    "date": "Feb. 27"
+    "trailer": "Reefer (R)",
+    "date": "Feb. 27",
+    "dispatch": "Unlock"
   },
   {
     "number": 11,
@@ -99,6 +117,7 @@
     "pickup": "Brookfield, MO",
     "dropoff": "Blue Island, IL",
     "distance": "386mi",
+    "trailer": "Flatbed (F)",
     "date": "Feb. 24"
   },
   {
@@ -108,6 +127,7 @@
     "pickup": "Island, IL",
     "dropoff": "Bulls Gap, TN",
     "distance": "550mi",
+    "trailer": "Flatbed (F)",
     "date": "Feb. 24"
   },
   {
@@ -117,6 +137,7 @@
     "pickup": "Middletown, OH",
     "dropoff": "Blue Island, IL",
     "distance": "296mi",
+    "trailer": "Flatbed (F)",
     "date": "Feb. 24"
   },
   {
@@ -126,6 +147,7 @@
     "pickup": "Island, IL",
     "dropoff": "Bulls Gap, TN",
     "distance": "546mi",
+    "trailer": "Flatbed (F)",
     "date": "Feb. 24"
   },
   {
@@ -135,6 +157,7 @@
     "pickup": "Village, IL",
     "dropoff": "Chariton, IA",
     "distance": "362mi",
+    "trailer": "Flatbed (F)",
     "date": "Feb. 24"
   },
   {
@@ -144,6 +167,7 @@
     "pickup": "Des Moines, IA",
     "dropoff": "Blue Island, IL",
     "distance": "332mi",
+    "trailer": "Flatbed (F)",
     "date": "Feb. 24"
   },
   {
@@ -153,6 +177,7 @@
     "pickup": "Island, IL",
     "dropoff": "Jamesport, MO",
     "distance": "436mi",
+    "trailer": "Flatbed (F)",
     "date": "Feb. 24"
   },
   {
@@ -162,6 +187,7 @@
     "pickup": "Middletown, OH",
     "dropoff": "Forest Park, IL",
     "distance": "296mi",
+    "trailer": "Flatbed (F)",
     "date": "Feb. 24"
   },
   {
@@ -171,6 +197,7 @@
     "pickup": "Park, IL",
     "dropoff": "Jackson, MO",
     "distance": "524mi",
+    "trailer": "Flatbed (F)",
     "date": "Feb. 24"
   },
   {
@@ -180,6 +207,7 @@
     "pickup": "Hamtramck, MI",
     "dropoff": "Chicago, IL",
     "distance": "276mi",
+    "trailer": "Flatbed (F)",
     "date": "Feb. 24"
   },
   {
@@ -189,15 +217,17 @@
     "pickup": "Middletown, OH",
     "dropoff": "Franklin Park, IL",
     "distance": "297mi",
+    "trailer": "Flatbed (F)",
     "date": "Feb. 24"
   },
   {
     "number": 22,
     "search_city": "Chicago, IL",
     "price": "$950",
-    "pickup": "Jamesport, MO",
-    "dropoff": "Chicago, IL",
+    "pickup": "Park, IL",
+    "dropoff": "Jamesport, MO",
     "distance": "462mi",
+    "trailer": "Flatbed (F)",
     "date": "Feb. 24"
   },
   {
@@ -207,6 +237,7 @@
     "pickup": "Middletown, OH",
     "dropoff": "Franklin Park, IL",
     "distance": "290mi",
+    "trailer": "Flatbed (F)",
     "date": "Feb. 24"
   },
   {
@@ -216,15 +247,17 @@
     "pickup": "Park, IL",
     "dropoff": "Jamesport, MO",
     "distance": "462mi",
+    "trailer": "Flatbed (F)",
     "date": "Feb. 24"
   },
   {
     "number": 25,
     "search_city": "Chicago, IL",
     "price": "$850",
-    "pickup": "Island, IL",
+    "pickup": "Blue Island, IL",
     "dropoff": "Jamesport, MO",
     "distance": "436mi",
+    "trailer": "Flatbed (F)",
     "date": "Feb. 24"
   },
   {
@@ -234,6 +267,7 @@
     "pickup": "Chicago, IL",
     "dropoff": "Granite City, IL",
     "distance": "294mi",
+    "trailer": "Flatbed (F)",
     "date": "Feb. 24"
   },
   {
@@ -243,6 +277,7 @@
     "pickup": "Hillsboro, IL",
     "dropoff": "Chicago, IL",
     "distance": "249mi",
+    "trailer": "Flatbed (F)",
     "date": "Feb. 24"
   },
   {
@@ -252,6 +287,7 @@
     "pickup": "Hillsboro, IL",
     "dropoff": "Forest Park, IL",
     "distance": "249mi",
+    "trailer": "Flatbed (F)",
     "date": "Feb. 24"
   },
   {
@@ -261,6 +297,7 @@
     "pickup": "Oskaloosa, IA",
     "dropoff": "Blue Island, IL",
     "distance": "296mi",
+    "trailer": "Flatbed (F)",
     "date": "Feb. 24"
   },
   {
@@ -270,6 +307,7 @@
     "pickup": "Island, IL",
     "dropoff": "Mt Carmel, IL",
     "distance": "260mi",
+    "trailer": "Flatbed (F)",
     "date": "Feb. 24"
   },
   {
@@ -279,6 +317,7 @@
     "pickup": "Island, IL",
     "dropoff": "Mt Carmel, IL",
     "distance": "362mi",
+    "trailer": "Flatbed (F)",
     "date": "Feb. 24"
   },
   {
@@ -288,6 +327,7 @@
     "pickup": "Aurora, IL",
     "dropoff": "Sullivan, MO",
     "distance": "362mi",
+    "trailer": "Flatbed (F)",
     "date": "Feb. 24"
   },
   {
@@ -297,6 +337,7 @@
     "pickup": "Aurora, IL",
     "dropoff": "Jeffersonville, OH",
     "distance": "370mi",
+    "trailer": "Flatbed (F)",
     "date": "Feb. 24"
   },
   {
@@ -306,6 +347,7 @@
     "pickup": "Chicago, IL",
     "dropoff": "Morton, IL",
     "distance": "158mi",
+    "trailer": "Flatbed (F)",
     "date": "Feb. 24"
   },
   {
@@ -315,6 +357,7 @@
     "pickup": "Forest Park, IL",
     "dropoff": "Oskaloosa, IA",
     "distance": "296mi",
+    "trailer": "Flatbed (F)",
     "date": "Feb. 24"
   },
   {
@@ -324,6 +367,7 @@
     "pickup": "Aurora, IL",
     "dropoff": "Livonia, MI",
     "distance": "301mi",
+    "trailer": "Flatbed (F)",
     "date": "Feb. 24"
   },
   {
@@ -333,33 +377,37 @@
     "pickup": "Chicago, IL",
     "dropoff": "Morton, IL",
     "distance": "158mi",
+    "trailer": "Flatbed (F)",
     "date": "Feb. 24"
   },
   {
     "number": 38,
     "search_city": "Chicago, IL",
     "price": "$650",
-    "pickup": "Decatur, IL",
+    "pickup": "Edwardsville, IL",
     "dropoff": "Blue Island, IL",
-    "distance": "161mi",
+    "distance": "265mi",
+    "trailer": "Flatbed (F)",
     "date": "Feb. 24"
   },
   {
     "number": 39,
     "search_city": "Chicago, IL",
     "price": "$650",
-    "pickup": "Canton, IL",
+    "pickup": "Decatur, IL",
     "dropoff": "Blue Island, IL",
-    "distance": "184mi",
+    "distance": "161mi",
+    "trailer": "Flatbed (F)",
     "date": "Feb. 24"
   },
   {
     "number": 40,
     "search_city": "Chicago, IL",
     "price": "$650",
-    "pickup": "Blue Island, IL",
-    "dropoff": "Dixon, IL",
-    "distance": "265mi",
+    "pickup": "Canton, IL",
+    "dropoff": "Blue Island, IL",
+    "distance": "184mi",
+    "trailer": "Flatbed (F)",
     "date": "Feb. 24"
   },
   {
@@ -369,6 +417,7 @@
     "pickup": "Blue Island, IL",
     "dropoff": "Decatur, IL",
     "distance": "173mi",
+    "trailer": "Flatbed (F)",
     "date": "Feb. 24"
   },
   {
@@ -378,7 +427,9 @@
     "pickup": "Blue Island, IL",
     "dropoff": "Dixon, IL",
     "distance": "173mi",
-    "date": "Feb. 24"
+    "trailer": "Flatbed (F)",
+    "date": "Feb. 24",
+    "dispatch": "Unlock"
   },
   {
     "number": 43,
@@ -387,7 +438,9 @@
     "pickup": "Dixon, IL",
     "dropoff": "Blue Island, IL",
     "distance": "109mi",
-    "date": "Feb. 24"
+    "trailer": "Flatbed (F)",
+    "date": "Feb. 24",
+    "dispatch": "Unlock"
   },
   {
     "number": 44,
@@ -396,7 +449,9 @@
     "pickup": "Canton, IL",
     "dropoff": "Blue Island, IL",
     "distance": "226mi",
-    "date": "Feb. 24"
+    "trailer": "Flatbed (F)",
+    "date": "Feb. 24",
+    "dispatch": "Unlock"
   },
   {
     "number": 45,
@@ -405,7 +460,9 @@
     "pickup": "Edwardsville, IL",
     "dropoff": "Aurora, IL",
     "distance": "226mi",
-    "date": "Feb. 24"
+    "trailer": "Flatbed (F)",
+    "date": "Feb. 24",
+    "dispatch": "Unlock"
   },
   {
     "number": 46,
@@ -414,7 +471,9 @@
     "pickup": "Aurora, IL",
     "dropoff": "Holiday City, OH",
     "distance": "226mi",
-    "date": "Feb. 24"
+    "trailer": "Flatbed (F)",
+    "date": "Feb. 24",
+    "dispatch": "Unlock"
   },
   {
     "number": 47,
@@ -423,7 +482,9 @@
     "pickup": "Aurora, IL",
     "dropoff": "Cassopolis, MI",
     "distance": "147mi",
-    "date": "Feb. 24"
+    "trailer": "Flatbed (F)",
+    "date": "Feb. 24",
+    "dispatch": "Unlock"
   },
   {
     "number": 48,
@@ -432,7 +493,9 @@
     "pickup": "Harvey, IL",
     "dropoff": "Perris, CA",
     "distance": "094mi",
-    "date": "Feb. 25"
+    "trailer": "Flatbed (F)",
+    "date": "Feb. 25",
+    "dispatch": "Unlock"
   },
   {
     "number": 49,
@@ -441,7 +504,9 @@
     "pickup": "Park, IL",
     "dropoff": "Redding, CA",
     "distance": "108mi",
-    "date": "Feb. 25"
+    "trailer": "Van (V)",
+    "date": "Feb. 25",
+    "dispatch": "Unlock"
   },
   {
     "number": 50,
@@ -450,7 +515,9 @@
     "pickup": "Melrose Park, IL",
     "dropoff": "Redding, CA",
     "distance": "108mi",
-    "date": "Feb. 26"
+    "trailer": "Van (V)",
+    "date": "Feb. 26",
+    "dispatch": "Unlock"
   },
   {
     "number": 51,
@@ -459,16 +526,20 @@
     "pickup": "Mccook, IL",
     "dropoff": "Hayward, CA",
     "distance": "138mi",
-    "date": "Feb. 26"
+    "trailer": "Van (V)",
+    "date": "Feb. 26",
+    "dispatch": "Unlock"
   },
   {
     "number": 52,
     "search_city": "Chicago, IL",
     "price": "$4,000",
-    "pickup": "Bedford Park, IL",
+    "pickup": "Park, IL",
     "dropoff": "Jacksonville, FL",
     "distance": "074mi",
-    "date": "Feb. 25"
+    "trailer": "Reefer (R)",
+    "date": "Feb. 25",
+    "dispatch": "Unlock"
   },
   {
     "number": 53,
@@ -477,7 +548,9 @@
     "pickup": "West Chicago, IL",
     "dropoff": "Medley, FL",
     "distance": "417mi",
-    "date": "Feb. 27"
+    "trailer": "Reefer (R)",
+    "date": "Feb. 27",
+    "dispatch": "Unlock"
   },
   {
     "number": 54,
@@ -486,7 +559,9 @@
     "pickup": "Carol Stream, IL",
     "dropoff": "Commerce, CA",
     "distance": "996mi",
-    "date": "Mar. 02"
+    "trailer": "Flatbed (F)",
+    "date": "Mar. 02",
+    "dispatch": "Unlock"
   },
   {
     "number": 55,
@@ -495,7 +570,9 @@
     "pickup": "Romeoville, IL",
     "dropoff": "Homestead, FL",
     "distance": "420mi",
-    "date": "Feb. 25"
+    "trailer": "Van (V)",
+    "date": "Feb. 25",
+    "dispatch": "Unlock"
   },
   {
     "number": 56,
@@ -504,7 +581,9 @@
     "pickup": "Wilmington, IL",
     "dropoff": "Portland, OR",
     "distance": "094mi",
-    "date": "Feb. 27"
+    "trailer": "Reefer (R)",
+    "date": "Feb. 27",
+    "dispatch": "Unlock"
   },
   {
     "number": 57,
@@ -513,7 +592,9 @@
     "pickup": "University Park, IL",
     "dropoff": "Tampa, FL",
     "distance": "154mi",
-    "date": "Mar. 02"
+    "trailer": "Reefer (R)",
+    "date": "Mar. 02",
+    "dispatch": "Unlock"
   },
   {
     "number": 58,
@@ -522,7 +603,9 @@
     "pickup": "Chicago, IL",
     "dropoff": "Tampa, FL",
     "distance": "236mi",
-    "date": "Mar. 02"
+    "trailer": "Reefer (R)",
+    "date": "Mar. 02",
+    "dispatch": "Unlock"
   },
   {
     "number": 59,
@@ -531,7 +614,9 @@
     "pickup": "Mccook, IL",
     "dropoff": "Holtsville, NY",
     "distance": "859mi",
-    "date": "Feb. 25"
+    "trailer": "Reefer (R)",
+    "date": "Feb. 25",
+    "dispatch": "Unlock"
   },
   {
     "number": 60,
@@ -540,7 +625,9 @@
     "pickup": "West Chicago, IL",
     "dropoff": "Alachua, FL",
     "distance": "071mi",
-    "date": "Mar. 04"
+    "trailer": "Reefer (R)",
+    "date": "Mar. 04",
+    "dispatch": "Unlock"
   },
   {
     "number": 61,
@@ -549,7 +636,9 @@
     "pickup": "Portage, IN",
     "dropoff": "Clearfield, UT",
     "distance": "071mi",
-    "date": "Feb. 24"
+    "trailer": "Reefer (R)",
+    "date": "Feb. 24",
+    "dispatch": "Unlock"
   },
   {
     "number": 62,
@@ -558,7 +647,9 @@
     "pickup": "Clearfield, UT",
     "dropoff": "Chicago, IL",
     "distance": "415mi",
-    "date": "Feb. 25"
+    "trailer": "Flatbed (F)",
+    "date": "Feb. 25",
+    "dispatch": "Unlock"
   },
   {
     "number": 63,
@@ -567,7 +658,9 @@
     "pickup": "Chicago, IL",
     "dropoff": "Plympton, MA",
     "distance": "035mi",
-    "date": "Feb. 25"
+    "trailer": "Reefer (R)",
+    "date": "Feb. 25",
+    "dispatch": "Unlock"
   },
   {
     "number": 64,
@@ -576,7 +669,9 @@
     "pickup": "Plympton, MA",
     "dropoff": "North Aurora, IL",
     "distance": "018mi",
-    "date": "Mar. 02"
+    "trailer": "Reefer (R)",
+    "date": "Mar. 02",
+    "dispatch": "Unlock"
   },
   {
     "number": 65,
@@ -585,7 +680,9 @@
     "pickup": "Albuquerque, NM",
     "dropoff": "W Chicago, IL",
     "distance": "280mi",
-    "date": "Feb. 24"
+    "trailer": "Van (V)",
+    "date": "Feb. 24",
+    "dispatch": "Unlock"
   },
   {
     "number": 66,
@@ -594,7 +691,9 @@
     "pickup": "Channahon, IL",
     "dropoff": "Uxbridge, MA",
     "distance": "068mi",
-    "date": "Feb. 25"
+    "trailer": "Van (V)",
+    "date": "Feb. 25",
+    "dispatch": "Unlock"
   },
   {
     "number": 67,
@@ -603,7 +702,9 @@
     "pickup": "Woodridge, IL",
     "dropoff": "Plant City, FL",
     "distance": "210mi",
-    "date": "Feb. 25"
+    "trailer": "Van (V)",
+    "date": "Feb. 25",
+    "dispatch": "Unlock"
   },
   {
     "number": 68,
@@ -612,7 +713,9 @@
     "pickup": "Romeoville, IL",
     "dropoff": "Casa Grande, AZ",
     "distance": "760mi",
-    "date": "Feb. 25"
+    "trailer": "Reefer (R)",
+    "date": "Feb. 25",
+    "dispatch": "Unlock"
   },
   {
     "number": 69,
@@ -621,6 +724,7 @@
     "pickup": "Chicago, IL",
     "dropoff": "Alachua, FL",
     "distance": "041mi",
+    "trailer": "Reefer (R)",
     "date": "Feb. 27"
   },
   {
@@ -630,6 +734,7 @@
     "pickup": "Chicago, IL",
     "dropoff": "Plympton, MA",
     "distance": "023mi",
+    "trailer": "Reefer (R)",
     "date": "Mar. 03"
   },
   {
@@ -639,6 +744,7 @@
     "pickup": "Chicago, IL",
     "dropoff": "Plympton, MA",
     "distance": "018mi",
+    "trailer": "Reefer (R)",
     "date": "Mar. 04"
   },
   {
@@ -648,6 +754,7 @@
     "pickup": "Chicago, IL",
     "dropoff": "Plympton, MA",
     "distance": "018mi",
+    "trailer": "Reefer (R)",
     "date": "Mar. 10"
   },
   {
@@ -657,7 +764,9 @@
     "pickup": "Chicago, IL",
     "dropoff": "Plympton, MA",
     "distance": "018mi",
-    "date": "Mar. 11"
+    "trailer": "Reefer (R)",
+    "date": "Mar. 11",
+    "dispatch": "Unlock"
   },
   {
     "number": 74,
@@ -666,7 +775,9 @@
     "pickup": "Franklin Park, IL",
     "dropoff": "Suffolk, VA",
     "distance": "920mi",
-    "date": "Feb. 25"
+    "trailer": "Reefer (R)",
+    "date": "Feb. 25",
+    "dispatch": "Unlock"
   },
   {
     "number": 75,
@@ -675,7 +786,9 @@
     "pickup": "Wilmington, IL",
     "dropoff": "Charlotte, NC",
     "distance": "738mi",
-    "date": "Feb. 25"
+    "trailer": "Van (V)",
+    "date": "Feb. 25",
+    "dispatch": "Unlock"
   },
   {
     "number": 76,
@@ -684,7 +797,9 @@
     "pickup": "Chicago, IL",
     "dropoff": "Alachua, FL",
     "distance": "037mi",
-    "date": "Mar. 02"
+    "trailer": "Reefer (R)",
+    "date": "Mar. 02",
+    "dispatch": "Unlock"
   },
   {
     "number": 77,
@@ -693,7 +808,9 @@
     "pickup": "Chicago, IL",
     "dropoff": "Alachua, FL",
     "distance": "037mi",
-    "date": "Mar. 03"
+    "trailer": "Reefer (R)",
+    "date": "Mar. 03",
+    "dispatch": "Unlock"
   },
   {
     "number": 78,
@@ -702,7 +819,9 @@
     "pickup": "Chicago, IL",
     "dropoff": "Alachua, FL",
     "distance": "041mi",
-    "date": "Mar. 06"
+    "trailer": "Reefer (R)",
+    "date": "Mar. 06",
+    "dispatch": "Unlock"
   },
   {
     "number": 79,
@@ -711,7 +830,9 @@
     "pickup": "Chicago, IL",
     "dropoff": "Orlando, FL",
     "distance": "161mi",
-    "date": "Feb. 25"
+    "trailer": "Reefer (R)",
+    "date": "Feb. 25",
+    "dispatch": "Unlock"
   },
   {
     "number": 80,
@@ -720,7 +841,9 @@
     "pickup": "Elwood, IL",
     "dropoff": "Tolleson, AZ",
     "distance": "765mi",
-    "date": "Feb. 25"
+    "trailer": "Reefer (R)",
+    "date": "Feb. 25",
+    "dispatch": "Unlock"
   },
   {
     "number": 81,
@@ -729,7 +852,9 @@
     "pickup": "Joliet, IL",
     "dropoff": "Watertown, NY",
     "distance": "020mi",
-    "date": "Mar. 09"
+    "trailer": "Reefer (R)",
+    "date": "Mar. 09",
+    "dispatch": "Unlock"
   },
   {
     "number": 82,
@@ -737,8 +862,10 @@
     "price": "$3,100",
     "pickup": "Aurora, IL",
     "dropoff": "Union City, GA",
-    "distance": "768mi",
-    "date": "Feb. 26"
+    "distance": "9mi",
+    "trailer": "Reefer (R)",
+    "date": "Feb. 26",
+    "dispatch": "Unlock"
   },
   {
     "number": 83,
@@ -747,7 +874,9 @@
     "pickup": "City, GA",
     "dropoff": "Northbrook, IL",
     "distance": "768mi",
-    "date": "Feb. 25"
+    "trailer": "Reefer (R)",
+    "date": "Feb. 25",
+    "dispatch": "Unlock"
   },
   {
     "number": 84,
@@ -756,7 +885,9 @@
     "pickup": "Charlotte, NC",
     "dropoff": "Aurora, IL",
     "distance": "775mi",
-    "date": "Feb. 25"
+    "trailer": "Reefer (R)",
+    "date": "Feb. 25",
+    "dispatch": "Unlock"
   },
   {
     "number": 85,
@@ -765,7 +896,9 @@
     "pickup": "Union City, GA",
     "dropoff": "Huntley, IL",
     "distance": "768mi",
-    "date": "Feb. 25"
+    "trailer": "Reefer (R)",
+    "date": "Feb. 25",
+    "dispatch": "Unlock"
   },
   {
     "number": 86,
@@ -774,25 +907,31 @@
     "pickup": "Griffith, IN",
     "dropoff": "Sioux City, IA",
     "distance": "544mi",
-    "date": "Feb. 24"
+    "trailer": "Flatbed (F)",
+    "date": "Feb. 24",
+    "dispatch": "Unlock"
   },
   {
     "number": 87,
     "search_city": "Chicago, IL",
     "price": "$3,080",
-    "pickup": "Aberdeen, MD",
-    "dropoff": "Griffith, IN",
+    "pickup": "Par, IL",
+    "dropoff": "Aberdeen, MD",
     "distance": "734mi",
-    "date": "Feb. 24"
+    "trailer": "Van (V)",
+    "date": "Feb. 24",
+    "dispatch": "Unlock"
   },
   {
     "number": 88,
     "search_city": "Chicago, IL",
     "price": "$3,026",
-    "pickup": "Romeoville, IL",
-    "dropoff": "Tolleson, AZ",
+    "pickup": "City, OK",
+    "dropoff": "Romeoville, IL",
     "distance": "796mi",
-    "date": "Feb. 27"
+    "trailer": "Reefer (R)",
+    "date": "Feb. 27",
+    "dispatch": "Unlock"
   },
   {
     "number": 89,
@@ -801,7 +940,9 @@
     "pickup": "Michigan City, IN",
     "dropoff": "Orlando, FL",
     "distance": "150mi",
-    "date": "Feb. 25"
+    "trailer": "Reefer (R)",
+    "date": "Feb. 25",
+    "dispatch": "Unlock"
   },
   {
     "number": 90,
@@ -810,168 +951,206 @@
     "pickup": "Aurora, IL",
     "dropoff": "York, PA",
     "distance": "719mi",
+    "trailer": "Reefer (R)",
     "date": "Feb. 25"
   },
   {
     "number": 91,
     "search_city": "Chicago, IL",
-    "price": "$750",
+    "price": "$1,900",
     "pickup": "Chicago, IL",
     "dropoff": "San Diego, CA",
     "distance": "064mi",
+    "trailer": "Reefer (R)",
     "date": "Mar. 02"
   },
   {
     "number": 92,
     "search_city": "Chicago, IL",
-    "price": "$850",
+    "price": "$1,900",
     "pickup": "Carol Stream, IL",
     "dropoff": "Wilmington, NC",
-    "distance": "967mi",
+    "distance": "4mi",
+    "trailer": "Van (V)",
     "date": "Feb. 24"
   },
   {
     "number": 93,
     "search_city": "Chicago, IL",
-    "price": "$850",
-    "pickup": "Bolingbrook, IL",
-    "dropoff": "Reno, NV",
+    "price": "$1,900",
+    "pickup": "Wilmington, NC",
+    "dropoff": "Bolingbrook, IL",
     "distance": "967mi",
+    "trailer": "Flatbed (F)",
     "date": "Feb. 27"
   },
   {
     "number": 94,
     "search_city": "Chicago, IL",
-    "price": "$1,850",
-    "pickup": "West Bend, WI",
-    "dropoff": "Waterloo, IA",
-    "distance": "262mi",
-    "date": "Feb. 26"
+    "price": "$750",
+    "pickup": "Urbana, IL",
+    "dropoff": "Houston, TX",
+    "distance": "914mi",
+    "trailer": "Reefer (R)",
+    "date": "Feb. 25"
   },
   {
     "number": 95,
     "search_city": "Chicago, IL",
-    "price": "$1,100",
-    "pickup": "West Bend, WI",
-    "dropoff": "Waterloo, IA",
-    "distance": "262mi",
-    "date": "Feb. 26"
+    "price": "$850",
+    "pickup": "Urbana, IL",
+    "dropoff": "Houston, TX",
+    "distance": "979mi",
+    "trailer": "Van (V)",
+    "date": "Feb. 25"
   },
   {
     "number": 96,
     "search_city": "Chicago, IL",
-    "price": "$1,100",
-    "pickup": "Arcola, IL",
-    "dropoff": "Gary, IN",
-    "distance": "166mi",
-    "date": "Feb. 25"
+    "price": "$1,850",
+    "pickup": "Urbana, IL",
+    "dropoff": "Houston, TX",
+    "distance": "963mi",
+    "trailer": "Van (V)",
+    "date": "Feb. 26"
   },
   {
     "number": 97,
     "search_city": "Chicago, IL",
     "price": "$1,100",
-    "pickup": "Sullivan, IN",
-    "dropoff": "Gary, IN",
-    "distance": "197mi",
-    "date": "Feb. 25"
+    "pickup": "Urbana, IL",
+    "dropoff": "Houston, TX",
+    "distance": "963mi",
+    "trailer": "Van (V)",
+    "date": "Feb. 27"
   },
   {
     "number": 98,
     "search_city": "Chicago, IL",
-    "price": "$1,000",
-    "pickup": "Liberty, PA",
-    "dropoff": "Lyndon Station, WI",
-    "distance": "685mi",
-    "date": "Feb. 25"
+    "price": "$1,100",
+    "pickup": "West Bend, WI",
+    "dropoff": "Waterloo, IA",
+    "distance": "262mi",
+    "trailer": "Flatbed (F)",
+    "date": "Feb. 26"
   },
   {
     "number": 99,
     "search_city": "Chicago, IL",
-    "price": "$950",
-    "pickup": "Seymour, IA",
+    "price": "$1,100",
+    "pickup": "Sullivan, IN",
     "dropoff": "Gary, IN",
-    "distance": "374mi",
+    "distance": "197mi",
+    "trailer": "Flatbed (F)",
     "date": "Feb. 25"
   },
   {
     "number": 100,
     "search_city": "Chicago, IL",
-    "price": "$950",
-    "pickup": "Campbell Hill, IL",
-    "dropoff": "Gary, IN",
-    "distance": "338mi",
+    "price": "$1,000",
+    "pickup": "Liberty, PA",
+    "dropoff": "Lyndon Station, WI",
+    "distance": "686mi",
+    "trailer": "Flatbed (F)",
     "date": "Feb. 25"
   },
   {
     "number": 101,
     "search_city": "Chicago, IL",
-    "price": "$650",
-    "pickup": "Mount Vernon, IL",
+    "price": "$950",
+    "pickup": "Campbell Hill, IL",
     "dropoff": "Gary, IN",
-    "distance": "277mi",
+    "distance": "338mi",
+    "trailer": "Flatbed (F)",
     "date": "Feb. 25"
   },
   {
     "number": 102,
     "search_city": "Chicago, IL",
-    "price": "$600",
-    "pickup": "Grayling, MI",
-    "dropoff": "Garrett, IN",
-    "distance": "258mi",
+    "price": "$950",
+    "pickup": "Du Quoin, IL",
+    "dropoff": "Gary, IN",
+    "distance": "315mi",
+    "trailer": "Flatbed (F)",
     "date": "Feb. 25"
   },
   {
     "number": 103,
     "search_city": "Chicago, IL",
-    "price": "$4,700",
-    "pickup": "Ankeny, IA",
-    "dropoff": "Joliet, IL",
-    "distance": "315mi",
-    "date": "Feb. 25"
+    "price": "$650",
+    "pickup": "Mount Vernon, IL",
+    "dropoff": "Gary, IN",
+    "distance": "277mi",
+    "trailer": "Flatbed (F)",
+    "date": "Feb. 25",
+    "dispatch": "Unlock"
   },
   {
     "number": 104,
     "search_city": "Chicago, IL",
-    "price": "$4,500",
-    "pickup": "Willard, WI",
-    "dropoff": "Beloit, WI",
-    "distance": "215mi",
-    "date": "Feb. 27"
+    "price": "$600",
+    "pickup": "Grayling, MI",
+    "dropoff": "Garrett, IN",
+    "distance": "258mi",
+    "trailer": "Flatbed (F)",
+    "date": "Feb. 25",
+    "dispatch": "Unlock"
   },
   {
     "number": 105,
     "search_city": "Chicago, IL",
-    "price": "$4,999",
-    "pickup": "Hortonville, WI",
-    "dropoff": "Santa Fe Sprin, CA",
-    "distance": "152mi",
-    "weight": "48,000 lbs",
-    "date": "Feb. 26"
+    "price": "$4,700",
+    "pickup": "Ankeny, IA",
+    "dropoff": "Joliet, IL",
+    "distance": "315mi",
+    "trailer": "Van (V)",
+    "date": "Feb. 25",
+    "dispatch": "Unlock"
   },
   {
     "number": 106,
     "search_city": "Chicago, IL",
-    "price": "$3,900",
-    "pickup": "Delta, BC",
-    "dropoff": "Bolingbrook, IL",
-    "distance": "179mi",
+    "price": "$4,999",
+    "pickup": "Beloit, WI",
+    "dropoff": "Cashton, WI",
+    "distance": "215mi",
     "weight": "48,000 lbs",
-    "date": "Feb. 27",
-    "phone": "4024477663",
-    "email": "book@jakebrakelogistics.com",
-    "broker": "Jakebrake Logistics LLC"
+    "trailer": "Flatbed (F)",
+    "date": "Feb. 26",
+    "dispatch": "Unlock"
   },
   {
     "number": 107,
+    "search_city": "Chicago, IL",
+    "price": "$3,900",
+    "pickup": "Delta, BC",
+    "dropoff": "Bolingbrook, IL",
+    "distance": "180mi",
+    "weight": "48,000 lbs",
+    "trailer": "Reefer (R)",
+    "date": "Feb. 27",
+    "broker": "Jakebrake Logistics LLC",
+    "dispatch": "Jade",
+    "phone": "4024477663",
+    "email": "book@jakebrakelogistics.com",
+    "dot_number": "3037634",
+    "mc_number": "42910"
+  },
+  {
+    "number": 108,
     "search_city": "Chicago, IL",
     "price": "$3,900",
     "pickup": "Rate\nUnlock\nBOOK\nOFFER\nDetails\nMarket Insights\nPick Up\nChicago, IL",
     "dropoff": "Drop Off\nPocatello, ID",
     "distance": "205mi",
     "weight": "48,000 lbs",
+    "trailer": "Reefer (R)",
     "date": "Feb 24",
+    "broker": "Jakebrake Logistics LLC",
+    "dispatch": "Jade",
     "phone": "4024477663",
     "email": "book@jakebrakelogistics.com",
-    "broker": "Jakebrake Logistics LLC"
+    "dot_number": "3037634",
+    "mc_number": "42910"
   }
 ]

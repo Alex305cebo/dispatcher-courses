@@ -262,15 +262,7 @@
 <body>
     <div class="container">
         <h1>🚛 Load Finder</h1>
-        <p class="subtitle">Полный сбор: таблица + телефоны + email</p>
-
-        <div class="info-box">
-            <strong>ℹ️ Как работает</strong>
-            1. Собирает данные из таблицы (цена, маршрут, расстояние)<br>
-            2. Кликает на каждый груз для получения телефона и email<br>
-            3. Останавливается ТОЛЬКО когда появится "Daily Limit Reached!"<br>
-            4. Показывает ВСЮ собранную информацию
-        </div>
+        <p class="subtitle">Автоматический поиск грузов с полной информацией</p>
 
         <div class="search-box">
             <input 
@@ -284,11 +276,12 @@
 
         <div class="examples">
             <strong>Примеры:</strong>
-            <span onclick="setCity('Miami, FL')">Miami, FL</span>
-            <span onclick="setCity('Chicago, IL')">Chicago, IL</span>
-            <span onclick="setCity('Atlanta, GA')">Atlanta, GA</span>
-            <span onclick="setCity('Los Angeles, CA')">Los Angeles, CA</span>
-            <span onclick="setCity('Dallas, TX')">Dallas, TX</span>
+            <span id="city1" onclick="setCity(this.textContent)"></span>
+            <span id="city2" onclick="setCity(this.textContent)"></span>
+            <span id="city3" onclick="setCity(this.textContent)"></span>
+            <span id="city4" onclick="setCity(this.textContent)"></span>
+            <span id="city5" onclick="setCity(this.textContent)"></span>
+            <span id="city6" onclick="setCity(this.textContent)"></span>
         </div>
 
         <div id="statusBox" class="hidden"></div>
@@ -299,6 +292,39 @@
 
     <script>
         let checkInterval = null;
+
+        // Список городов США
+        const cities = [
+            'Miami, FL', 'Chicago, IL', 'Atlanta, GA', 'Los Angeles, CA', 'Dallas, TX',
+            'Houston, TX', 'Phoenix, AZ', 'Philadelphia, PA', 'San Antonio, TX', 'San Diego, CA',
+            'San Jose, CA', 'Austin, TX', 'Jacksonville, FL', 'Fort Worth, TX', 'Columbus, OH',
+            'Charlotte, NC', 'Indianapolis, IN', 'Seattle, WA', 'Denver, CO', 'Boston, MA',
+            'El Paso, TX', 'Nashville, TN', 'Detroit, MI', 'Portland, OR', 'Las Vegas, NV',
+            'Memphis, TN', 'Louisville, KY', 'Baltimore, MD', 'Milwaukee, WI', 'Albuquerque, NM',
+            'Tucson, AZ', 'Fresno, CA', 'Sacramento, CA', 'Kansas City, MO', 'Mesa, AZ',
+            'Omaha, NE', 'Raleigh, NC', 'Long Beach, CA', 'Virginia Beach, VA', 'Oakland, CA',
+            'Minneapolis, MN', 'Tampa, FL', 'Tulsa, OK', 'Arlington, TX', 'New Orleans, LA',
+            'Wichita, KS', 'Cleveland, OH', 'Bakersfield, CA', 'Aurora, CO', 'Anaheim, CA',
+            'Honolulu, HI', 'Santa Ana, CA', 'Riverside, CA', 'Corpus Christi, TX', 'Lexington, KY',
+            'Stockton, CA', 'St. Louis, MO', 'Pittsburgh, PA', 'Anchorage, AK', 'Cincinnati, OH',
+            'Greensboro, NC', 'Newark, NJ', 'Plano, TX', 'Orlando, FL', 'Irvine, CA',
+            'Laredo, TX', 'Buffalo, NY', 'Madison, WI', 'Lubbock, TX', 'Chandler, AZ',
+            'Scottsdale, AZ', 'Reno, NV', 'Norfolk, VA', 'Winston-Salem, NC', 'Glendale, AZ',
+            'Hialeah, FL', 'Garland, TX', 'Boise, ID', 'Spokane, WA', 'Fremont, CA'
+        ];
+
+        // Генерируем 6 случайных городов при загрузке страницы
+        function generateRandomCities() {
+            const shuffled = cities.sort(() => 0.5 - Math.random());
+            const selected = shuffled.slice(0, 6);
+            
+            for (let i = 0; i < 6; i++) {
+                document.getElementById(`city${i + 1}`).textContent = selected[i];
+            }
+        }
+
+        // Генерируем города при загрузке
+        window.addEventListener('DOMContentLoaded', generateRandomCities);
 
         function setCity(city) {
             document.getElementById('cityInput').value = city;
@@ -324,8 +350,8 @@
             statusBox.className = 'status searching';
             statusBox.innerHTML = `
                 <div class="spinner"></div>
-                <p style="font-size: 1.2em; margin: 15px 0;">Собираем грузы из ${city}...</p>
-                <p class="progress-text" id="progressText">Инициализация...</p>
+                <p style="font-size: 1.2em; margin: 15px 0;">🔍 Поиск грузов из ${city}...</p>
+                <p class="progress-text" id="progressText">Подключение к системе...</p>
             `;
             statusBox.classList.remove('hidden');
             loadsContainer.classList.add('hidden');
@@ -433,9 +459,15 @@
                                         <th>📍 Куда</th>
                                         <th>📅 Дата</th>
                                         <th>📏 Расст.</th>
+                                        <th>🚛 Трейлер</th>
+                                        <th>⚖️ Вес</th>
                                         <th>💰 Цена</th>
+                                        <th>🏢 Broker</th>
+                                        <th>👤 Dispatch</th>
                                         <th>📞 Телефон</th>
                                         <th>📧 Email</th>
+                                        <th>🔢 DOT</th>
+                                        <th>🔢 MC</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -449,9 +481,15 @@
                                     <td>${load.dropoff || '-'}</td>
                                     <td>${load.date || '-'}</td>
                                     <td>${load.distance || '-'}</td>
+                                    <td>${load.trailer || '-'}</td>
+                                    <td>${load.weight || '-'}</td>
                                     <td class="price-cell">${load.price || '-'}</td>
+                                    <td>${load.broker || '-'}</td>
+                                    <td>${load.dispatch || '-'}</td>
                                     <td class="${load.phone ? 'contact-cell' : 'no-data'}">${load.phone || '-'}</td>
                                     <td class="${load.email ? 'contact-cell' : 'no-data'}">${load.email || '-'}</td>
+                                    <td>${load.dot_number || '-'}</td>
+                                    <td>${load.mc_number || '-'}</td>
                                 </tr>
                             `;
                         });

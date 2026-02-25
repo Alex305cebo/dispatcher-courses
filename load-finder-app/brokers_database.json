@@ -1,0 +1,86 @@
+{
+  "Jakebrake Logistics LLC": {
+    "dispatch": "Jade",
+    "phone": "4024477663",
+    "email": "book@jakebrakelogistics.com",
+    "dot_number": "3037634",
+    "mc_number": "42910"
+  },
+  "Allen Lund": {
+    "dispatch": "Dispatch",
+    "phone": "8007305863",
+    "email": "dallas@allenlund.com",
+    "dot_number": "2212129",
+    "mc_number": "163523"
+  },
+  "Koola Logistics": {
+    "dispatch": "Steve",
+    "phone": "3176898880",
+    "email": "stevep@koolalogistics.com",
+    "dot_number": "3257824",
+    "mc_number": "1026473"
+  },
+  "Integrated Connection LLC": {
+    "dispatch": "Integrated Connection LLC",
+    "phone": "",
+    "email": "group-1@ic-l.com",
+    "dot_number": "2956601",
+    "mc_number": "2251"
+  },
+  "CHRIS MAYES": {
+    "dispatch": "CHRIS MAYES",
+    "phone": "8658062499",
+    "email": "chrisma@sureway.com",
+    "dot_number": "795696",
+    "mc_number": "186013"
+  },
+  "Fortune Logistics": {
+    "dispatch": "Fortune Logistics",
+    "phone": "5078328200",
+    "email": "loadposting+truckerpath@fortunelogistics.us",
+    "dot_number": "2235574",
+    "mc_number": ""
+  },
+  "Triple T Transport": {
+    "dispatch": "Triple T Transport",
+    "phone": "8003651723",
+    "email": "availableloads+truckerpath@triplettransport.com",
+    "dot_number": "2216490",
+    "mc_number": ""
+  },
+  "Hyway Transportation": {
+    "dispatch": "Hyway Transportation",
+    "phone": "6148925950",
+    "email": "loads+truckerpath@hywaytransportation.com",
+    "dot_number": "538103",
+    "mc_number": ""
+  },
+  "Full Tilt Logistics": {
+    "dispatch": "Full Tilt Logistics",
+    "phone": "7753068454",
+    "email": "availableloads+truckerpath@fulltiltlogistics.com",
+    "dot_number": "2230922",
+    "mc_number": "460950"
+  },
+  "GIX Logistics": {
+    "dispatch": "GIX Logistics",
+    "phone": "3083988595",
+    "email": "carrierquotes+truckerpath@gixlogistics.com",
+    "dot_number": "2235553",
+    "mc_number": ""
+  },
+  "AMX Logistics": {
+    "dispatch": "AMX Logistics",
+    "phone": "3345538316",
+    "email": "availableloads+truckerpath@amxtrucking.com",
+    "dot_number": "2213664",
+    "mc_number": ""
+  },
+  "EPES Logistics": {
+    "dispatch": "EPES Logistics",
+    "phone": "3365865403",
+    "email": "quotenow+truckerpath@epeslogistics.com",
+    "dot_number": "2214242",
+    "mc_number": ""
+  }
+}

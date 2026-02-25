@@ -20,6 +20,15 @@ import threading
 
 app = Flask(__name__)
 
+# Загружаем базу данных брокеров
+BROKERS_DB = {}
+try:
+    with open("brokers_database.json", "r", encoding="utf-8") as f:
+        BROKERS_DB = json.load(f)
+    print(f"✅ Загружено брокеров в базе: {len(BROKERS_DB)}")
+except:
+    print("⚠️ База данных брокеров не найдена")
+
 # Глобальная переменная для хранения результата
 search_result = {
     'status': 'idle',
@@ -33,6 +42,33 @@ search_result = {
 
 # Глобальная переменная для хранения активного браузера
 active_driver = None
+
+def expand_trailer_type(code):
+    """Расшифровывает коды типов трейлеров"""
+    trailer_types = {
+        'F': 'Flatbed (F)',
+        'V': 'Van (V)',
+        'R': 'Reefer (R)',
+        'F SD': 'Flatbed SD (F SD)',
+        'R,V': 'Reefer/Van (R,V)',
+        'R, V': 'Reefer/Van (R,V)'
+    }
+    return trailer_types.get(code.strip(), code)
+
+def find_broker_in_database(broker_name):
+    """Ищет брокера в базе данных и возвращает его контакты"""
+    if not broker_name or not BROKERS_DB:
+        return None
+    
+    # Нормализуем название брокера
+    broker_normalized = broker_name.lower().strip()
+    
+    # Ищем точное совпадение
+    for db_broker, info in BROKERS_DB.items():
+        if db_broker.lower() in broker_normalized or broker_normalized in db_broker.lower():
+            return info
+    
+    return None
 
 def check_for_limit(driver):
     """НЕ проверяем лимит - просто возвращаем False"""
@@ -52,7 +88,7 @@ def collect_full_data(city):
         search_result['current_load'] = 0
         search_result['limit_reached'] = False
         search_result['step'] = 1
-        search_result['step_name'] = 'Инициализация'
+        search_result['step_name'] = '🔌 Подключение к системе...'
         
         # Загружаем credentials
         with open("credentials.json", "r") as f:
@@ -72,11 +108,14 @@ def collect_full_data(city):
         try:
             # ЛОГИН
             print("\n🔐 Шаг 1: Логин...")
-            search_result['step'] = 1
-            search_result['step_name'] = 'Логин'
+            search_result['step'] = 2
+            search_result['step_name'] = '🌐 Открытие браузера...'
             
             driver.get("https://loadboard.truckerpath.com/carrier/loads/home")
-            time.sleep(3)
+            time.sleep(1)
+            
+            search_result['step_name'] = '🔍 Поиск формы входа...'
+            time.sleep(1)
             
             login_buttons = driver.find_elements(By.XPATH, "//*[contains(text(), 'Log In') or contains(text(), 'LOG IN')]")
             for btn in login_buttons:
@@ -84,7 +123,8 @@ def collect_full_data(city):
                     driver.execute_script("arguments[0].click();", btn)
                     break
             
-            time.sleep(2)
+            time.sleep(1)
+            search_result['step_name'] = '📝 Ввод учетных данных...'
             
             try:
                 email_input = WebDriverWait(driver, 10).until(
@@ -107,6 +147,8 @@ def collect_full_data(city):
             password_input.send_keys(credentials['password'])
             time.sleep(1)
             
+            search_result['step_name'] = '🔐 Авторизация...'
+            
             try:
                 signin_btn = WebDriverWait(driver, 10).until(
                     EC.element_to_be_clickable((By.CSS_SELECTOR, "button.tlant-btn-primary"))
@@ -115,19 +157,25 @@ def collect_full_data(city):
             except:
                 password_input.send_keys(Keys.RETURN)
             
-            time.sleep(4)
+            time.sleep(2)
+            search_result['step_name'] = '✅ Вход выполнен успешно'
+            time.sleep(1)
             print("✅ Вход выполнен")
             
             # ПОИСК
             print(f"\n🔍 Шаг 2: Поиск грузов из {city}...")
-            search_result['step'] = 2
-            search_result['step_name'] = 'Поиск'
+            search_result['step'] = 3
+            search_result['step_name'] = '🔄 Обновление страницы...'
             
             driver.refresh()
-            time.sleep(3)
+            time.sleep(2)
+            
+            search_result['step_name'] = f'📍 Настройка поиска для {city}...'
+            time.sleep(1)
             
             # Кликаем pickup ОДИН раз и вводим город
             print(f"\n   Ищем поле Pick Up...")
+            search_result['step_name'] = '🔍 Поиск поля Pick Up...'
             
             pickup_input = None
             
@@ -184,6 +232,7 @@ def collect_full_data(city):
             
             # Кликаем Pick Up ОДИН раз и вводим город
             try:
+                search_result['step_name'] = f'📝 Ввод города {city}...'
                 driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", pickup_input)
                 time.sleep(0.3)
                 
@@ -204,11 +253,13 @@ def collect_full_data(city):
                 print(f"   ✅ Город введен: {city}")
                 
                 # Ждем появления выпадающего списка
+                search_result['step_name'] = '⏳ Ожидание списка городов...'
                 print(f"   ⏳ Ждем появления списка городов (4 сек)...")
                 time.sleep(4)
                 
                 # Ищем и кликаем на первый вариант в списке
                 try:
+                    search_result['step_name'] = '🎯 Выбор города из списка...'
                     dropdown_items = []
                     
                     print(f"   🔍 Ищем выпадающий список...")
@@ -313,9 +364,12 @@ def collect_full_data(city):
                                     print(f"   ⚠️ ActionChains клик не сработал: {e}")
                             
                             if clicked:
+                                search_result['step_name'] = '✅ Город выбран из списка'
                                 print(f"   ✅ Город выбран из списка")
                                 # Ждем чтобы выбор применился
-                                time.sleep(3)
+                                time.sleep(2)
+                                search_result['step_name'] = '⏳ Применение выбора...'
+                                time.sleep(1)
                                 print(f"   ⏳ Ждем применения выбора (3 сек)...")
                             else:
                                 print(f"   ⚠️ Не удалось кликнуть на вариант")
@@ -341,6 +395,7 @@ def collect_full_data(city):
                         pass
                 
                 # ТЕПЕРЬ нажимаем SEARCH
+                search_result['step_name'] = '🔍 Запуск поиска...'
                 print(f"   🔍 Нажимаем SEARCH...")
                 time.sleep(0.5)
                 
@@ -360,23 +415,30 @@ def collect_full_data(city):
                 
                 if not search_clicked:
                     print(f"   ⚠️ Кнопка SEARCH не найдена")
+                else:
+                    search_result['step_name'] = '⏳ Загрузка результатов...'
                 
             except Exception as e:
                 print(f"   ⚠️ Ошибка: {e}")
             
-            time.sleep(10)
+            time.sleep(5)
+            search_result['step_name'] = '📊 Анализ результатов...'
+            time.sleep(3)
             print(f"   ⏳ Ждем загрузки результатов...")
             
             # СБОР ДАННЫХ СО СТРАНИЦЫ
             print(f"\n📦 Шаг 3: Собираем информацию со страницы...")
-            search_result['step'] = 3
-            search_result['step_name'] = 'Сбор данных'
+            search_result['step'] = 4
+            search_result['step_name'] = '📄 Чтение данных страницы...'
             
             # Получаем весь текст страницы
             try:
                 page_text = driver.find_element(By.TAG_NAME, "body").text
             except:
                 page_text = ""
+            
+            search_result['step_name'] = '💾 Сохранение данных...'
+            time.sleep(1)
             
             # Сохраняем ВЕСЬ текст страницы в файл
             page_file = f"{city.replace(',', '').replace(' ', '_').lower()}_page_text.txt"
@@ -391,12 +453,18 @@ def collect_full_data(city):
             print(f"{'='*70}")
             
             # Парсим информацию - ищем все грузы
+            search_result['step_name'] = '🔍 Поиск грузов на странице...'
+            time.sleep(1)
             all_loads = []
             
             # Ищем все цены (признак груза)
             price_matches = list(re.finditer(r'\$(\d+,?\d+)', page_text))
             
             print(f"\n   Найдено цен: {len(price_matches)}")
+            
+            if len(price_matches) > 0:
+                search_result['step_name'] = f'📦 Обработка {len(price_matches)} грузов...'
+                time.sleep(1)
             
             if len(price_matches) == 0:
                 # Если цен нет, пробуем найти строки с городами
@@ -422,6 +490,10 @@ def collect_full_data(city):
             else:
                 # Если цены есть, парсим по ценам
                 for idx, price_match in enumerate(price_matches, 1):
+                    # Обновляем статус для каждого груза
+                    if idx % 5 == 0:  # Каждые 5 грузов обновляем статус
+                        search_result['step_name'] = f'📦 Обработка груза {idx} из {len(price_matches)}...'
+                    
                     price_pos = price_match.start()
                     
                     # Берем контекст вокруг цены (500 символов до и после)
@@ -451,26 +523,134 @@ def collect_full_data(city):
                     weight_match = re.search(r'(\d+,?\d+)\s*lbs', context)
                     if weight_match:
                         load_data['weight'] = weight_match.group(0)
+                    else:
+                        # Альтернативный поиск - просто число без lbs
+                        weight_alt = re.search(r'Weight\s+(\d+,?\d+)', context)
+                        if weight_alt:
+                            load_data['weight'] = weight_alt.group(1) + ' lbs'
+                    
+                    # Ищем тип трейлера (F, R, V, F SD и т.д.)
+                    trailer_match = re.search(r'Trailer[:\s]+([FRV\s,SD]+)', context)
+                    if trailer_match:
+                        trailer_code = trailer_match.group(1).strip()
+                        load_data['trailer'] = expand_trailer_type(trailer_code)
+                    else:
+                        # Альтернативный поиск - одиночные буквы F, R, V
+                        trailer_alt = re.search(r'\b([FRV]|F\s+SD|R,V)\b', context)
+                        if trailer_alt:
+                            trailer_code = trailer_alt.group(1)
+                            load_data['trailer'] = expand_trailer_type(trailer_code)
                     
                     # Ищем дату
                     date_match = re.search(r'(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\.?\s+\d+', context)
                     if date_match:
                         load_data['date'] = date_match.group(0)
                     
-                    # Ищем телефон
-                    phone_match = re.search(r'(\d{10,11})', context)
-                    if phone_match:
-                        load_data['phone'] = phone_match.group(1)
-                    
-                    # Ищем email
-                    email_match = re.search(r'([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})', context)
-                    if email_match:
-                        load_data['email'] = email_match.group(1)
-                    
-                    # Ищем брокера
+                    # Ищем брокера (несколько способов, исключаем Unlock)
+                    broker_name = None
                     broker_match = re.search(r'Broker\s+([^\n]+)', context)
                     if broker_match:
-                        load_data['broker'] = broker_match.group(1).strip()
+                        broker = broker_match.group(1).strip()
+                        if 'Unlock' not in broker:
+                            broker_name = broker
+                            load_data['broker'] = broker
+                    else:
+                        # Альтернативный способ - ищем название компании перед Unlock
+                        broker_alt = re.search(r'([A-Z][a-zA-Z\s&]+(?:LLC|Inc|Logistics|Freight)?)\s+(?:Unlock|Phone)', context)
+                        if broker_alt:
+                            broker = broker_alt.group(1).strip()
+                            if 'Unlock' not in broker:
+                                broker_name = broker
+                                load_data['broker'] = broker
+                    
+                    # Если нашли брокера, проверяем базу данных
+                    if broker_name:
+                        broker_info = find_broker_in_database(broker_name)
+                        if broker_info:
+                            print(f"      🎯 Брокер найден в базе данных: {broker_name}")
+                            # Добавляем контакты из базы
+                            if 'dispatch' in broker_info:
+                                load_data['dispatch'] = broker_info['dispatch']
+                            if 'phone' in broker_info:
+                                load_data['phone'] = broker_info['phone']
+                            if 'email' in broker_info:
+                                load_data['email'] = broker_info['email']
+                            if 'dot_number' in broker_info:
+                                load_data['dot_number'] = broker_info['dot_number']
+                            if 'mc_number' in broker_info:
+                                load_data['mc_number'] = broker_info['mc_number']
+                        else:
+                            # Брокер не найден в базе, ищем контакты на странице
+                            # Ищем телефон (исключаем Unlock)
+                            phone_match = re.search(r'(\d{10,11})', context)
+                            if phone_match:
+                                phone = phone_match.group(1)
+                                # Проверяем что рядом нет слова Unlock
+                                phone_pos = context.find(phone)
+                                phone_context = context[max(0, phone_pos-20):min(len(context), phone_pos+30)]
+                                if 'Unlock' not in phone_context:
+                                    load_data['phone'] = phone
+                            
+                            # Ищем email (исключаем Unlock)
+                            email_match = re.search(r'([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})', context)
+                            if email_match:
+                                email = email_match.group(1)
+                                # Проверяем что рядом нет слова Unlock
+                                email_pos = context.find(email)
+                                email_context = context[max(0, email_pos-20):min(len(context), email_pos+30)]
+                                if 'Unlock' not in email_context:
+                                    load_data['email'] = email
+                            
+                            # Ищем Dispatch (имя диспетчера)
+                            dispatch_match = re.search(r'Dispatch\s*([A-Z][a-z]+)', context)
+                            if dispatch_match:
+                                load_data['dispatch'] = dispatch_match.group(1).strip()
+                            
+                            # Ищем DOT Number
+                            dot_match = re.search(r'Dot\s+Number\s+(\d+)', context)
+                            if dot_match:
+                                load_data['dot_number'] = dot_match.group(1)
+                            
+                            # Ищем MC Number
+                            mc_match = re.search(r'MC\s+Number\s+(\d+)', context)
+                            if mc_match:
+                                load_data['mc_number'] = mc_match.group(1)
+                    else:
+                        # Брокер не найден вообще, ищем контакты на странице
+                        # Ищем телефон (исключаем Unlock)
+                        phone_match = re.search(r'(\d{10,11})', context)
+                        if phone_match:
+                            phone = phone_match.group(1)
+                            # Проверяем что рядом нет слова Unlock
+                            phone_pos = context.find(phone)
+                            phone_context = context[max(0, phone_pos-20):min(len(context), phone_pos+30)]
+                            if 'Unlock' not in phone_context:
+                                load_data['phone'] = phone
+                        
+                        # Ищем email (исключаем Unlock)
+                        email_match = re.search(r'([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})', context)
+                        if email_match:
+                            email = email_match.group(1)
+                            # Проверяем что рядом нет слова Unlock
+                            email_pos = context.find(email)
+                            email_context = context[max(0, email_pos-20):min(len(context), email_pos+30)]
+                            if 'Unlock' not in email_context:
+                                load_data['email'] = email
+                        
+                        # Ищем Dispatch (имя диспетчера)
+                        dispatch_match = re.search(r'Dispatch\s*([A-Z][a-z]+)', context)
+                        if dispatch_match:
+                            load_data['dispatch'] = dispatch_match.group(1).strip()
+                        
+                        # Ищем DOT Number
+                        dot_match = re.search(r'Dot\s+Number\s+(\d+)', context)
+                        if dot_match:
+                            load_data['dot_number'] = dot_match.group(1)
+                        
+                        # Ищем MC Number
+                        mc_match = re.search(r'MC\s+Number\s+(\d+)', context)
+                        if mc_match:
+                            load_data['mc_number'] = mc_match.group(1)
                     
                     all_loads.append(load_data)
                     
@@ -482,14 +662,27 @@ def collect_full_data(city):
                         print(f"      📍 Куда: {load_data['dropoff']}")
                     if 'distance' in load_data:
                         print(f"      📏 Расстояние: {load_data['distance']}")
+                    if 'trailer' in load_data:
+                        print(f"      🚛 Трейлер: {load_data['trailer']}")
+                    if 'weight' in load_data:
+                        print(f"      ⚖️ Вес: {load_data['weight']}")
+                    if 'broker' in load_data:
+                        print(f"      🏢 Broker: {load_data['broker']}")
+                    if 'dispatch' in load_data:
+                        print(f"      👤 Dispatch: {load_data['dispatch']}")
                     if 'phone' in load_data:
                         print(f"      📞 Телефон: {load_data['phone']}")
                     if 'email' in load_data:
                         print(f"      📧 Email: {load_data['email']}")
+                    if 'dot_number' in load_data:
+                        print(f"      🔢 DOT: {load_data['dot_number']}")
+                    if 'mc_number' in load_data:
+                        print(f"      🔢 MC: {load_data['mc_number']}")
             
             search_result['loads'] = all_loads
             search_result['total_loads'] = len(all_loads)
             search_result['status'] = 'completed'
+            search_result['step_name'] = '✅ Сбор завершен!'
             
             print(f"\n{'='*70}")
             print(f"✅ СБОР ЗАВЕРШЕН!")
@@ -499,6 +692,8 @@ def collect_full_data(city):
             print(f"{'='*70}")
             
             # Сохраняем в JSON
+            search_result['step_name'] = '💾 Сохранение результатов...'
+            time.sleep(1)
             output_file = f"{city.replace(',', '').replace(' ', '_').lower()}_loads.json"
             with open(output_file, "w", encoding="utf-8") as f:
                 json.dump(all_loads, f, indent=2, ensure_ascii=False)
