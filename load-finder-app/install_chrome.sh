@@ -1,13 +1,13 @@
 #!/bin/bash
-# Install Chrome and dependencies for Render.com
+# Install Chrome and dependencies for Render.com (optimized for 512MB RAM)
 
 echo "Installing Chrome and dependencies..."
 
 # Update package list
 apt-get update
 
-# Install dependencies
-apt-get install -y \
+# Install ONLY essential dependencies
+apt-get install -y --no-install-recommends \
     wget \
     gnupg \
     ca-certificates \
@@ -33,8 +33,12 @@ apt-get install -y \
 
 # Download and install Chrome
 wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-apt-get install -y ./google-chrome-stable_current_amd64.deb
+apt-get install -y --no-install-recommends ./google-chrome-stable_current_amd64.deb
 rm google-chrome-stable_current_amd64.deb
+
+# Clean up to save space
+apt-get clean
+rm -rf /var/lib/apt/lists/*
 
 echo "Chrome installed successfully!"
 google-chrome --version
