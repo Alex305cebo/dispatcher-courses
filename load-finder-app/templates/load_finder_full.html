@@ -219,6 +219,177 @@
             color: #cbd5e1;
         }
 
+        /* Progress Steps Display - Professional Glassmorphism Carousel */
+        .progress-steps {
+            margin: 24px auto;
+            padding: 20px 0;
+            max-width: 700px;
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 
+                0 8px 32px 0 rgba(0, 0, 0, 0.37),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+        }
+
+        /* Elegant gradient masks */
+        .progress-steps::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(180deg, 
+                rgba(10, 14, 26, 0.95) 0%, 
+                rgba(10, 14, 26, 0.5) 50%,
+                rgba(10, 14, 26, 0) 100%);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .progress-steps::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(0deg, 
+                rgba(10, 14, 26, 0.95) 0%, 
+                rgba(10, 14, 26, 0.5) 50%,
+                rgba(10, 14, 26, 0) 100%);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .progress-steps-inner {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            transform: translateY(-50%);
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .progress-step {
+            padding: 14px 32px;
+            text-align: center;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            margin: 6px 16px;
+        }
+
+        /* Completed steps - elegant green glass */
+        .progress-step.completed {
+            color: #10b981;
+            font-size: 15px;
+            font-weight: 500;
+            opacity: 0.6;
+            transform: scale(0.92);
+            filter: blur(0.3px);
+        }
+
+        /* Current step - stunning glass card */
+        .progress-step.current {
+            color: #ffffff;
+            font-size: 28px;
+            font-weight: 800;
+            padding: 24px 32px;
+            margin: 12px 16px;
+            transform: scale(1);
+            background: linear-gradient(135deg, 
+                rgba(99, 102, 241, 0.3) 0%, 
+                rgba(139, 92, 246, 0.3) 100%);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 
+                0 8px 32px 0 rgba(99, 102, 241, 0.4),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.2),
+                0 0 40px rgba(139, 92, 246, 0.3);
+            animation: glowPulse 3s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animated gradient overlay */
+        .progress-step.current::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.1) 50%,
+                transparent 70%
+            );
+            animation: shimmer 3s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(45deg);
+            }
+            100% {
+                transform: translateX(100%) translateY(100%) rotate(45deg);
+            }
+        }
+
+        @keyframes glowPulse {
+            0%, 100% {
+                box-shadow: 
+                    0 8px 32px 0 rgba(99, 102, 241, 0.4),
+                    inset 0 1px 0 0 rgba(255, 255, 255, 0.2),
+                    0 0 40px rgba(139, 92, 246, 0.3);
+            }
+            50% {
+                box-shadow: 
+                    0 8px 32px 0 rgba(99, 102, 241, 0.6),
+                    inset 0 1px 0 0 rgba(255, 255, 255, 0.3),
+                    0 0 60px rgba(139, 92, 246, 0.5);
+            }
+        }
+
+        /* Upcoming steps - colorful glass cards */
+        .progress-step.upcoming {
+            font-size: 17px;
+            font-weight: 600;
+            opacity: 0.7;
+            transform: scale(0.95);
+            padding: 16px 32px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .progress-step.upcoming:nth-child(4) {
+            color: #60a5fa;
+            box-shadow: 0 4px 16px rgba(96, 165, 250, 0.1);
+        }
+
+        .progress-step.upcoming:nth-child(5) {
+            color: #a78bfa;
+            box-shadow: 0 4px 16px rgba(167, 139, 250, 0.1);
+        }
+
+        /* Hover effects */
+        .progress-step.upcoming:hover {
+            transform: scale(0.97);
+            opacity: 0.85;
+        }
+
         .stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -481,7 +652,15 @@
             statusBox.innerHTML = `
                 <div class="spinner"></div>
                 <p style="font-size: 18px; margin: 15px 0; font-weight: 600;">🔍 Поиск грузов из ${city}...</p>
-                <p class="progress-text" id="progressText">Подключение к системе...</p>
+                <div class="progress-steps">
+                    <div class="progress-steps-inner" id="progressStepsInner">
+                        <div class="progress-step completed" id="step-2"></div>
+                        <div class="progress-step completed" id="step-1"></div>
+                        <div class="progress-step current" id="step0">Подключение к системе...</div>
+                        <div class="progress-step upcoming" id="step1"></div>
+                        <div class="progress-step upcoming" id="step2"></div>
+                    </div>
+                </div>
             `;
             statusBox.classList.remove('hidden');
             loadsContainer.classList.add('hidden');
@@ -514,6 +693,85 @@
             }
         }
 
+        // Список всех шагов процесса
+        const allSteps = [
+            '🔌 Подключение к системе...',
+            '🌐 Открытие браузера...',
+            '🔍 Поиск формы входа...',
+            '📝 Ввод учетных данных...',
+            '🔐 Авторизация...',
+            '✅ Вход выполнен успешно',
+            '🔄 Обновление страницы...',
+            '📍 Настройка поиска...',
+            '🔍 Поиск поля Pick Up...',
+            '📝 Ввод города...',
+            '⏳ Ожидание списка городов...',
+            '🎯 Выбор города из списка...',
+            '✅ Город выбран из списка',
+            '⏳ Применение выбора...',
+            '🔍 Запуск поиска...',
+            '⏳ Загрузка результатов...',
+            '📊 Анализ результатов...',
+            '📄 Чтение данных страницы...',
+            '💾 Сохранение данных...',
+            '🔍 Поиск грузов на странице...',
+            '📦 Обработка грузов...',
+            '✅ Сбор завершен!'
+        ];
+
+        let currentStepIndex = 0;
+
+        function updateProgressSteps(currentStepText) {
+            // Находим индекс текущего шага
+            const stepIndex = allSteps.findIndex(step => step === currentStepText);
+            if (stepIndex !== -1) {
+                currentStepIndex = stepIndex;
+            }
+
+            // Обновляем 5 строк
+            const step_2 = document.getElementById('step-2');
+            const step_1 = document.getElementById('step-1');
+            const step0 = document.getElementById('step0');
+            const step1 = document.getElementById('step1');
+            const step2 = document.getElementById('step2');
+
+            if (!step0) return;
+
+            // 2 строки назад (completed)
+            if (currentStepIndex >= 2) {
+                step_2.textContent = allSteps[currentStepIndex - 2];
+                step_2.className = 'progress-step completed';
+            } else {
+                step_2.textContent = '';
+            }
+
+            if (currentStepIndex >= 1) {
+                step_1.textContent = allSteps[currentStepIndex - 1];
+                step_1.className = 'progress-step completed';
+            } else {
+                step_1.textContent = '';
+            }
+
+            // Текущий шаг (current - крупный)
+            step0.textContent = currentStepText;
+            step0.className = 'progress-step current';
+
+            // 2 строки вперед (upcoming)
+            if (currentStepIndex + 1 < allSteps.length) {
+                step1.textContent = allSteps[currentStepIndex + 1];
+                step1.className = 'progress-step upcoming';
+            } else {
+                step1.textContent = '';
+            }
+
+            if (currentStepIndex + 2 < allSteps.length) {
+                step2.textContent = allSteps[currentStepIndex + 2];
+                step2.className = 'progress-step upcoming';
+            } else {
+                step2.textContent = '';
+            }
+        }
+
         async function checkStatus() {
             try {
                 const response = await fetch('/status');
@@ -524,14 +782,10 @@
                 const loadsContainer = document.getElementById('loadsContainer');
                 const limitWarning = document.getElementById('limitWarning');
                 const searchBtn = document.getElementById('searchBtn');
-                const progressText = document.getElementById('progressText');
 
-                if (data.status === 'searching' && progressText) {
-                    let statusText = data.step_name || 'Обработка';
-                    if (data.step === 4) {
-                        statusText = `Груз ${data.current_load} из ${data.total_loads}`;
-                    }
-                    progressText.textContent = statusText;
+                // Обновляем 5-строчный индикатор прогресса
+                if (data.status === 'searching') {
+                    updateProgressSteps(data.step_name || 'Обработка');
                 }
 
                 if (data.status === 'completed') {
