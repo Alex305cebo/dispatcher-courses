@@ -2,23 +2,39 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <title>Dispatcher Cards - Тренажёр вопросов</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+        
+        html {
+            height: 100%;
+            height: -webkit-fill-available;
+        }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0e1a;
             min-height: 100vh;
+            min-height: -webkit-fill-available;
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
+            position: relative;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
         }
         
         #webgl-bg, #canvas-bg {
@@ -42,21 +58,26 @@
         .container {
             width: 100%;
             max-width: 430px;
-            height: 100vh;
-            background: rgba(15, 23, 42, 0.95);
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.98) 0%, rgba(30, 41, 59, 0.95) 100%);
             display: flex;
             flex-direction: column;
             position: relative;
+            z-index: 10;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 0 100px rgba(99, 102, 241, 0.3);
         }
 
         .header {
             padding: 12px 16px;
-            background: rgba(15, 23, 42, 0.98);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            border-bottom: 1px solid rgba(139, 92, 246, 0.3);
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 12px;
+            backdrop-filter: blur(10px);
         }
 
         .category {
@@ -64,22 +85,28 @@
             align-items: center;
             gap: 6px;
             font-size: 11px;
-            font-weight: 600;
-            color: white;
+            font-weight: 700;
+            color: #a5b4fc;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .hint {
             flex: 1;
             text-align: center;
             font-size: 11px;
-            color: #d8b4fe;
+            font-weight: 500;
+            color: #e9d5ff;
             line-height: 1.3;
         }
 
         .counter {
             font-size: 11px;
-            font-weight: 700;
-            color: white;
+            font-weight: 800;
+            color: #fbbf24;
+            background: rgba(251, 191, 36, 0.1);
+            padding: 4px 8px;
+            border-radius: 6px;
         }
 
         .card-container {
@@ -89,14 +116,18 @@
             justify-content: center;
             padding: 20px;
             position: relative;
+            min-height: 0;
         }
 
         .card {
             width: 100%;
             max-width: 350px;
-            height: 500px;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
-            border: 2px solid rgba(168, 85, 247, 0.3);
+            height: auto;
+            min-height: 400px;
+            max-height: calc(100vh - 200px);
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.15) 50%, rgba(168, 85, 247, 0.15) 100%);
+            border: 2px solid transparent;
+            border-image: linear-gradient(135deg, rgba(168, 85, 247, 0.5), rgba(99, 102, 241, 0.5)) 1;
             border-radius: 24px;
             padding: 32px;
             display: flex;
@@ -105,15 +136,43 @@
             justify-content: center;
             text-align: center;
             cursor: pointer;
-            transition: transform 0.3s ease, border-color 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
-            backdrop-filter: blur(10px);
-            touch-action: pan-y;
-            user-select: none;
+            backdrop-filter: blur(20px);
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+            box-shadow: 0 8px 32px rgba(99, 102, 241, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            overflow-y: auto;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 24px;
+            padding: 2px;
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.6), rgba(99, 102, 241, 0.6));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .card:hover::before {
+            opacity: 1;
         }
 
         .card:hover {
-            transform: scale(1.02);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+        
+        .card:active {
+            transform: translateY(-4px) scale(0.98);
         }
 
         .card.flipped .card-front {
@@ -134,19 +193,28 @@
 
         .category-badge {
             display: inline-block;
-            padding: 6px 16px;
-            background: rgba(168, 85, 247, 0.2);
+            padding: 8px 20px;
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(139, 92, 246, 0.2));
             border: 1px solid rgba(168, 85, 247, 0.5);
             border-radius: 100px;
             font-size: 12px;
-            font-weight: 600;
-            color: #a855f7;
-            margin-bottom: 20px;
+            font-weight: 700;
+            color: #c084fc;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 12px rgba(168, 85, 247, 0.2);
         }
 
         .question-text {
-            font-size: 20px;
-            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 1.4;
+            color: #ffffff;
+            margin-bottom: 0;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
             color: white;
             line-height: 1.5;
             margin-bottom: 24px;
@@ -160,7 +228,7 @@
         }
 
         .answer-text {
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 500;
             color: #e2e8f0;
             line-height: 1.7;
@@ -189,28 +257,47 @@
             padding: 16px;
             border: none;
             border-radius: 16px;
+            font-family: 'Inter', sans-serif;
             font-size: 16px;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             color: white;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
         }
 
         .btn-no {
-            background: linear-gradient(135deg, #ef4444, #dc2626);
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
         }
 
         .btn-yes {
-            background: linear-gradient(135deg, #22c55e, #16a34a);
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
         }
 
         .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
         }
 
         .btn:active {
-            transform: translateY(0);
+            transform: translateY(-2px) scale(1.02);
         }
 
         .results {
@@ -259,20 +346,41 @@
         }
 
         .btn-restart {
-            padding: 16px 32px;
-            background: linear-gradient(135deg, #6366f1, #a855f7);
+            padding: 18px 40px;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+            background-size: 200% 200%;
             border: none;
-            border-radius: 12px;
+            border-radius: 16px;
             color: white;
-            font-size: 16px;
-            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            font-size: 17px;
+            font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-restart::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-restart:hover::before {
+            left: 100%;
         }
 
         .btn-restart:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.4);
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 16px 40px rgba(99, 102, 241, 0.6);
+            background-position: 100% 0;
         }
 
         .loading {
@@ -686,72 +794,6 @@
 
         // Инициализация
         showQuestion();
-        
-        // Swipe functionality
-        let touchStartX = 0;
-        let touchStartY = 0;
-        let touchEndX = 0;
-        let touchEndY = 0;
-        
-        const card = document.getElementById('card');
-        
-        card.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-            touchStartY = e.changedTouches[0].screenY;
-        }, false);
-        
-        card.addEventListener('touchmove', (e) => {
-            const currentX = e.changedTouches[0].screenX;
-            const currentY = e.changedTouches[0].screenY;
-            const diffX = currentX - touchStartX;
-            const diffY = currentY - touchStartY;
-            
-            // Визуальная обратная связь при свайпе
-            if (Math.abs(diffX) > Math.abs(diffY)) {
-                card.style.transform = `translateX(${diffX}px) rotate(${diffX * 0.1}deg)`;
-                
-                if (diffX > 50) {
-                    card.style.borderColor = 'rgba(34, 197, 94, 0.6)'; // Зеленый для "Да"
-                } else if (diffX < -50) {
-                    card.style.borderColor = 'rgba(239, 68, 68, 0.6)'; // Красный для "Нет"
-                } else {
-                    card.style.borderColor = 'rgba(168, 85, 247, 0.3)';
-                }
-            }
-        }, false);
-        
-        card.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            touchEndY = e.changedTouches[0].screenY;
-            
-            const diffX = touchEndX - touchStartX;
-            const diffY = touchEndY - touchStartY;
-            
-            // Проверяем горизонтальный свайп
-            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 100) {
-                if (diffX > 0) {
-                    // Свайп вправо - "Да"
-                    card.style.transform = 'translateX(500px) rotate(30deg)';
-                    setTimeout(() => {
-                        answerQuestion(true);
-                        card.style.transform = '';
-                        card.style.borderColor = 'rgba(168, 85, 247, 0.3)';
-                    }, 300);
-                } else {
-                    // Свайп влево - "Нет"
-                    card.style.transform = 'translateX(-500px) rotate(-30deg)';
-                    setTimeout(() => {
-                        answerQuestion(false);
-                        card.style.transform = '';
-                        card.style.borderColor = 'rgba(168, 85, 247, 0.3)';
-                    }, 300);
-                }
-            } else {
-                // Возврат карточки на место
-                card.style.transform = '';
-                card.style.borderColor = 'rgba(168, 85, 247, 0.3)';
-            }
-        }, false);
     </script>
     
     <!-- Canvas 2D & WebGL Animation -->
