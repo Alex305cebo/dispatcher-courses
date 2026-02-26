@@ -102,7 +102,7 @@ body::after {
   align-items: center;
   justify-content: center;
   position: relative;
-  padding: 120px 0 80px;
+  padding: 100px 0 60px;
 }
 
 .hero-content {
@@ -114,15 +114,15 @@ body::after {
 .badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 20px;
+  gap: 6px;
+  padding: 6px 16px;
   background: rgba(99, 102, 241, 0.1);
   border: 1px solid rgba(99, 102, 241, 0.3);
   border-radius: 100px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--primary);
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   backdrop-filter: blur(10px);
   animation: fadeInUp 0.6s ease;
 }
@@ -141,11 +141,11 @@ body::after {
 }
 
 h1 {
-  font-size: clamp(48px, 8vw, 96px);
+  font-size: clamp(32px, 6vw, 64px);
   font-weight: 900;
   line-height: 1.1;
   letter-spacing: -0.03em;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   animation: fadeInUp 0.8s ease 0.2s both;
 }
 
@@ -164,11 +164,11 @@ h1 {
 }
 
 .subtitle {
-  font-size: clamp(18px, 3vw, 24px);
+  font-size: clamp(14px, 2.5vw, 18px);
   color: var(--text-secondary);
-  max-width: 650px;
-  margin: 0 auto 48px;
-  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
   animation: fadeInUp 1s ease 0.4s both;
 }
 
@@ -184,8 +184,8 @@ h1 {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  padding: 18px 36px;
-  font-size: 18px;
+  padding: 14px 29px;
+  font-size: 14px;
   font-weight: 600;
   text-decoration: none;
   border-radius: 16px;
@@ -346,14 +346,14 @@ h1 {
 }
 
 .section-title {
-  font-size: clamp(36px, 5vw, 56px);
+  font-size: clamp(29px, 5vw, 45px);
   font-weight: 800;
   margin-bottom: 16px;
   letter-spacing: -0.02em;
 }
 
 .section-subtitle {
-  font-size: 20px;
+  font-size: 16px;
   color: var(--text-secondary);
   max-width: 600px;
   margin: 0 auto;
@@ -553,7 +553,7 @@ h1 {
   text-decoration: none;
   color: var(--text-secondary);
   font-weight: 500;
-  font-size: 15px;
+  font-size: 13px;
   transition: all 0.3s ease;
   position: relative;
 }
@@ -584,33 +584,40 @@ h1 {
 }
 
 .btn-login {
-  padding: 8px 20px;
+  padding: 6px 16px;
   text-decoration: none;
   color: var(--text-primary);
-  font-weight: 600;
-  font-size: 14px;
+  font-weight: 500;
+  font-size: 12px;
   border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
   transition: all 0.3s ease;
 }
 
 .btn-login:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
 .btn-signup {
-  padding: 8px 20px;
+  padding: 6px 16px;
   text-decoration: none;
   color: white;
-  font-weight: 600;
-  font-size: 14px;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  font-weight: 500;
+  font-size: 12px;
+  background: rgba(99, 102, 241, 0.15);
+  border: 1px solid rgba(99, 102, 241, 0.3);
   border-radius: 8px;
+  backdrop-filter: blur(10px);
   transition: all 0.3s ease;
 }
 
 .btn-signup:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+  background: rgba(99, 102, 241, 0.25);
+  border-color: rgba(99, 102, 241, 0.5);
+  transform: translateY(-1px);
 }
 
 .mobile-menu-toggle {
