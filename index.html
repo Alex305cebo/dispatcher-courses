@@ -90,9 +90,9 @@ body::after {
 .container {
   position: relative;
   z-index: 1;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 32px;
 }
 
 /* Hero Section */
@@ -102,7 +102,7 @@ body::after {
   align-items: center;
   justify-content: center;
   position: relative;
-  padding: 100px 0 60px;
+  padding: 70px 0 40px;
 }
 
 .hero-content {
@@ -141,11 +141,11 @@ body::after {
 }
 
 h1 {
-  font-size: clamp(32px, 6vw, 64px);
+  font-size: clamp(24px, 4.5vw, 44px);
   font-weight: 900;
   line-height: 1.1;
   letter-spacing: -0.03em;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
   animation: fadeInUp 0.8s ease 0.2s both;
 }
 
@@ -164,11 +164,11 @@ h1 {
 }
 
 .subtitle {
-  font-size: clamp(14px, 2.5vw, 18px);
+  font-size: clamp(13px, 2vw, 16px);
   color: var(--text-secondary);
-  max-width: 600px;
-  margin: 0 auto 40px;
-  line-height: 1.6;
+  max-width: 550px;
+  margin: 0 auto 32px;
+  line-height: 1.5;
   animation: fadeInUp 1s ease 0.4s both;
 }
 
@@ -228,7 +228,7 @@ h1 {
 
 /* Features Grid */
 .features {
-  padding: 120px 0;
+  padding: 60px 0;
   position: relative;
 }
 
@@ -346,16 +346,16 @@ h1 {
 }
 
 .section-title {
-  font-size: clamp(29px, 5vw, 45px);
+  font-size: clamp(24px, 4vw, 38px);
   font-weight: 800;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   letter-spacing: -0.02em;
 }
 
 .section-subtitle {
-  font-size: 16px;
+  font-size: 14px;
   color: var(--text-secondary);
-  max-width: 600px;
+  max-width: 500px;
   margin: 0 auto;
 }
 
@@ -424,34 +424,7 @@ h1 {
   }
   
   .features {
-    padding: 60px 0;
-  }
-  
-  .features-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-    margin-top: 40px;
-  }
-  
-  .feature-card {
-    padding: 20px;
-  }
-  
-  .feature-icon {
-    width: 48px;
-    height: 48px;
-    font-size: 24px;
-    margin-bottom: 16px;
-  }
-  
-  .feature-card h3 {
-    font-size: 18px;
-    margin-bottom: 8px;
-  }
-  
-  .feature-card p {
-    font-size: 14px;
-    line-height: 1.5;
+    display: none;
   }
   
   .stats-grid {
@@ -513,7 +486,7 @@ h1 {
   background: rgba(15, 23, 42, 0.8);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 16px 0;
+  padding: 10px 0;
   transition: all 0.3s ease;
 }
 
@@ -521,15 +494,15 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 32px;
+  gap: 24px;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 6px;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 11px;
   font-weight: 700;
   color: var(--text-primary);
   transition: all 0.3s ease;
@@ -540,12 +513,12 @@ h1 {
 }
 
 .logo-icon {
-  font-size: 28px;
+  font-size: 16px;
 }
 
 .nav-links {
   display: flex;
-  gap: 32px;
+  gap: 20px;
   align-items: center;
 }
 
@@ -553,7 +526,7 @@ h1 {
   text-decoration: none;
   color: var(--text-secondary);
   font-weight: 500;
-  font-size: 13px;
+  font-size: 12px;
   transition: all 0.3s ease;
   position: relative;
 }
@@ -1374,12 +1347,6 @@ h1 {
       </div>
     </div>
   </div>
-  
-  <div class="scroll-indicator">
-    <svg fill="currentColor" viewBox="0 0 24 24">
-      <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
-    </svg>
-  </div>
 </section>
 
 <!-- Features Section -->
@@ -1669,16 +1636,6 @@ document.querySelectorAll('.feature-card, .stat-item').forEach(el => {
   el.style.transform = 'translateY(30px)';
   el.style.transition = 'all 0.6s ease';
   observer.observe(el);
-});
-
-// Hide scroll indicator on scroll
-window.addEventListener('scroll', () => {
-  const indicator = document.querySelector('.scroll-indicator');
-  if (window.scrollY > 100) {
-    indicator.style.opacity = '0';
-  } else {
-    indicator.style.opacity = '1';
-  }
 });
 
 // Neural Background Animation
