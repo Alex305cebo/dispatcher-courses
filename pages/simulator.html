@@ -887,7 +887,11 @@
                 
                 <!-- Кнопки действий -->
                 <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 20px; margin-bottom: 20px; flex-wrap: wrap;">
-                    <div style="display: flex; gap: 12px;">
+                    <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                        <button class="btn btn-success" onclick="location.reload()" style="background: linear-gradient(135deg, #10b981, #059669); display: flex; align-items: center; gap: 8px;">
+                            <span style="font-size: 18px;">🔄</span>
+                            <span>Начать заново</span>
+                        </button>
                         <button class="btn btn-secondary" onclick="fillFormsRandomly()">🎲 Заполнить случайно</button>
                         <button class="btn btn-primary" onclick="goToStep(2)">Далее →</button>
                     </div>
